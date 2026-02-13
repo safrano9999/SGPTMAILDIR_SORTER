@@ -1,83 +1,79 @@
-# ZeroInbox 2026 – SGPT Maildir Sorter ⚡📬
+# ZeroInbox 2026 – SGPT Maildir Sorter 📬
 
-Dieses Projekt automatisiert deinen ZeroInbox‑Workflow: **Mails werden lokal sortiert, geloggt und als PDF geliefert** – du musst die Inbox nicht mehr manuell durchgehen.
-
-> ✅ Fokus: 2026‑ready, lokal, schnell, transparent.
+This project implements a deterministic, local ZeroInbox workflow: email is classified from Maildir, moved into explicit target folders, logged, and summarized into a PDF report. The result is a reproducible pipeline that minimizes manual inbox review.
 
 ---
 
-## ✨ Was du bekommst
-- Automatisches **Sortieren** deiner Maildir‑Inbox
-- **Logs + PDF‑Report** (von OpenClaw ausgeliefert)
-- **Correction‑Loop** für False Positives
-- Struktur für **künftiges ML‑Tuning**
+## Scope and Guarantees
+- **Local-first** processing (Maildir on disk)
+- **Explainable rules** (JSON-based)
+- **Audit trail** (structured logs + PDF report)
+- **Correction feedback loop** for systematic error reduction
 
 ---
 
-## 🧠 Wichtig: GPT/SGPT konfigurieren
-Du brauchst `sgpt` + API Key. Stelle sicher:
-- `sgpt` ist installiert
-- API Key ist gesetzt (z. B. via `.bashrc_sgpt`)
+## Prerequisites (LLM/SGPT Configuration)
+You must provide:
+- A working `sgpt` installation
+- An API key (e.g., exported via `.bashrc_sgpt`)
 
 ---
 
-## ✅ Setup‑Reihenfolge (wichtig!)
-**Exakt diese Reihenfolge einhalten:**
+## Required Setup Order (Do Not Reorder)
+1) **Configure `offlineimaprc`**
+   - File: `offlineimaprc`
+   - Template: `offlineimaprc_example`
+   - Insert your Gmail accounts and app passwords
 
-1) **offlineimaprc konfigurieren**
-   - Datei: `offlineimaprc`
-   - Beispiel: `offlineimaprc_example`
-   - Trage deine Gmail‑Accounts ein
-
-2) **Sync laufen lassen**
+2) **Run an initial sync**
    ```bash
    bin/mail_sync.sh gmail
    ```
 
-3) **Mirror‑JSON erstellen**
+3) **Generate the mirror JSON**
    ```bash
    bin/mirror.sh Mail/gmail
    ```
 
-4) **Ordner‑Flags setzen** (im `mirror_dir_*.json`)
-   Pro Ordner drei Optionen:
-   - `is_source` → wird gescannt
-   - `is_destination` → darf Ziel sein
-   - `is_fallback` → fallback (unsicher)
+4) **Assign folder flags in `mirror_dir_*.json`**
+   Each folder can be tagged with three boolean roles:
+   - `is_source` → scanned by the sorter
+   - `is_destination` → allowed target
+   - `is_fallback` → uncertain destination
 
-5) **Sortieren**
+5) **Run the sorter**
    ```bash
    bin/email_sort.sh gmail
    ```
 
 ---
 
-## 🔁 Correction‑Loop (False Positives)
-Wenn eine Mail falsch einsortiert wurde:
-1) **In `sort_ai_correction` legen**
-2) Beim nächsten Lauf wird **das alte Ziel ausgeschlossen**
-3) Die Korrektur landet in `corrections.jsonl`
+## Correction Loop (False Positives)
+When a message is misclassified:
+1) Move it into `sort_ai_correction`
+2) The sorter excludes all previous destinations for that file
+3) The corrected result is appended to `corrections.jsonl`
 
-> Nach einiger Zeit kannst du eine **KI über die corrections.jsonl jagen**, um Keywords & Regeln zu optimieren.
-
----
-
-## ⏱ Cronjob‑Hinweis
-Wenn du einen Cronjob nutzt (z. B. `hourly_sync.sh`):
-- Lockfile verhindert Doppel‑Runs
-- Logs + PDF werden automatisch erzeugt
-- OpenClaw liefert das PDF, du musst keine Mail‑UI öffnen
+Over time, you can feed `corrections.jsonl` to a model and request **rule/keyword optimization**.
 
 ---
 
-## 📂 Projektstruktur (Kurz)
+## Cron Job Note
+If you run scheduled syncs (e.g., `hourly_sync.sh`):
+- A lockfile prevents overlapping runs
+- Logs and PDFs are generated automatically
+- OpenClaw delivers the PDF report, eliminating manual inbox inspection
+
+---
+
+## Project Structure (Minimal)
 ```
 SGPTMAILDIR_SORTER/
 ├─ bin/
 │  ├─ email_sort.sh
 │  ├─ mail_sync.sh
 │  ├─ mirror.sh
-├─ Mail/                # Maildir Root
+├─ Mail/                # Maildir root
 ├─ LOGS/                # Logs + PDF reports
 ├─ rules/
 │  ├─ rules_generic.json
@@ -88,17 +84,15 @@ SGPTMAILDIR_SORTER/
 
 ---
 
-## 🧩 ML‑Optimierung (später)
+## ML-Oriented Rule Refinement (Optional)
 Workflow:
-1) Corrections sammeln (`corrections.jsonl`)
-2) KI fragt: „Welche Keywords sorgen für False Positives?“
-3) JSON‑Rules anpassen
+1) Accumulate corrections in `corrections.jsonl`
+2) Ask a model to propose keyword/rule adjustments
+3) Apply changes to the JSON rules
 
 ---
 
-## ✅ Fazit
-- **ZeroInbox ohne UI‑Stress**
-- **PDF statt Posteingang**
-- **Regeln + Korrekturen = stetige Verbesserung**
-
-Wenn du willst, baue ich dir das ML‑Optimierungs‑Tool als nächsten Schritt. 🚀
+## Summary
+- **ZeroInbox without UI fatigue**
+- **PDF-first reporting**
+- **Rules + corrections → continuous improvement**
