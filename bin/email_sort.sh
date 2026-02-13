@@ -27,7 +27,7 @@ SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.
 DEST_BASE="$BASE_DIR/Mail"
 TMP_DIR="/tmp/email-sort-sgpt"
 CORRECTIONS_DB="$BASE_DIR/corrections.jsonl"
-mkdir -p "$LOG_DIR" "$TMP_DIR" "$CONFIG_DIR"
+mkdir -p "$LOG_DIR" "$TMP_DIR" "$CONFIG_DIR" "$BASE_DIR/ZEROINBOX"
 
 if [ -f "$LOCK_FILE" ]; then
   echo "[email_sort] Lock file already present ($LOCK_FILE). Aborting." >&2
@@ -356,7 +356,7 @@ done
 
 printf "\n## OfflineIMAP\n" | tee -a "$MAIN_LOG"
 (cd "$BASE_DIR" && FLAG=true offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
-PDF_OUT="$DEST_BASE/ZEROINBOX/email-sort-${TS}.pdf"
+PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
 python3 - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
 import sys
 from pathlib import Path

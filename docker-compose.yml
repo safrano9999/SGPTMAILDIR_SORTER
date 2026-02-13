@@ -9,6 +9,7 @@ services:
       # persistent maildir + pdf outputs
       - maildata:/app/Mail
       - ./LOGS:/app/LOGS
+      - ./ZEROINBOX:/app/ZEROINBOX
       # configs (bind mounts)
       - ./offlineimaprc:/app/offlineimaprc:ro
       - ./rules/rules_custom.json:/app/rules/rules_custom.json:ro

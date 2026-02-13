@@ -62,12 +62,13 @@ Over time, you can feed `corrections.jsonl` to a model and request **rule/keywor
 If you run scheduled syncs (e.g., `hourly_sync.sh`):
 - A lockfile prevents overlapping runs
 - Logs and PDFs are generated automatically
+- PDFs are written to `ZEROINBOX/`
 - OpenClaw delivers the PDF report, eliminating manual inbox inspection
 
 ---
 
 ## Docker (Alpine, No Chroot Required)
-Build and run everything inside a minimal Alpine container. PDFs are written to the bind-mounted `Mail/` and `LOGS/` directories.
+Build and run everything inside a minimal Alpine container. PDFs are written to the bind-mounted `ZEROINBOX/` directory.
 
 ### Build
 ```bash
@@ -81,8 +82,9 @@ docker compose up --build
 
 ### Required Bind Mounts
 The compose file binds:
-- `./Mail` → `/app/Mail` (Maildir + PDFs)
-- `./LOGS` → `/app/LOGS` (logs + PDFs)
+- `maildata` → `/app/Mail` (Maildir)
+- `./LOGS` → `/app/LOGS` (logs)
+- `./ZEROINBOX` → `/app/ZEROINBOX` (PDF reports)
 - `./offlineimaprc` (config)
 - `./rules/rules_custom.json` (private rules)
 - `./mirror_dir_gmail.json` (folder map)
@@ -99,7 +101,8 @@ SGPTMAILDIR_SORTER/
 │  ├─ mail_sync.sh
 │  ├─ mirror.sh
 ├─ Mail/                # Maildir root
-├─ LOGS/                # Logs + PDF reports
+├─ LOGS/                # Logs
+├─ ZEROINBOX/           # PDF reports
 ├─ rules/
 │  ├─ rules_generic.json
 │  ├─ rules_custom.json (ignored)
