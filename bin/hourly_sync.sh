@@ -23,4 +23,5 @@ fi
 log "start"
 ( cd "$BASE_DIR" && "$BASE_DIR/bin/mail_sync.sh" "${MAILBOXES[@]}" ) 2>&1 | tee -a "$LOG_FILE"
 ( cd "$BASE_DIR" && "$BASE_DIR/bin/email_sort.sh" --no-offlineimap "${MAILBOXES[@]}" ) 2>&1 | tee -a "$LOG_FILE"
+( cd "$BASE_DIR" && "$BASE_DIR/bin/mail_sync.sh" "${MAILBOXES[@]}" ) 2>&1 | tee -a "$LOG_FILE"
 log "done"
