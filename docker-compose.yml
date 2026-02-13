@@ -8,7 +8,7 @@ services:
     volumes:
       # persistent maildir + pdf outputs
       - maildata:/app/Mail
-      - ./LOGS:/app/LOGS
+      - logsdata:/app/LOGS
       - ./ZEROINBOX:/app/ZEROINBOX
       # configs (bind mounts)
       - ./offlineimaprc:/app/offlineimaprc:ro
@@ -20,3 +20,4 @@ services:
 
 volumes:
   maildata:
+  logsdata:

@@ -83,7 +83,7 @@ docker compose up --build
 ### Required Bind Mounts
 The compose file binds:
 - `maildata` → `/app/Mail` (Maildir)
-- `./LOGS` → `/app/LOGS` (logs)
+- `logsdata` → `/app/LOGS` (logs)
 - `./ZEROINBOX` → `/app/ZEROINBOX` (PDF reports)
 - `./offlineimaprc` (config)
 - `./rules/rules_custom.json` (private rules)
