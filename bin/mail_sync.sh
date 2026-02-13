@@ -31,13 +31,18 @@ if [ -f "$LOCK_FILE" ]; then
   fi
 fi
 
-OFFLINEIMAP_BIN="offlineimap"
-if command -v offlineimap >/dev/null 2>&1; then
+OFFLINEIMAP_BIN=""
+if [ -x "/opt/venv/bin/offlineimap3" ]; then
+  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap3"
+elif command -v offlineimap >/dev/null 2>&1; then
   OFFLINEIMAP_BIN="offlineimap"
 elif command -v offlineimap3 >/dev/null 2>&1; then
   OFFLINEIMAP_BIN="offlineimap3"
-elif [ -x "/opt/venv/bin/offlineimap3" ]; then
-  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap3"
+fi
+
+if [ -z "$OFFLINEIMAP_BIN" ]; then
+  echo "[mail_sync] offlineimap binary not found (expected offlineimap or offlineimap3)." >&2
+  exit 127
 fi
 
 for MAILBOX in "${MAILBOXES[@]}"; do
