@@ -7,7 +7,7 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       # persistent maildir + pdf outputs
-      - ./Mail:/app/Mail
+      - maildata:/app/Mail
       - ./LOGS:/app/LOGS
       # configs (bind mounts)
       - ./offlineimaprc:/app/offlineimaprc:ro
@@ -16,3 +16,6 @@ services:
       # sgpt config (project-local)
       - ./sgpt_config.yaml:/app/sgpt_config.yaml:ro
     command: ["/bin/bash", "-lc", "bin/mail_sync.sh gmail && bin/email_sort.sh gmail"]
+
+volumes:
+  maildata:
