@@ -10,3 +10,4 @@ sgpt_config.toml
 Mail/
 LOGS/
 ZEROINBOX/
+docker_update.sh
