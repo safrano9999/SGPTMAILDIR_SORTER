@@ -27,6 +27,10 @@ SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.
 DEST_BASE="$BASE_DIR/Mail"
 TMP_DIR="/tmp/email-sort-sgpt"
 CORRECTIONS_DB="$BASE_DIR/corrections.jsonl"
+PYTHON_BIN="python3"
+if [ -x "/opt/venv/bin/python3" ]; then
+  PYTHON_BIN="/opt/venv/bin/python3"
+fi
 mkdir -p "$LOG_DIR" "$TMP_DIR" "$CONFIG_DIR" "$BASE_DIR/ZEROINBOX"
 
 if [ -f "$LOCK_FILE" ]; then
@@ -94,7 +98,7 @@ load_account_config() {
 
 extract_email_json() {
   local file="$1"
-  python3 - <<'PY' "$file"
+  "$PYTHON_BIN" - <<'PY' "$file"
 import email, email.policy, json, sys
 from pathlib import Path
 path = Path(sys.argv[1])
@@ -254,7 +258,7 @@ process_file() {
   action=$(move_email "$file" "$dest_dir")
   # store corrections only for correction pool (when previous decision existed)
   if [[ "$sub" == sort_ai_correction/* ]] && [ -n "$prev_dest" ]; then
-    python3 - <<'PY' "$CORRECTIONS_DB" "$info_json" "$prev_dest" "$dest_rel"
+    "$PYTHON_BIN" - <<'PY' "$CORRECTIONS_DB" "$info_json" "$prev_dest" "$dest_rel"
 import json
 import sys
 from datetime import datetime
@@ -373,7 +377,7 @@ fi
 
 (cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
 PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
-python3 - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
+"$PYTHON_BIN" - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
 import sys
 from pathlib import Path
 from reportlab.pdfgen import canvas
