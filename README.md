@@ -15,7 +15,7 @@ This project implements a deterministic, local ZeroInbox workflow: email is clas
 ## Prerequisites (LLM/SGPT Configuration)
 You must provide:
 - A working `sgpt` installation
-- An API key (e.g., exported via `.bashrc_sgpt`)
+- A project-local sgpt config at `sgpt_config.yaml` (copy from `sgpt_config.yaml_example`)
 
 ---
 
@@ -87,7 +87,7 @@ The compose file binds:
 - `./rules/rules_custom.json` (private rules)
 - `./mirror_dir_gmail.json` (folder map)
 
-Ensure `OPENAI_API_KEY` is set in your shell or `.env` file.
+Ensure `sgpt_config.yaml` is present (project-local) and contains your keys.
 
 ---
 
