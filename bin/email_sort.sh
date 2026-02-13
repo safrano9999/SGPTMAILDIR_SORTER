@@ -355,7 +355,23 @@ for mb in "${MAILBOXES[@]}"; do
 done
 
 printf "\n## OfflineIMAP\n" | tee -a "$MAIN_LOG"
-(cd "$BASE_DIR" && FLAG=true offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
+OFFLINEIMAP_BIN=""
+if [ -x "/opt/venv/bin/offlineimap" ]; then
+  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap"
+elif [ -x "/opt/venv/bin/offlineimap3" ]; then
+  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap3"
+elif command -v offlineimap >/dev/null 2>&1; then
+  OFFLINEIMAP_BIN="offlineimap"
+elif command -v offlineimap3 >/dev/null 2>&1; then
+  OFFLINEIMAP_BIN="offlineimap3"
+fi
+
+if [ -z "$OFFLINEIMAP_BIN" ]; then
+  echo "[email_sort] offlineimap binary not found (expected offlineimap or offlineimap3)." >&2
+  exit 127
+fi
+
+(cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
 PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
 python3 - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
 import sys
