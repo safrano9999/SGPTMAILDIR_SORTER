@@ -3,7 +3,7 @@ set -euo pipefail
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CONFIG_BASE="${CONFIG_BASE:-$BASE_DIR}"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
-LOG_FILE="$BASE_DIR/LOGS/hourly-sync.log"
+LOG_FILE="$BASE_DIR/LOGS/mail-routine.log"
 
 if [ "$#" -lt 1 ]; then
   echo "Usage: $0 <mailbox-name> [mailbox-name ...]" >&2
@@ -13,7 +13,7 @@ MAILBOXES=("$@")
 
 mkdir -p "$BASE_DIR/LOGS"
 
-log() { echo "[hourly_sync] $(date) – $*" | tee -a "$LOG_FILE"; }
+log() { echo "[mail_routine] $(date) – $*" | tee -a "$LOG_FILE"; }
 
 if [ -f "$LOCK_FILE" ]; then
   log "lock present, exiting"

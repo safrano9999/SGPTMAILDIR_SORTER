@@ -63,7 +63,7 @@ Over time, you can feed `corrections.jsonl` to a model and request **rule/keywor
 ---
 
 ## Cron Job Note
-If you run scheduled syncs (e.g., `hourly_sync.sh`):
+If you run scheduled syncs (e.g., `mail_routine.sh`):
 - A lockfile prevents overlapping runs
 - Logs and PDFs are generated automatically
 - PDFs are written to `ZEROINBOX/`
