@@ -47,7 +47,6 @@
       "folder": "Systemmeldungen",
       "priority": 60,
       "match": {
-        "sender_domains": ["tm1.openai.com", "cloudplatform-noreply@google.com", "notifications@github.com"],
         "keywords": ["usage limits", "product update", "api", "quota", "status", "oauth", "service alert"]
       }
     },
