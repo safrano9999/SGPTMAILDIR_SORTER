@@ -4,13 +4,12 @@ RUN apk add --no-cache \
     bash \
     python3 \
     py3-pip \
-    offlineimap \
     jq \
     git \
     ca-certificates
 
-# sgpt CLI + reportlab for PDF
-RUN pip3 install --no-cache-dir sgpt reportlab
+# sgpt CLI + reportlab for PDF + offlineimap3
+RUN pip3 install --no-cache-dir sgpt reportlab offlineimap3
 
 WORKDIR /app
 
