@@ -62,9 +62,14 @@ for cur_dir in base.rglob('cur'):
         "imap_path": imap_path,
     }
 
+try:
+    root_rel = "../" + str(base.relative_to(out.parent))
+except Exception:
+    root_rel = str(base)
+
 payload = {
     "account": account,
-    "root": str(base),
+    "root": root_rel,
     "count": len(folders),
     "folders": sorted(folders.values(), key=lambda x: x.get("imap_path", ""))
 }
