@@ -12,7 +12,8 @@ RUN apk add --no-cache \
 # sgpt CLI + reportlab for PDF + offlineimap3 (inside venv)
 RUN python3 -m venv /opt/venv \
  && /opt/venv/bin/pip install --no-cache-dir shell-gpt reportlab \
- && /opt/venv/bin/pip install --no-cache-dir git+https://github.com/OfflineIMAP/offlineimap3.git
+ && /opt/venv/bin/pip install --no-cache-dir git+https://github.com/OfflineIMAP/offlineimap3.git \
+ && ln -s /opt/venv/bin/offlineimap3 /usr/local/bin/offlineimap
 
 ENV PATH="/opt/venv/bin:${PATH}"
 
