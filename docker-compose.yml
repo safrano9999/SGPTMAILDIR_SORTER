@@ -1,6 +1,6 @@
 services:
   sgptmaildir:
-    build: .
+    image: docker.io/daxpro/sgptmaildir_sorter:latest
     container_name: sgptmaildir_sorter
     working_dir: /app
     environment:
