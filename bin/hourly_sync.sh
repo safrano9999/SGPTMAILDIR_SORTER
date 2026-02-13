@@ -7,4 +7,4 @@ if [ -f "$LOCK_FILE" ]; then
   exit 0
 fi
 
-offlineimap -v -a gmail >> "$LOG_FILE" 2>&1
+offlineimap -c "$BASE_DIR/offlineimaprc" -v -a gmail >> "$LOG_FILE" 2>&1

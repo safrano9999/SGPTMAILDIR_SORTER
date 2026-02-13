@@ -1,0 +1,50 @@
+[general]
+# Beide Konten in die Liste aufnehmen
+accounts = gmail, fortschritt24
+maxsyncaccounts = 2
+# Falls du die Python-Brücke für Variablen nutzt:
+# pythonfile = ~/.offlineimap.py
+
+# ---------------------------------------------------------
+# KONTO 1: rafaelfelixremy@gmail.com
+# ---------------------------------------------------------
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+autorefresh = 5
+
+[Repository gmail-remote]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = rafaelfelixremy@gmail.com
+remotepass = smwk bhxi ajzw lmfy
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/OPENCLAW_FUNKTIONEN/SGPTMAILDIR_SORTER/Mail/gmail
+nametrans = lambda f: f.replace('[Gmail]/', 'Gmail-')
+
+
+# ---------------------------------------------------------
+# KONTO 2: fortschrit24.kontakt@gmail.com
+# ---------------------------------------------------------
+[Account fortschritt24]
+localrepository = fortschritt24-local
+remoterepository = fortschritt24-remote
+autorefresh = 5
+
+[Repository fortschritt24-remote]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = fortschritt24.kontakt@gmail.com
+remotepass = mblp inca kqml axue
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository fortschritt24-local]
+type = Maildir
+# Eigener Unterordner, um Vermischung zu vermeiden
+localfolders = ~/OPENCLAW_FUNKTIONEN/SGPTMAILDIR_SORTER/Mail/fortschritt24
+nametrans = lambda f: f.replace('[Gmail]/', 'Gmail--f24-')
