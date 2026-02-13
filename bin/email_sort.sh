@@ -19,7 +19,6 @@ fi
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CONFIG_DIR="$BASE_DIR/rules"
-FILTER_DB="$BASE_DIR/Filter_Emails_DB.txt"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 LOG_DIR="$BASE_DIR/LOGS"
 EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
@@ -43,7 +42,6 @@ MAIN_LOG="$LOG_DIR/email-sort-${TS}.md"
 cat <<LOGHDR > "$MAIN_LOG"
 # Email Run v07 $(date)
 Rules File: $EMAIL_RULES
-Filter DB: $FILTER_DB
 Model: $MODEL
 LOGHDR
 
@@ -67,7 +65,6 @@ load_account_config() {
   if [ -f "$cfg" ]; then
     MODEL=$(jq -r '.model // "gpt-4o-mini"' "$cfg")
     EMAIL_RULES=$(jq -r '.rules_file // empty' "$cfg")
-    FILTER_DB=$(jq -r '.filter_db // empty' "$cfg")
     SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
     DEST_MAP=()
     while IFS=$'\t' read -r key val; do
@@ -77,7 +74,6 @@ load_account_config() {
   else
     # fallback to defaults
     EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
-    FILTER_DB="$BASE_DIR/Filter_Emails_DB.txt"
     MODEL="gpt-4o-mini"
     SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
     DEST_MAP=(
@@ -139,9 +135,6 @@ You are an email sorting agent. Follow the directives.
 
 === RULE SUMMARY ===
 $(sed -n '1,200p' "$EMAIL_RULES")
-
-=== FILTER DATABASE ===
-$(cat "$FILTER_DB")
 
 === EXCLUSION DIRECTIVE ===
 ${prev_dest_label}
