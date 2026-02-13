@@ -45,6 +45,10 @@ You must provide:
    ```bash
    bin/email_sort.sh gmail
    ```
+   (Optional: disable PDF) 
+   ```bash
+   bin/email_sort.sh --pdf=false gmail
+   ```
 
 ---
 

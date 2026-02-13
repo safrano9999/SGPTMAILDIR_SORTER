@@ -13,8 +13,26 @@ fi
 
 MODEL="gpt-4o-mini"
 MAILBOXES=("gmail")
-if [ "$#" -gt 0 ]; then
-  MAILBOXES=("$@")
+PDF_ENABLED="true"
+
+# parse args (mailboxes + optional --pdf=false)
+ARGS=()
+for arg in "$@"; do
+  case "$arg" in
+    --pdf=false)
+      PDF_ENABLED="false"
+      ;;
+    --pdf=true)
+      PDF_ENABLED="true"
+      ;;
+    *)
+      ARGS+=("$arg")
+      ;;
+  esac
+done
+
+if [ "${#ARGS[@]}" -gt 0 ]; then
+  MAILBOXES=("${ARGS[@]}")
 fi
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -380,8 +398,9 @@ if [ -z "$OFFLINEIMAP_BIN" ]; then
 fi
 
 (cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
-PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
-"$PYTHON_BIN" - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
+if [ "$PDF_ENABLED" = "true" ]; then
+  PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
+  "$PYTHON_BIN" - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
 import sys
 from pathlib import Path
 from reportlab.pdfgen import canvas
@@ -454,3 +473,6 @@ for raw in lines:
 
 c.save()
 PYDOC
+else
+  echo "[email_sort] PDF generation disabled (--pdf=false)." | tee -a "$MAIN_LOG"
+fi
