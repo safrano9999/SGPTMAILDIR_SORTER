@@ -360,7 +360,7 @@ for mb in "${MAILBOXES[@]}"; do
 done
 
 printf "\n## OfflineIMAP\n" | tee -a "$MAIN_LOG"
-FLAG=true (cd "$BASE_DIR" && offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
+(cd "$BASE_DIR" && FLAG=true offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
 PDF_OUT="$DEST_BASE/ZEROINBOX/email-sort-${TS}.pdf"
 python3 - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
 import sys
