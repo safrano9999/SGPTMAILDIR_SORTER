@@ -19,6 +19,6 @@ fi
 
 echo "[hourly_sync] $(date) – start" >> "$LOG_FILE"
 (cd "$BASE_DIR" && "$BASE_DIR/bin/mail_sync.sh" "${MAILBOXES[@]}") >> "$LOG_FILE" 2>&1
-(cd "$BASE_DIR" && "$BASE_DIR/bin/email_sort.sh" "${MAILBOXES[@]}") >> "$LOG_FILE" 2>&1
+(cd "$BASE_DIR" && "$BASE_DIR/bin/email_sort.sh" --no-offlineimap "${MAILBOXES[@]}") >> "$LOG_FILE" 2>&1
 
 echo "[hourly_sync] $(date) – done" >> "$LOG_FILE"

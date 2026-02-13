@@ -15,7 +15,8 @@ MODEL="gpt-4o-mini"
 MAILBOXES=("gmail")
 PDF_ENABLED="true"
 
-# parse args (mailboxes + optional --pdf=false)
+# parse args (mailboxes + optional flags)
+SKIP_OFFLINEIMAP="false"
 ARGS=()
 for arg in "$@"; do
   case "$arg" in
@@ -24,6 +25,9 @@ for arg in "$@"; do
       ;;
     --pdf=true)
       PDF_ENABLED="true"
+      ;;
+    --no-offlineimap)
+      SKIP_OFFLINEIMAP="true"
       ;;
     *)
       ARGS+=("$arg")
@@ -398,7 +402,12 @@ if [ -z "$OFFLINEIMAP_BIN" ]; then
   exit 127
 fi
 
-(cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$CONFIG_BASE/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
+if [ "$SKIP_OFFLINEIMAP" != "true" ]; then
+  (cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$CONFIG_BASE/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
+else
+  echo "[email_sort] offlineimap skipped (--no-offlineimap)." | tee -a "$MAIN_LOG"
+fi
+
 if [ "$PDF_ENABLED" = "true" ]; then
   PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
   "$PYTHON_BIN" - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
