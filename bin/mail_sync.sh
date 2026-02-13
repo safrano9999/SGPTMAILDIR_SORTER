@@ -31,10 +31,19 @@ if [ -f "$LOCK_FILE" ]; then
   fi
 fi
 
+OFFLINEIMAP_BIN="offlineimap"
+if command -v offlineimap >/dev/null 2>&1; then
+  OFFLINEIMAP_BIN="offlineimap"
+elif command -v offlineimap3 >/dev/null 2>&1; then
+  OFFLINEIMAP_BIN="offlineimap3"
+elif [ -x "/opt/venv/bin/offlineimap3" ]; then
+  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap3"
+fi
+
 for MAILBOX in "${MAILBOXES[@]}"; do
   LOG_FILE="$LOG_DIR/offlineimap-${MAILBOX}-${TIMESTAMP}.log"
   echo "[mail_sync] $(date) – Starting sync for mailbox '$MAILBOX'" | tee -a "$LOG_FILE"
-  if (cd "$BASE_DIR" && offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "$MAILBOX"); then
+  if (cd "$BASE_DIR" && "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "$MAILBOX"); then
     echo "[mail_sync] $(date) – Sync completed for '$MAILBOX'." | tee -a "$LOG_FILE"
   else
     STATUS=$?
