@@ -1,0 +1,449 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp650215lka;
+        Thu, 12 Feb 2026 04:20:14 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCX6BgFw8HQAG9zeML1/qVf4o6C+JTtVfm4YFGwQi87V0mmudyM7aDXKxd6uokTZ/+Yl+0YjowAkGoU2+PRK3hA=@gmail.com
+X-Received: by 2002:a05:6402:354b:b0:658:1fd0:9622 with SMTP id 4fb4d7f45d1cf-65b96d60cd2mr1263449a12.1.1770898814175;
+        Thu, 12 Feb 2026 04:20:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770898814; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NVVgcrKK8vaGMJne+UBNmf5gxK0KR+5sEP1+uMpuO3g6D4FcbqJziUsB+Dk1/5Rp1p
+         kst6Mln+trhcr0q2WB7QiA0XbglpCeL7KoC05OoCmACQg9TgnYukKihVL/qwpw9U8+Bg
+         Q1f2Ihx95ceEqVtAPfbcKh2pUHYy3Y1a1Pm3d0hxG7Zg1bk1he2PNj361hGpHqy6512C
+         DcbvuhzHIDJrlb9RkF3m6k5gQdChxX1uwJScoOFr6XDYE9QSxsF8LdD0inAaoirJuDOx
+         aASkHYOlBGSdLEXt/WBVwyQbMVnYBNgIwIB3DhnlBKlZDpTC3tdVvctl7SeU48xY19hp
+         /ubw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:list-unsubscribe:content-transfer-encoding:mime-version
+         :subject:message-id:to:reply-to:from:date:list-unsubscribe-post
+         :dkim-signature:delivered-to:dkim-signature;
+        bh=KsilEr7mWi3m3iaeF80nAyMh8snPFTikNPuNfbrGuP8=;
+        fh=syWaAwgD+lvUs10fRVzEwRE1x89PG0qt8Kmqist4SFQ=;
+        b=StVgZUMO3sc0AjhhmrqPprpx0MUIraO41TcDYMK5uDpW062BBr31j9g75TkcwQyDQb
+         hGulEwfTfpZNc0MiipmOZTViWl9lzvvv5vJTMKggFdUuysCNkPlXSrLiwG98182CTB14
+         PQ66huesSzo9Bml2pKifTmYTijuU8zVJe8GeYSnjImcWrI0EjldX1XdXg1Xxr9yJUu91
+         ie0CM4B8YWdsnhkHZhz2maBL+YSD8ygXQQOjmdUhzHyfO7zNDQPHmjqny9ZWVM1CxxOm
+         4tw+Do679WIYqMvzVPY9ztY6TPmSAkxtf8LwX1o7YcbLI2IADpdLH+nAUftQbxVqQ444
+         Wb7Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b="odS/nVqC";
+       dkim=pass header.i=@heute.kunstvoll-gestalten.de header.s=xq header.b=pJNnCzgJ;
+       spf=softfail (google.com: domain of transitioning bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de does not designate 2001:868:100:600::217 as permitted sender) smtp.mailfrom=bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=heute.kunstvoll-gestalten.de
+Return-Path: <bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>
+Received: from shout02.mail.de (shout02.mail.de. [2001:868:100:600::217])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-65a3cec63bdsi3736518a12.45.2026.02.12.04.20.14
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 04:20:14 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de does not designate 2001:868:100:600::217 as permitted sender) client-ip=2001:868:100:600::217;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b="odS/nVqC";
+       dkim=pass header.i=@heute.kunstvoll-gestalten.de header.s=xq header.b=pJNnCzgJ;
+       spf=softfail (google.com: domain of transitioning bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de does not designate 2001:868:100:600::217 as permitted sender) smtp.mailfrom=bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=heute.kunstvoll-gestalten.de
+Received: from postfix02.mail.de (postfix02.bt.mail.de [10.0.121.126])
+	by shout02.mail.de (Postfix) with ESMTP id E0AB4240FC1
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 13:20:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mail.de;
+	s=mailde202009; t=1770898813;
+	bh=KsilEr7mWi3m3iaeF80nAyMh8snPFTikNPuNfbrGuP8=;
+	h=Date:From:Reply-To:To:Message-Id:Subject:From:To:CC:Subject:
+	 Reply-To;
+	b=odS/nVqCOUebhsgdQqFl8pK4V/b9OuElbWa5axMdH3b6noMKWX8Svf/WEThBOEx+a
+	 +OQm8xs9RzZLtTaoSVYBiPJzlF32J1erC8EVsc/ksi+R7yBzQ+MSJxyIoUBttQsjpX
+	 b7SzMj1sUbGRmU3IcOPFJ5d2BjaJccvAOp2NYzQuwITwM2PtT/6BlV3XTCS0I+Ey10
+	 VWhFv4F0hHB1ia7H0YGBZALs58nFDRwyj+llcxXr4alxnJgV9hCbGvX6ZtPPdRmVJe
+	 CWnd9IrHy7w4RjwpQbZKe5rVdELo+O1zyq5DwDELsxorHIxzHx0ULnyDMuWf7tTzv5
+	 Aqc3GeLUb+h9A==
+Received: from smtp01.mail.de (smtp03.bt.mail.de [10.0.121.213])
+	by postfix02.mail.de (Postfix) with ESMTP id C2552240572
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 13:20:13 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by smtp01.mail.de (Postfix) with ESMTP id BA15B240E39
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 13:20:13 +0100 (CET)
+X-Sieve: Pigeonhole Sieve 0.5.20 (149edcf2)
+X-Sieve-Redirected-From: rafael.remy@mail.de
+Delivered-To: rafael.remy@mail.de
+Received: from director05 ([10.0.121.146])
+	by dovecot10 with LMTP
+	id QNepOXzFjWk1cAcAtYnmcA:P1
+	(envelope-from <bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>)
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 13:20:12 +0100
+Received: from localhost ([10.0.121.146])
+	by director05 with LMTP
+	id QNepOXzFjWk1cAcAtYnmcA
+	(envelope-from <bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>)
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 13:20:12 +0100
+X-Original-To: rafael.remy@mail.de
+Authentication-Results: mxpostfix02.mail.de;
+	dkim=pass (1024-bit key; unprotected) header.d=heute.kunstvoll-gestalten.de header.i=versichertmailing1770714263@heute.kunstvoll-gestalten.de header.a=rsa-sha256 header.s=xq header.b=pJNnCzgJ;
+	dkim-atps=neutral
+Authentication-Results: mxpostfix02.mail.de;
+	dkim=pass header.d=heute.kunstvoll-gestalten.de header.s=xq header.b=pJNnCzgJ;
+	spf=pass (mxpostfix02.mail.de: domain of bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de designates 212.6.174.143 as permitted sender) smtp.mailfrom=bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de;
+	dmarc=pass (policy=quarantine) header.from=heute.kunstvoll-gestalten.de
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by mxpostfix02.mail.de (Postfix) with ESMTP id A0436240BC8
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 13:20:12 +0100 (CET)
+Received: from [212.6.174.143] (helo=mx-ca-143.xqueue.com)
+	by mx03.mail.de with ESMTPS (eXpurgate 4.55.0)
+	(envelope-from <bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>)
+	id 698dc57b-f133-0a0078cb0019-d406ae8f8b1b-3
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 13:20:11 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=xq; d=heute.kunstvoll-gestalten.de;
+ h=X-CSA-Complaints:List-Unsubscribe-Post:Date:From:Reply-To:To:Message-Id:
+ Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:List-Unsubscribe;
+ i=versichertmailing1770714263@heute.kunstvoll-gestalten.de;
+ bh=KsilEr7mWi3m3iaeF80nAyMh8snPFTikNPuNfbrGuP8=;
+ b=pJNnCzgJt6O9YBOI4RDO1iKCllZRe/Jgat6ST7OvYTsMA3me7mAqDIuo7V2Jlam3h9B5U16tkkTF
+   DavOSKeEO1wz7lrjCywKt6OTipYsBacu4dJZ7rT9fLwUdbzNo3t1s6sekduUkHsZDp7ARstPN/o2
+   JYWkDTbS34Hq2js16XM=
+Received: by mx-ca-143.xqueue.com id hhn2nm3c3occ for <rafael.remy@mail.de>; Thu, 12 Feb 2026 13:20:11 +0100 (envelope-from <bounce-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>)
+X-Report-Abuse: Please report spam/abuse here: complaints@xqueue.com
+X-CSA-Complaints: csa-complaints@eco.de
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Date: Thu, 12 Feb 2026 13:20:10 +0100 (CET)
+From: Ihr Versicherungsservice
+ <versichertmailing1770714263@heute.kunstvoll-gestalten.de>
+Reply-To: reply-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de
+To: rafael.remy@mail.de
+Message-Id: <ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de>
+Subject: =?UTF-8?Q?Berufsunf=C3=A4higkeit:_So_sch=C3=BCtzt_du?=
+ =?UTF-8?Q?_dein_Einkommen_als_Selbst=C3=A4ndiger?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe: <https://heute.kunstvoll-gestalten.de/i/unsubscribe/ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma>,
+ <mailto:unsubscribe-ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma@heute.kunstvoll-gestalten.de?subject=unsubscribe>
+X-Maileon-FingerPrint: ddw5q6iiph2xudbyjhwc3drg4pfxvg3cdc6qyma
+X-Campaign: M.65185|2270
+Feedback-ID: Typeregular:MailingID2270:Sender65185
+X-purgate-ID: 153031::1770898811-CF453C95-8EE5B017/3/8656902352
+X-purgate-type: bulk
+X-purgate-size: 13575
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: bulk
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<!meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859=
+-1" />
+<!--<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">-->
+<title>Aktion Mensch</title>
+=09<style type=3D"text/css">
+body{
+margin:0px;
+padding:0px;
+background:#f0f0f0;
+text-align:center;
+width:100%;
+}
+.link {
+color:#000000;
+text-decoration:none;
+}
+=09</style>
+</head>
+<body>
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"table-layout: fixed; background-color: #ffffff;">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td width=3D"600" align=3D"center" valign=3D"top">
+<!-- Erste Bildreihe -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td width=3D"150" align=3D"center" valign=3D"middle" style=3D"font-size: 1p=
+x; line-height: 1px;">
+<a href=3D"=
+https://heute.kunstvoll-gestalten.de/i/=
+pSs8bbeiUE8s1Xr9GTSthJbibrXN4g2bny8sCwKUQ6w=
+" target=3D"_blank" style=3D"outline:0;">
+<img src=3D"https://ceoon1-email-bulletin.maileon.com/i/cr/adadb746-43e0-4c=
+6f-9953-a317d9dbae93"
+width=3D"150"
+style=3D"display:block; width:150px; height:auto; border:0;"
+alt=3D"" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+<td align=3D"center" valign=3D"top">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td width=3D"150" align=3D"center" valign=3D"middle" style=3D"font-size: 1p=
+x; line-height: 1px;">
+<a href=3D"=
+https://heute.kunstvoll-gestalten.de/i/=
+IlXj2weMaNRbQPauDYJtyqCgk8BQz6KYY8umLVNQ_Ncq4hRkQ4Gqqw=
+" target=3D"_blank" style=3D"outline:0;">
+<img src=3D"https://ceoon1-email-bulletin.maileon.com/i/cr/9f8c6811-3707-41=
+ca-8f5a-ba6de4725a3b"
+width=3D"150"
+style=3D"display:block; width:150px; height:auto; border:0;"
+alt=3D"" />
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- Logo -->
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr>
+<td width=3D"70" align=3D"center" valign=3D"middle" style=3D"font-size: 1px=
+; line-height: 1px;">
+<img src=3D"https://media.promio-connect.com/17280/pics/hf/logo_sw.PNG"
+width=3D"70"
+style=3D"display:block; width:70px; height:auto; border:0;"
+alt=3D"" />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td height=3D"30"></td></tr>
+</table>
+<!--Header Start-->
+<table width=3D"600px" border=3D"0" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0">
+=09<tr>
+<td width=3D"600px" height=3D"310px" align=3D"center" valign=3D"top" bgcolo=
+r=3D"#FFFFFF" style=3D"background:#FFF; text-align:center"><a target=3D"_bl=
+ank" href=3D'=
+https://heute.kunstvoll-gestalten.de/i/=
+KYTL5PgAfSFgI2J5VSvNw9DN4trt-o8B7JEVCvH0PfQ=
+' title=3D"CTA"><img width=3D"600px" height=3D"310px" src=3D"https://ilead.=
+itrack.it/clients/DENuernberger/c21423/nv-header-judith.jpg" border=3D"0" s=
+tyle=3D"margin: 0; padding: 0;"></a>
+</td>
+=09</tr>
+</table>
+<!--Header END-->
+=09
+<!--Intro - Start -->
+<table width=3D"600px" border=3D"0" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0" bgcolor=3D"#f6f3f2" style=3D"background:#f6f3f2;">
+=09<tr>
+<td width=3D"105px" align=3D"center" valign=3D"top" bgcolor=3D"#fff" style=
+=3D"background:#fff; width:105px">&nbsp;</td>
+<!--Intro-Text Start -->
+<td width=3D"390px" align=3D"left" valign=3D"top" bgcolor=3D"#fff" style=3D=
+"background:#fff; width:390px">
+<p style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; m=
+argin:30px 0px 5px 0px; line-height:20px;">Hallo=20=
+Rafael F.=
+,</p>
+<p style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; m=
+argin:0px 0px 5px 0px; line-height:20px;">Du bist selbstst&#xE4;ndig oder f=
+reiberuflich? Dann ist deine Arbeitskraft unersetzlich. </p>
+<p style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; m=
+argin:0px 0px 5px 0px; line-height:20px;">Sch&#xFC;tze dein Einkommen auch =
+im Falle von Unfall oder schwerer Krankheit &#x2013; hol dir eine <b>Berufs=
+unf&#xE4;higkeitsversicherung!</b>
+Denn nur mit einer BU hast du ein <b>Sicherheitsnetz,</b> solltest du nicht=
+ mehr arbeiten k&#xF6;nnen.</p>
+<p style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; m=
+argin:0px 0px 5px 0px; line-height:20px;"><b>Sichere deine finanzielle Unab=
+h&#xE4;ngigkeit &#x2013;</b> mit einer Berufsunf&#xE4;higkeitsversicherung =
+der N&#xDC;RNBERGER Versicherung</p>
+<p> <a target=3D"_blank" href=3D'=
+https://heute.kunstvoll-gestalten.de/i/=
+1j5ShsGFMlPyQ_boZiYIxTE3Zj5U_NTn0b0VIPcFyzw=
+' class=3D"link"><img src=3D"https://ilead.itrack.it/clients/DENuernberger/=
+c21423/nv-cta-angebot.png" border=3D"0" style=3D"padding: 10px 0px 30px 0px=
+; width: 160px; height: 25px"></a></p>
+</td>
+<td width=3D"105px" align=3D"left" valign=3D"top" bgcolor=3D"#fff" style=3D=
+"background:#fff; width:105px">&nbsp;</td>
+=09</tr>
+</table>
+<!--Intro - Start -->
+=09
+<table width=3D"600px" border=3D"0" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0" bgcolor=3D"#fbece8" style=3D"background:#fbece8;">=09
+=09<tr>
+<td width=3D"50px" align=3D"center" valign=3D"top" bgcolor=3D"#ebeef2" styl=
+e=3D"background:#ebeef2; width:50px">&nbsp;</td>
+<!--Intro-Text Start -->
+<td width=3D"500px" align=3D"left" valign=3D"top" bgcolor=3D"#ebeef2" style=
+=3D"background:#ebeef2; width:500px">
+<p style=3D"font:normal 13px Arial, Helvetica, sans-serif; color:#006266; m=
+argin:30px 0px 0px 0px; line-height:20px;">Ich bin doch gesund.</p>
+<p style=3D"font:bold 13px Arial, Helvetica, sans-serif; color:#003460; mar=
+gin:0px 0px 15px 0px; line-height:20px;">Warum brauche ich eine Berufsunf&#=
+xE4;higkeitsversicherung?</p>
+<ul>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; =
+margin:0px 0px 5px 0px; line-height:20px;">Freiberufler und Selbstst=C3=A4n=
+dige haben in der Regel <b>keinerlei staatliche Absicherung</b> im Falle ei=
+ner Berufsunf=C3=A4higkeit.</li>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; =
+margin:0px 0px 5px 0px; line-height:20px;"><b>Jeder Vierte</b> ist w=C3=A4h=
+rend seines Berufslebens zumindest zeitweise von einer Berufsunf=C3=A4higke=
+it betroffen.</li>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#000000; =
+margin:0px 0px 30px 0px; line-height:20px;">Je fr=C3=BCher du dich absicher=
+st, umso <b>g=C3=BCnstiger</b> sind die <b>Beitr=C3=A4ge.</b></li>
+</ul>
+</td>=09
+<td width=3D"50px" align=3D"left" valign=3D"top" bgcolor=3D"#ebeef2" style=
+=3D"background:#ebeef2; width:50px">&nbsp;</td>
+=09</tr>
+=09<tr>
+<td colspan=3D"3" align=3D"left" valign=3D"top" bgcolor=3D"#fbece8" style=
+=3D"background:#fbece8;" >
+<img src=3D"https://ilead.itrack.it/clients/DENuernberger/c21423/nv-headlin=
+e-bild.jpg" width=3D"600" height=3D"150" alt=3D""/>
+</td>
+=09</tr>
+=09<tr>
+<td width=3D"50px" align=3D"center" valign=3D"top" bgcolor=3D"#003460" styl=
+e=3D"background:#003460; width:50px">&nbsp;</td>
+<!--Intro-Text Start -->
+<td width=3D"500px" align=3D"left" valign=3D"top" bgcolor=3D"#003460" style=
+=3D"background:#003460; width:500px">
+<p style=3D"font:bold 13px Arial, Helvetica, sans-serif; color:#ffffff; mar=
+gin:30px 0px 0px 0px; line-height:20px;">Gute Gr&#xFC;nde f&#xFC;r eine Ber=
+ufsunf&#xE4;higkeitsversicherung </p>
+<ul>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#ffffff; =
+margin:0px 0px 5px 0px; line-height:20px;"><span style=3D"font: bold; color=
+: #ffffff"><b>Beitragsstabilit&#xE4;t:</b></span> Keine Anpassung der Zahlb=
+eitr&#xE4;ge seit mehr als 30 Jahren </li>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#ffffff; =
+margin:0px 0px 5px 0px; line-height:20px;"><span style=3D"font: bold; color=
+: #ffffff"><b>Flexibilit&#xE4;t:</b></span> Passe deine BU an ge&#xE4;ndert=
+e Lebenssituationen an</li>
+<li style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#ffffff; =
+margin:0px 0px 0px 0px; line-height:20px;"><span style=3D"font: bold; color=
+: #ffffff"><b>Sofortleistungen:</b></span> Schnelle Vorauszahlung bei schwe=
+ren Krebserkrankungen und mehr</li>
+</ul>
+<p style=3D"font:Normal 13px Arial, Helvetica, sans-serif; color:#ffffff; m=
+argin:20px 0px 0px 0px; line-height:20px;">Wie auch Selbstst&#xE4;ndige und=
+ Freiberufler von einer BU profitieren, erf&#xE4;hrst du hier:</p>
+<p> <a target=3D"_blank" href=3D'=
+https://heute.kunstvoll-gestalten.de/i/=
+Me3y1RmsnH31aCf8XYLwFBdgC-_1wrq2jICRKCDkWbY=
+' class=3D"link"><img src=3D"https://ilead.itrack.it/clients/DENuernberger/=
+c21423/nv-cta-angebot.png" border=3D"0" style=3D"padding: 0px 0px 40px 0px;=
+ width: 160px; height: 25px"></a></p>
+</td>=09
+<td width=3D"50px" align=3D"left" valign=3D"top" bgcolor=3D"#003460" style=
+=3D"background:#003460; width:50px">&nbsp;</td>
+=09</tr>
+</table>
+=09
+<table width=3D"600px" border=3D"0" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0">
+=09<tr>
+<td width=3D"50px" align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" styl=
+e=3D"background:#ffffff; width:50px">&nbsp;</td>
+<td width=3D"115px" align=3D"left" valign=3D"middle" bgcolor=3D"#ffffff" st=
+yle=3D"padding:10px 0px 10px 0px;" ><img src=3D"https://ilead.itrack.it/cli=
+ents/DENuernberger/c21423/nv-footer-logo.png" width=3D"112" height=3D"27" a=
+lt=3D"" />
+</td>
+<td width=3D"385px" height=3D"30" align=3D"right" valign=3D"top" bgcolor=3D=
+"#ffffff" style=3D"width: 385px; background:#ffffff; text-align:right; font=
+:Normal 11px Arial, Helvetica, sans-serif; color:#202020; padding:10px 0px =
+15px 0px; line-height:30px;"><a target=3D"_blank" href=3D'=
+https://heute.kunstvoll-gestalten.de/i/=
+Vto00b5ShzuX1F8ZrduDi7EADmYRDpyuuO01K4Rx9BI=
+' class=3D"link">Impressum</a><a target=3D"_blank" href=3D'=
+https://heute.kunstvoll-gestalten.de/i/=
+NK8yYkBqRJW763ukSqxxl_t7H7B6tads5cQt1RtkiJc=
+' class=3D"link" style=3D"padding-left:20px;">Datenschutz</a>
+</td>
+<td width=3D"50px" align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" styl=
+e=3D"background:#ffffff; width:50px">&nbsp;</td>
+=09</tr>
+</table>=09
+<!--Table Content/Main Ende-->
+<!--TABLE-01 End-->
+<img src=3D"=
+https://heute.kunstvoll-gestalten.de/i/=
+IJ9bOJhAlP8UySEmQua3mDownHn2jTqnnoelZtLfbnE=
+" alt=3D"" style=3D"width:1px;height:1px;display:block" width=3D"1" height=
+=3D"1">
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"table-layout: fixed;">
+<tr>
+<td align=3D"center" valign=3D"top" ><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+<tr>
+<td width=3D"600" align=3D"center" valign=3D"top"><table width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"background-color: #f=
+fffff; ">
+<tr>
+<td align=3D"left" width=3D"100%" style=3D"padding: 20px;color: #444444;-we=
+bkit-text-size-adjust: 100%;width: 100%;font-size: 13px;-ms-text-size-adjus=
+t: 100%;font-family: Arial, Helvetica, sans-serif;line-height: 180%;mso-lin=
+e-height-rule: exactly;border-collapse: separate;text-align: center; mso-li=
+ne-height-alt: 23px;"><p>Dieses Mailing wird Ihnen pr=C3=A4sentiert von der=
+&nbsp;<b>Arctoll Ltd.</b><br>
+&nbsp; <br>
+<br>
+<b>Informationen zum Datenschutz:</b><br>
+Sie erhalten diese E-Mail-Kampagnen, weil Sie uns Ihre Kontaktdaten und ein=
+e Werbeeinwilligung auf einer von uns betriebenen Website gegeben haben.Wir=
+ verwalten und verarbeiten Ihre Daten DSGVO-konform. Unsere Werbung erreich=
+t Sie nach den gesetzlichen Vorgaben in =C2=A77 Abs.2 Nr.3 UWG lediglich na=
+ch Ihrer vorherigen Einverst=C3=A4ndnis. Dieses k=C3=B6nnen Sie jederzeit =
+=C3=BCber den Abmeldelink, oder die oben genannten Anlaufstellen widerrufen=
+. Bis zum Widerruf machen wir Gebrauch von unserem Recht, Ihnen personalisi=
+erte Werbekampagnen an Ihre Kontaktdaten zu schicken und diese in unserem S=
+ystem zu verwalten. Zus=C3=A4tzlich zu Ihrem Recht, Ihren Datensatz entfern=
+en zu lassen, haben Sie die Rechte Ihre Datennutzung einzuschr=C3=A4nken un=
+d Auskunft =C3=BCber die Nutzung Ihrer Daten zu erhalten. Zus=C3=A4tzliche =
+Informationen k=C3=B6nnen Sie in den Datenschutzbestimmungen auf unserer We=
+bseite erhalten.<br>
+<br>
+Wenn Sie unseren E-Mail-Service nicht mehr ben=C3=B6tigen und in Zukunft ke=
+ine Mails von uns mehr erhalten wollen,&nbsp;so k=C3=B6nnen Sie sich&nbsp;<=
+a class=3D"mln-link" href=3D"=
+https://heute.kunstvoll-gestalten.de/i/=
+8522KzRliNoZjqwFOB6xhiKdeivy6lR4PbiNJgk0vG8=
+" rel=3D"noopener noreferrer" target=3D"_blank" style=3D"color: 1F1F1F;font=
+-weight: bold;text-decoration: underline;">hier abmelden</a>.</p>
+<p>
+Impressum:
+<br>Arctoll Ltd.<br>Suite 102, Ground Floor, Blake Building,
+Corner Eyre & Hutson Streets,
+Belize City,
+Belize<br>
+Gesch=C3=A4ftsf=C3=BChrerin: Parimala Poinen<br> Eingetragen im Handelsregi=
+ster; Registergericht: Aufsichtsbeh=C3=B6rde in Belize;<br>
+Registernummer: Eingetragen im Handelsregister 175,121<br><br>
+Kontaktaufnahme per&nbsp;E-Mail: info@arctoll.com<br>
+
+Telefon: 05361 6543 896 </p>
+</td></tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></body>
+</html>
+=

@@ -1,0 +1,749 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:aa6:cd17:0:b0:32a:4738:12e with SMTP id i23csp620402lkb;
+        Tue, 10 Feb 2026 07:09:47 -0800 (PST)
+X-Received: by 2002:ad4:5e8b:0:b0:897:5:85a0 with SMTP id 6a1803df08f44-8970005a24emr115454396d6.29.1770736187451;
+        Tue, 10 Feb 2026 07:09:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770736187; cv=none;
+        d=google.com; s=arc-20240605;
+        b=k5iaGIjzbe2bnMI/XyopvIg4cdJz8NedDivkzTN9tJjxtimnKGQZuXAjViehpBzHFp
+         vrJDtSZ92bvsLOlKqBbOY7iMoueJWXC2lJL34uFjiEk+h8PLDNCDTFnGcVv5h/Wh6Htx
+         cX9RKSkv74QvbjuC3IJUp8hD8Q97pPeYgqyfCaCrTQA7uRl2+gAfjHCPRmlf5ux+4won
+         XIsDUdP5BfF4nEfXwgxhf/GEaQvAWoupvF+pm960BjDTwJGD7G8u/QdBOHj0H0KX2k4l
+         euNQf+h3mJY3gZfdZ3xTNs5oYQE2in5C8fN7zLm1Hft56MjVhyEdKBDCPdKa7mmCYZU+
+         td7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:list-unsubscribe-post:precedence:mime-version:subject
+         :message-id:to:reply-to:from:date:list-unsubscribe:dkim-signature
+         :dkim-signature;
+        bh=PNziYW4PgL3YG4Q+CVDpXk1y0pUZAj7chfWFr4qW6i4=;
+        fh=zQESs4crjtfCBxx3KsW4t1Cb/XBBR9z3t42nluLz+ng=;
+        b=UZhMGE4/rIStcupEt0FSoEpqY/sh7zXl7cq0WJY0Hk57aRBhx8gR9ltJNoT/Czz8al
+         /OGx2fYWj6eQz8i51QhoYy1NyoP1aPAaSwh5w4PY72zCezPoCg1wsa6Z4QPLYBETwD98
+         YDF+dQoHOCR3DKTy02BCeS2KkT0FnfPTrUud0tBdpA1IQTjih+YYTdndzLkAZcS2F5aR
+         qA807/kNZGjmJDiYHuLSgYr/30ar1q3q/BUt7EEwBjiGVS1YPQQIvyQ13avL4iBCCggs
+         Ywaguj4UkgVe72YQkek7ItnUdhhP0prFaLedUudRaegcldE46er3xEVmZJlrNTr1v5fw
+         //qQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bf07x.hubspotemail.net header.s=hs2 header.b=nNFuTlmY;
+       dkim=pass header.i=@groq.co header.s=hs2-44341333 header.b=Ale2868Y;
+       spf=pass (google.com: domain of 1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net designates 143.244.88.98 as permitted sender) smtp.mailfrom="1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=groq.co
+Return-Path: <1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net>
+Received: from bd77f1g.bf07x.hubspotemail.net (bd77f1g.bf07x.hubspotemail.net. [143.244.88.98])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8954d3f75cdsi121136596d6.709.2026.02.10.07.09.47
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 10 Feb 2026 07:09:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of 1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net designates 143.244.88.98 as permitted sender) client-ip=143.244.88.98;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bf07x.hubspotemail.net header.s=hs2 header.b=nNFuTlmY;
+       dkim=pass header.i=@groq.co header.s=hs2-44341333 header.b=Ale2868Y;
+       spf=pass (google.com: domain of 1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net designates 143.244.88.98 as permitted sender) smtp.mailfrom="1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=groq.co
+Received: by 172.16.213.73 with SMTP id a0cgfhxxtp4xci3xthq0aduyte3yhlwhkn6l7v4f040;
+        Tue, 10 Feb 2026 15:08:23 GMT
+DKIM-Signature: v=1; s=hs2; d=bf07x.hubspotemail.net; 
+        i=@bf07x.hubspotemail.net; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id:list-unsubscribe-post; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=PNziYW4PgL3YG4Q+CVDpXk1y0pUZAj7chfWFr4qW6i4=; 
+        b=nNFuTlmYk1OMie3LAMHt6uSKU3UjFpAZdfDXI1bfTzVj1ZE+NWsDCTqJR41Jt8
+         6k+TZsp8NtfjfnOJhiASwJ9BRom9U4Psn0Ukyz+MqmH4rqFbPAN0QEXKuQw+kw6
+         ecCjePN0soZLQM9uekmws0IgHAT+I3v4tPyYrZTwmYSFdtSviN6cE8xhX3xwRhs
+         2tdNAYLa6ZnAo0vy/fxOiHBcQAVhFfy7eDlDsWBRMMl6WcjBbVb5FctJ6y+RTcN
+         MHxu/XMoMDfIcPJJJeLCWbTafNmoDxBAbW37AIzW89fmG8r798cAYyXeKn5E8/g
+         l24dbO8uVPLsMhmGqrJ0r47SVjgw==; q=dns/txt; t=1770736103; 
+        x=1770998903;
+DKIM-Signature: v=1; s=hs2-44341333; d=groq.co; i=@groq.co; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id:list-unsubscribe-post; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=PNziYW4PgL3YG4Q+CVDpXk1y0pUZAj7chfWFr4qW6i4=; 
+        b=Ale2868YePRkPDDnw/CP+39TR5dIBTdHkCVvo2FGheWsjW3vFfd3LlB2FWQtnQ
+         R9ayNcXBaC4mi49CH4/gSj4RhNhzGWl89ZxHag4kye/jhM479FJvQXpZQ/lbPPT
+         WTCB4DoaPI7HiYNYm4cf/nQMw3ZOmtupr7ikRdet9JYzyTegmaCEVESlCrD4Luv
+         G9CK8Bu4PLoV41v2gyAwh3h7Id8FCOzq04YLIKOZTsuk/R9A819TYdhe3TTZuYN
+         6YTvLvF8sj69s4vXEn4MCn6pxlYjv7FDsjmb/W4nFOEIPS9ajEyvCWyDv7adJFs
+         n3Ou5bZNGLJINgiWvuOcPGqwksBw==; q=dns/txt; t=1770736103; 
+        x=1770998903;
+Return-Path: <1axbhlq5y9yzvrqheefujjsd8dddk6hdyx8x88-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net>
+X-HS-Cid: 1axfazj0uy09gmdxw54dfb2z6lswwwck7j7b6k
+List-Unsubscribe: <mailto:1axcuyc9q6h67l01i2bsfwzukmwhkrh5ex5794-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net?subject=unsubscribe>, <https://email.groq.com/hs/subscription-preferences/v2/unsubscribe-all?data=W2nXS-N30h-GdW3XytYr2MDgBrW2Yf2jd32wVs2W3j8BFH3ZvlMYW2Wy2b841t659W3yXvGG3dfYC3W2MpFfJ2MX4ZBW4pxZT-2CtNW-W3NXv-h23lvY4W4rgZxH43JplhW2B1Wq34phcHMW2v_SWQ3zh2rRW3zjKVR2TJ9wHW2TjQFQ4cBzHcW2WxhrF1_tBWKW34CFTs34pqzHW1LwVGR3F7-00W3DSdK-4rDLbsW38jmTX1NkG5QW2RtLs-3J-k1MW2KDqXV2KskzlW2TQwsk3QzXdJW1Xptbw2TP8qsW1St-v62vHNd7W2sLTpr3jn8RlW2-JShD3SN5GwW2HBD2t3SKDlKW2YPcyn2PtxdrW3Zvpps2CKH0qW4hL-xG4kHrS6W32hLhP32qwpdW2YpqCz4rlhJLW2xQJ6m3Z_nsQW1Sb8gG3VyHzKW3T0q403jrt17W3HfyXr4kmPSSW1Qm95g1Y-jwwW364Z2F1W-xQ0W2Px4qn2WLxJmW2MzMf44htpXKW2PyMTb32CTrDW1Nz90Z34gjRcW3QZLSs1QdVH-W2Tygv330yH2KW21m8XG41yMjMW384Rs241S8nsW1ND1-f3j9KMbW41Bq-T1VdstGW41r0744fHPsVW2CXwcs4rgbh5W34hxNj3ZYYklW4rhTlw43HyxLW2Myx6d1XvmxHW1SygKq385dY2W45NmKB1ZvHsDW3JVPgg257xMmf4t60MS04>
+Date: Tue, 10 Feb 2026 07:08:23 -0800
+From: Groq <info@groq.co>
+Reply-To: noreply@groq.com
+To: rafaelfelixremy@gmail.com
+Message-ID: <1770736103387.4b80617b-3184-4365-8bf1-c6030d645d2a@bf07x.hubspotemail.net>
+Subject: Skip the Setup. Start with these Builds
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_14711994_277617180.1770736103496"
+Precedence: bulk
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://policy.hubspot.com/abuse-complaints)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: ae0on9z:aighopes:aib1s:HubSpot
+
+------=_Part_14711994_277617180.1770736103496
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Clone-ready examples for RAG, tools, JSON mode & more.
+
+banner (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q6=
+1cvyW1xTZ7Q5KmdVfN80642Y3prCCW6N1vHY6lZ3m5W31zFTg3HCQR2N5HSdjgtZcxnW8ZQj8r3=
+sfn1CW6nXh-S8PvSfyW2TqHhh1N-rR5W3cBQ5V8yXjp2W1Ph08j1kTBDpW2DKt7h3Vx5WRV6s9K=
+h2jZhddN632V2Cz5QkSW8K3tty245RFPW3WPdvP3PJ0HtW1-bgNP10xxYwW2YvC4v2QLK6xW5Bh=
+-Sb1f79YHW71KCwd1wT9sKW3njcFc3cv4t7W7_KVKq8pfR33W5NVCSb6HZTV9W6Cfk003FGmcCW=
+1QH83p2VTnZXW8RsFWD1d970Pf8QStW-04 )
+
+Hi there,
+
+You=E2=80=99ve got your Groq API key. Now it=E2=80=99s time to get code in =
+production!
+
+Explore our API Cookbook (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VV=
+YxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3prCCW7Y8-PT6lZ3kxW7xFh8m3jLVKZW2=
+bxbh-84SmXDV2zt6V78PcqMW1sHGFb8zKC4VW1Gqn5g1DsXN7W4HjrgH3NpTW4W7zpSBd94-lFV=
+W5Lm6607q8VGhN771K0BzkyywW5wJB_B6FhDWsW2HBZlP5pTzzDW2-jFLx2MJWYqW77l0Zm1dsh=
+VFW2rgjh36xl_z0W6LRVS73fP-d1N1wt535RTwnSW5JzNsM6YfdxRW54xcrg7vM9-SW2qp53q1r=
+GxsBW41jwr37bgq73W713Z_3125GgWW2hxC6T5rk8FbW4vKpGg7C5Qp3VrhFfz3z_dMkW1ZJXpn=
+8CWNWXW5LtDWr2xn_b3f4_BbRs04 ) for ready-to-run examples covering:
+
+- Use tools and function calling (https://email.groq.com/e3t/Ctc/2P+113/d5c=
+CcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225m_5PW50kH_H6lZ3nbN1Y-r2w=
+snf4CW4mcKzS12JXwDVWgP_B4ktwZmW1YT3kd98y5D_W3pycJn8m3mX8W55cgGT7qCkN2W2VVGM=
+G3nG-qbW67_6YM8VtpKDW5s7Xf87fk1YnW3lbcGW56NVMHW5r41wL5H5F_CW8qB2f_7Y053qW4b=
+wly_2W6Zb2W2GdHKX1c8zv-W8KNn6D36xBW0W1xV1Gj2_ym_RW3rwF8T7B7BlGW6XjnVy8ffdj_=
+W2qN0Yw4mgLMRVF50BJ8HNbtnV7tSn73kFPWmW5C4yhs3Wd4J2Vr6Wh54_QJcqVXjb4F3xb3TWV=
+sJjmg91-G2xW7r0Vfl3jwkCdW6YrkYQ3tthq4W5kTMJs2wd5QvW70bPNx5tgPW4N1SY8kJX1R1H=
+W8Z74ry5qxqq4VvH6N65nBlrYf5Nt1TC04 ) : Integrate structured reasoning and e=
+xternal APIs into your AI workflows.
+- Implement RAG (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QP=
+GN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225m_5PW50kH_H6lZ3pVW33N4-V8b8NRjW3WYBQB2qhR=
+QNW3TGkSq1n2qbhW4YWvk143RNjcW3FJ_x28g4Q2-W6XK6cz4yDPKXW1k4mgz4TfsvkVT_klP5b=
+Rgp2W5YW-lY2BtNX8W8029nv7zMgjSW8tncmT2s4MmtW3pxhrs12SLT7W2Dwt7N8MMWQnW2T-hh=
+L1F3-kFW6mrMRP1p6SgzW414ZTN8Kxh9pW844yDM10lp6bW6wTQKh7cdPG1W5zzNtf4n1slmW4R=
+TYvK2Z-8lSW3wjcKf3k7Lz8W2rrRzK6-BFCTW5kqhg14CX12kW3THF134_h031W8-0gc38ff07c=
+W8nRgW4974YqjW17S7G49cD4JbV7VZS52QHDQ8W1CLQ6V5ns5KjW7LHdJ56xk5G-W55KbXF7DRh=
+LJVYhsSP4LQ-6ff3M-b7z04 ) : Combine Groq=E2=80=99s inference with your own =
+knowledge base for context-aware responses.
+- Leverage JSON mode (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh=
+4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225m_5PW50kH_H6lZ3pgW8jR1tg2HvQHRW1P_F3=
+j5LbCPxW4j2FRb4bmj6RVnNkNr4RQC3pW8KXRq35LX6llW2465l9160gWRW1SFjzg1XBD1cW1-x=
+5J88y4G3FW7_gr-P443GSsW2m_GY93pjc-pW7JB4m57HD7JqW8cFJ8-91BdtrW7bWk1C8QWQ16N=
+8WmzLVtVWP7W2X08WC44jlhmW5N0jQp1TFMgtW1szs9b5njC7BW5pkxxy2LWjpjW5FZ11r1Krkv=
+rW206qrn55KXGDW482ykX6yPtvQN5SPQx-rHsSVW96KzQk57PJ91W3gcGGH6cVYM-W1_dK-59c_=
+DJmW5l-0rR2DWFd8W1Zt8h46xxs42N1Jdkn6SPvMjW5sNbvG3wd9y_W6tKg-S4R_nYQW8SKF-G7=
+pQ_s4N59-LJ8DXyGff5qVbtP04 ) : Generate clean, schema-validated JSON output=
+s for seamless downstream integration.
+- Process multimodal inputs (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04=
+/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225m_5PW50kH_H6lZ3mKW8QXZdf3_MJX=
+NW5g4Cp37JzNRXVNd9bG3Gl54FVq83sg4sBPc2W3wl6Zf7VGydFW3zky3_6GYxY6W32-tVq7Mvy=
+LXVlrgqw2h7bSxW5DlDLx7kYfbYW6G9YDx5B6NRkW6brKNz44vlvyW30_rsd3fKnWDW5DqzSq5K=
+JgydW5KcY8d1DtwMKW4rtNSm67kZvPW8XQ9nn1fdx2wW6DXqcw1PC1n_W4XGgGr4bdRMXW30Dd3=
+W4rG4-BW5dtD8k8T2BqqN2mD66nd08StW7GR0Zk402WDGW3kVq0-7XMt3GVxVx6Y8Nd2q2W99jH=
+-m13g12ZW8Hthvk7BlLl6W4l_WJJ2t0Y4GW9lV4YK7kf_sTW8vSmwv416FPTW402zDL1hYL8NW4=
+TGLz-8gGJ8NW6nqrGl16QNQLf6gBWWs04 ) : Build apps that combine text, images,=
+ and structured data using Groq=E2=80=99s multimodal inference.
+- Develop agentic systems (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+VYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225m_5PW50kH_H6lZ3n2VqBBKR7pyXRDW6=
+w9G_z3z6lLDW4pf36L5cNqffW7FQG2J6pd35BW2mlghD7CS0vxW15jMy15pYMPwW8gp2Ts8KZ3s=
+kVg_d901mGhtPW8MVf751kbPtgVCgmdB8FkNgnW5c9-C46wlMh8W5z16LT2GFD9yW5pL-9D63RQ=
+QTW5vpxyZ3_WcknW7XfBp95TZVZNW8bX41k4WdTBvN996zprnRGTDN2FXf4KdRc0cV7QJcd5_X8=
+pZW86JNXl7mRljXW1WrH1D52BZZhVPBgZw2b6XXtW5ncVg753F4sjW8Q1r7V1QVmsBN44dWXSf0=
+LPVW39RKVz7cGFXDW5Bmmlt95XWqcW7r4mp_57GVr7N4YnNNXbwfn4W12vqxY5Mt6K5VFTCjY1R=
+q16lW7Gwgvm6Yxw6tf6Qq-SY04 ) : Orchestrate autonomous agents capable of dec=
+ision-making and tool use in real time.
+
+The best part? We wrote the code so you don=E2=80=99t have to.
+
+[Start Building] (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3Q=
+PGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3prCCW7Y8-PT6lZ3kxW7xFh8m3jLVKZW2bxbh-84S=
+mXDV2zt6V78PcqMW1sHGFb8zKC4VW1Gqn5g1DsXN7W4HjrgH3NpTW4W7zpSBd94-lFVW5Lm6607=
+q8VGhN771K0BzkyywW5wJB_B6FhDWsW2HBZlP5pTzzDW2-jFLx2MJWYqW77l0Zm1dshVFW2rgjh=
+36xl_z0W6LRVS73fP-d1N1wt535RTwnSW5JzNsM6YfdxRW54xcrg7vM9-SW2qp53q1rGxsBW41j=
+wr37bgq73W713Z_3125GgWW2hxC6T5rk8FbW4vKpGg7C5Qp3VrhFfz3z_dMkW1ZJXpn8CWNWXW5=
+LtDWr2xn_b3f4_BbRs04 )
+
+=E2=80=93 The Groq Team
+
+Groq builds fast AI inference technology, designed and manufactured in Nort=
+h America.
+
+Visit groq.com (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPG=
+N3Kmr2q61cvyW1xTZ7Q5KmdVfN80642Y3prCCW6N1vHY6lZ3m5W31zFTg3HCQR2N5HSdjgtZcxn=
+W8ZQj8r3sfn1CW6nXh-S8PvSfyW2TqHhh1N-rR5W3cBQ5V8yXjp2W1Ph08j1kTBDpW2DKt7h3Vx=
+5WRV6s9Kh2jZhddN632V2Cz5QkSW8K3tty245RFPW3WPdvP3PJ0HtW1-bgNP10xxYwW2YvC4v2Q=
+LK6xW5Bh-Sb1f79YHW71KCwd1wT9sKW3njcFc3cv4t7W7_KVKq8pfR33W5NVCSb6HZTV9W6Cfk0=
+03FGmcCW1QH83p2VTnZXW8RsFWD1d970Pf8QStW-04 ) to learn more.
+
+Linkedin (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2=
+q61cvyW1xTZ7Q5KmdVfN80643d3prCCW7lCdLW6lZ3p4W84l9HR3bdrymW1xpsL85sqbRDW6JMZ=
+Gl85m9P_W81J20266y9jCW7qW61M4P6P4FW6c1qJF99nm-QW5R2XFy4BtJwgW6SSKRr6XP9DyW3=
+XZVdW3zgb03W4jVCCM1PsVS7VsRwy74wY2MnVzTSFS7ndgNCW4wQV491qvRRpW3kQ4Y121dNhMW=
+3FxV0Z4xt5xVW7q3CgG3k6GJCW37b0Lw8RLNBlW9b_NNk5WtkSXM2Ctv15nj2kW35T3sQ2s6SnF=
+W5kjv3v4yXX74W1rpk6N34XXLsW8TJGZ-79G7PXW8tMrW331HntHf91C6K-04 )
+
+X (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW=
+1xTZ7Q5KmdVfN80643d3prCCW7lCdLW6lZ3kRW8mhqD26CWCjtW2P-Wj-5WR6dZW3YHB9T2nQny=
+dW80Cn5P2-VtcGW3LD7N73ZynvBVhzpLz1nKt-4W3mQnW47qfKYLW4X3lTB5qNnvzN7GXVhYnfL=
+4BW1LK7J430kv43W68Zyjd1DmCS4VsxbSK3s-ZtKW5ZlnzL74WT36W94Km6Q8xKcZ7W1SFbhT6n=
+jqkmW2Q9jyZ90k7fTVjpT4x4J_bwWN7v7rkZSCbJpW91-xqn6MYng7N4Kb8-nPRPdKW8H9FkN31=
+k1yqW3yT0K87-8dKhW6cdPJB12Q837W986l7z2cf2Fcf2Mt4q-04 )
+
+Instagram (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr=
+2q61cvyW1xTZ7Q5KmdVfN80643d3prCCW7lCdLW6lZ3l-W4wk1BQ84GjfJVmn-d33-QtbSW4p1j=
+TT7m2pd9VnzhSV76WdZqW8-l1GG1m8MYPW4lG-Xf3KkjK1W3mzpCf4jczjYW3M609j1G-T5SW2k=
+VYgw5SgXS_W5J7Cc86zxKnHW56t6fb8XldmXW2t9Xj050n9glW67hRzp69jGpjW3hBrDx1-tV8P=
+W7WjSRJ4pyL4rW8syKjk7bklqmW8c36bh44h1fHVkXMlM7G1WG8W2WZxhv64-2kVW87hSVC4lxZ=
+4BW1kQJnT3xPb3JW8y270w7wRhG4VTDP6s6BQWfZN8Lp1QHwqD6df5GS-1Y04 )
+
+YouTube (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q=
+61cvyW1xTZ7Q5KmdVfN80643d3prCCW7lCdLW6lZ3nsW6PFWNw5dkB0yW1Cn8vP8dZTcQW8hVkD=
+q8CDMfVN1x0wpjyKSD6W3KKN1W5Yxqz7W5Cmq1q1WBX8xW206TbG1pTNdSW1Q12nn8XbW2FW14c=
+5yn2YmZlXW4Ln5w26WhSJZV98jSF3zsdRLW1TRYgS6DFNcCW5p22hX9chYNdW9lNL7f92c33BW1=
+RPq8088L9y-W4Zm66v8MfY9DW33c5tR9jlT87W1J-Y9c42pvJRW8v7-gn6cqQl1W8Yl1tB3yZX4=
+5W2L7ySL7zDpl9VR7V5f5GQwqXN274Yn0w2WR1W1q29yn3ZXLTBf2mspk604 )
+
+Groq, 2700 Zanker Road, Suite 150, San Jose, CA 95134, United States
+
+Manage preferences (https://email.groq.com/hs/preferences-center/en/page?da=
+ta=3DW2nXS-N30h-LyW3gcB--1_p0qbW41tClz2qM23bW3f__Zh3j4NJpW1X9nyr3BMqTXW2Mq1=
+Sq3bywWXW3M0cz81BC1dtW2YNSr91QDKtbW2nQby-3GRGhCW2YsmqL20Z6XGW1BN_bZ47vyw2W2=
+CT9kV1XhdqcW3drZhT2MTbTCW3LBPzg3JTZBkW4tpqkB4fN0gLW2CHxQB2Phwg2W3K2XXR2C_G9=
+WW34HPs-3SZyLwW30p1T62HGlCDW3gstQB1NjrTjW2CMmpx3zfLZCW3Y2X8G23gRrLW41n9zf45=
+FfgRW1Xn8wh1NtZJ_W3y-j132y3MZhW1Z9-js1SgL72W2vyKRz2TgHt8W30G9jF1QlJK1W43yZr=
+_3XMjhbW2HCpsg2WJRP9W3_zKyc2FKr4BW2Kz3LB3djqbFW2CYMb438h98YW4t5Gyj3GYS3SW1V=
+kpL138D3y_W3z7ZNk1ZkW67W4kHrXT25p8QnW3yQBc61ZrNBnW49BlhK1LlfJ1W2w4Ss541XH9N=
+W4hvCg43BXbMWW3XvB713F6JVMW3DTx014tGDxXW2YG_k43djrmrW2CN_W22WPpRQW4kcmhK2xx=
+FV0W2WQbMl4pChNKW4rw1M92sR2yMW2FWRx04hF5HGW3j9QcW3M6ZbnW30yk8H2zV9wKW2Ysj4s=
+45yJWMW1Vd2g_2xy5bVW45HntJ2RT7rjW2TQSmk2w2fHdW2CNChd2YLJR3W3VYwDC1BFsX70&_h=
+senc=3Dp2ANqtz-9-IoeZnDGEK-pDwkGuADTFVz4ChJHThJYMjqmbww92MIz6hsaL6MBJOMFToz=
+hNabGkL6t9cUJrnlmqOEBd1vSbyKk4eWTPpK_lN3H-qADGUGJfh6M&_hsmi=3D375227154 )
+------=_Part_14711994_277617180.1770736103496
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"en"><head>
+    <title>Skip the Setup. Start with these Builds</title>
+    <meta property=3D"og:title" content=3D"Skip the Setup. Start with these=
+ Builds">
+    <meta name=3D"twitter:title" content=3D"Skip the Setup. Start with thes=
+e Builds">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+    <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word">
+      <w:DontUseAdvancedTypographyReadingMail/>
+    </w:WordDocument>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+ .hse-body-wrapper-table {background-color: #FFFFFF;}
+</style>
+<![endif]-->
+<!--[if mso | IE]>
+  <style type=3D"text/css">
+    .hse-column-container { border: none !important; padding: 0 !important;=
+ }
+  </style>
+<![endif]-->
+   =20
+     =20
+ =20
+ =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"https://email.groq.com/-temporary-slug-5113c6f8-dfdb-4d37-bb54-405=
+8687d271b"><meta name=3D"robots" content=3D"noindex,follow"><!--[if !((mso)=
+|(IE))]><!-- --><style type=3D"text/css">@media only screen and (max-width:=
+639px){img.stretch-on-mobile,.hs_rss_email_entries_table img,.hs-stretch-ct=
+a .hs-cta-img{height:auto !important;width:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+.hs-hm,table.hs-hm{display:none}.hs-hd{display:block !important}table.hs-hd=
+{display:table !important}
+}@media only screen and (max-width:639px){.hse-border-m{border-left:1px sol=
+id #eaf0f6 !important;border-right:1px solid #eaf0f6 !important;box-sizing:=
+border-box}
+.hse-border-bottom-m{border-bottom:1px solid #eaf0f6 !important}.hse-border=
+-top-m{border-top:1px solid #eaf0f6 !important}
+.hse-border-top-hm{border-top:none !important}.hse-border-bottom-hm{border-=
+bottom:none !important}
+}.moz-text-html .hse-column-container{max-width:600px !important;width:600p=
+x !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-12{max-width:600px !important;width:600px !impo=
+rtant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-12=
+{max-width:600px !important;width:600px !important}
+}@media only screen and (max-width:639px){.hse-body-wrapper-td{padding-top:=
+20px !important}
+#section-1 .hse-column-container{background-color:#fff !important} }@media =
+screen and (max-width:639px){.social-network-cell{display:inline-block}
+}@media only screen and (max-width:639px){.hse-body-wrapper-td{padding-bott=
+om:20px !important}
+#section_17247796968445 .hse-column-container{background-color:#fafafa !imp=
+ortant}
+}</style><!--<![endif]--><style type=3D"text/css">#hs_body #hs_cos_wrapper_=
+main a[x-apple-data-detectors]{color:inherit !important;text-decoration:non=
+e !important;font-size:inherit !important;font-family:inherit !important;fo=
+nt-weight:inherit !important;line-height:inherit !important}
+a{text-decoration:underline}p{margin:0}body{-ms-text-size-adjust:100%;-webk=
+it-text-size-adjust:100%;-webkit-font-smoothing:antialiased;moz-osx-font-sm=
+oothing:grayscale}
+table{border-spacing:0;mso-table-lspace:0;mso-table-rspace:0}table,td{borde=
+r-collapse:collapse}
+img{-ms-interpolation-mode:bicubic}p,a,li,td,blockquote{mso-line-height-rul=
+e:exactly}
+.ShadowHTML p,.sh-modified-inline p{margin:0}</style></head>
+  <body id=3D"hs_body" bgcolor=3D"#FFFFFF" style=3D"margin:0 !important; pa=
+dding:0 !important; font-family:Arial, sans-serif; font-size:15px; color:#2=
+e2c23; word-break:break-word">
+    <div id=3D"preview_text" style=3D"display:none;font-size:1px;color:#FFF=
+FFF;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;=
+" lang=3D"en">Clone-ready examples for RAG, tools, JSON mode &amp; more.</d=
+iv>
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+    <v:fill type=3D"tile" size=3D"100%,100%" color=3D"#ffffff"/>
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" lang=3D"en" style=3D"background-colo=
+r:#ffffff" bgcolor=3D"#ffffff">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"margin:0; padding:0; width:100% !impo=
+rtant; min-width:320px !important; height:100% !important" width=3D"100%" h=
+eight=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"font-fa=
+mily:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:break-wor=
+d; padding-top:20px; padding-bottom:20px">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section-1" class=3D"hse-section h=
+se-section-first" style=3D"padding-left:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#ffffff; padding-top:10px" bgcolo=
+r=3D"#ffffff">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-top:10px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"column-1-0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_17628028257692" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module"><table class=3D"hse-image-wrapper" role=3D"=
+presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-family:Arial, sans-=
+serif; color:#2e2c23; word-break:break-word; text-align:center; padding:0px=
+; font-size:0px">
+        <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3=
+QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643d3qgz0W7lCdLW6lZ3kNW4YrTwt8C1hz-W2MddhC52=
+3SbyW99WKps56_-jDW3Ryw3V6h--twMl0Qh-sNVBCW10JBXP8kCtmNVryX3R3_qN2zW3Xt1q83j=
+Fcg2W8k4FLL194pBHW32jfR_4lk2ZnTfxqF2DCFqpW5HWpq467TBNkW2xTfGJ2Vn87RVrJPMD8j=
+7-4FW6ZnD4j15xWffV3KV4L9cdCg7W2CMHV_1tCxXjN6tqF8Ng2Qc6W4z8b2s4HbNkdW8vl01Y2=
+3Jdg3W6sTvNT7qzp2yN3TMh0MV-NXlW552PnR17_nw0W6JQQ3m3-RS23f3h8ZQY04" target=
+=3D"_blank" style=3D"color:#00a4bd" data-hs-link-id=3D"0" data-hs-link-id-v=
+2=3D"ERuMDQfR">
+        <img alt=3D"banner" src=3D"https://email.groq.com/hs-fs/hubfs/banne=
+r.png?width=3D1200&amp;upscale=3Dtrue&amp;name=3Dbanner.png" style=3D"outli=
+ne:none; text-decoration:none; border:none; max-width:100%; font-size:16px"=
+ width=3D"600" align=3D"middle" class=3D"stretch-on-mobile">
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:brea=
+k-word; padding:20px"><div id=3D"hs_cos_wrapper_module-1-0-0" class=3D"hs_c=
+os_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color=
+: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-general-t=
+ype=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapper_module=
+-1-0-0_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_=
+rich_text" style=3D"color: inherit; font-size: inherit; line-height: inheri=
+t;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_text"><p s=
+tyle=3D"line-height:175%">Hi there,</p>
+<p style=3D"line-height:175%">&nbsp;</p>
+<p style=3D"line-height:150%">You=E2=80=99ve got your Groq API key. Now it=
+=E2=80=99s time to get code in production!</p>
+<p style=3D"line-height:150%">&nbsp;</p>
+<p style=3D"line-height:150%">Explore our <a href=3D"https://email.groq.com=
+/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3qgz0W=
+7Y8-PT6lZ3msW4YT8z_7nzt6GW92sL-w9bWbJMVqV8vm2243rdW7NFZQ46nLdkTW2PwJvK6h7Vj=
+jW1sKyM75Rlgk-N3FjcBNtSbY7W7zF-3G5tNDmFW2NRgG565XMcKW8_yfq373DbdWN4VPrmqKrt=
+9PW257Hbv6DmtrCW6GXWt-2pWnwfW5b7C7L6fMHmYW34msFT1thN-7W8wzlvK6FyDvtW3y0hsV8=
+4HPD7W2xZbKT7d2tdLVR1yRs72jNZKV5gkHK3W_qYlVp_P3P796mjyW8Pxtxn4CBY_wW3_ymk83=
+z7H0SW8X0MKP3NWmR5N4VqJd0mm80vVMqfC66psMrQf6GxcvM04" style=3D"color:#f55036=
+" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"pV45wgCg" target=3D"_blank"><=
+strong>API Cookbook</strong></a> for ready-to-run examples covering:</p>
+<ul style=3D"line-height:150%">
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+Q04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225nR3bW50kH_H6lZ3mxW7nvQXj2B=
+NLR8V92wPv5BxrFyVzK85k4pPBQSW6Brv106x31GLW2-pWrQ2VY29vW5H7Mpl8hKRZSW69Dn_L5=
+G8N-jW6YPTLN7m5vrXW8SVBs24TS0w1W2qZSxT6Z9bS5W9962Hk1g8GfYW2G0zj582-NjDW3wCW=
+kP7DjTM0VDDX4c2-zWM-W8RzGLC45R9tYW80RMT_92GB1cN5wqTSVn0WJLW6ggfs34B1TQWW8H8=
+KM75s-T2zW3rMnfq7MlD7wW2VvG_n2C-zj5W7YlqMY5lLVXtW4xN8HK9c1b7KW6_j6MR7SJDlcN=
+30nQck_ZMJ-W7DtTQ16VYm8WW9g_T8s6R-cjQW9l736B8CbpmZW4Zkmdx28M64vV3V3Sb6zxtYt=
+W8VnLVM4sfsB2W2M2qCt2G4NNvf56RRRM04" style=3D"color:#f55036" data-hs-link-i=
+d=3D"0" data-hs-link-id-v2=3D"S8UvTExp" target=3D"_blank"><strong>Use tools=
+ and function calling</strong></a>: Integrate structured reasoning and exte=
+rnal APIs into your AI workflows.</li>
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+Q04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80642l5nR3bW5BWr2F6lZ3ldW4mnllr9j=
+7j--VXt2L068WQ5qW3Cw-Ky8Q47TMN32zBCDYcF_0W51G51y7VHzJhW97Yxxj3GZv4KW8dyxk94=
+tHV_wW2RCltm5H9lVCW1R66Jm7b5zVBVkcQB75ggV_wW4Xl6_t2x6b_6W6SKbQc5vtpnfW6mN7Z=
+41ChDWfW23r-vK5PKM-5N49PlwN4SRSYW23T1Sm8tDLK3W1cVYPb4V3p0KW5mVWCG5MW8L2W5-Z=
+vkD8-pdXzW2qVyyQ27y9nRVT6rbT83TVjFW848kKK7X1N1SW2lh0NG1Zz00yW4r6Bf16MyZ4CW1=
+blk9V71C_jWW4llLKg3ZDDGgW2BjFRC6wbSpkW8ql9XT1gZjJPW6lgTmn5fFBpWW3k13QJ74kcT=
+6VJf91B48l0GmN6p8161gt4jcN4p4hhZ_tdp_W4HyVbz2dFRQ_f17xx7K04" style=3D"color=
+:#f55036" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"i9/O/rIF" target=3D"_=
+blank"><strong>Implement RAG</strong></a>: Combine Groq=E2=80=99s inference=
+ with your own knowledge base for context-aware responses.</li>
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+Q04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225nR3bW50kH_H6lZ3kSW4_kznc3w=
+SLpfW7HK_xk95BK2yW7_47j38gV2rvN1bYkzqkh7khW3V4-6c2TMmmkW8FRl-H6T-3_LW7bcPsT=
+8jDsCnW1vp-Jm2YZr-FW7dqj6z9gGVtHW8VXtWP5N7tRRW6Q4Ct71WPkHlW79h66f7FJHn9W8Sc=
+jYD4Q4RsBW1ypvmj8P9jBQW12fD701j4FgyVwvl4v39QjbwW471rb07XFkBZVkRJ-r13H2QjW8g=
+kh71631XVkN1f_QP9GjbkfW97dPbs1fYSBHW8-7ClV4STkMBW3TPp5M1mXWrWW8r1KFs6q9rqnW=
+3VZgJV6s6KVQW4D0q7K95BjZ3W4PSG3R3kYWfyW1x9X0c8DXW0CW1shrK51z5H7DW74MgDh7Z8H=
+0sW31LRyS6t0WP5W7HDTHv1jHgq1f6fLj4W04" style=3D"color:#f55036" data-hs-link=
+-id=3D"0" data-hs-link-id-v2=3D"Pbgtfsq6" target=3D"_blank"><strong>Leverag=
+e JSON mode</strong></a>: Generate clean, schema-validated JSON outputs for=
+ seamless downstream integration.</li>
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+Q04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225nR3bW50kH_H6lZ3kDW4fPpQd1N=
+JC9CW1ChQNL7qdxd9W3zLG_h179_dVW8nmbjf1pcNbSN9bT24bxX-WFVYnTyT4jLzqXW4z4_Cx1=
+hLVVYW1xyb8k7xjDrkW6--PDc6Q4TYlW6CsgZr4ChF-dW81LgQV3DT38xW1s22D23NrqzwW6V--=
+2J98stsPW5T-jcg1VPCFXW1Zbw6P4Zp8h7W59Z0Gs5s6N3pN7LgV9yRCJFDW4sXFy6580TJZN47=
+Mf9cdwPdhW4T15NX1wBmXPN6g_t-FNQrcWW4T-gtg1lsN47W6Yf1yM2rYlQ3W1x6ddT90Ryk6W9=
+0HBJH1HqBXmW7kv7FX4y72ZcW8hcBGf7QKZxkW3TY15l6YLzPhW3fzVVw3THHgxVq6JYR8fvTgw=
+W3WTF893-kbgYW4Ky33n1Qt1Nnf1YMSF004" style=3D"color:#f55036" data-hs-link-i=
+d=3D"0" data-hs-link-id-v2=3D"d576wfCU" target=3D"_blank"><strong>Process m=
+ultimodal inputs</strong></a>: Build apps that combine text, images, and st=
+ructured data using Groq=E2=80=99s multimodal inference.</li>
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+Q04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN8064225nR3bW50kH_H6lZ3n_W1WtvDz6c=
+cWcZVk2vtl7bs21WVwDpL27f4y4kW18XSfn2RHXg5W8p068q8Wc84qW2-XLb_143kc1VH9ldJ17=
+-dWmW3L6rNn3GjMmpW3ZG0Kl7wl8zvW1xRlqR3Nb2ZVW1sWXHL8qQPYZW3P3wZD5tS-7lW1ZZY6=
+d3MXNB8N2CkTqChnBB2W4S04961-LvvrN7pKnjlSB0qcW4mZ9P98hdwH5W6fkJbT5prPKnW240Z=
+-K39DBtbW4SCHdh8x-26VW50JLgH49686KW8_gLpX2GH0t-W5WyTmS3p4RjcN79XVnhy6rtbW1C=
+fBRQ5zb-BrW7Tb4cV2YjPdMW1txljP8fh8VqW10DCNX3kZxTGW7h-08k4cKj_nW1FmJYb4-X917=
+N6jF309fk_mJW84_Nn85PltkXf8S0lmK04" style=3D"color:#f55036" data-hs-link-id=
+=3D"0" data-hs-link-id-v2=3D"l1E4d7Zn" target=3D"_blank"><strong>Develop ag=
+entic systems</strong></a>: Orchestrate autonomous agents capable of decisi=
+on-making and tool use in real time.</li>
+</ul>
+<p style=3D"line-height:150%">The best part? We wrote the code so you don=
+=E2=80=99t have to.</p>
+<p style=3D"line-height:150%">&nbsp;</p>
+<p style=3D"line-height:150%"><span style=3D"color: #f55036;"><a href=3D"ht=
+tps://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7=
+Q5KmdVfN80643x3qgz0W7Y8-PT6lZ3psW62jKVb23hzglW89zH_17MZCdsW7q76Ql9dtmmWN6DS=
+Yfpp2LMyW77_DDV8RF2rXVws7Tl4X9SxKW8hVzHN3VR2fcW2XwgNx3NN_sJW1T7Cps5xTCWXW1y=
+fdJP15zzFMW48W1dn2vX-CDW8JbQt66gZBbCW88m-PC4DxhN-N7x7ZpvZcl4hW8FWt2Y7_9yvsW=
+24tSLz1dkSX0W53b_3q1xq55WV5Jhmc75Q-x2Vr-B4P7jnd5ZW2F6-vv4C4kzrW7Xd1RQ68FfP0=
+W4XGmxG1rwcYmN7ljT_1QvHtQN94bB_z9QTGMW2BGYMk8SzP8TW93fMlK4zkdT9f80s8vH04" s=
+tyle=3D"color:#f55036" data-hs-link-id=3D"1" data-hs-link-id-v2=3D"FWjGg/LD=
+" target=3D"_blank">[<strong><span style=3D"text-decoration: underline;">St=
+art Building</span></strong><span style=3D"text-decoration: underline;">]</=
+span></a></span></p>
+<p style=3D"line-height:150%">&nbsp;</p>
+<p style=3D"line-height:150%">=E2=80=93 The Groq Team</p>
+<p style=3D"line-height:175%">&nbsp;</p></div></div></td></tr></tbody></tab=
+le>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_17247796968445" class=3D"hse-section hse-section-last"=
+ style=3D"padding-left:10px; padding-right:10px">
+   =20
+   =20
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; margin:0 auto; background-color:#fafafa; padding-bottom:20px; pad=
+ding-top:20px" bgcolor=3D"#fafafa">
+   =20
+    <!--[if (mso)|(IE)]>
+      <table align=3D"center" style=3D"width:600px;" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#fafafa">
+      <tr style=3D"background-color:#fafafa;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:20px; padding-top:=
+20px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px">
+<![endif]-->
+<div id=3D"column-1724779696844-0" class=3D"hse-column hse-size-12">
+    <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D=
+"font-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:b=
+reak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_172477969684=
+42" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modul=
+e" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data=
+-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_c=
+os_wrapper_module_17247796968442_" class=3D"hs_cos_wrapper hs_cos_wrapper_w=
+idget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: in=
+herit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-c=
+os-type=3D"rich_text"><p style=3D"font-size:13px; line-height:150%; text-al=
+ign:center; font-weight:normal" align=3D"center"><span style=3D"color: #000=
+000;">Groq builds fast AI inference technology, designed and manufactured i=
+n North America. </span></p>
+<p style=3D"font-size:13px; line-height:150%; text-align:center; font-weigh=
+t:normal" align=3D"center"><span style=3D"color: #000000;">Visit <a href=3D=
+"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1x=
+TZ7Q5KmdVfN80643d3qgz0W7lCdLW6lZ3nwW2w-Hn28VVbXkW4dPXc49j6r35MQwJRmfkkj0W2J=
+DMcl4yYqm-W4gb87W3tcr5TW19dNg66rzd36VqWfDB3LpT2yW1NM8CV31F-NjW4ZDlcg5-FBmGW=
+1sS47m64kLgQW7hqyCQ5Y9LsWW5sGtgd33fmVJW5h5xn22W8gPyN2vl5KSprtz2VmVVFY6Fh4N_=
+W9jtnQX60dyl2W7TKp-25wwk0hW2MZ4M08HRG9jVfrTq64X3Xw-W5XwQrl8fkNSPW3ZHqbQ2NFM=
+BHW1xBKJn3ss6hWVpLhlp7x6NPvVz0WMT6NJt4Xf57yhVY04" rel=3D"noopener" style=3D=
+"color:#f55036" data-hs-link-id=3D"1" data-hs-link-id-v2=3D"ipoyy4HB" targe=
+t=3D"_blank">groq.com</a> to learn more.</span></p></div></div></td></tr></=
+tbody></table>
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" class=3D"" style=3D""><tbody><tr><td class=3D"hs_padded" style=3D"fo=
+nt-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:brea=
+k-word; padding:6px 20px 0px 4px"><div id=3D"hs_cos_wrapper_module_17247796=
+968443" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_m=
+odule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" =
+data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><table role=
+=3D"presentation" align=3D"center" style=3D"width: auto; text-align: center=
+; margin: 0 auto; " class=3D"hs_cos_wrapper_type_social_module">
+  <tbody>
+    <tr>
+      <td class=3D"social-network-cell" align=3D"center" style=3D"font-fami=
+ly:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:break-word"=
+>
+        <table role=3D"presentation" align=3D"center" style=3D"width: auto;=
+ text-align: center; margin: 0 auto; " class=3D"hs_cos_wrapper_type_social_=
+module_single">
+          <tbody>
+            <tr>
+              <td class=3D"display_block_on_small_screens" align=3D"center"=
+ style=3D"font-family:Arial, sans-serif; font-size:15px; color:#2e2c23; wor=
+d-break:break-word; padding:8px 5px; line-height:1; vertical-align:middle" =
+valign=3D"middle">
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+VYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3qgz0W7Y8-PT6lZ3nWW2L1Lqz3Y6YHpV=
+WY1qy7N6fCqW8FbxQb4W5BNHW8SRQkk2h0pZXW99nLZ6927r6sW4h9pyM1v_RNTW2Yhc_h6k3Ps=
+pW7gjCXz4_rSM7W8yCwmv1wG--SW7D9rfJ4r6zwWN7sZk9prFxK2W324pdx6m97g9W7dbCb66-1=
+-PsW5pFPpD8qRsbYVznY1K29KQcKW64yg553mMjJWW6b9VfR8wYTwcW6FXyG87fpVBCN3g5zCTB=
+XJ2_W8l42Lp7nFs3mW7dFVSy6-ZvYZW1frvTW6DS0vyVrYm8x2tlL_vVN-y14770TyJW2jnxxb8=
+QHh10W1wLYz45TtdM0f3mCRGz04" style=3D"color:#00a4bd; text-decoration:none !=
+important" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"7cn5d7a/" target=3D"=
+_blank"><img src=3D"https://email.groq.com/hs-fs/hubfs/Linkedin.png?height=
+=3D48&amp;upscale=3Dtrue&amp;name=3DLinkedin.png" alt=3D"Linkedin" height=
+=3D"24" style=3D"outline:none; text-decoration:none; border:none; width:aut=
+o!important; height:24px!important; vertical-align:middle" valign=3D"middle=
+" width=3D"auto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td><td class=3D"social-network-cell" align=3D"center" style=3D"font=
+-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:break-=
+word">
+        <table role=3D"presentation" align=3D"center" style=3D"width: auto;=
+ text-align: center; margin: 0 auto; " class=3D"hs_cos_wrapper_type_social_=
+module_single">
+          <tbody>
+            <tr>
+              <td class=3D"display_block_on_small_screens" align=3D"center"=
+ style=3D"font-family:Arial, sans-serif; font-size:15px; color:#2e2c23; wor=
+d-break:break-word; padding:8px 5px; line-height:1; vertical-align:middle" =
+valign=3D"middle">
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+VYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643d3qgz0W7lCdLW6lZ3l6W2FV3m04PjP8QW=
+4W34Vw4MPN9NW1r4fMf9gzJ0cW74xZw-37BrV3W8P9qVn8s7SN8N5nqDDlT8gpcW81Zs1Z96Vgc=
+gW6f9xJ67fFNfxW4plxWb291m2vW699g721QTKYjW40bXQz8GDbr0N2TZL7lZVK8HMk3K4xtvs8=
+KW8s2qG13jP41bW55MJz17WmvX2W6gxbT66J9lCkW5g4RRK6wRWy5W1YYGq33nJJstW1BPfx_8R=
+6zxcW2fy8wL5tTh2PW6_x_dQ8w871WW4pTF_V8r9Zd9W8sSrQq1PZxRqW4BwHRj8v21QVf49CpH=
+H04" style=3D"color:#00a4bd; text-decoration:none !important" data-hs-link-=
+id=3D"0" data-hs-link-id-v2=3D"TR+nEI2V" target=3D"_blank"><img src=3D"http=
+s://email.groq.com/hs-fs/hubfs/X.png?height=3D48&amp;upscale=3Dtrue&amp;nam=
+e=3DX.png" alt=3D"X" height=3D"24" style=3D"outline:none; text-decoration:n=
+one; border:none; width:auto!important; height:24px!important; vertical-ali=
+gn:middle" valign=3D"middle" width=3D"auto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td><td class=3D"social-network-cell" align=3D"center" style=3D"font=
+-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:break-=
+word">
+        <table role=3D"presentation" align=3D"center" style=3D"width: auto;=
+ text-align: center; margin: 0 auto; " class=3D"hs_cos_wrapper_type_social_=
+module_single">
+          <tbody>
+            <tr>
+              <td class=3D"display_block_on_small_screens" align=3D"center"=
+ style=3D"font-family:Arial, sans-serif; font-size:15px; color:#2e2c23; wor=
+d-break:break-word; padding:8px 5px; line-height:1; vertical-align:middle" =
+valign=3D"middle">
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+VYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3qgz0W7Y8-PT6lZ3nKW7hvBmB4HrmssW=
+4GVMX_2BH0dyVlmtRr85Sk7WW4HV4wy68wVtmW32ZwDk8N0PZYW6BqP1r5lMzZ7VjWsCG19B7Lr=
+W34f0SW4JH1q_W6ZhNkb7lqt8sW7BwwvS2Vtf4bW1KDMJ64LMxQFVx35Jk90l4_pW7B1gLN5XHn=
+JxM-ynvlLSNnmW4R0X3N5B4NccW5mxM0R8y1Lx1W7rkL3R2cptGSV7Tgwc6MjRPdW8_0sS36-ff=
+_JN26STynZgnryW2x4fW34RnjhwW8dk_z68B3WtvVndk5p61r1GqW9c6DSg3gCq_WW5X8J2_54-=
+42VW1mGWnc4mDvt5dl55RR04" style=3D"color:#00a4bd; text-decoration:none !imp=
+ortant" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"WuBpmKLs" target=3D"_bl=
+ank"><img src=3D"https://email.groq.com/hs-fs/hubfs/Instagram.png?height=3D=
+48&amp;upscale=3Dtrue&amp;name=3DInstagram.png" alt=3D"Instagram" height=3D=
+"24" style=3D"outline:none; text-decoration:none; border:none; width:auto!i=
+mportant; height:24px!important; vertical-align:middle" valign=3D"middle" w=
+idth=3D"auto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td><td class=3D"social-network-cell" align=3D"center" style=3D"font=
+-family:Arial, sans-serif; font-size:15px; color:#2e2c23; word-break:break-=
+word">
+        <table role=3D"presentation" align=3D"center" style=3D"width: auto;=
+ text-align: center; margin: 0 auto; " class=3D"hs_cos_wrapper_type_social_=
+module_single">
+          <tbody>
+            <tr>
+              <td class=3D"display_block_on_small_screens" align=3D"center"=
+ style=3D"font-family:Arial, sans-serif; font-size:15px; color:#2e2c23; wor=
+d-break:break-word; padding:8px 5px; line-height:1; vertical-align:middle" =
+valign=3D"middle">
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+VYxZh4w3QPGN3Kmr2q61cvyW1xTZ7Q5KmdVfN80643x3qgz0W7Y8-PT6lZ3nnVjtTQ84t9M80W7=
+Fq88x3hLYyLW4Vdw2r5vLSn7W7Zg-cC3Zn7wHW6JyMvh1yfgLgW5cZtg84lx4P-W78MDHp55CZh=
+JW6XY5xy9cTcQMW4tmSM52pl74mW3w0jZp2Y10jZW2NdwNC76L5_5W7Z1Tw67yJb0XN3J4bPyx8=
+_RpW82-CXp7439-xW4bFMVk3P2VBRN2QFNKMqzYr1W6HzJpK6wC0bQW18jrSV39zWrfW7s7R5J3=
+T7RS8N41pLHpX6pScW5TTL4n2N60Q9W4QSfKz1pXhnRW48DvB63qv8wLW251Qyn3P1k0DW3f5n0=
+J3lCyyHW17j5gM5XrQtYf1V6sqx04" style=3D"color:#00a4bd; text-decoration:none=
+ !important" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"RZhjVdVf" target=
+=3D"_blank"><img src=3D"https://email.groq.com/hs-fs/hubfs/YouTube.png?heig=
+ht=3D48&amp;upscale=3Dtrue&amp;name=3DYouTube.png" alt=3D"YouTube" height=
+=3D"24" style=3D"outline:none; text-decoration:none; border:none; width:aut=
+o!important; height:24px!important; vertical-align:middle" valign=3D"middle=
+" width=3D"auto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div></td></tr></tbody></table>
+<div id=3D"hs_cos_wrapper_module_17247796968444" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module"><table role=3D"presentation" class=3D"hse-foo=
+ter hse-secondary" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"font-family:Arial, sans-serif; font-size:12px; line-height:135%; color:=
+#23496d; margin-bottom:0; padding:0">
+  <tbody>
+    <tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-family:Arial, sans-=
+serif; font-size:15px; color:#2e2c23; word-break:break-word; text-align:cen=
+ter; margin-bottom:0; line-height:135%; padding:10px 20px">
+        <p style=3D"font-family:Arial, sans-serif;font-size:12px;font-weigh=
+t:normal;text-decoration:none;font-style:normal;color:#000000">
+          Groq, 2700 Zanker Road, Suite 150, San Jose, CA 95134, United Sta=
+tes
+        </p>
+        <p>
+          <a data-unsubscribe=3D"true" href=3D"https://email.groq.com/hs/pr=
+eferences-center/en/page?data=3DW2nXS-N30h-LyW3gcB--1_p0qbW41tClz2qM23bW3f_=
+_Zh3j4NJpW1X9nyr3BMqTXW2Mq1Sq3bywWXW3M0cz81BC1dtW2YNSr91QDKtbW2nQby-3GRGhCW=
+2YsmqL20Z6XGW1BN_bZ47vyw2W2CT9kV1XhdqcW3drZhT2MTbTCW3LBPzg3JTZBkW4tpqkB4fN0=
+gLW2CHxQB2Phwg2W3K2XXR2C_G9WW34HPs-3SZyLwW30p1T62HGlCDW3gstQB1NjrTjW2CMmpx3=
+zfLZCW3Y2X8G23gRrLW41n9zf45FfgRW1Xn8wh1NtZJ_W3y-j132y3MZhW1Z9-js1SgL72W2vyK=
+Rz2TgHt8W30G9jF1QlJK1W43yZr_3XMjhbW2HCpsg2WJRP9W3_zKyc2FKr4BW2Kz3LB3djqbFW2=
+CYMb438h98YW4t5Gyj3GYS3SW1VkpL138D3y_W3z7ZNk1ZkW67W4kHrXT25p8QnW3yQBc61ZrNB=
+nW49BlhK1LlfJ1W2w4Ss541XH9NW4hvCg43BXbMWW3XvB713F6JVMW3DTx014tGDxXW2YG_k43d=
+jrmrW2CN_W22WPpRQW4kcmhK2xxFV0W2WQbMl4pChNKW4rw1M92sR2yMW2FWRx04hF5HGW3j9Qc=
+W3M6ZbnW30yk8H2zV9wKW2Ysj4s45yJWMW1Vd2g_2xy5bVW45HntJ2RT7rjW2TQSmk2w2fHdW2C=
+NChd2YLJR3W3VYwDC1BFsX70&amp;utm_campaign=3D11132675-Free%20Tier%20Nurture&=
+amp;utm_source=3Dhs_automation&amp;utm_medium=3Demail&amp;utm_content=3D375=
+227154&amp;_hsenc=3Dp2ANqtz-_FECCojp5mHIr2shGZAEj_byrboDK6ufWSLxVRMktDlJYgy=
+m5bw4W9zslvCXWQMguqIkmibGM_aNiIBYk_fzHk1RAJpEZzjr4dJSEFLx8jHdaeJJw&amp;_hsm=
+i=3D375227154" style=3D"font-family:Helvetica,Arial,sans-serif; font-size:1=
+2px; color:#F55036; font-weight:normal; text-decoration:none; font-style:no=
+rmal" data-hs-link-id=3D"0" data-hs-link-id-v2=3D"qjPJqCop" target=3D"_blan=
+k">Manage preferences</a>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div></div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://email.groq.com/e3t/Cto/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Km=
+r2q61cvyW1xTZ7Q5KmdVfW8063R13D0tYl1p2" alt=3D"" width=3D"1" height=3D"1" bo=
+rder=3D"0" style=3D"display:none!important;min-height:1px!important;width:1=
+px!important;border-width:0!important;margin-top:0!important;margin-bottom:=
+0!important;margin-right:0!important;margin-left:0!important;padding-top:0!=
+important;padding-bottom:0!important;padding-right:0!important;padding-left=
+:0!important"></body></html>
+------=_Part_14711994_277617180.1770736103496--
+

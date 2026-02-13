@@ -1,0 +1,201 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:aa6:c562:0:b0:32c:edb1:367e with SMTP id z2csp334797lkp;
+        Fri, 13 Feb 2026 09:33:21 -0800 (PST)
+X-Received: by 2002:a05:6a21:8982:b0:394:782d:5ef2 with SMTP id adf61e73a8af0-394782e1463mr1432532637.23.1771004001123;
+        Fri, 13 Feb 2026 09:33:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1771004001; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CMo1mFF/x6k//e15vk2QTdWXLCvGz9T3LWFYhg8bveuvgduLOlRenB6IcJbWKlB+0T
+         Dq00BJ7diznQDEoGcE3QqfHW7Cng5A5edmbHmYjx/yqJPvaCggIlFJ7mymjAluX1va86
+         SYetHvNm40wKiM/y1mfszvDw5dWdQTHchPi6CZswBIbUYhYl4SnuW5z/noooqqJWWrtJ
+         M95/e4bhRs1ZNXHxhdzTt4c8zYW+QbeI5CKwVoHZ3/FhemlQh9ZI1oLNSDbxSX5mPUI2
+         Nzsh65wSy0DL1X9gtYnw6pGKJg92BGvGQ3PtB3b2TEcDj8ww43zsjJ2T9Wvg4OmT/Clc
+         +o9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:message-id:gmsai:reachouttracker:feedback-id:date
+         :mime-version:dkim-signature;
+        bh=Y10drTk9c/kE46+96x47nlDSveGrm2SfLIxWfw03CrE=;
+        fh=zQESs4crjtfCBxx3KsW4t1Cb/XBBR9z3t42nluLz+ng=;
+        b=PNFAJXOdHOETAxAdpuEbrOhPTUlPAQypR1rMwxO4+ssfovo5QY+zsw6gqyNzvGQx1O
+         F5QNOcKwVIjIOUoiE16ky13KcFPpgGIVkAWLxMdATT6j/lsy0pNON6BCE0ovVvvjpxfz
+         pHT0RGPA/tcn6yJgb/jyLf2bf4zebKt12z5z+OoTeydNQUgFbozZ3KROnHzAHvEDQZpq
+         7Bwp5bIIs9u5axu6Ctd9yoEIvsfNR7kgf2ftFIM31U98w+09BDeLOkLitC6KF/IEu/91
+         kzpy7YXZwfeoQLIC7Es0k+wcFfbkzTA5AtAFN972B/i0nTVuehPlbgOhnxuVpkUyGiet
+         xeWQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Q7RBK6mT;
+       spf=pass (google.com: domain of 3ygcpaqgtd7eef-ivgcprttflekj.xffxcv.tfdirwrvcwvczoivdpxdrzc.tfd@identity-reachout.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3YGCPaQgTD7Eef-iVgcpRTTflekj.XffXcV.TfdiRWRVcWVcZoiVdpXdRZc.Tfd@identity-reachout.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3YGCPaQgTD7Eef-iVgcpRTTflekj.XffXcV.TfdiRWRVcWVcZoiVdpXdRZc.Tfd@identity-reachout.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 41be03b00d2f7-c6e40dff265sor1057033a12.11.2026.02.13.09.33.20
+        for <rafaelfelixremy@gmail.com>
+        (Google Transport Security);
+        Fri, 13 Feb 2026 09:33:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3ygcpaqgtd7eef-ivgcprttflekj.xffxcv.tfdirwrvcwvczoivdpxdrzc.tfd@identity-reachout.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=Q7RBK6mT;
+       spf=pass (google.com: domain of 3ygcpaqgtd7eef-ivgcprttflekj.xffxcv.tfdirwrvcwvczoivdpxdrzc.tfd@identity-reachout.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3YGCPaQgTD7Eef-iVgcpRTTflekj.XffXcV.TfdiRWRVcWVcZoiVdpXdRZc.Tfd@identity-reachout.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=accounts.google.com; s=20230601; t=1771004000; x=1771608800; dara=google.com;
+        h=to:from:subject:message-id:gmsai:reachouttracker:feedback-id:date
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y10drTk9c/kE46+96x47nlDSveGrm2SfLIxWfw03CrE=;
+        b=Q7RBK6mTorU1AoOdaiLWJsYrzbP6opLKVzW1bp9yhIKN9gSDvIlvEsIM2e0AdmIQkO
+         vDbW1xQybc+ZAeS/Aih7B/3q8j2ckrZ3Keglt5qoigcAvtfMOhbfo3ZnIPaQ6nbTY1An
+         0izvtqgM6pjIcu7S5r5EEHcmJ+FO8myulpo9RXw0eTFrqhbItDc383p+1+NCI5TdEaZW
+         I41pjaOo9lELdwu9zDj5Tz2AMI9HRaJze+l0B7KI+6s0D2HDVbRA+K663Du4UnQC0Re2
+         FXSsrf5yhOQWxduFnxzHzAB5L/pBG+uyZ6IaXycmiJL5gSXThJc8sJ9fO7N1P0dOhegO
+         +5Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1771004000; x=1771608800;
+        h=to:from:subject:message-id:gmsai:reachouttracker:feedback-id:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y10drTk9c/kE46+96x47nlDSveGrm2SfLIxWfw03CrE=;
+        b=Yvh5h3015pb2zyDGGV6CwneVbi8vMe8uRz3EyBbLHOYSWg28nhMXTN8TB9cNaw+YIp
+         J6JD9pXtBRqcykpEIiiyA3m8Pe5HyHu0POTKpa2+srH0zGVByQQHLz985O1VyR6qkZ7s
+         aBruABYYVY5iHUgEBzOgKldWj+qpH/9Iy5eUBBdY7guQmmykIwGh464GYMX8drfHfzn4
+         HgKaIwet5CtYGpzstHJITvjORO2R8eYAQjhY6nqJ8iCLoExQPNBUsiP0KDStYdD9w+hz
+         wWLZ/lYJKSe6Ry1NixTMSwEh+ZJfGzs4DnomcEzduH3Xc9AaXrvA8idBQZnhaH9ItLJs
+         D1Kg==
+X-Gm-Message-State: AOJu0YxTp+zUTK5X8Vcswcw7AF3nnVQFNuScYKYBmMTqFg1Ti2Xd4m1f
+	zTAawN5NtI/+2w2Mox+jEUi5XO6fbx+AR9T9l2yPjFfqnOCD3FGePZ0g/KZ12Sl6oLwBY69sN5N
+	5lZSrU79PpNUHXfekvNLIQGyp24h1bLBLZAGDBuE0rUH+VCYhs3+yREs2Yz81vxhMbGyvqmbljj
+	yKL9BRvyPVpVlOv4g=
+MIME-Version: 1.0
+X-Received: by 2002:a17:90b:28c4:b0:356:24f0:aef6 with SMTP id
+ 98e67ed59e1d1-356a7a4315cmr2757463a91.22.1771004000310; Fri, 13 Feb 2026
+ 09:33:20 -0800 (PST)
+Date: Fri, 13 Feb 2026 17:33:19 GMT
+X-Account-Notification-Type: 16-RECOVERY
+Feedback-ID: 16-RECOVERY:account-notifier
+ReachoutTracker: AZwqESZwbf4KLACZysZTRshaU1jqiovrPdQi4pdgqe6U9FhP2fSedp+iJNT2ZSclI/xKseim0pUUd4ZW5V+MDeMeICdHQq0=
+gmsai: true
+X-Notifications: 359e8b56f7960000
+X-Notifications-Bounce-Info: AXZ5ntoyw1n62Cdo7jaoC9S_IooYY-P_auHg-SLnm-qY0-ZJFZ9L2cpXVoHRPermhMD_NgZiEeWjMtJFlM4KeyPwL7lhsAeNse4SYmnWv0cjjKLDRmvNLhue_0LzUf6wZkBHyU7v1QuD6VvnhTHRfeO3-Z0S5ooaOXlHVe7886SqkwT-OvdWpKgFTCBEZ9TZfCur-3ZwcqGOPwQf_TLZcqrCknkrboeofpj4_nnNmwMeInMNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <jjknZFo8vc6zMNxyJzK9uQ@notifications.google.com>
+Subject: Security alert for fortschritt24.kontakt@gmail.com
+From: Google <no-reply@accounts.google.com>
+To: rafaelfelixremy@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000559da8064ab800b2"
+
+--000000000000559da8064ab800b2
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+VGhpcyBpcyBhIGNvcHkgb2YgYSBzZWN1cml0eSBhbGVydCBzZW50IHRvIGZvcnRzY2hyaXR0MjQu
+a29udGFrdEBnbWFpbC5jb20uDQpyYWZhZWxmZWxpeHJlbXlAZ21haWwuY29tIGlzIHRoZSByZWNv
+dmVyeSBlbWFpbCBmb3IgdGhpcyBhY2NvdW50LiBJZiB5b3UNCmRvbid0IHJlY29nbml6ZSB0aGlz
+IGFjY291bnQsIHJlbW92ZQ0KPGh0dHBzOi8vYWNjb3VudHMuZ29vZ2xlLmNvbS9BY2NvdW50RGlz
+YXZvdz9hZHQ9QU9YOGtpcWhVSmdCTGt6cVRkbzNnZTg2WkUxMlMweHo5MFBpaTRTaGxMN09KcDVi
+N2Rmcks4cmw0WDdXQkpIWWhtQnk4S2JzJnJmbj0xNj4NCml0Lg0KW2ltYWdlOiBHb29nbGVdDQoy
+LVN0ZXAgVmVyaWZpY2F0aW9uIHR1cm5lZCBvbg0KDQoNCmZvcnRzY2hyaXR0MjQua29udGFrdEBn
+bWFpbC5jb20NCg0KWW91ciBHb29nbGUgQWNjb3VudCBmb3J0c2Nocml0dDI0LmtvbnRha3RAZ21h
+aWwuY29tIGlzIG5vdyBwcm90ZWN0ZWQgd2l0aA0KMi1TdGVwIFZlcmlmaWNhdGlvbi4gV2hlbiB5
+b3Ugc2lnbiBpbiBvbiBhIG5ldyBvciB1bnRydXN0ZWQgZGV2aWNlLCB5b3XigJlsbA0KbmVlZCB5
+b3VyIHNlY29uZCBmYWN0b3IgdG8gdmVyaWZ5IHlvdXIgaWRlbnRpdHkuDQoNCipEb24ndCBnZXQg
+bG9ja2VkIG91dCEqDQpZb3UgY2FuIGFkZCBhIGJhY2t1cCBwaG9uZSBvciBnZXQgYmFja3VwIGNv
+ZGVzIHRvIHVzZSB3aGVuIHlvdSBkb27igJl0IGhhdmUNCnlvdXIgc2Vjb25kIGZhY3RvciB3aXRo
+IHlvdS4NCllvdSBjYW4gcmV2aWV3IHlvdXIgMlNWIHNldHRpbmdzDQo8aHR0cHM6Ly9hY2NvdW50
+cy5nb29nbGUuY29tL0FjY291bnRDaG9vc2VyP0VtYWlsPWZvcnRzY2hyaXR0MjQua29udGFrdEBn
+bWFpbC5jb20mY29udGludWU9aHR0cHM6Ly9teWFjY291bnQuZ29vZ2xlLmNvbS9zaWduaW5vcHRp
+b25zL3R3b3N2P3JmbiUzRDE2JTI2cmZuYyUzRDElMjZlaWQlM0QtODY4MTA3MjYyMDYyNjgxNjc3
+OCUyNmV0JTNEMT4NCnRvIG1ha2UgY2hhbmdlcy4NCllvdSBjYW4gYWxzbyBzZWUgc2VjdXJpdHkg
+YWN0aXZpdHkgYXQNCmh0dHBzOi8vbXlhY2NvdW50Lmdvb2dsZS5jb20vbm90aWZpY2F0aW9ucw0K
+WW91IHJlY2VpdmVkIHRoaXMgZW1haWwgdG8gbGV0IHlvdSBrbm93IGFib3V0IGltcG9ydGFudCBj
+aGFuZ2VzIHRvIHlvdXINCkdvb2dsZSBBY2NvdW50IGFuZCBzZXJ2aWNlcy4NCsKpIDIwMjYgR29v
+Z2xlIElyZWxhbmQgTHRkLiwgR29yZG9uIEhvdXNlLCBCYXJyb3cgU3RyZWV0LCBEdWJsaW4gNCwg
+SXJlbGFuZA0K
+--000000000000559da8064ab800b2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en"><head><meta name=3D"format-detection" cont=
+ent=3D"email=3Dno"/><meta name=3D"format-detection" content=3D"date=3Dno"/>=
+<style nonce=3D"2QmIt1OhgJKXomwqBfBFpw">.awl a {color: #FFFFFF; text-decora=
+tion: none;} .abml a {color: #000000; font-family: Roboto-Medium,Helvetica,=
+Arial,sans-serif; font-weight: bold; text-decoration: none;} .adgl a {color=
+: rgba(0, 0, 0, 0.87); text-decoration: none;} .afal a {color: #b0b0b0; tex=
+t-decoration: none;} @media screen and (min-width: 600px) {.v2sp {padding: =
+6px 30px 0px;} .v2rsp {padding: 0px 10px;}} @media screen and (min-width: 6=
+00px) {.mdv2rw {padding: 40px 40px;}} </style><link href=3D"//fonts.googlea=
+pis.com/css?family=3DGoogle+Sans" rel=3D"stylesheet" type=3D"text/css" nonc=
+e=3D"2QmIt1OhgJKXomwqBfBFpw"/></head><body style=3D"margin: 0; padding: 0;"=
+ bgcolor=3D"#FFFFFF"><table width=3D"100%" height=3D"100%" style=3D"min-wid=
+th: 348px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" lang=3D"en"><t=
+r height=3D"32" style=3D"height: 32px;"><td></td></tr><tr align=3D"center">=
+<td><div itemscope itemtype=3D"//schema.org/EmailMessage"><div itemprop=3D"=
+action" itemscope itemtype=3D"//schema.org/ViewAction"><link itemprop=3D"ur=
+l" href=3D"https://accounts.google.com/AccountChooser?Email=3Dfortschritt24=
+.kontakt@gmail.com&amp;continue=3Dhttps://myaccount.google.com/signinoption=
+s/twosv?rfn%3D16%26rfnc%3D1%26eid%3D-8681072620626816778%26et%3D1"/><meta i=
+temprop=3D"name" content=3D"Review Activity"/></div></div><table border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0" style=3D"padding-bottom: 20px; max-w=
+idth: 516px; min-width: 220px;"><tr><td width=3D"8" style=3D"width: 8px;"><=
+/td><td><div style=3D"background-color: #F5F5F5; direction: ltr; padding: 1=
+6px;margin-bottom: 6px;"><table width=3D"100%" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align: top;"><img hei=
+ght=3D"20" src=3D"https://www.gstatic.com/accountalerts/email/Icon_recovery=
+_x2_20_20.png"></td><td width=3D"13" style=3D"width: 13px;"></td><td style=
+=3D"direction: ltr;"><span style=3D"font-family: Roboto-Regular,Helvetica,A=
+rial,sans-serif; font-size: 13px; color: rgba(0,0,0,0.87); line-height: 1.6=
+; color: rgba(0,0,0,0.54);">This is a copy of a security alert sent to <a s=
+tyle=3D"text-decoration: none; color: rgba(0,0,0,0.87);">fortschritt24.kont=
+akt@gmail.com</a>. <a style=3D"text-decoration: none; color: rgba(0,0,0,0.8=
+7);">rafaelfelixremy@gmail.com</a> is the recovery email for this account.<=
+/span> <span><span style=3D"font-family: Roboto-Regular,Helvetica,Arial,san=
+s-serif; font-size: 13px; color: rgba(0,0,0,0.87); line-height: 1.6; color:=
+ rgba(0,0,0,0.54);">If you don't recognize this account, <a href=3D"https:/=
+/accounts.google.com/AccountDisavow?adt=3DAOX8kiqhUJgBLkzqTdo3ge86ZE12S0xz9=
+0Pii4ShlL7OJp5b7dfrK8rl4X7WBJHYhmBy8Kbs&amp;rfn=3D16" data-meta-key=3D"disa=
+vow" style=3D"text-decoration: none; color: #4285F4;" target=3D"_blank">rem=
+ove</a> it.</span></span></td></tr></tbody></table></div><div style=3D"bord=
+er-style: solid; border-width: thin; border-color:#dadce0; border-radius: 8=
+px; padding: 40px 20px;" align=3D"center" class=3D"mdv2rw"><img src=3D"http=
+s://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.=
+png" width=3D"74" height=3D"24" aria-hidden=3D"true" style=3D"margin-bottom=
+: 16px;" alt=3D"Google"><div style=3D"font-family: &#39;Google Sans&#39;,Ro=
+boto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom: thin solid #dadc=
+e0; color: rgba(0,0,0,0.87); line-height: 32px; padding-bottom: 24px;text-a=
+lign: center; word-break: break-word;"><div style=3D"font-size: 24px;">2-St=
+ep Verification turned on </div><table align=3D"center" style=3D"margin-top=
+:8px;"><tr style=3D"line-height: normal;"><td align=3D"right" style=3D"padd=
+ing-right:8px;"><img width=3D"20" height=3D"20" style=3D"width: 20px; heigh=
+t: 20px; vertical-align: sub; border-radius: 50%;;" src=3D"https://lh3.goog=
+leusercontent.com/a/ACg8ocIX9oZqTFhOrxUwxPAmcKPjz1Lik5vcC0RAqi_Mtm80g0Zc1n0=
+=3Ds96-c" alt=3D""></td><td><a style=3D"font-family: &#39;Google Sans&#39;,=
+Roboto,RobotoDraft,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.87); font=
+-size: 14px; line-height: 20px;">fortschritt24.kontakt@gmail.com</a></td></=
+tr></table> </div><div style=3D"font-family: Roboto-Regular,Helvetica,Arial=
+,sans-serif; font-size: 14px; color: rgba(0,0,0,0.87); line-height: 20px;pa=
+dding-top: 20px; text-align: left;"><p>Your Google Account fortschritt24.ko=
+ntakt@gmail.com is now protected with 2-Step Verification. When you sign in=
+ on a new or untrusted device, you=E2=80=99ll need your second factor to ve=
+rify your identity.</p><p><b>Don't get locked out!</b><br>You can add a bac=
+kup phone or get backup codes to use when you don=E2=80=99t have your secon=
+d factor with you.</p>You can <a href=3D"https://accounts.google.com/Accoun=
+tChooser?Email=3Dfortschritt24.kontakt@gmail.com&amp;continue=3Dhttps://mya=
+ccount.google.com/signinoptions/twosv?rfn%3D16%26rfnc%3D1%26eid%3D-86810726=
+20626816778%26et%3D1" style=3D"text-decoration: none; color: #4285F4;" targ=
+et=3D"_blank">review your 2SV settings</a>  to make changes.</div><div styl=
+e=3D"padding-top: 20px; font-size: 12px; line-height: 16px; color: #5f6368;=
+ letter-spacing: 0.3px; text-align: center">You can also see security activ=
+ity at<br><a href=3D"https://myaccount.google.com/notifications" style=3D"t=
+ext-decoration: none; color: #4285F4;" target=3D"_blank">https://myaccount.=
+google.com/notifications</a></div></div><div style=3D"text-align: left;"><d=
+iv style=3D"font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: r=
+gba(0,0,0,0.54); font-size: 11px; line-height: 18px; padding-top: 12px; tex=
+t-align: center;"><div>You received this email to let you know about import=
+ant changes to your Google Account and services.</div><div style=3D"directi=
+on: ltr;">&copy; 2026 Google Ireland Ltd., <a class=3D"afal" style=3D"font-=
+family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); =
+font-size: 11px; line-height: 18px; padding-top: 12px; text-align: center;"=
+>Gordon House, Barrow Street, Dublin 4, Ireland</a></div></div></div></td><=
+td width=3D"8" style=3D"width: 8px;"></td></tr></table></td></tr><tr height=
+=3D"32" style=3D"height: 32px;"><td></td></tr></table></body></html>
+--000000000000559da8064ab800b2--

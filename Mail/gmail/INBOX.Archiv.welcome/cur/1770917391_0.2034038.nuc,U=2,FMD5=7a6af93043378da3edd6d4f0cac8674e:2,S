@@ -1,0 +1,74 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:aa6:cd17:0:b0:32a:4738:12e with SMTP id i23csp653649lkb;
+        Tue, 10 Feb 2026 07:56:13 -0800 (PST)
+X-Received: by 2002:a05:620a:2697:b0:8b2:dd0a:8809 with SMTP id af79cd13be357-8caf1cc1a6bmr2008067085a.89.1770738972861;
+        Tue, 10 Feb 2026 07:56:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770738972; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SXlhAYsv2strPDdGbLRqo+Wcjzmad8lfdXpxgwUImN1cC32NPhBcCiupjStHqk4Xor
+         ChNiK1eGcOPVigisXc5Dpi5i2StB766x5IlX00QxVrthVVDANGXtFoJXyG+5gU7Xamfe
+         EqPgJKCPCYf9NWSIpuubhIOSpa7SOqju+nXRKMkkShe72BXwFv6AADTCrEo7kMnPRH3d
+         3E2Aivh/Ll+ZkDWL3dSZqgda/u+P8tQgNTa2Qb4uKTkv+c1nmAqCdxV3n5dVXNd5Wxo6
+         KjYeU+5T66ynV3i3W7dPppbB9devpDRDMA7h5lCEwbIuGsYoVf/UYi5b9JLqz7IU1Hug
+         j4Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=OSTEQoqiq9F72wS5YtZh0G9v5KatQ9BKDkckWTij7BE=;
+        fh=zKIzEmWTkFnEE08wGpllB54WBySs825UOVOLgmIK/ns=;
+        b=J7tRHk43YAAYslymZPeNQ2TfyhCVApdFi6rPXH3MDmyriP+m+U2NRHbG4qqgJP8d1R
+         Q8Txg44fdc8q3aIsZSfCJltpis9NBj+1lDV8fjyKNCmdXgb1/G/0oJCPFC8yVygmypAP
+         cxSGhtPSnFezW4EIiE+CPqKodzhpUT5pbLhFeAlBQprpkoJyFZjEyHL1yl5yPpmguNei
+         jS8EoSgNzMnLlGWcmoTNdqvdo5mydmJhgo94XdAlc7sVkNPGBsRuuhBFYfolX2lf//Mc
+         enU8BeI3lACpq7SnMFDu5iGs/qLGx3v7A4fIACehti1EfMYvJMvIXlvuDRL9k+i92/Ha
+         NXcw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=hKUj0jOe;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-27.smtp.github.com (out-27.smtp.github.com. [192.30.252.210])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8954c198992si95856116d6.255.2026.02.10.07.56.12
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Feb 2026 07:56:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) client-ip=192.30.252.210;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=hKUj0jOe;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-2d14c13.ash1-iad.github.net [10.56.80.26])
+	by smtp.github.com (Postfix) with ESMTPA id 1BE9C6005D6
+	for <rafaelfelixremy@gmail.com>; Tue, 10 Feb 2026 07:56:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1770738972;
+	bh=OSTEQoqiq9F72wS5YtZh0G9v5KatQ9BKDkckWTij7BE=;
+	h=Date:From:To:Subject:From;
+	b=hKUj0jOeW/DbDb9stZLNkRyz7hoLMpTu/a6LIawfaab7HJf82xNz+57Pp2OWuGnye
+	 emjZJHg5pYCUOLTwBfmgmMJpC2Eq0XEcaeNhAo5/I1gtSTues1XeHLhYvnpywOyMOk
+	 rxHateFeL8KkLcEITqnQ+zxMyJWp/GuU4q0imKMA=
+Date: Tue, 10 Feb 2026 07:56:11 -0800
+From: GitHub <noreply@github.com>
+To: safrano9999 <rafaelfelixremy@gmail.com>
+Message-ID: <698b551beac95_ba113819580f@sharedworker-7cfb4dd4cc-7kswt.mail>
+Subject: [GitHub] A third-party OAuth application has been added to your
+ account
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Auto-Response-Suppress: All
+
+Hey safrano9999!
+
+A third-party OAuth application (Netdata Cloud) with read:user and user:email scopes was recently authorized to access your account.
+Visit https://github.com/settings/connections/applications/56abb21b06399422e13d for more information.
+
+To see this and other security events for your account, visit https://github.com/settings/security-log
+
+If you run into problems, please contact support by visiting https://github.com/contact
+
+Thanks,
+The GitHub Team
+

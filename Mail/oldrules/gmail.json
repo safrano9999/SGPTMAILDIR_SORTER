@@ -1,0 +1,17 @@
+{
+  "account": "gmail",
+  "model": "gpt-4o-mini",
+  "rules_file": "/home/rafael/OPENCLAW_FUNKTIONEN/Emails_Openai_07.txt",
+  "filter_db": "/home/rafael/OPENCLAW_FUNKTIONEN/Filter_Emails_DB.txt",
+  "dest_map": {
+    "archiv_agb": "INBOX.Archiv.AGB",
+    "archiv_bezahlt": "INBOX.Archiv.bezahlt",
+    "freitag": "INBOX.Freitag",
+    "loeschen": "INBOX.loeschen",
+    "welcome": "INBOX.Archiv.welcome",
+    "system": "INBOX.Archiv.Systemmeldungen",
+    "kommunikation": "INBOX.Archiv.Kommunikation",
+    "newsletter": "INBOX.Archiv.newsletter",
+    "uncertain": "INBOX.sort_ai_uncertain"
+  }
+}

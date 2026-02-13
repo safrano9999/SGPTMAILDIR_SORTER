@@ -1,0 +1,202 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp876143lka;
+        Thu, 12 Feb 2026 09:39:11 -0800 (PST)
+X-Received: by 2002:a2e:bea0:0:b0:383:173e:e872 with SMTP id 38308e7fff4ca-38711c1f36bmr10814111fa.7.1770917951398;
+        Thu, 12 Feb 2026 09:39:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770917951; cv=none;
+        d=google.com; s=arc-20240605;
+        b=H2oRuXFpqwSf+lsW9z/V7/C6n50eLY+NFa+SAAIraFE/mpYdvegCNZJSnoGffmUhQV
+         ngbLYZyS4GJl39Khbea46ELB9dje9GnTLV+nYNNkF0i9IR9hzz2Tfa86cun8mbVl5RCA
+         t3fSqtg8J8WCXn8drVYyOsarzlwAgxEiZmQOEIYeamiRKqIwrPzkthO3SUSkW5zRbAOv
+         Xmpa2D0yBRmrcWBMQqymhqAitJ3vnTRmYJlDjf70zYS9Ucf+7AdZXqjKSMQ3xQNuNF7o
+         YwWdP4moPqB5AJOfmINtEDoFjhk/lLH2RO0z0vyjm2aflArs+UuDOecm6fQHEpt7OK5x
+         X/6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=subject:date:from:message-id:to:list-unsubscribe
+         :list-unsubscribe-post:reply-to:content-transfer-encoding
+         :mime-version:dkim-signature;
+        bh=wIga5+ApzmkB4/u/eancqyI7RdzUwm2qEbf9RitlTnM=;
+        fh=14Owj4MeubwBQ8jcbl0xJL6fb0LhG37FiQVbbkcxEZs=;
+        b=YjXdeLb/fwFgHe4e/lTrMcS5lcGMgkj984VN5Z430NYzNSBjbhl/NdGpsnnBSkwgM0
+         yEk6Hq46O2p1E2YWODkcGK3k/YMdaG5WIbCMh4uAuCZ0CwyUjXPya6yngiqsZtC1aUA4
+         buhsG6+ONIHKVjtSMtp7I8vmUSlFxR8o3kv/WbcH9AbpyIzkYH9X4pH+APMu85e4fFYy
+         ZYgRe7nGBuztbRE4/V0pRlf28R+VQMIr/7yFJG6aSN/AEMS0KTPzjO1N/JfCe6RVW2aa
+         IXf3Fc4HgwJ6ZgzKiXXJDGe5YLj19cJF4G7swfaSsPLT97eCcwJt8FIiS/CJ9xIxCuCE
+         peZw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cobratate.com header.s=trw header.b=hijka8r2;
+       spf=pass (google.com: domain of bounces@cobratate.com designates 95.217.34.144 as permitted sender) smtp.mailfrom=bounces@cobratate.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cobratate.com
+Return-Path: <bounces@cobratate.com>
+Received: from mxs-fi3.therealworld.ag (mxs-fi3.therealworld.ag. [95.217.34.144])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-3870689b100si21417731fa.124.2026.02.12.09.39.11
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 09:39:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces@cobratate.com designates 95.217.34.144 as permitted sender) client-ip=95.217.34.144;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cobratate.com header.s=trw header.b=hijka8r2;
+       spf=pass (google.com: domain of bounces@cobratate.com designates 95.217.34.144 as permitted sender) smtp.mailfrom=bounces@cobratate.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cobratate.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=trw; d=cobratate.com;
+ h=Mime-Version:Content-Type:Content-Transfer-Encoding:Reply-To:
+ List-Unsubscribe-Post:List-Unsubscribe:To:Message-Id:From:Date:Subject;
+ i=tate@cobratate.com;
+ bh=wIga5+ApzmkB4/u/eancqyI7RdzUwm2qEbf9RitlTnM=;
+ b=hijka8r2xfkuwHcGmWq5pfYunH+KARVqJeyi/CbNGRhWm+t9dUJ4390xjBSzQ9/lr/C7j2rHgqT9
+   v66I2XerCzEExEBqpxmW+SRfsIpMU1zb5laQkG4wZAl3Gh2i9u6emw7Y0QrlB3ccp781EP/dqqHQ
+   hRIL0V8P0gjUPdi6LFHxIa85aNAItvnMNA0rqmXNG4q3WtBSN3roH1DoqggGGaWRUC9NIc8v0BuW
+   tuFSW78Gmtk3Bea/aOLXZw6X23eAr0E8z+/lrjXLNwccfmti3MH/59GBiwEFDq6yqfmWCwSJWGbV
+   g7m0cj0T+OJaFk0CdN0u5+ga0VsIe9vtP1CkMQ==
+Mime-Version: 1.0
+X-Listmonk-Subscriber: 28a53287-4b6a-4d4a-9a6d-50e992912040
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Reply-To: tate@cobratate.com
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://listmonk.cobratate.com/subscription/86ffa1c4-8bdb-4841-aaf8-84bf5a0148f8/28a53287-4b6a-4d4a-9a6d-50e992912040>
+X-Listmonk-Campaign: 86ffa1c4-8bdb-4841-aaf8-84bf5a0148f8
+To: <rafaelfelixremy@gmail.com>
+Message-Id: <1770917935800661939.1.2112303333357189069@00d6dfa61247>
+From: "Andrew Tate" <tate@cobratate.com>
+Date: Thu, 12 Feb 2026 17:38:55 +0000
+Subject: Life.
+
+<!doctype html>
+<html>
+    <head>
+        <title>Life.</title>
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Du=
+tf-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sc=
+ale=3D1, minimum-scale=3D1">
+        <base target=3D"_blank">
+        <style>
+            body {
+                background-color: #F0F1F3;
+                font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, sans-=
+serif;
+                font-size: 15px;
+                line-height: 26px;
+                margin: 0;
+                color: #444;
+            }
+
+            pre {
+                background: #f4f4f4f4;
+                padding: 2px;
+            }
+
+            table {
+                width: 100%;
+                border: 1px solid #ddd;
+            }
+            table td {
+                border-color: #ddd;
+                padding: 5px;
+            }
+
+            .wrap {
+                background-color: #fff;
+                padding: 30px;
+                max-width: 525px;
+                margin: 0 auto;
+                border-radius: 5px;
+            }
+
+            .button {
+                background: #0055d4;
+                border-radius: 3px;
+                text-decoration: none !important;
+                color: #fff !important;
+                font-weight: bold;
+                padding: 10px 30px;
+                display: inline-block;
+            }
+            .button:hover {
+                background: #111;
+            }
+
+            .footer {
+                text-align: center;
+                font-size: 12px;
+                color: #888;
+            }
+                .footer a {
+                    color: #888;
+                    margin-right: 5px;
+                }
+
+            .gutter {
+                padding: 30px;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            a {
+                color: #0055d4;
+            }
+                a:hover {
+                    color: #111;
+                }
+            @media screen and (max-width: 600px) {
+                .wrap {
+                    max-width: auto;
+                }
+                .gutter {
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+<body style=3D"background-color: #F0F1F3;font-family: 'Helvetica Neue', 'Se=
+goe UI', Helvetica, sans-serif;font-size: 15px;line-height: 26px;margin: 0;=
+color: #444;">
+    <div class=3D"wrap" style=3D"background-color: #fff;padding: 30px;max-w=
+idth: 525px;margin: 0 auto;border-radius: 5px;">
+        <p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; fon=
+t-family: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">Yo=
+u can not preach antifragility.=C2=A0</span></p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">If you're =
+not anti-fragile.=C2=A0</span></p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">To pick yo=
+urself up off the ground, from 0 and start again.=C2=A0</span></p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">Some men d=
+o this with a smile.=C2=A0</span></p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">Life is wa=
+r.=C2=A0</span></p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">You must f=
+ight.</span></p>
+<p style=3D"line-height: 1.5;">=C2=A0</p>
+<p style=3D"line-height: 1.5;"><span style=3D"font-weight: 400; font-family=
+: verdana, geneva, sans-serif; font-size: 16px; color: #3c3c3c;">- Tate</sp=
+an></p>
+<p style=3D"line-height: 1.5;"><br style=3D"font-weight: 400;" /><br style=
+=3D"font-weight: 400;" /></p>
+    </div>
+   =20
+    <div class=3D"footer" style=3D"text-align: center;font-size: 12px;color=
+: #888; padding-top: 12px;">
+                <br/>
+         <p>
+            Don&#39;t want to receive these e-mails?
+
+            <a href=3D"https://mail-signup.cobratate.com?action=3Dunsubscri=
+be&id=3D28a53287-4b6a-4d4a-9a6d-50e992912040" style=3D"color: #888;">Unsubs=
+cribe</a>
+        </p>
+    </div>
+    <div class=3D"gutter" style=3D"padding: 30px;">&nbsp;<img src=3D"https:=
+//listmonk.cobratate.com/campaign/86ffa1c4-8bdb-4841-aaf8-84bf5a0148f8/28a5=
+3287-4b6a-4d4a-9a6d-50e992912040/px.png" alt=3D"" /></div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp842665lka;
+        Thu, 12 Feb 2026 08:55:02 -0800 (PST)
+X-Received: by 2002:a05:620a:7113:b0:8a3:cd9e:e404 with SMTP id af79cd13be357-8cb33171c4fmr401003885a.68.1770915301801;
+        Thu, 12 Feb 2026 08:55:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770915301; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QLSal27JizxvSgKCxJXU9LAEkXM3UyaNgy2fp174Y0Xj/GbPHWKhtFF6Xib8TFH/u3
+         yYG3yBLaq5mSgQVBtN83KH90yrFCmH6iZCVwLSnpnBsjKEbcH6JPurpJ0WfsO3nx8meR
+         2aiiqJsb8lPsTjLFNpj/rBZU08RORjAjfbqKV1nMh1FOsO91Z8u0pAYQnRuqzcKiuPoq
+         vTthjHjRQyuoctsJjiu9uECXuOgXZsOvMl+EWeZHy9BaYruUx4qXBf/UQp9bfOt19qiu
+         gFTWYuwAq6rHmYeYWpLjrJBBtMLJ1RDVxfgFj8w8Deug9lOdJbiSBmBoU6FwS149Q+Tx
+         dR7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:message-id:reply-to:to:from:subject
+         :mime-version:date:sender:dkim-signature:dkim-signature;
+        bh=Vn6sXLJW2JgF0fAji3cGZ2v0OclFfSdmVYx7V+XzHEQ=;
+        fh=zQESs4crjtfCBxx3KsW4t1Cb/XBBR9z3t42nluLz+ng=;
+        b=TEwXuvEAIsVn5xAIylkPX0hTEBeM8wdyJWY+fic6xZaZ5d/kj4lVeyAWLvugV0J0Kb
+         dxdAFYceqIQF/ZhwTsa6s8efZXKuzhKKO5v42gCW3uai7oXZ8mSI+WU0vGHS1l8EchNt
+         IimdG6o5b0WrtyXhnq3fUWsSg7iGwboDI6P85qooM4g6u5uRXNhXFNolPIvVtXzQjuUB
+         YfNY5PJBWMvZNAQTxf/SFqy6ZsQ+M+cAXGa9N4OjgMmXlD7jDeYRXN1RUX97b/9gpBjj
+         UqGM71cGL+7JepMPqFiAUfLrBvX28Xh204xdHEk84/u4kl6LGDIcdVNwPDwghYskNkGp
+         JgjQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tm1.openai.com header.s=pdk2 header.b=SHgqFwmA;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=mwjNzkmJ;
+       spf=pass (google.com: domain of bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com designates 159.112.244.101 as permitted sender) smtp.mailfrom="bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tm1.openai.com
+Return-Path: <bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com>
+Received: from m244-101.mailgun.net (v5101.v5375b7fa.use4.send.mailgun.net. [159.112.244.101])
+        by mx.google.com with UTF8SMTPS id af79cd13be357-8cb2b1e8116si582856885a.286.2026.02.12.08.55.01
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Feb 2026 08:55:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com designates 159.112.244.101 as permitted sender) client-ip=159.112.244.101;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tm1.openai.com header.s=pdk2 header.b=SHgqFwmA;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=mwjNzkmJ;
+       spf=pass (google.com: domain of bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com designates 159.112.244.101 as permitted sender) smtp.mailfrom="bounce+7e507a.b462b7-rafaelfelixremy=gmail.com@tm1.openai.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=tm1.openai.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=tm1.openai.com; q=dns/txt; s=pdk2; t=1770915300; x=1770922500;
+ h=Content-Type: Content-Transfer-Encoding: Message-Id: Reply-To: To: To: From: From: Subject: Subject: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=Vn6sXLJW2JgF0fAji3cGZ2v0OclFfSdmVYx7V+XzHEQ=;
+ b=SHgqFwmATKcS5TZyXcNQFFzoe3neG/QtHDYDPXw6dPnZZUBVytdbCIVlCVdPQ/V5tWixOlii+Wn+6noHs0DfufkYAYr6EcflLZLvUXyoLDeA/VtuDofnU7Nwlq0tRPTMrOL3Gt2ikOPOn2aA7EtctOeDHBuyaPrDqEy/m8vIEKUYpN0jDHWY6NL4x+aCM0yw6+8El39tqoNW318zXqkZJ0mLAOaC8m7+EAizaX8zTz3gD8EWNtOzuchwgMui59c6Ya65s4NeBE4pGeZkMhdvfEWuAv77Jypa3MoUGMswug7OoFdvP3Ovbr1wpZ2xgGr8HJjkMfFPC8vSjs7jEXb15g==
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1770915300; x=1770922500;
+ h=Content-Type: Content-Transfer-Encoding: Message-Id: Reply-To: To: To: From: From: Subject: Subject: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=Vn6sXLJW2JgF0fAji3cGZ2v0OclFfSdmVYx7V+XzHEQ=;
+ b=mwjNzkmJIhIWJ+e4SDj+N07FzFF9o6FSvrKA6YfdGbZY2Bia00NOsV4mxg5Jz3lYPTv3em0SwdB7H5UbnzzgYBfQWtV7wVofU/IJu+Ju1Lwm7jK0ASx/z/mSc+LS8pUxxQMsbBD5QvIlgCW7U8X4GB/AMd56XhHXuv/vZnSUmvY=
+X-Mailgun-Sid: WyIwNjRkYiIsInJhZmFlbGZlbGl4cmVteUBnbWFpbC5jb20iLCJiNDYyYjciXQ==
+X-Feedback-Id: billing@tm1.openai.com:invoice-payment-receipt-api-credits:688bc5ffeaa327aec196a70f:mailgun
+Received: by c8da5c8fd3f54211475ee3803ddde2be0c3c14aaabfb8b6be23e429e23863bb9 with HTTP
+ id 698e05e4f590eca3229b55d8; Thu, 12 Feb 2026 16:55:00 GMT
+X-Mailgun-Sending-Ip-Pool-Name: transactional emails
+X-Mailgun-Sending-Ip-Pool: 682375dbe1a722357625a2dd
+X-Mailgun-Sending-Ip: 159.112.244.101
+Sender: billing@tm1.openai.com
+Date: Thu, 12 Feb 2026 16:55:00 +0000
+Mime-Version: 1.0
+Subject: Your OpenAI API account has been funded
+From: OpenAI <billing@tm1.openai.com>
+To: rafaelfelixremy@gmail.com
+X-Mailgun-Tag: invoice-payment-receipt-api-credits
+Reply-To: support@openai.com
+Message-Id: <20260212165500.6ee4be4c6eff54e2@tm1.openai.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html; charset=ascii
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Your OpenAI API account has been funded</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  /**
+   * Google webfonts. Recommended to include the .woff version for cross-client compatibility.
+   */
+  @media screen {
+    @font-face {
+      font-family: Colfax;
+      src: url(https://openai-public.s3-us-west-2.amazonaws.com/beta/fonts/ColfaxAIRegular.woff2);
+      font-weight: normal;
+    }
+
+    @font-face {
+      font-family: Colfax;
+      src: url(https://openai-public.s3-us-west-2.amazonaws.com/beta/fonts/ColfaxAIMedium.woff2);
+      font-weight: bold;
+    }
+  }
+
+  /**
+   * Avoid browser level font resizing.
+   * 1. Windows Mobile
+   * 2. iOS / OSX
+   */
+  body,
+  table,
+  td,
+  a {
+    -ms-text-size-adjust: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    font-family: Colfax, Helvetica, Arial, sans-serif;
+  }
+
+  /**
+   * Remove extra space added to tables and cells in Outlook.
+   */
+  table,
+  td {
+    mso-table-rspace: 0pt;
+    mso-table-lspace: 0pt;
+  }
+
+  /**
+   * Better fluid images in Internet Explorer.
+   */
+  img {
+    -ms-interpolation-mode: bicubic;
+  }
+
+  /**
+   * Remove blue links for iOS devices.
+   */
+  a[x-apple-data-detectors] {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /**
+   * Fix centering issues in Android 4.4.
+   */
+  div[style*="margin: 16px 0;"] {
+    margin: 0 !important;
+  }
+
+  body {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /**
+   * Collapse table borders to avoid space between cells.
+   */
+  table {
+    border-collapse: collapse !important;
+  }
+
+  a {
+    color: #10A37F;
+  }
+
+  img {
+    height: auto;
+    line-height: 100%;
+    text-decoration: none;
+    border: 0;
+    outline: none;
+  }
+
+  h1 {
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: 700;
+      margin: 0;
+  }
+  h2 {
+      font-size: 24px;
+      line-height: 1.4;
+      font-weight: 700;
+      margin: 0;
+  }
+  p {
+      margin: 0;
+  }
+  p + p {
+      margin-top: 16px;
+  }
+  </style>
+
+  
+</head>
+<body style="background-color: #ffffff;">
+
+  <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+      
+  </div>
+
+  <!-- start body -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <!-- start body block -->
+    <tr>
+      <td align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+        <tr>
+        <td align="center" valign="top" width="600">
+        <![endif]-->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="width: 560px;background-color:#fff;">
+            <!-- header image -->
+            <tr>
+                <td valign="top" style="padding: 27px 20px 24px 15px;">
+                    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" style="min-width:100%;">
+                        <tbody><tr>
+                            <td valign="top" style="padding-top: 0; padding-bottom: 0; text-align:left;">
+                                <img align="left" alt="" src="https://cdn.openai.com/API/logo-assets/openai-logo-email-header-1.png" width="560" height="168" style="width:140px; max-width:100%; padding-bottom: 0; display: inline !important; vertical-align: bottom;">
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </td>
+            </tr>
+
+          
+<tr>
+    <td align="left" bgcolor="#ffffff" style="padding: 16px 24px; font-size: 16px; line-height: 24px;">
+        
+    <p>Hi there,</p>
+  
+        <p>
+            We charged $5.95 to
+            
+                your credit card ending in 4277
+            
+             to fund your OpenAI API credit balance.
+        </p>
+        <p>
+            You may review your <a href="https://platform.openai.com/account/billing/history?with_org=org-RCsZIbg9OwhyEsq5QBn1DVSa">billing history</a> at any time.
+        </p>
+    </td>
+</tr>
+
+
+
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+      </td>
+    </tr>
+    <!-- end body block -->
+
+    <!-- start footer -->
+    <tr>
+      <td align="center" style="padding: 24px;">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+        <tr>
+        <td align="center" valign="top" width="600">
+        <![endif]-->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px;">
+            
+    <tr>
+        <td align="left" style="padding: 4px 24px; font-size: 13px; line-height: 20px; color: #888;">
+            <p style="margin: 0;">
+                You received this email because you have a paid account with OpenAI<br/>
+                Organization: Personal (org-RCsZIbg9OwhyEsq5QBn1DVSa)
+            </p>
+        </td>
+    </tr>
+
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+      </td>
+    </tr>
+    <!-- end footer -->
+
+  </table>
+  <!-- end body -->
+  <div class="debug-string" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #ececf1; opacity: 0;">
+      
+  </div>
+
+</body>
+</html>

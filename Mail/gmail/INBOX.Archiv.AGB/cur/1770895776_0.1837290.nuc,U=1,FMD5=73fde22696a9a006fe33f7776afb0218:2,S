@@ -1,0 +1,496 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp572297lka;
+        Thu, 12 Feb 2026 01:58:06 -0800 (PST)
+X-Received: by 2002:a05:620a:2911:b0:8c6:a034:9226 with SMTP id af79cd13be357-8cb3319793emr276881785a.82.1770890286337;
+        Thu, 12 Feb 2026 01:58:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770890286; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VBr9bpb7IkydYI1DMe3fyAS47Vbj46Zz7a8Ujg1L9AQLyDvbuzJUfFNdJvQw96vmB7
+         Z331jZwJMtPbKgFIPOkx57LanmyuatfA47drmOaKEiNa7fqh6Jjq8NhGHaAWKax9XLvk
+         GuLpUJLOHsgMEFCgNIeGx+Zm1jLbNUHjsem03fBUZuZABEhjtQ8wu6Lepk/+yM8WuZ1K
+         p0MunJ0oBpQoI+6YIF4Ppd5IyOm0AkkVws2jmmqNLW1fHlxyOQfiGypQAWcsZ1Ux4xgP
+         T9qrj2nQRaofkr6k+/1681QMGNwYUHGYplRB21A7+xoOa7sG6bTDgGBYG6PbmU3Ea0+P
+         ySiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:priority:importance:bimi-selector:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=o1IXwY6u2bAH9zqwABORWRLCDJ9J3eGxIFsiVWBQIEw=;
+        fh=zQESs4crjtfCBxx3KsW4t1Cb/XBBR9z3t42nluLz+ng=;
+        b=QD95nk8k48rdWbBPQbVzfBnSE0RuBD15QELGviTg6FLxeWQ/am6b/rqO7lhJCDyjBd
+         zM0NDq4g/CHMoA+OxGECbqXjBx65jLreIhBgMBx+l5TOUIUObLYnD/q9/jCCNeGlAvIb
+         UIYdnaPsmZ9YQvOAgaj2Kw3uipswphPE/zPsXN3p0PZFbH37UBij19EZPOM3duBSgOei
+         t6RD2Jveg/xwRJ4tAdUKagHI7aJxOGt+igodWVlvyyNCpcbQdeu2LmkvAsNU8U4p39rN
+         7mqPFza+qCtQczcD0ZyHeWHU9nY5XkLCliRoF3wgHcdJS7gPOG+4AH11Uj9f4gWMHv6c
+         Q9Ow==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.airbnb.com header.s=s20150428 header.b=LUpUaSqF;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=hHjnRGSR;
+       spf=pass (google.com: domain of bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com designates 159.183.146.14 as permitted sender) smtp.mailfrom="bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=airbnb.com
+Return-Path: <bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com>
+Received: from o29.email.airbnb.com (o29.email.airbnb.com. [159.183.146.14])
+        by mx.google.com with ESMTPS id 6a1803df08f44-8971cda0014si55485626d6.240.2026.02.12.01.58.05
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Feb 2026 01:58:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com designates 159.183.146.14 as permitted sender) client-ip=159.183.146.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.airbnb.com header.s=s20150428 header.b=LUpUaSqF;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=hHjnRGSR;
+       spf=pass (google.com: domain of bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com designates 159.183.146.14 as permitted sender) smtp.mailfrom="bounces+1453977-61bb-rafaelfelixremy=gmail.com@email.airbnb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=airbnb.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.airbnb.com;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=s20150428; bh=o1IXwY6u2bAH9zqwABORWRLCDJ9J3eGxIFsiVWBQIEw=;
+	b=LUpUaSqF7vEYkj5k+9i+/yyuhwGwMM5yifZTSmUCx7tl72I7Yu2nMTltz5CvN4xHHDmT
+	3qBlAAMSI6080UsuxtE/xFlrMuYruTEYNx7WQerqQBwmMBYzURcnqjDqWAlmJ04FqOXBnR
+	Pnc2oPKBK/URDJxktRB4Cwp6zjpFxB3Kc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:to:cc:content-type:date:
+	feedback-id:from:subject:to;
+	s=smtpapi; bh=o1IXwY6u2bAH9zqwABORWRLCDJ9J3eGxIFsiVWBQIEw=;
+	b=hHjnRGSRttJtkHvi0MBl30g5vHxISQHLzUV56eGUutCgGE01qWWCToYzp8OMXWfkss0S
+	4QpfNfE8G7uIlLYjT/kknRgQ9LdbJTuu8lw6p7Xsioxz4S4f7EAp3grWe0idRFgwqHEaLj
+	jFq9Qe+gQC8uDZXQCKNjmZnBiNt8uE1Bs=
+Received: by recvd-679745df5f-b6rcf with SMTP id recvd-679745df5f-b6rcf-1-698DA42D-10
+	2026-02-12 09:58:05.534436491 +0000 UTC m=+4880969.147350218
+Received: from MTQ1Mzk3Nw (unknown)
+	by geopod-ismtpd-61 (SG) with HTTP
+	id nCi60HUYQKSLrzSMxS0LSg
+	Thu, 12 Feb 2026 09:58:05.525 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=3226651447b013cf92c0052bfa905ecdc11446372def97fe466b3445359e
+Date: Thu, 12 Feb 2026 09:58:05 +0000 (UTC)
+From: Airbnb <discover@airbnb.com>
+Mime-Version: 1.0
+Message-ID: <nCi60HUYQKSLrzSMxS0LSg@geopod-ismtpd-61>
+Subject: Aktualisierung: Bedingungen und =?UTF-8?Q?Datenschutzerkl=C3=A4rung?=
+BIMI-Selector: v=BIMI1; s=belov2;
+Importance: high
+Priority: Urgent
+Return-Path: discover@airbnb.com
+X-Category: support
+X-Locale: de
+X-MSMail-Priority: High
+X-Message-Package-UUID: 5fb15e6a-89c2-c32a-0bc5-826b601bba5d
+X-Priority: 1
+X-Strategy: email
+X-Template: omni/omni_support
+X-User-ID: 526753334
+X-rpcampaign: airbnb20260212149530518066539333943320212216330853642
+X-SG-EID: =?us-ascii?Q?u001=2E373TPjtMqGbzwgRnUiLO4X8=2F0zPQPgFdLVhfGHneqxbddiRTtyZYR9Nzr?=
+ =?us-ascii?Q?0jWjDjOKd6fKzFiPRF9odd2XWZSACxL5ZGsQ1uV?=
+ =?us-ascii?Q?FTKwsfbjtYNItiJbTX64zq=2FrXCNOT0wSsB8LzpT?=
+ =?us-ascii?Q?hc+uy6W4cfzWLVBVkdKfLG9mQtnMhqMbvylnEZf?=
+ =?us-ascii?Q?QNuovo4fNjDM1mOQoTmuQHrpGv1QaCIk6wRPUNl?=
+ =?us-ascii?Q?+NEjKBttPsqY60A2L+l4TgVk3yhme3SKciMypP4?= =?us-ascii?Q?+0PL?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3Bs912jhttV80DpC5xCXrakTw29f+iIgvN6oCF?=
+ =?us-ascii?Q?q0A8peScxyHFns5ROGr1YiA9x3RK8L3rBGO1Yiv?=
+ =?us-ascii?Q?hqIUulV=2FbcIotvB6sbz9NA8iYjIeU0=2FMkQFHHlR?=
+ =?us-ascii?Q?SFriN6rAgOB+dKN6iwzPL4W5oCc4+bAj4jb=2F4JA?=
+ =?us-ascii?Q?vsUNlkfBLC5aVMLxjF=2F+ihSx+YG7bGHF3VdJ3p7?=
+ =?us-ascii?Q?h9qz1Ea86S6iAC71wKg3SYN3RfbWclcLPA7lYlj?=
+ =?us-ascii?Q?MgQWm+6zhw2exB8avOALWchcD=2Fq=2FAWBtmNWQAGd?=
+ =?us-ascii?Q?apeh6bgxqRQf=2FKZwDv+ZrKbNBYZd2q0NDMU+Kh4?=
+ =?us-ascii?Q?2ENjFgnNduYFBWER4IOjdN6Z+9ehPxJ8bYnLIbH?=
+ =?us-ascii?Q?UxchBmhCaJlgDO8rW4QqhCfKCEGe+XyRtixeEs3?=
+ =?us-ascii?Q?N0MM4rineDX2Ou2BQwBF8=2FXVsHTzSmWVwM3pd0V?=
+ =?us-ascii?Q?v4344eEOLVy+fK2YEBRxYsfkvXGh8RCfLoYkZRn?=
+ =?us-ascii?Q?iLznBt4x6D3FkNh+HTF+Daae=2Fb?=
+To: rafaelfelixremy@gmail.com
+X-Entity-ID: u001.w77WwF8qvIcDhV1QIHM+Ig==
+
+--3226651447b013cf92c0052bfa905ecdc11446372def97fe466b3445359e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Diese Aktualisierungen treten am 20.=C2=A0April 2026 in Kraft.
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=A0
+%opentrack%
+
+https://www.airbnb.de/?src_section=3D12789870238393&c=3D.pi80.pkb21uaS8xLzM=
+wNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d
+
+
+=C3=84NDERUNGEN UNSERER BEDINGUNGEN UND UNSERER DATENSCHUTZERKL=C3=84RUNG
+
+Wir aktualisieren unsere Nutzungsbedingungen, unsere Nutzungsbedingungen f=
+=C3=BCr Zahlungsdienste,
+weitere Bedingungen und Richtlinien einschlie=C3=9Flich der unten genannten=
+ (zusammen =E2=80=9EBedingungen=E2=80=9C)
+sowie unsere Datenschutzerkl=C3=A4rung.
+
+Diese Aktualisierungen unterst=C3=BCtzen die Weiterentwicklung unseres Unte=
+rnehmens und neue Funktionen,
+bieten zus=C3=A4tzliche Klarheit rund um die Verarbeitung personenbezogener=
+ Daten und ber=C3=BCcksichtigen
+geplante Gesetze und Vorschriften.
+
+Die aktualisierten Bedingungen und die aktualisierte Datenschutzerkl=C3=A4r=
+ung treten f=C3=BCr bestehende
+Nutzer:innen im Allgemeinen am 20.=C2=A0April 2026 in Kraft. Ab diesem Datu=
+m musst du den aktualisierten
+Bedingungen zustimmen und die aktualisierte Datenschutzerkl=C3=A4rung anerk=
+ennen, um Buchungen vornehmen
+oder verwalten zu k=C3=B6nnen.
+
+Deine Nutzung der Airbnb-Plattform unterliegt ab diesem Datum der aktualisi=
+erten
+Datenschutzerkl=C3=A4rung. Wir empfehlen dir, die aktualisierten Bedingunge=
+n und die aktualisierte
+Datenschutzerkl=C3=A4rung vollst=C3=A4ndig zu pr=C3=BCfen. Zu diesem Zweck =
+kannst du sie dir gerne als PDF
+herunterladen
+[https://www.airbnb.de/e/termsofserviceupdate?src_section=3D12237270354502&=
+c=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826=
+b601bba5d].
+
+Pr=C3=BCfe die aktualisierten Bedingungen und die aktualisierte Datenschutz=
+erkl=C3=A4rung
+ * Nutzungsbedingungen
+   [https://www.airbnb.de/help/article/2854?src_section=3D12132576565972&c=
+=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b=
+601bba5d]
+ * Datenschutzerkl=C3=A4rung
+   [https://www.airbnb.de/help/article/2855?src_section=3D12132576565972&c=
+=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b=
+601bba5d]
+ * Nutzungsbedingungen f=C3=BCr Zahlungsdienste
+   [https://www.airbnb.de/help/article/2856?src_section=3D12132576565972&c=
+=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b=
+601bba5d]
+ * Schutz f=C3=BCr Gastgeber:innen bei Sachsch=C3=A4den
+   [https://www.airbnb.de/help/article/2869?src_section=3D12132576565972&c=
+=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b=
+601bba5d]
+
+In unserem Hilfe-Center
+[https://www.airbnb.de/help/article/2877?src_section=3D12884313068572&c=3D.=
+pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&euid=3D5fb15e6a-89c2-c32a-0bc5-826b601b=
+ba5d]
+findest du ebenfalls einen =C3=9Cberblick =C3=BCber die =C3=84nderungen uns=
+erer Bedingungen und unserer
+Datenschutzerkl=C3=A4rung. Solltest du mit den aktualisierten Bedingungen o=
+der der aktualisierten
+Datenschutzerkl=C3=A4rung nicht einverstanden sein, kannst du deinen Vertra=
+g mit Airbnb jederzeit
+k=C3=BCndigen, indem du dein Airbnb-Konto l=C3=B6schst.
+
+Danke, dass du ein Teil unserer Community bist.
+
+
+Airbnb Ireland UC
+
+8 Hanover Quay
+
+Dublin 2, Ireland
+
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0
+--3226651447b013cf92c0052bfa905ecdc11446372def97fe466b3445359e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<html lang=3D"en"><head><style data-linaria=3D"true">@media only screen and=
+ (max-width:560px){.dir.atm_le_i-1tcgj5g__17g5ld3.dir.dir{padding-bottom:24=
+px!important}.dir.atm_le_i-1y44olf__17g5ld3.dir.dir{padding-bottom:4px!impo=
+rtant}.dir.atm_le_i-idpfg4__17g5ld3.dir.dir{padding-bottom:0!important}.dir=
+.atm_le_i-1fwxnve__17g5ld3.dir.dir{padding-bottom:12px!important}.dir.atm_l=
+e_i-exct8b__17g5ld3.dir.dir{padding-bottom:16px!important}.dir-ltr.atm_lk_i=
+-exct8b__17g5ld3.dir.dir{padding-left:16px!important}.dir-ltr.atm_ll_i-exct=
+8b__17g5ld3.dir.dir{padding-right:16px!important}.dir.atm_lo_i-1y44olf__17g=
+5ld3.dir.dir{padding-top:4px!important}.dir.atm_lo_i-idpfg4__17g5ld3.dir.di=
+r{padding-top:0!important}.dir.atm_lo_i-1tcgj5g__17g5ld3.dir.dir{padding-to=
+p:24px!important}.dir.atm_lo_i-1fwxnve__17g5ld3.dir.dir{padding-top:12px!im=
+portant}.atm_c8_i-exct8b__17g5ld3.dir.dir{font-size:16px!important}.dir.atm=
+_3f_i-glywfm__17g5ld3.dir{border:none!important}.dir.atm_5j_i-n7od8j__17g5l=
+d3.dir{border-radius:unset!important}.atm_ks_i-ewfl5b__17g5ld3.dir{overflow=
+:visible!important}.atm_c8_i-1vi7ecw__17g5ld3.dir.dir{font-size:32px!import=
+ant}.atm_g3_i-14noui3__17g5ld3.dir.dir{line-height:36px!important}.atm_c8_i=
+-f6fqlb__17g5ld3.dir.dir{font-size:18px!important}.atm_vy_i-1tcgj5g__17g5ld=
+3.dir{width:24px!important}.atm_e2_i-1ou6n1d__17g5ld3.dir{height:26px!impor=
+tant}.atm_g3_i-1tcgj5g__17g5ld3.dir.dir{line-height:24px!important}}</style=
+><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><=
+meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1">=
+<style type=3D"text/css">@font-face{font-family:Airbnb Cereal;src:url("http=
+s://a0.muscache.com/airbnb/static/airbnb-dls-web/build/fonts/Airbnb_Cereal-=
+Book-9a1c9cca9bb3d65fefa2aa487617805e.woff2") format("woff2"),url("https://=
+a0.muscache.com/airbnb/static/airbnb-dls-web/build/fonts/Airbnb_Cereal-Book=
+-aa38e86e3f98554f9f7053d7b713b4db.woff") format('woff');font-weight:normal;=
+font-style:normal;font-display:swap}@font-face{font-family:Airbnb Cereal;sr=
+c:url("https://a0.muscache.com/airbnb/static/airbnb-dls-web/build/fonts/Air=
+bnb_Cereal-Medium-50fc004b3082375f12ff0cfb67bf8e56.woff2") format("woff2"),=
+url("https://a0.muscache.com/airbnb/static/airbnb-dls-web/build/fonts/Airbn=
+b_Cereal-Medium-4bc8dafd2e0fd8914bf4d5edce9acd24.woff") format('woff');font=
+-weight:500;font-style:normal;font-display:swap}@font-face{font-family:Airb=
+nb Cereal;src:url("https://a0.muscache.com/airbnb/static/airbnb-dls-web/bui=
+ld/fonts/Airbnb_Cereal-Bold-bdfb98485e7836ba31b456f65cded088.woff2") format=
+("woff2"),url("https://a0.muscache.com/airbnb/static/airbnb-dls-web/build/f=
+onts/Airbnb_Cereal-Bold-a188841af78481a25b7bb2316a5f5716.woff") format('wof=
+f');font-weight:700;font-style:normal;font-display:swap}</style><div><!--[i=
+f (mso)|(IE)]>
+<style type=3D"text/css">a{color:#222222!important}.outlook-only{display:bl=
+ock!important}.non-outlook-only{background-color:red;display:none!important=
+;height:0!important;max-height:0px!important;mso-hide:all!important;overflo=
+w:hidden!important;padding-bottom:0!important;width:0!important}</style>
+<![endif]--></div></head><body style=3D"margin:0 auto!important;padding:0" =
+id=3D"body"><div style=3D"color:transparent;display:none!important;font-siz=
+e:0px;height:0;opacity:0;width:0">Diese Aktualisierungen treten am 20.=C2=
+=A0April 2026 in Kraft.</div><div style=3D"display: none;">&#8199;&#847; &#=
+8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;=
+&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847=
+; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8=
+199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&=
+#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847;=
+ &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#81=
+99;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#=
+847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; =
+&#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#819=
+9;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#8=
+47; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &=
+#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199=
+;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#84=
+7; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#=
+8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;=
+&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847=
+; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8=
+199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&=
+#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847;=
+ &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#81=
+99;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#=
+847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; =
+&#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#819=
+9;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#8=
+47; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &=
+#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199=
+;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#84=
+7; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &shy; &shy; &shy=
+; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &=
+shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy=
+; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &=
+shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy=
+; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &=
+shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy=
+; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &=
+shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &nbsp;</div><div=
+ style=3D"color:transparent;display:none!important;font-size:0px;height:0;o=
+pacity:0;width:0"><img src=3D"http://email.airbnbmail.com/wf/open?upn=3Du00=
+1.1nX3Cs8oV6gFC4cEheiBdbxZZMM-2Fy8vRjlXBFOR-2BM72UdT5pK1tL6H6RWyCckhsEeobQG=
+6PLdnkIEwpSLwOPcHnHPmPSECH3R7m0AzZW5kqrQoo6gE7OFggMMcbqwyBMf-2BOyy3P-2Fhm-2=
+FiYcG0U0VPX1Ec7kC1gHy5otVEibTfsvpwM24DPK3E2Go21D9pF-2Fk-2BIWOk4oppihWuKF8Vx=
+6DhKuGliC0Y3rFSDudl0yceeUBPdmWp7wCjLXWi5Sa4hfUncEXUNaNs-2BbJy-2FkD-2B6WInHK=
+28GBb1Zw6DpzXSHGPwnoufmXilFMzz4ijIM6Vo-2FZl-2FtE1DsdOI-2FBgKKdV3kOxE4odZmZr=
+8pBEConlpNlhdRph-2F3as2mZRXwXwlRL9F27HbUPFscommmxeP9NvOrdiMM4kktXTMzd5EOFUy=
+WB3kkHygNfExOINEUB77IJXnni1qOms3TIjWYDnbSzSyrPNw7ORPM7syiNTxGYSiMJzkfCZXWSo=
+NWqsuHSMIVlE0PnjxuqmvYZunx7EeEbxo6aG3ppZ-2BwZBWFVrhbBdLD8DT9gmiWUajr5mRqR20=
+qiN2AJgckZQoY9R0MXOplr3hfCynpbD5vgNb27t3uxkfyxej-2BzlYuakBNDGDOodDxb63pIu3h=
+hFGV9uo37N2vFTSWQz2D-2BbRwv-2FRXvEGAYyQDPkGlZlDAo3gff6V3-2BZmakqMkjLl" alt=
+=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;=
+width:1px !important;border-width:0 !important;margin-top:0 !important;marg=
+in-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;p=
+adding-top:0 !important;padding-bottom:0 !important;padding-right:0 !import=
+ant;padding-left:0 !important;"/></div><div id=3D"app" style=3D"font-family=
+:Airbnb Cereal, Helvetica Neue, Helvetica, sans-serif"><div dir=3D"ltr"><di=
+v class=3D"atm_3f_i-glywfm__17g5ld3 atm_5j_i-n7od8j__17g5ld3 atm_ks_i-ewfl5=
+b__17g5ld3 dir dir-ltr" style=3D"color:#222222;width:100%;position:relative=
+;vertical-align:top;overflow:hidden;box-sizing:border-box;border-radius:12p=
+x;padding:0;border:1px solid #dddddd;margin-left:auto;margin-right:auto;max=
+-width:640px"><div data-section-id=3D"12789870238393"><div style=3D"backgro=
+und-color:#ffffffff;padding:0 48px 0 48px" class=3D"atm_lk_i-exct8b__17g5ld=
+3 atm_ll_i-exct8b__17g5ld3 atm_lo_i-idpfg4__17g5ld3 atm_le_i-idpfg4__17g5ld=
+3 outlook-row-container dir dir-ltr"><table cellpadding=3D"0" class=3D"dir =
+dir-ltr" role=3D"presentation" style=3D"border-collapse:collapse;width:100%=
+;border-spacing:0;font-size:inherit" width=3D"100%"><tbody><tr class=3D"dir=
+ dir-ltr" style=3D"margin:0"><td class=3D"dir dir-ltr" width=3D"99%" style=
+=3D"overflow-wrap:break-word"><div style=3D"padding-bottom:24px;padding-top=
+:32px;line-height:0;text-align:left" class=3D"atm_lo_i-1tcgj5g__17g5ld3 atm=
+_le_i-exct8b__17g5ld3 dir dir-ltr"><a target=3D"_self" rel=3D"noreferrer" s=
+tyle=3D"color:#222222;display:inline-block;font-weight:700" class=3D"dir di=
+r-ltr" aria-label=3D"Airbnb Homepage" data-eon-role=3D"link" data-eon-prop=
+=3D"href" href=3D"https://www.airbnb.de/?src_section=3D12789870238393&amp;c=
+=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp;euid=3D5fb15e6a-89c2-c32a-0bc5-=
+826b601bba5d"><img class=3D"atm_vy_i-1tcgj5g__17g5ld3 atm_e2_i-1ou6n1d__17g=
+5ld3 dir dir-ltr" data-eon-role=3D"image" data-eon-prop=3D"src" alt=3D"Airb=
+nb" src=3D"https://a0.muscache.com/im/pictures/airbnb-platform-assets/Airbn=
+bPlatformAssets-canvas-email/original/088c2933-673e-4ff9-89e8-6215848098eb.=
+png" role=3D"presentation" aria-hidden=3D"true" style=3D"border:0;width:26p=
+x;height:28px" width=3D"26" height=3D"28"></a></div></td></tr></tbody></tab=
+le></div></div><div data-section-id=3D"12237270354502"><div style=3D"backgr=
+ound-color:#ffffffff;padding:32px 48px 32px 48px;text-align:left" class=3D"=
+atm_lk_i-exct8b__17g5ld3 atm_ll_i-exct8b__17g5ld3 atm_lo_i-1tcgj5g__17g5ld3=
+ atm_le_i-1tcgj5g__17g5ld3 outlook-row-container dir dir-ltr"><h1 class=3D"=
+atm_c8_i-1vi7ecw__17g5ld3 atm_g3_i-14noui3__17g5ld3 atm_lo_i-idpfg4__17g5ld=
+3 atm_le_i-exct8b__17g5ld3 dir dir-ltr" style=3D"color:#222222;margin:0;fon=
+t-weight:700;font-size:40px;line-height:44px;letter-spacing:-0.02em;padding=
+:0 0 24px 0">=C3=84nderungen unserer Bedingungen und unserer Datenschutzerk=
+l=C3=A4rung</h1><div class=3D"atm_c8_i-exct8b__17g5ld3 atm_g3_i-1tcgj5g__17=
+g5ld3 atm_lo_i-idpfg4__17g5ld3 atm_le_i-idpfg4__17g5ld3 dir dir-ltr" style=
+=3D"letter-spacing:normal;margin:0;color:#222222ff;font-weight:400;font-siz=
+e:18px;line-height:28px;padding:0 0 0px 0">Wir aktualisieren unsere Nutzung=
+sbedingungen, unsere Nutzungsbedingungen f=C3=BCr Zahlungsdienste, weitere =
+Bedingungen und Richtlinien einschlie=C3=9Flich der unten genannten (zusamm=
+en =E2=80=9EBedingungen=E2=80=9C) sowie unsere Datenschutzerkl=C3=A4rung.<b=
+r><br>Diese Aktualisierungen unterst=C3=BCtzen die Weiterentwicklung unsere=
+s Unternehmens und neue Funktionen, bieten zus=C3=A4tzliche Klarheit rund u=
+m die Verarbeitung personenbezogener Daten und ber=C3=BCcksichtigen geplant=
+e Gesetze und Vorschriften.<br><br><strong>Die aktualisierten Bedingungen u=
+nd die aktualisierte Datenschutzerkl=C3=A4rung treten f=C3=BCr bestehende N=
+utzer:innen im Allgemeinen am 20.=C2=A0April 2026 in Kraft.</strong> Ab die=
+sem Datum musst du den aktualisierten Bedingungen zustimmen und die aktuali=
+sierte Datenschutzerkl=C3=A4rung anerkennen, um Buchungen vornehmen oder ve=
+rwalten zu k=C3=B6nnen.<br><br>Deine Nutzung der Airbnb-Plattform unterlieg=
+t ab diesem Datum der aktualisierten Datenschutzerkl=C3=A4rung. Wir empfehl=
+en dir, die aktualisierten Bedingungen und die aktualisierte Datenschutzerk=
+l=C3=A4rung vollst=C3=A4ndig zu pr=C3=BCfen. Zu diesem Zweck kannst du sie =
+dir gerne <a style=3D"font-size:inherit;font-weight:inherit;color:inherit;t=
+ext-decoration:underline" href=3D"https://www.airbnb.de/e/termsofserviceupd=
+ate?src_section=3D12237270354502&amp;c=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwOD=
+Q0&amp;euid=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d">als PDF herunterladen</=
+a>.</div><div></div></div></div><div data-section-id=3D"12132576565972"><di=
+v style=3D"background-color:#ffffffff;padding:32px 48px 32px 48px" class=3D=
+"atm_lk_i-exct8b__17g5ld3 atm_ll_i-exct8b__17g5ld3 atm_lo_i-1tcgj5g__17g5ld=
+3 atm_le_i-1tcgj5g__17g5ld3 outlook-row-container dir dir-ltr"><div class=
+=3D"atm_c8_i-f6fqlb__17g5ld3 atm_g3_i-1tcgj5g__17g5ld3 atm_lo_i-idpfg4__17g=
+5ld3 atm_le_i-1y44olf__17g5ld3 dir dir-ltr" style=3D"color:#222222;letter-s=
+pacing:normal;margin:0;font-weight:700;font-size:22px;line-height:26px;padd=
+ing:0 0 8px 0">Pr=C3=BCfe die aktualisierten Bedingungen und die aktualisie=
+rte Datenschutzerkl=C3=A4rung</div><ul class=3D"dir dir-ltr" style=3D"margi=
+n:0;padding-right:16px;padding-left:20px"><li><div class=3D"atm_le_i-1fwxnv=
+e__17g5ld3 dir dir-ltr" style=3D"padding:0 16px 4px"><div class=3D"atm_c8_i=
+-exct8b__17g5ld3 atm_g3_i-1tcgj5g__17g5ld3 atm_lo_i-idpfg4__17g5ld3 atm_le_=
+i-idpfg4__17g5ld3 dir dir-ltr" style=3D"color:#222222;letter-spacing:normal=
+;margin:0;font-weight:400;font-size:18px;line-height:28px;padding:0 0 4px 0=
+"><a style=3D"font-size:inherit;font-weight:inherit;color:inherit;text-deco=
+ration:underline" href=3D"https://www.airbnb.de/help/article/2854?src_secti=
+on=3D12132576565972&amp;c=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp;euid=
+=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d">Nutzungsbedingungen</a></div></div=
+></li><li><div class=3D"atm_le_i-1fwxnve__17g5ld3 dir dir-ltr" style=3D"pad=
+ding:0 16px 4px"><div class=3D"atm_c8_i-exct8b__17g5ld3 atm_g3_i-1tcgj5g__1=
+7g5ld3 atm_lo_i-idpfg4__17g5ld3 atm_le_i-idpfg4__17g5ld3 dir dir-ltr" style=
+=3D"color:#222222;letter-spacing:normal;margin:0;font-weight:400;font-size:=
+18px;line-height:28px;padding:0 0 4px 0"><a style=3D"font-size:inherit;font=
+-weight:inherit;color:inherit;text-decoration:underline" href=3D"https://ww=
+w.airbnb.de/help/article/2855?src_section=3D12132576565972&amp;c=3D.pi80.pk=
+b21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp;euid=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5=
+d">Datenschutzerkl=C3=A4rung</a></div></div></li><li><div class=3D"atm_le_i=
+-1fwxnve__17g5ld3 dir dir-ltr" style=3D"padding:0 16px 4px"><div class=3D"a=
+tm_c8_i-exct8b__17g5ld3 atm_g3_i-1tcgj5g__17g5ld3 atm_lo_i-idpfg4__17g5ld3 =
+atm_le_i-idpfg4__17g5ld3 dir dir-ltr" style=3D"color:#222222;letter-spacing=
+:normal;margin:0;font-weight:400;font-size:18px;line-height:28px;padding:0 =
+0 4px 0"><a style=3D"font-size:inherit;font-weight:inherit;color:inherit;te=
+xt-decoration:underline" href=3D"https://www.airbnb.de/help/article/2856?sr=
+c_section=3D12132576565972&amp;c=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp=
+;euid=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d"><u>Nutzungsbedingungen f=C3=
+=BCr Zahlungsdienste</u></a></div></div></li><li><div class=3D"atm_le_i-1fw=
+xnve__17g5ld3 dir dir-ltr" style=3D"padding:0 16px 4px"><div class=3D"atm_c=
+8_i-exct8b__17g5ld3 atm_g3_i-1tcgj5g__17g5ld3 atm_lo_i-idpfg4__17g5ld3 atm_=
+le_i-idpfg4__17g5ld3 dir dir-ltr" style=3D"color:#222222;letter-spacing:nor=
+mal;margin:0;font-weight:400;font-size:18px;line-height:28px;padding:0 0 0p=
+x 0"><a style=3D"font-size:inherit;font-weight:inherit;color:inherit;text-d=
+ecoration:underline" href=3D"https://www.airbnb.de/help/article/2869?src_se=
+ction=3D12132576565972&amp;c=3D.pi80.pkb21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp;eui=
+d=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d"><u>Schutz f=C3=BCr Gastgeber:inne=
+n bei Sachsch=C3=A4den</u></a></div></div></li></ul></div></div><div data-s=
+ection-id=3D"12884313068572"><div style=3D"background-color:#ffffffff;paddi=
+ng:16px 48px 16px 48px;text-align:left" class=3D"atm_lk_i-exct8b__17g5ld3 a=
+tm_ll_i-exct8b__17g5ld3 atm_lo_i-1fwxnve__17g5ld3 atm_le_i-1fwxnve__17g5ld3=
+ outlook-row-container dir dir-ltr"><div class=3D"atm_c8_i-exct8b__17g5ld3 =
+atm_g3_i-1tcgj5g__17g5ld3 atm_le_i-idpfg4__17g5ld3 dir dir-ltr" style=3D"le=
+tter-spacing:normal;padding:0;margin:0;color:#222222ff;font-weight:400;font=
+-size:18px;line-height:28px">In unserem <a style=3D"font-size:inherit;font-=
+weight:inherit;color:inherit;text-decoration:underline" href=3D"https://www=
+.airbnb.de/help/article/2877?src_section=3D12884313068572&amp;c=3D.pi80.pkb=
+21uaS8xLzMwNTM1ODQ1MDYwODQ0&amp;euid=3D5fb15e6a-89c2-c32a-0bc5-826b601bba5d=
+"><u>Hilfe-Center</u></a> findest du ebenfalls einen =C3=9Cberblick =C3=BCb=
+er die =C3=84nderungen unserer Bedingungen und unserer Datenschutzerkl=C3=
+=A4rung. Solltest du mit den aktualisierten Bedingungen oder der aktualisie=
+rten Datenschutzerkl=C3=A4rung nicht einverstanden sein, kannst du deinen V=
+ertrag mit Airbnb jederzeit k=C3=BCndigen, indem du dein Airbnb-Konto l=C3=
+=B6schst.</div><div></div></div></div><div data-section-id=3D"1294455893870=
+3"><div style=3D"background-color:#ffffffff;padding:16px 48px 16px 48px;tex=
+t-align:left" class=3D"atm_lk_i-exct8b__17g5ld3 atm_ll_i-exct8b__17g5ld3 at=
+m_lo_i-1fwxnve__17g5ld3 atm_le_i-1fwxnve__17g5ld3 outlook-row-container dir=
+ dir-ltr"><div class=3D"atm_c8_i-exct8b__17g5ld3 atm_g3_i-1tcgj5g__17g5ld3 =
+atm_lo_i-idpfg4__17g5ld3 atm_le_i-idpfg4__17g5ld3 dir dir-ltr" style=3D"let=
+ter-spacing:normal;margin:0;color:#222222ff;font-weight:400;font-size:18px;=
+line-height:28px;padding:0 0 0px 0">Danke, dass du ein Teil unserer Communi=
+ty bist.</div><div></div></div></div><div data-section-id=3D"12945544672082=
+"><div style=3D"background-color:#ffffffff;padding:32px 48px 0px 48px" clas=
+s=3D"atm_lk_i-exct8b__17g5ld3 atm_ll_i-exct8b__17g5ld3 atm_lo_i-1tcgj5g__17=
+g5ld3 atm_le_i-idpfg4__17g5ld3 outlook-row-container dir dir-ltr"><div clas=
+s=3D"atm_lo_i-1y44olf__17g5ld3 dir dir-ltr" style=3D"padding-top:8px"><div =
+class=3D"dir dir-ltr" style=3D"border-top:1px solid #dddddd"></div></div><d=
+iv class=3D"atm_le_i-1tcgj5g__17g5ld3 atm_lo_i-1tcgj5g__17g5ld3 dir dir-ltr=
+" style=3D"padding-bottom:32px;padding-top:32px"><table cellpadding=3D"0" c=
+lass=3D"dir dir-ltr" role=3D"presentation" style=3D"border-collapse:collaps=
+e;width:100%;border-spacing:0;line-height:0;font-size:inherit" width=3D"100=
+%"><tbody><tr class=3D"dir dir-ltr" style=3D"margin:0"><td class=3D"dir dir=
+-ltr" style=3D"width:100%;overflow-wrap:break-word;text-align:left" width=
+=3D"100%" align=3D"left"><img class=3D"atm_vy_i-1tcgj5g__17g5ld3 atm_e2_i-1=
+ou6n1d__17g5ld3 dir dir-ltr" data-eon-role=3D"image" data-eon-prop=3D"src" =
+alt=3D"Airbnb" src=3D"https://a0.muscache.com/im/pictures/airbnb-platform-a=
+ssets/AirbnbPlatformAssets-canvas-email/original/088c2933-673e-4ff9-89e8-62=
+15848098eb.png" style=3D"border:0;width:26px;height:28px" width=3D"26" heig=
+ht=3D"28"></td></tr></tbody></table><div class=3D"atm_lo_i-1tcgj5g__17g5ld3=
+ dir dir-ltr" style=3D"padding-top:32px"><div><p class=3D"dir dir-ltr" styl=
+e=3D"color:#222222;line-height:18px;margin:0;font-weight:400;font-size:14">=
+Airbnb Ireland UC</p></div><div><p class=3D"dir dir-ltr" style=3D"color:#22=
+2222;line-height:18px;margin:0;font-weight:400;font-size:14">8 Hanover Quay=
+</p></div><div><p class=3D"dir dir-ltr" style=3D"color:#222222;line-height:=
+18px;margin:0;font-weight:400;font-size:14">Dublin 2, Ireland</p></div></di=
+v></div></div></div></div></div></div><div style=3D"color:white;display:non=
+e!important;font:15px courier;line-height:0;white-space:nowrap">=C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0</div></body></html>
+--3226651447b013cf92c0052bfa905ecdc11446372def97fe466b3445359e--

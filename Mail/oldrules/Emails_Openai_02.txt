@@ -1,0 +1,52 @@
+EMAILS_OpenAI_02 – Sorting Blueprint Update (12 Feb 2026)
+
+SCOPE
+- Account: rafaelfelixremy@gmail.com
+- Maildir root: /home/rafael/Mail/gmail/
+- Active sources: INBOX/new, INBOX/cur, plus the correction pool INBOX.sort_ai_correction/cur (highest priority – these are mis-sorted mails that must be reclassified first).
+- Moves are destructive (mv). Never copy, never back up, never sync here.
+- After each mv, immediately run `ls` on source + destination; if the file still sits in its source folder, repeat the mv until it disappears.
+- Finish when INBOX/new, INBOX/cur, and INBOX.sort_ai_correction/cur all contain zero files.
+- Every run writes one log at /home/rafael/OPENCLAW_FUNKTIONEN/LOGS/$TIMESTAMP.md with the summaries + mv directives.
+
+RUN FLOW
+0. **Pre-check the correction pool:** If INBOX.sort_ai_correction/cur contains files, process them before touching INBOX/new or INBOX/cur. For each correction-file, do a quick `grep -R "<filename>" /home/rafael/OPENCLAW_FUNKTIONEN/LOGS` to see previous reasoning and avoid repeating the same error.
+1. Count files in INBOX/{new,cur} plus INBOX.sort_ai_correction/cur. If total == 0 ⇒ write "SKIP (alle Quellen leer)" to the log and stop.
+2. Otherwise, for EVERY file in the combined queue (correction pool first, then new, then cur):
+   a. Parse headers/body (focus on From, Subject, Date, List-Unsubscribe, and human-vs-bulk signals).
+   b. Write a 3-sentence summary into the log: from, from_email, date, time, content recap, CTA; include unsubscribe link if present.
+   c. Decide the destination folder using the RULE TREE below (ordered). Preserve the subfolder (new vs cur) that matches the source: files from correction inherit "cur".
+   d. Run `mv SOURCE DEST`.
+   e. Immediately run `ls SOURCE` (should fail) and `ls DEST | grep FILENAME` (should succeed). If SOURCE still exists, repeat mv.
+   f. Append `- action: mv SOURCE -> DEST` to the log.
+3. When all files processed, log the final counts for INBOX/new, INBOX/cur, and INBOX.sort_ai_correction/cur (all must read 0).
+
+RULE TREE (apply in order; first match wins)
+1. **AGB / Leistungsänderung** – keywords: "AGB", "terms", "policy update", "service change" → /home/rafael/Mail/gmail/INBOX.Archiv.AGB/
+2. **Zahlungs-Bestätigung** – receipts, invoices already paid/auto pay ("payment received", "debit successful", "thanks for your payment") → .../INBOX.Archiv.bezahlt/
+3. **Offene Forderung / Fehlerhafte Zahlung** – reminder, overdue, failed payment, "invoice due", "Your payment failed", "Mahnung" → .../INBOX.Freitag/
+4. **Login / Security / OTP** – sign-in alerts, verification codes, suspicious-login, OAuth approvals, "Dein Code" → .../INBOX.loeschen/
+5. **Welcome / Account Activation** – new service welcomes, "Confirm your email", GitHub/GitLab invitation etc. → .../INBOX.Archiv.welcome/
+6. **Human ↔ Human Kommunikation** – only if clearly a personal 1:1 message from a named individual (no bulk footer, no unsubscribe). Reply chains, direct asks, attachments from real people → .../INBOX.Archiv.Kommunikation/
+7. **Newsletter / Automatisierte Updates (DEFAULT)** – ANY bulk, marketing, product update, event invite, release notes, platform digest, GitHub notification, service announcement, anything with a List-Unsubscribe header, mail-merge tokens, or mass-mail footers. This is the typical case; if unsure and it smells like automation, treat it as Newsletter. → .../INBOX.Archiv.Kommunikation/
+8. **Fallback** – only if the content fits none of the above AND you are genuinely unsure → .../INBOX.sort_ai_uncertain/
+
+NOTES on NEWSLETTER DETECTION
+- Presence of a `List-Unsubscribe` header or explicit unsubscribe link ⇒ classify as Newsletter (rule 7) unless rules 1-5 triggered earlier.
+- Senders like Envato, Netdata, Groq, GitHub noreply, Mandrill, Hubspot, Sendgrid, Scoutcamp, Mailchimp, etc. are Newsletter by default.
+- Keywords: "newsletter", "update", "digest", "release", "webinar", "show", "clone-ready", "theme", "promo", "offer".
+- Folder INBOX.sort_ai_correction/ contains past newsletter mistakes. Always learn from its entries: re-evaluate the log notes before re-sorting, then move them to their correct archive and make a fresh log entry.
+
+LOG FORMAT EXAMPLE
+```
+## Subject Line (Service Name)
+- from: Foo Service
+- from_email: updates@foo.com
+- date: Wed, 12 Feb 2026
+- time: 15:05:12 +0000
+- summary: Satz 1 … Satz 2 … Satz 3 … (inkl. CTA / Kontext). Falls Unsubscribe vorhanden: Link nennen.
+- unsubscribe: <link or n/a>
+- action: mv /home/.../INBOX/cur/<filename> -> /home/.../INBOX.Archiv.Kommunikation/cur/
+```
+
+END OF FILE

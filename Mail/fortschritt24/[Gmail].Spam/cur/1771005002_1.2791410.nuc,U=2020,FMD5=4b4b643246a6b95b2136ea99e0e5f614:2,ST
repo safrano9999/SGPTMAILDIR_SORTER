@@ -1,0 +1,352 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:422e:b0:554:7c0:c37f with SMTP id lg46csp32332vqb;
+        Wed, 28 Jan 2026 10:36:03 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVwXL4Ql7bktzojjijOozvaaJtQdPAfxrO3f7iW6518ldXZpkraT7DNAnlKoNWTQU89kH9G1+BU+Iec3GE/pkFZFYSSZgg=@gmail.com
+X-Received: by 2002:a05:6000:100f:b0:435:e3de:bc83 with SMTP id ffacd0b85a97d-435e3debcf6mr3656888f8f.30.1769625362698;
+        Wed, 28 Jan 2026 10:36:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769625362; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Y1/d9DK/SdG+Bjoe2bHPKB8ydKxmF9Znh6/fAjkM4N5BITLf/NIQlhO0mbwFGqvueL
+         DVyN9x+7Pl95GWFH/WJcQ35p/Q/o89cmmM2INK1BDzJdbOwrSAtv0nZotkibYA4OaQ1v
+         5Lcf4PhVTRXm3aL0IO6/3PVOvhcqbeCz0RPR0ZAgjwfedx5Xnb30g2hxTMUAw43R52wv
+         UpHOyGEXLsXer/njbklKeqDIbZiAGGT6YJrQsfYUXue41q/YxQ/wLu1Q//JkLlIVKzGG
+         szrJFTTo83ZsnhN86R6ehDIhYNUsrVCX6Ozt1HHjzTUwfO/NsQme/kD1XCQVm+Pwck3n
+         Ij5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:mime-version:date:subject:to:from:message-id
+         :dkim-signature:dkim-signature;
+        bh=60PJNmpnGisv7WTVh10v2mZ7/uIxqc0gDbYGV4Dp3Ig=;
+        fh=MWZBFs07DeE27mxpE9qnOg7GclqgplcW9XiqyL58mtY=;
+        b=g14Nt5o+2VvpA1g3XH3GZ/MSdFfn46hyW26pV1KyI1sTWz9D0vo8l71RHwNAS517cN
+         Pqianl3TWssK1hNGt34tcLfdbacuSRT5hXBNJ8GwnVOLbN84iNsUVwFHrd3XMnen3Mmy
+         jsHOiskgbfZeZoULRld2IFt9W/ksXOEzYqxA4Z3pEYZIRfBd/+7uB+4W+69x54pPmzqA
+         K7OMO7+3PhiKSNpLFbZOb/O6HxLqKWHhAQzVYQtXGdEaVrqdntIakEF/7zd02Ti/umtz
+         1rOSsovguv6fOJvJmukx6lNfo6DX4jVdH70yKTnctR9E8QFkvwcY7AzTxWlVlBjfkn4Z
+         3ubA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@insolvenz-veit.de header.s=u6newdwe7kn3lemnn3w46od73q4one2t header.b=siZggPwE;
+       dkim=pass header.i=@amazonses.com header.s=icdr7g7fbtu2nwxgaimytihkt42k3kiy header.b=HE1VQmgx;
+       spf=softfail (google.com: domain of transitioning 0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=insolvenz-veit.de
+Return-Path: <0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-435e178099csi5264649f8f.516.2026.01.28.10.36.02
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jan 2026 10:36:02 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning 0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@insolvenz-veit.de header.s=u6newdwe7kn3lemnn3w46od73q4one2t header.b=siZggPwE;
+       dkim=pass header.i=@amazonses.com header.s=icdr7g7fbtu2nwxgaimytihkt42k3kiy header.b=HE1VQmgx;
+       spf=softfail (google.com: domain of transitioning 0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@mail.insolvenz-veit.de;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=insolvenz-veit.de
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (2048-bit key; unprotected) header.d=insolvenz-veit.de header.i=@insolvenz-veit.de header.a=rsa-sha256 header.s=u6newdwe7kn3lemnn3w46od73q4one2t header.b=siZggPwE;
+	dkim=pass (1024-bit key; unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=icdr7g7fbtu2nwxgaimytihkt42k3kiy header.b=HE1VQmgx;
+	dkim-atps=neutral
+X-policyd-weight: NOT_IN_SPAMCOP=-3 CL_IP_EQ_HELO_IP=-2 (check from: .insolvenz-veit. - helo: .e240-2.smtp-out.eu-north-1.amazonses. - helo-domain: .amazonses.)  FROM/MX_MATCHES_HELO(DOMAIN)=-2; rate: -7
+Received: from e240-2.smtp-out.eu-north-1.amazonses.com (e240-2.smtp-out.eu-north-1.amazonses.com [23.251.240.2])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id A1F4EA001BDC
+	for <info@fortschritt24.de>; Wed, 28 Jan 2026 19:36:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=u6newdwe7kn3lemnn3w46od73q4one2t; d=insolvenz-veit.de;
+	t=1769625360;
+	h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type;
+	bh=60PJNmpnGisv7WTVh10v2mZ7/uIxqc0gDbYGV4Dp3Ig=;
+	b=siZggPwENAp1ANTfI+VDM3Hc9KodGgqqLZLaapI7EM8vrWLiFh5qmvQ1R2xGSAuW
+	WvWmtowrsUzR1bpAGf6OQlGxNpeQgNzwY3EoC6StX5GiYUIFPBo/KmZKwYUP5jH8rhb
+	t6DSYjphf5tYwsEjkBEnPftzPPRP8IIDuPstDNtWgc0PZjIXb9skZE0BszntyZ0i/sb
+	iQHJ2Py4qe+sCCkYRHiC5FBBj0nDBkGon/FZedmaTr/i/xGDHSZW2yVZLre5Had4bj0
+	eR8vqeGenHhiwx2nXF71WTFd4goFhcK1g6n2T/8zq+PQbccBWFYPInyz1dTVAhy5AKk
+	cdexBF+57g==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=icdr7g7fbtu2nwxgaimytihkt42k3kiy; d=amazonses.com; t=1769625360;
+	h=Message-ID:From:To:Subject:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=60PJNmpnGisv7WTVh10v2mZ7/uIxqc0gDbYGV4Dp3Ig=;
+	b=HE1VQmgxFNaSGKNZbw61S2qiEOTA3qGe0AgijET0ePlyfMrz5UEK8QCRl4X5QLDC
+	x6RU6SO70Bbr+P6IK6nYeThqzKm3gVImzEIsNzt6X06SHcyobe4i8mmKqXT0+ko4lB6
+	L+HxBRCcLGltDLzBvk11GVtFQ+oLsJwn7aYSAq5A=
+Message-ID: <0110019c05e415d5-13d4248b-f83c-492d-8eff-49db65d5a43d-000000@eu-north-1.amazonses.com>
+From: Kanzlei Veit GmbH <info@insolvenz-veit.de>
+To: info@fortschritt24.de
+Subject: =?utf-8?B?Vm9yYWJ6dWdhbmc6IEZhaHJ6ZXVnZSwgTWFzY2hpbmVuICYgVmVybcO2?=
+	=?utf-8?B?Z2Vuc3dlcnRlIGF1cyBJbnNvbHZlbnp2ZXJmYWhyZW4=?=
+Date: Wed, 28 Jan 2026 18:35:59 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="2ac68f2473a68c83309ad35eaa6f727419e2"
+X-Mailer: Apple Mail (2.3696.120.41)
+Feedback-ID: ::1.eu-north-1.P0Yu/1Wd4AwTNTct6cDbuOsMxoNgKjNe8jdRza6q31E=:AmazonSES
+X-SES-Outgoing: 2026.01.28-23.251.240.2
+X-Spamd-Bar: ++
+X-Dmarc-Test: Allow
+
+--2ac68f2473a68c83309ad35eaa6f727419e2
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+KV=20
+
+Kanzlei Veit=20
+
+Sammelverwertung 2025
+
+Zugang f=C3=BCr ausgew=C3=A4hlte Gesch=C3=A4ftspartner
+
+Sehr geehrte Damen und Herren,
+
+aus laufenden Insolvenz- und StaRUG-Verfahren stehen gepr=C3=BCfte Wirtsc=
+haftsg=C3=BCter zur =C3=9Cbernahme bereit. Als Gesch=C3=A4ftspartner erha=
+lten Sie exklusiven Zugang zu attraktiven Konditionen unterhalb des Markt=
+preises.
+
+Aktuelle Kategorien
+
+=E2=80=A2 Fahrzeuge =E2=80=A2 Baumaschinen
+
+=E2=80=A2 2-Rad / E-Bikes =E2=80=A2 Landwirtschaft
+
+=E2=80=A2 Motorr=C3=A4der =E2=80=A2 Verm=C3=B6genswerte
+
+Im Portal finden Sie Berichte und Gutachten zu allen Objekten. Sie k=C3=B6=
+nnen Ihre Auswahl zusammenstellen und eine unverbindliche Anfrage =C3=BCb=
+ermitteln.
+
+Ihr pers=C3=B6nlicher Zugang
+
+Login-Code:
+
+V246EI752T
+
+Zum Portal
+
+insolvenz-veit.de=20
+
+Bei R=C3=BCckfragen erreichen Sie uns telefonisch oder per Antwort auf di=
+ese E-Mail:
+
+Rechtsanwalt Gunter Veit=20
+
+Tel.: +49 711 93965369=20
+
+Mit freundlichen Gr=C3=BC=C3=9Fen
+
+Kanzlei Veit GmbH
+
+Sonnenhalde 30 =C2=B7 70794 Filderstadt
+
+Diese E-Mail richtet sich an einen ausgew=C3=A4hlten Empf=C3=A4ngerkreis.
+
+Irrt=C3=BCmlich erhalten? Abmelden=20
+
+--2ac68f2473a68c83309ad35eaa6f727419e2
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html lang=3Dde><head><title>Sammelverwertung 2025 =E2=80=93 Kanzlei Veit=
+</title>
+<meta charset=3D"utf-8">
+<meta name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+</head>
+<body style=3D"FONT-FAMILY: 'Segoe UI', Tahoma, Geneva, Verdana, sans-ser=
+if; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px=
+; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #191930"><!-- Wrapper Table -->
+<table role=3Dpresentation style=3D"BACKGROUND-COLOR: #191930" cellSpacin=
+g=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 40px; PADDING-TOP: 40px; PADDING-LEFT: 20px;=
+ PADDING-RIGHT: 20px" align=3Dcenter><!-- Main Container -->
+<table role=3Dpresentation style=3D"MAX-WIDTH: 600px; WIDTH: 100%" cellSp=
+acing=3D0 cellPadding=3D0 width=3D600 border=3D0><!-- Header with Logo --=
+>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 32px; PADDING-TOP: 32px; PADDING-LEFT: 40px;=
+ PADDING-RIGHT: 40px; border-radius: 14px 14px 0 0" align=3Dcenter>
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 border=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter>
+<div style=3D"BORDER-TOP: #8a8a9c 2px solid; HEIGHT: 68px; BORDER-RIGHT: =
+#8a8a9c 2px solid; WIDTH: 68px; BORDER-BOTTOM: #8a8a9c 2px solid; TEXT-AL=
+IGN: center; BORDER-LEFT: #8a8a9c 2px solid; DISPLAY: inline-block; LINE-=
+HEIGHT: 64px; border-radius: 50%"><span style=3D"FONT-SIZE: 27px; FONT-FA=
+MILY: 'Times New Roman', Times, serif; COLOR: #c2c2d2; FONT-STYLE: italic=
+">K<span style=3D"FONT-SIZE: 19px">V</span></span> </div></td></tr>
+<tr>
+<td style=3D"PADDING-TOP: 14px" align=3Dcenter><span style=3D"FONT-SIZE: =
+21px; FONT-FAMILY: 'Times New Roman', Times, serif; COLOR: #dfe0ea; LETTE=
+R-SPACING: 3px">Kanzlei Veit</span> </td></tr></tbody></table></td></tr><=
+!-- Main Content -->
+<tr>
+<td style=3D"PADDING-BOTTOM: 38px; PADDING-TOP: 38px; PADDING-LEFT: 40px;=
+ PADDING-RIGHT: 40px"><!-- Headline -->
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 8px" align=3Dcenter>
+<h1 style=3D"FONT-SIZE: 25px; FONT-WEIGHT: 400; COLOR: #ffffff; MARGIN: 0=
+px; LETTER-SPACING: 1px">Sammelverwertung 2025</h1></td></tr>
+<tr>
+<td style=3D"PADDING-BOTTOM: 28px" align=3Dcenter>
+<p style=3D"FONT-SIZE: 14px; COLOR: #9c9cb4; MARGIN: 0px; LINE-HEIGHT: 1.=
+6">Zugang f=C3=BCr ausgew=C3=A4hlte Gesch=C3=A4ftspartner</p></td></tr></=
+tbody></table><!-- Divider -->
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"BORDER-BOTTOM: #393958 1px solid; PADDING-BOTTOM: 24px"></td=
+></tr></tbody></table><!-- Introduction Text -->
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 24px; PADDING-TOP: 24px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px">
+<p style=3D"FONT-SIZE: 15px; COLOR: #c6c6da; MARGIN: 0px 0px 16px; LINE-H=
+EIGHT: 1.7">Sehr geehrte Damen und Herren, </p>
+<p style=3D"FONT-SIZE: 15px; COLOR: #c6c6da; MARGIN: 0px 0px 16px; LINE-H=
+EIGHT: 1.7">aus laufenden Insolvenz- und StaRUG-Verfahren stehen gepr=C3=BC=
+fte Wirtschaftsg=C3=BCter zur =C3=9Cbernahme bereit. Als Gesch=C3=A4ftspa=
+rtner erhalten Sie <strong style=3D"COLOR: #ffffff">exklusiven Zugang</st=
+rong> zu attraktiven Konditionen unterhalb des Marktpreises. </p></td></t=
+r></tbody></table><!-- Categories Grid -->
+<table role=3Dpresentation style=3D"MARGIN: 18px 0px" cellSpacing=3D0 cel=
+lPadding=3D0 width=3D"100%" border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 18px; PADDING-TOP: 18px; PADDING-LEFT: 20px;=
+ PADDING-RIGHT: 20px; BACKGROUND-COLOR: #242442; border-radius: 10px">
+<p style=3D"FONT-SIZE: 12px; TEXT-TRANSFORM: uppercase; COLOR: #787894; M=
+ARGIN: 0px 0px 14px; LETTER-SPACING: 2px">Aktuelle Kategorien</p>
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ Fahrzeuge</td>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ Baumaschinen</td></tr>
+<tr>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ 2-Rad / E-Bikes</td>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ Landwirtschaft</td></tr>
+<tr>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ Motorr=C3=A4der</td>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 7px; PADDIN=
+G-TOP: 7px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" width=3D"50%">=E2=80=A2=
+ Verm=C3=B6genswerte</td></tr></tbody></table></td></tr></tbody></table>
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px">
+<p style=3D"FONT-SIZE: 15px; COLOR: #c6c6da; MARGIN: 0px; LINE-HEIGHT: 1.=
+7">Im Portal finden Sie Berichte und Gutachten zu allen Objekten. Sie k=C3=
+=B6nnen Ihre Auswahl zusammenstellen und eine unverbindliche Anfrage =C3=BC=
+bermitteln. </p></td></tr></tbody></table><!-- Login Box -->
+<table role=3Dpresentation style=3D"MARGIN: 28px 0px" cellSpacing=3D0 cel=
+lPadding=3D0 width=3D"100%" border=3D0>
+<tbody>
+<tr>
+<td style=3D"BORDER-TOP: #3e3e60 1px solid; BORDER-RIGHT: #3e3e60 1px sol=
+id; BORDER-BOTTOM: #3e3e60 1px solid; PADDING-BOTTOM: 28px; PADDING-TOP: =
+28px; PADDING-LEFT: 28px; BORDER-LEFT: #3e3e60 1px solid; PADDING-RIGHT: =
+28px; border-radius: 10px">
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter>
+<p style=3D"FONT-SIZE: 11px; TEXT-TRANSFORM: uppercase; COLOR: #787894; M=
+ARGIN: 0px 0px 6px; LETTER-SPACING: 2px">Ihr pers=C3=B6nlicher Zugang</p>=
+</td></tr>
+<tr>
+<td style=3D"PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 0px; =
+PADDING-RIGHT: 0px" align=3Dcenter>
+<p style=3D"FONT-SIZE: 13px; COLOR: #9c9cb4; MARGIN: 0px">Login-Code:</p>
+<p style=3D"FONT-SIZE: 21px; FONT-FAMILY: 'Courier New', monospace; COLOR=
+: #ffffff; PADDING-BOTTOM: 11px; PADDING-TOP: 11px; PADDING-LEFT: 24px; M=
+ARGIN: 10px 0px 0px; DISPLAY: inline-block; LETTER-SPACING: 3px; PADDING-=
+RIGHT: 24px; BACKGROUND-COLOR: #191930; border-radius: 6px">V246EI752T</p=
+></td></tr>
+<tr>
+<td style=3D"PADDING-TOP: 22px" align=3Dcenter>
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 border=3D0>
+<tbody>
+<tr>
+<td style=3D"border-radius: 6px"><a style=3D"FONT-SIZE: 14px; TEXT-DECORA=
+TION: none; FONT-WEIGHT: 500; COLOR: #ffffff; PADDING-BOTTOM: 15px; PADDI=
+NG-TOP: 15px; PADDING-LEFT: 38px; DISPLAY: inline-block; LETTER-SPACING: =
+0px; PADDING-RIGHT: 38px" href=3D"https://insolvenz-veit.de" target=3D_bl=
+ank>Zum Portal </a></td></tr></tbody></table></td></tr>
+<tr>
+<td style=3D"PADDING-TOP: 14px" align=3Dcenter>
+<p style=3D"FONT-SIZE: 12px; COLOR: #787894; MARGIN: 0px"><a style=3D"TEX=
+T-DECORATION: none; COLOR: #787894" href=3D"https://insolvenz-veit.de">in=
+solvenz-veit.de</a> </p></td></tr></tbody></table></td></tr></tbody></tab=
+le><!-- Contact Section -->
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"BORDER-TOP: #393958 1px solid; PADDING-BOTTOM: 22px; PADDING=
+-TOP: 22px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">
+<p style=3D"FONT-SIZE: 15px; COLOR: #c6c6da; MARGIN: 0px 0px 14px; LINE-H=
+EIGHT: 1.7">Bei R=C3=BCckfragen erreichen Sie uns telefonisch oder per An=
+twort auf diese E-Mail: </p>
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 border=3D0>
+<tbody>
+<tr>
+<td style=3D"FONT-SIZE: 14px; COLOR: #dfdfe9; PADDING-BOTTOM: 4px; PADDIN=
+G-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px"><strong>Rechtsanwalt G=
+unter Veit</strong> </td></tr>
+<tr>
+<td style=3D"FONT-SIZE: 14px; COLOR: #9c9cb4; PADDING-BOTTOM: 4px; PADDIN=
+G-TOP: 4px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">Tel.: <a style=3D"TEXT=
+-DECORATION: none; COLOR: #9c9cb4" href=3D"tel:+4971193965369">+49 711 93=
+965369</a> </td></tr></tbody></table></td></tr></tbody></table><!-- Closi=
+ng -->
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td style=3D"PADDING-TOP: 18px">
+<p style=3D"FONT-SIZE: 15px; COLOR: #c6c6da; MARGIN: 0px 0px 18px; LINE-H=
+EIGHT: 1.6">Mit freundlichen Gr=C3=BC=C3=9Fen </p>
+<p style=3D"FONT-SIZE: 15px; FONT-WEIGHT: 500; COLOR: #ffffff; MARGIN: 0p=
+x">Kanzlei Veit GmbH </p>
+<p style=3D"FONT-SIZE: 13px; COLOR: #787894; MARGIN: 4px 0px 0px">Sonnenh=
+alde 30 =C2=B7 70794 Filderstadt </p></td></tr></tbody></table></td></tr>=
+<!-- Footer -->
+<tr>
+<td style=3D"PADDING-BOTTOM: 22px; PADDING-TOP: 22px; PADDING-LEFT: 40px;=
+ PADDING-RIGHT: 40px; BACKGROUND-COLOR: #141426; border-radius: 0 0 14px =
+14px">
+<table role=3Dpresentation cellSpacing=3D0 cellPadding=3D0 width=3D"100%"=
+ border=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter>
+<p style=3D"FONT-SIZE: 11px; COLOR: #585876; MARGIN: 0px 0px 8px; LINE-HE=
+IGHT: 1.6">Diese E-Mail richtet sich an einen ausgew=C3=A4hlten Empf=C3=A4=
+ngerkreis. </p>
+<p style=3D"FONT-SIZE: 11px; COLOR: #585876; MARGIN: 0px; LINE-HEIGHT: 1.=
+6">Irrt=C3=BCmlich erhalten? <a style=3D"TEXT-DECORATION: underline; COLO=
+R: #787894" href=3D"mailto:info@insolvenz-veit.de?subject=3DAbmeldung">Ab=
+melden</a> </p></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table></body></html>
+
+--2ac68f2473a68c83309ad35eaa6f727419e2--

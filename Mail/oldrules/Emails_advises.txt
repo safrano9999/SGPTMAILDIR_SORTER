@@ -1,0 +1,101 @@
+EMAILS_advises.txt – Step-by-step guide for lightweight AI models (v2, 12 Feb 2026)
+
+Goal: Sort local Maildir entries for rafaelfelixremy@gmail.com without syntax mistakes.
+Workspace:
+- Mail base: /home/rafael/Mail/gmail/
+- Active folders per run: INBOX.sort_ai_correction/cur, INBOX/new, INBOX/cur.
+- Logs stored at: /home/rafael/OPENCLAW_FUNKTIONEN/LOGS/
+- Detailed rules: see Emails_OpenAI_07.txt + Filter_Emails_DB.txt
+- Lock file to prevent cron overlap: /home/rafael/OPENCLAW_FUNKTIONEN/email_sort.lock
+
+## 1. Preparation & Lock
+1. Create the lock file so the hourly cron sync stays idle:
+   ```bash
+   LOCK_FILE=/home/rafael/OPENCLAW_FUNKTIONEN/email_sort.lock
+   echo $$ > "$LOCK_FILE"
+   ```
+2. Check counts:
+   ```bash
+   find /home/rafael/Mail/gmail/INBOX.sort_ai_correction/cur -type f | wc -l
+   find /home/rafael/Mail/gmail/INBOX/new -type f | wc -l
+   find /home/rafael/Mail/gmail/INBOX/cur -type f | wc -l
+   ```
+3. If all three return 0 → create a log file, write “SKIP (alle Quellen leer)”, run `FLAG=true offlineimap -v -a gmail`, then remove lock and stop.
+4. Otherwise, create a timestamped log file:
+   ```bash
+   TS=$(date +%Y-%m-%d_%H-%M-%S)
+   LOG=/home/rafael/OPENCLAW_FUNKTIONEN/LOGS/${TS}_run_v07.md
+   echo "# Email Run v07 $(date)" > "$LOG"
+   ```
+
+## 2. Processing order
+1. Process every file in INBOX.sort_ai_correction/cur first.
+2. Then INBOX/new.
+3. Then INBOX/cur.
+4. For each file:
+   - Extract metadata via python3:
+     ```bash
+     python3 - <<'PY'
+     import email, email.policy, sys
+     from pathlib import Path
+     path = Path(sys.argv[1])
+     with open(path,'rb') as fp:
+         msg = email.message_from_binary_file(fp, policy=email.policy.default)
+     print(msg.get('From'))
+     print(msg.get('Subject'))
+     print(msg.get('Date'))
+     print(msg.get_all('List-Unsubscribe'))
+     PY
+     ```
+   - Summarize in 3 sentences (from, date, content, CTA). Mention unsubscribe link if present.
+   - Decide the destination folder using Emails_OpenAI_07 + Filter_Emails_DB rules (system vs newsletter vs etc.).
+
+## 3. Correct `mv` usage
+- Use absolute paths and keep subfolder (cur/new) aligned with source.
+- Template:
+  ```bash
+  SRC="/home/rafael/Mail/gmail/INBOX/<subfolder>/<filename>"
+  DEST="/home/rafael/Mail/gmail/<TargetFolder>/<subfolder>/"
+  mv "$SRC" "$DEST"
+  ```
+- After each move:
+  ```bash
+  ls "$SRC"
+  ```
+  Should fail. If not, repeat `mv`.
+  ```bash
+  ls "$DEST" | grep -F "<filename>"
+  ```
+  Must show the file.
+- Log line: `- action: mv SOURCE -> DEST`
+
+## 4. Logging format
+```
+## Subject Line
+- from: Sender Name
+- from_email: sender@example.com
+- date: Thu, 12 Feb 2026
+- summary: Satz 1 … Satz 2 … Satz 3 …
+- unsubscribe: <link or n/a>
+- action: mv /home/.../INBOX/cur/<filename> -> /home/.../INBOX.Archiv.newsletter/cur/
+```
+Finish logs with final counts (same `find ... | wc -l`).
+
+## 5. Post-processing sync
+1. When ALL folders report 0 files, run:
+   ```bash
+   FLAG=true offlineimap -v -a gmail
+   ```
+2. Append output summary to the log (success/failure).
+3. Remove lock:
+   ```bash
+   rm -f /home/rafael/OPENCLAW_FUNKTIONEN/email_sort.lock
+   ```
+
+## 6. Safety reminders
+- Never delete files; only `mv`.
+- Never use wildcards in mv unless the exact filename is unique.
+- If uncertain about classification, use `/home/rafael/Mail/gmail/INBOX.sort_ai_uncertain/`.
+- Refer to `Filter_Emails_DB.txt` for concrete sender patterns (extend JSON when needed).
+
+END OF FILE

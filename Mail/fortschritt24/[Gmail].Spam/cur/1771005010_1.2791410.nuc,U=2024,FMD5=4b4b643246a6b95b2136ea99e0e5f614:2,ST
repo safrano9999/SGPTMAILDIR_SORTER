@@ -1,0 +1,190 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:2c8b:b0:568:f370:4869 with SMTP id iu11csp8367vqb;
+        Thu, 5 Feb 2026 23:45:53 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCW5eGXbpwSdlL5lA2KpNWvm+gxKERyi0h4Uq9EWcruoz2a/E13Uvc+3M/PZxbh0yWcuisvYeVhbCxKV2BR4oBt2I4nYLeA=@gmail.com
+X-Received: by 2002:a05:6000:2dc9:b0:431:808:2d50 with SMTP id ffacd0b85a97d-43629349f99mr2781939f8f.13.1770363953726;
+        Thu, 05 Feb 2026 23:45:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770363953; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OBDxTyMw+rQEZEVB0jtOUPKet2Sp0VMBWLERl7u2pN4EHiUM3/Vl/7gRQhyaLj+DUz
+         P2IB7nt4TQhc094lQ+ugViipKhRJ8J8rfhDziD2+k4kU4nnunIXZs+O7Y2B06Euo/4l4
+         AxLnafvG4V+nXTYjnhuSsbCALYtLRuLooHjM3omIjB5vDXUNEaZcPfTbWSf+3m79NCXZ
+         JbLrpl1s7HwidQqF3pKn5PmSFyge4P0OocemcendLPR275SV7rC8ppCanUwyzT1B1CTf
+         gBwrpBDJlpKhkzIqUYH0I6nEEkH4ycG2mei4EYKxuoztam5q1on4omZG5S1LRJuJ1Oen
+         PswQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=disposition-notification-to:content-language:thread-index
+         :mime-version:message-id:date:subject:to:from:dkim-signature;
+        bh=k9G2t15EQpoErd5L2NrgNg8DowVUlaa1gp0C4O3tfe0=;
+        fh=2b88RqM+uXyIX0Tm4JhgGOYKv/w8hCj/lB4x6K5PcUU=;
+        b=Jev918UK7NTwmxrOAmCGsihI1U1bbVC5EIclhxVdDc3sWBb5nnVLcfRQGzMf7wD1b0
+         zwZeTR8GgF7zQn170x9YWfw3tAZ1U5F7/JVVjYV5GMLJ/vXZcLWn2vzDL+1MKRkGKEz3
+         6iFcEEZXZRgiMdNhl1Rk+2tgYAKkaep/go1mw6uJpd98OGz1y3HHRQ/rK/KwydtKbIIo
+         cbTfZ1rbjt6tFEB4rRBuaQLKU+aL4qxTzjm8BCCDWKXeGbIGTXPGpzojMcVixGwhlxdo
+         SeAy0ecNMrPWgPv+xOPD6OKvoxNb2rr36IEsBsGCvVsCVG0gkCgGMMscmoiz3X58YoEU
+         YoSA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@designyourwebs.com header.s=google header.b=UqwG1VJa;
+       spf=softfail (google.com: domain of transitioning responsive@designyourwebs.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=responsive@designyourwebs.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=designyourwebs.com;
+       dara=neutral header.i=@gmail.com
+Return-Path: <responsive@designyourwebs.com>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-4362977c1d2si2919464f8f.360.2026.02.05.23.45.53
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Feb 2026 23:45:53 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning responsive@designyourwebs.com does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@designyourwebs.com header.s=google header.b=UqwG1VJa;
+       spf=softfail (google.com: domain of transitioning responsive@designyourwebs.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=responsive@designyourwebs.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=designyourwebs.com;
+       dara=neutral header.i=@gmail.com
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (1024-bit key; unprotected) header.d=designyourwebs.com header.i=@designyourwebs.com header.a=rsa-sha256 header.s=google header.b=UqwG1VJa;
+	dkim-atps=neutral
+X-policyd-weight: NOT_IN_SPAMCOP=-3 CL_IP_EQ_HELO_IP=-2 (check from: .designyourwebs. - helo: .mail-pl1-f193.google. - helo-domain: .google.)  FROM/MX_MATCHES_HELO(DOMAIN)=-2; rate: -7
+Received: from mail-pl1-f193.google.com (mail-pl1-f193.google.com [209.85.214.193])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id 033EEA001D88
+	for <info@fortschritt24.de>; Fri,  6 Feb 2026 08:45:52 +0100 (CET)
+Received: by mail-pl1-f193.google.com with SMTP id d9443c01a7336-2a90055b9e9so9072335ad.1
+        for <info@fortschritt24.de>; Thu, 05 Feb 2026 23:45:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=designyourwebs.com; s=google; t=1770363950; x=1770968750; darn=fortschritt24.de;
+        h=disposition-notification-to:content-language:thread-index
+         :mime-version:message-id:date:subject:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=k9G2t15EQpoErd5L2NrgNg8DowVUlaa1gp0C4O3tfe0=;
+        b=UqwG1VJas3BHLKkm2xgtwkmIpC4bHviLpnhL0GTd1NKghVZR7GYpmXDwLcdlOqLqx3
+         QEw58Q+TkpHYv74gKIstA7yIitJhM2H6LPaRrikEgOChujs9myEoGUe0z9rSf+aFsBkx
+         vP6axTplFS+UEPRR8PMTlTM3E1SI+BXFyAGSA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770363950; x=1770968750;
+        h=disposition-notification-to:content-language:thread-index
+         :mime-version:message-id:date:subject:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=k9G2t15EQpoErd5L2NrgNg8DowVUlaa1gp0C4O3tfe0=;
+        b=kvVWBw/BZ/pztX2Po/N53R5ebod0vuFPl0u9+fM6zLUqai86BSYtd8kAuaUdez3gdg
+         fmvvc8oxtYi24kTRLSoSky6kMYEPDOFPYHtUHCfJHFMtlzNfGVja89GdABT6oG58oEgQ
+         4fG/vmbkpY46T1kqUSX9lsPsFT7l80T9eYh+HTilTLL3p3N5am3EplKGsTxUmg7n+Wg0
+         bot5DDKygPgfrCtHS+dWkfYXrEjP3mMh8OpSommgUV/sq1AudGLEDl1tf6zFSnOwqhL1
+         LAhOcufzEPQyfxoh1ZDmubIMwjaNzKeOyvJ8Y9A+dWc0Xm22kHvAYBG3ArPMbnR19Ziw
+         Rw3g==
+X-Gm-Message-State: AOJu0Yw+QTzXPekwQHaxdzlqn64WIilVS+M0B3WO8f0BlskTL7APmeQV
+	epVsYHX/oUxZ81+F94ihxwGd0py8S7Z7x71TimGTxYqY71qSb9tFD5eLZQgRrdB8viqlBhP4C99
+	9Bb/jCik=
+X-Gm-Gg: AZuq6aLF1Acyj8c3+QOd0jr6PLsW/JHAVoalim+bv3GY69OVW94cwF9fBPyO6r/qbR0
+	EFLoRMUn3MNAXegpBZlLyGyFJt/f88P99bhruvhec7C2jWItQ2LsKIwROgEa5IicSNnPTneqc4y
+	A51P0m3ykEl5t1Y1Vag5ks81hEFf/gU0aE9Uxc49AeVgNw/nmShVHMEKDI8GRtxjK726kWC5ZQ2
+	FQUv/BO4ixefh0XuTYUgJjQJ4a8DoPR1SnomfWqri4YlN67Fs6DfL8ldlGK84owqXrN3WLpxRAU
+	t4tK6bYKfxmD44z42w9NmwybpOUQcJmoh7j5nC0CivlgXQz0klKTOypvpOV1eAj21F0onrd7Znc
+	QOuVG9jDCFO2y48E61XR/TlZsZa4UqfWu1+g1C60qs6G8mM3cXfAqYeqAKDPzeSl4KYCClHk3/+
+	QK4A17MzBoNROAGOwE4+rB5Ea0ZwEwLg587TqT
+X-Received: by 2002:a17:902:cec3:b0:2a9:4870:9606 with SMTP id d9443c01a7336-2a952223177mr20079145ad.42.1770363949962;
+        Thu, 05 Feb 2026 23:45:49 -0800 (PST)
+Received: from DESKTOPIFGSI79 ([223.181.33.40])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a951a64893sm14303315ad.6.2026.02.05.23.45.48
+        for <info@fortschritt24.de>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 05 Feb 2026 23:45:49 -0800 (PST)
+From: "Arvind Kumar" <responsive@designyourwebs.com>
+To: <info@fortschritt24.de>
+Subject: designs
+Date: Fri, 6 Feb 2026 13:13:39 +0530
+Message-ID: <0c0d01dc973c$9aa4dd40$cfee97c0$@designyourwebs.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0C0E_01DC976A.B45F6330"
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AdyXOlpcpV1DdufiQJ21fiEdCFX7pg==
+Content-Language: en-in
+Disposition-Notification-To: "Arvind Kumar" <responsive@designyourwebs.com>
+X-Spamd-Bar: +++++
+X-Dmarc-Test: Allow
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0C0E_01DC976A.B45F6330
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Hello,
+
+I was on your website. www.fortschritt24.de
+
+We are a top IT company from India.
+
+Do you want to design or redesign your website? We have a team of very
+experienced designers and developers.
+
+*We create absolutely neat and clean websites at a very low cost.*
+
+Do you want to see our recent work?
+
+Best regards,
+
+Arvind Kumar
+
+
+------=_NextPart_000_0C0E_01DC976A.B45F6330
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><META =
+HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-IN><div =
+class=3DWordSection1><p class=3DMsoNormal>Hello,</p><p =
+class=3DMsoNormal>I was on your website. www.fortschritt24.de</p><p =
+class=3DMsoNormal>We are a top IT company from India.</p><p =
+class=3DMsoNormal>Do you want to design or redesign your website? We =
+have a team of very experienced designers and developers.</p><p =
+class=3DMsoNormal>*We create absolutely neat and clean websites at a =
+very low cost.*</p><p class=3DMsoNormal>Do you want to see our recent =
+work?</p><p class=3DMsoNormal>Best regards,</p><p =
+class=3DMsoNormal>Arvind Kumar</p></div></body></html>
+------=_NextPart_000_0C0E_01DC976A.B45F6330--
+

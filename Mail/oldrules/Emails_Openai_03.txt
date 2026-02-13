@@ -1,0 +1,52 @@
+EMAILS_OpenAI_03 – Sorting Blueprint (12 Feb 2026)
+
+SCOPE
+- Account: rafaelfelixremy@gmail.com
+- Maildir root: /home/rafael/Mail/gmail/
+- Active sources: INBOX.sort_ai_correction/cur (process first), INBOX/new, INBOX/cur.
+- Moves are destructive (mv). Never copy, back up, or sync.
+- After each mv, immediately run `ls` on source + destination; if the file still sits in its source folder, repeat the mv until it disappears.
+- Finish when all three sources contain zero files.
+- Every run writes one log at /home/rafael/OPENCLAW_FUNKTIONEN/LOGS/$TIMESTAMP.md with summaries + mv directives.
+
+RUN FLOW
+0. **Correction pool first:** For each file in INBOX.sort_ai_correction/cur, run `grep -R "<filename>" /home/rafael/OPENCLAW_FUNKTIONEN/LOGS` to see prior context before re-sorting.
+1. Count files in correction + INBOX/new + INBOX/cur. If total == 0 ⇒ log "SKIP (alle Quellen leer)" and stop.
+2. Otherwise, process every file in order (correction → new → cur):
+   a. Parse headers/body (From, Subject, Date, List-Unsubscribe, human vs mass-mail signals).
+   b. Log a 3-sentence summary: from, from_email, date, time, content recap, CTA; include unsubscribe link if present.
+   c. Choose destination using the RULE TREE (ordered). Keep the source subfolder (correction behaves like cur).
+   d. `mv SOURCE DEST`.
+   e. `ls SOURCE` (should fail) and `ls DEST | grep FILENAME` (should succeed). Retry mv if needed.
+   f. Append `- action: mv SOURCE -> DEST` to the log.
+3. Log final counts for all three sources (must be 0).
+
+RULE TREE (apply in order; first match wins)
+1. **AGB / Leistungsänderung** – keywords: "AGB", "terms", "policy update", "service change" → /home/rafael/Mail/gmail/INBOX.Archiv.AGB/
+2. **Zahlungs-Bestätigung** – receipts, successful charges, auto-pay confirmations → .../INBOX.Archiv.bezahlt/
+3. **Offene Forderung / Fehlerhafte Zahlung** – overdue, invoices due, failed payments, "Mahnung" → .../INBOX.Freitag/
+4. **Login / Security / OTP** – sign-in alerts, security codes, OAuth approvals, suspicious login → .../INBOX.loeschen/
+5. **Welcome / Account Activation** – new service welcomes, "Confirm your email", invitations → .../INBOX.Archiv.welcome/
+6. **System-/Provider-Meldungen** – infrastructure or API status updates, limit changes, quota notices, billing notices without payment, GitHub automated notifications, Google Cloud product updates, OpenAI "usage has increased" etc. These are automated but not marketing. → /home/rafael/Mail/gmail/INBOX.Archiv.Systemmeldungen/
+7. **Human ↔ Human Kommunikation** – personal 1:1 emails from identifiable people (no unsubscribe, conversational tone) → .../INBOX.Archiv.Kommunikation/
+8. **Newsletter / Automatisierte Updates (DEFAULT)** – bulk campaigns, product promos, release notes, event invites, anything with List-Unsubscribe or marketing footers. If uncertain and it feels like automation, treat as Newsletter. → .../INBOX.Archiv.Kommunikation/
+9. **Fallback** – only if none above apply and classification is unclear → .../INBOX.sort_ai_uncertain/
+
+NOTES on NEWSLETTER DETECTION
+- Presence of `List-Unsubscribe` or marketing footer ⇒ rule 8 unless an earlier rule matched.
+- Known newsletter senders (Envato, Netdata, Groq, Twilio, Mailchimp, Hubspot, Scoutcamp, Mandrill, Sendgrid, etc.) → rule 8.
+- Folder INBOX.sort_ai_correction/ holds past mistakes; study their logs before re-sorting to avoid repeats.
+
+LOG FORMAT EXAMPLE
+```
+## Subject Line (Service Name)
+- from: Foo Service
+- from_email: updates@foo.com
+- date: Wed, 12 Feb 2026
+- time: 15:05:12 +0000
+- summary: Satz 1 … Satz 2 … Satz 3 … (inkl. CTA / Kontext). Unsubscribe-Link nennen, falls vorhanden.
+- unsubscribe: <link or n/a>
+- action: mv /home/.../INBOX/cur/<filename> -> /home/.../INBOX.Archiv.Systemmeldungen/cur/
+```
+
+END OF FILE

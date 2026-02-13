@@ -1,0 +1,193 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:79c:b0:56b:856f:cec7 with SMTP id fy28csp274437vqb;
+        Wed, 11 Feb 2026 08:10:27 -0800 (PST)
+X-Forwarded-Encrypted: i=3; AJvYcCWbHLp9CwAxapgJzf7DGwcjH9ya8xh4/yjScL7hrJdvkayTirE+p6r8itSw4iGAMNHdbP4bVElk+R3t+drH+IstftjwbD8=@gmail.com
+X-Received: by 2002:a05:6000:400d:b0:435:6c8d:d017 with SMTP id ffacd0b85a97d-43782c9c18dmr5332809f8f.32.1770826227713;
+        Wed, 11 Feb 2026 08:10:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1770826227; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=RhvVxg/9j/0Ybz5irrG9GdELUuueXP+v/QCuUoYAyrxSZ77lvLM60t4VBIlRrGkUv7
+         JdH65D2fa5jcmibRFtaebT+/F9T9duC4PvfmnrQfkbQwVU7fHv7n1ie+pp9BOTxHSgHd
+         goj25lDkD5LssXWgclTi1edSscpdU0mOuDNbBk8Ob3czxcH8s89r2EsAftvl1WSX6BNx
+         2vS7IVMV2t5v75NAVsYrOY+mDFnikF/Dq8suZsiHYvZuJs863Xk0eObHsdSJeglNbDj+
+         eZpayXUbsenSnbm7XnvSaJnQX1hWwGFTGalp4AIY+XkpFFpRNEKQmg9FNFwATY8Debs3
+         TZ1A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=O88+2ljQ64HxSYW3M/hKS6ek6JhkccPcKIecTBUhc5Y=;
+        fh=2IssJ509qKu13Q002RnGYuH7/I4Vwfo0g+oMYkD9AuQ=;
+        b=QWWvs/klqGJNLMK9YcVew+d47TIWfptXOCON06276wj9OoFr0iWeXu0Qm5s39qr/BN
+         55EDFaagwjNhxITZ3jKmKPgzCWlFVAz+QzYRx46XBJKNhP5vc6Nvz+CCrU2/7+lQpN/u
+         /XT3rwtc45Qbl+FQHO0VmMbktTXf7R6MKifaRu0srdjpweAKA+pW/aA6lIJ1bRl5ioN+
+         4VVMDb6cXUxUibfAbhwHelEjHbE+6rHtqrJMRrxbf3KVGHAdB+cy/C7VsPzJf21hQRlS
+         8Gnua8xYUK2C+ThLaSgJocMW4CDxqNJyB/sfafg3ZxZFUzx4e3ulx9ml5D+hDvjfmwJs
+         8vbQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@hotmail.com header.s=selector1 header.b=kNRfP+zx;
+       arc=pass (i=1);
+       spf=fail (google.com: domain of emma2127ramirez@hotmail.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=Emma2127Ramirez@hotmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hotmail.com
+Return-Path: <Emma2127Ramirez@hotmail.com>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43783d137fasi4680287f8f.5.2026.02.11.08.10.27
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Feb 2026 08:10:27 -0800 (PST)
+Received-SPF: fail (google.com: domain of emma2127ramirez@hotmail.com does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hotmail.com header.s=selector1 header.b=kNRfP+zx;
+       arc=pass (i=1);
+       spf=fail (google.com: domain of emma2127ramirez@hotmail.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=Emma2127Ramirez@hotmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hotmail.com
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (2048-bit key; unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=kNRfP+zx;
+	dkim-atps=neutral
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazolkn19013079.outbound.protection.outlook.com [52.103.51.79])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id AF436A001054
+	for <info@fortschritt24.de>; Wed, 11 Feb 2026 17:10:26 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DhNiHR8unn+OzQuKr3soSHwlT5puAHslfjXkXEQqCgTRQg69Ak2AhiUXYQwNkza7XkxrfKZG8ZW9qzRp2ASnIHeGIh0JuQ0bYa4hZI86ghUjKWFRgZCDFIwQLfvrJYkCv8EndkRVcFKITcyedn8IkNshgfQvPcgjjHw1ffdo44MuBTJQlVKu/HfmT0xshwmJCh2f1X1pFp8MMykMGyhY+vQhP8U7bOPgQfEUQn6G4M4QwRPtyY0dEdr8SEXBkX2rcZCW+bW5k1PTFZO8dhyQ80nMPDGKJR03Jr0xUYMsuIDe6l7Cm895QKt1eGX8kyq1lnnACjNR/I4suy0fDXooFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O88+2ljQ64HxSYW3M/hKS6ek6JhkccPcKIecTBUhc5Y=;
+ b=AQDp8Ykgq34+Pr2Ppl9dLlzZj7RffZ9PPDVydRiExo7/l/6di4zXc7+MsFvkqrTBMALm3S+a9QkVUlycQ6YB+KLEF331T/2anAc0/cgv92WNKy+FlAaY7Mj78zWuCfWTN+eTH3jJ0u2MpNvvyYpykFtT0frWZH/aU2s3cDkTdZPV7Gd8t8eGjy4ZVD8+/ZTejcfZM/amXXJKQMX3i8XSkfNEpscKhyVVm9eZg82tKsc6QHeRgKuL+W9JrrqgP26WUHEoxDZv1ePkY5Iy4F7yBmiWTP8w0SSltQCP5t9EOFeGweYT9MHiW5fiMmrVuHVdeviATMcwGOSLhKM4fnZIOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O88+2ljQ64HxSYW3M/hKS6ek6JhkccPcKIecTBUhc5Y=;
+ b=kNRfP+zxYWfvK50PCWE4ombtAgyB2pFEJG9xpzjy3CGaUQLifxR5rCrNTbkwfs2FCkq4+gy6sAqglvK8offmqZ4rs0Bw5Cyz4fy+9hLGq8/SyNGFC9wx/mK+bFrcLRmLSuOLJIQ0efO4nt6/H7sGFFiH+mi8mtOAoN5kubpPn4ijkAzTpKJmcy4qBivqfaXRu9m/hLLjnqDZekVBMMVIy4qEh0nZ6J0c7pZs5CwB1p3VSoxNOuWlfMJg4jShLvo8wKhI233CtGedJvf1fMae1rI5e3/djIUrI9LIJi22CEvrKmjk9Vq1AU50DSKr8aIsYMCp5s25eJAoS7xqK/b0pQ==
+Received: from DU0PR08MB10358.eurprd08.prod.outlook.com (2603:10a6:10:415::19)
+ by GV1PR08MB8033.eurprd08.prod.outlook.com (2603:10a6:150:9a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.19; Wed, 11 Feb
+ 2026 16:10:24 +0000
+Received: from DU0PR08MB10358.eurprd08.prod.outlook.com
+ ([fe80::fe51:33bc:fd62:b515]) by DU0PR08MB10358.eurprd08.prod.outlook.com
+ ([fe80::fe51:33bc:fd62:b515%6]) with mapi id 15.20.9587.016; Wed, 11 Feb 2026
+ 16:10:24 +0000
+From: Emma Ramirez <Emma2127Ramirez@hotmail.com>
+To: "info@fortschritt24.de" <info@fortschritt24.de>
+Subject: [fortschritt24.de] errors detected
+Thread-Topic: [fortschritt24.de] errors detected
+Thread-Index: AdybM8B5XxmErholRrSMTEE+H80skw==
+Date: Wed, 11 Feb 2026 16:10:24 +0000
+Message-ID: <DU0PR08MB103584E3F292D919A0ED312DBB763A@DU0PR08MB10358.eurprd08.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU0PR08MB10358:EE_|GV1PR08MB8033:EE_
+x-ms-office365-filtering-correlation-id: 807c4c24-d677-4be3-5604-08de69881083
+x-microsoft-antispam: BCL:0;ARA:14566002|20031999003|30051999003|39105399006|31061999003|13091999003|15080799012|19110799012|461199028|5062599005|8060799015|8062599012|40105399003|3412199025|440099028|102099032|12091999003;
+x-microsoft-antispam-message-info: =?us-ascii?Q?PVSWLXWmB+9H5lyA16YbitH/Kl76tNXXLhMip4EGqjKL0d5ch7qMzPWEf5gR?=
+ =?us-ascii?Q?31HA+ft4mb0+a5fru8yS967f4H5YIgfmKG2ZI0/lJ402BDUvvoqU0pKO9Cw+?=
+ =?us-ascii?Q?DVfFEBkp30Hl70mZ510oh4rSYxNSoSw3WHaAz4/A3gPYTpLc4/kzW0WJJrQC?=
+ =?us-ascii?Q?qZLz7lD2/rZ6JxrAb35JEoA09A4oKKvBeYMXxWEicwkpfzocZWLEwlj5+m5e?=
+ =?us-ascii?Q?caUSlHW+rqdXN2b98QAJvKECsBAeLu6KNSPXdBd6HbyRGDQw6nRFUnRKgKPf?=
+ =?us-ascii?Q?/m6aOiu7XLBlkjOW+tCiciE/j0m2upPdiThsYyl2q4XYTuTB1e5XdQkHSwSh?=
+ =?us-ascii?Q?nefWN6iznaOqnZJc+rEDmSXmCqoEWSfTnFBA1/lndnVnN4FY0zhUOyKMVLBB?=
+ =?us-ascii?Q?7LuMUfXabLx/N0uJ+ImU9tMa0nwRb3xqNTiixSXu0CwzKIHdMfiJOXoeI+zi?=
+ =?us-ascii?Q?qfVkt03tuoCaXXMVLp2R0M9FZ8Od9io8Nahma6plPnLklxYBohw3Qcc1nL8o?=
+ =?us-ascii?Q?lCqR6vFV4/wvU9n3B7ca5qx/fcDortqif8qpU+//T0uA6e0oK2jnd7anPuIJ?=
+ =?us-ascii?Q?q3EZsLotm/hdLcIJg0qU4FSdv51VMYoa1N7mdiSlGInv3XyylHqwtYAA9qeN?=
+ =?us-ascii?Q?XB7uxdS3EGfUYsuUjqEjnOj5z2C5ZWk4FLuJNDOucE/UPwFpB2hsuHJd6HDb?=
+ =?us-ascii?Q?MFFLGsHb4XQQmBV6067oAXkQ3oMzW/7cxQqghouGioFTvjIn6TPWn5oV8AtI?=
+ =?us-ascii?Q?61mWaQ/Ou5Tw2kwF/ODvNIIFYv0WuHL+nyJk6gIX9K6HZXv0LdaDk8qr27Q+?=
+ =?us-ascii?Q?KqaZoNAPab0XIFG2dPObDtGxIGDkkVogv0JWJRnjnEJcxehqwzliFeZsF8wS?=
+ =?us-ascii?Q?4LZEYod/Deq+PFZalbHrnSTlno16bBWdtLW+0EOsPfu7MEmFhHF/lY1O+V2G?=
+ =?us-ascii?Q?ZQM/VMH2eOgVkc3CPoAr7gUTFR72NQtu4Ydw5OkXblRQWYO8yf9DzW4g+f/6?=
+ =?us-ascii?Q?TRLiNFv4kqpRsDzzyTRN3fiLCirEvCNLa1rmAsqBLKr3JoaYFIgsu/c5ZUTO?=
+ =?us-ascii?Q?38asCKjfkjRKgVFi1CgAX01fCZKYZUXDJa3zg+GaChXEevUxG9zzGCqG84D+?=
+ =?us-ascii?Q?wR/oeVlviRQY33UQtRQ4JFchHFw+VIoCHHr8/lgCuUCElNCcLpjMRMz46s66?=
+ =?us-ascii?Q?w2c7o4jZByUDQtWobA5zdKZGP9ARUyDcsmr5JI+jUUWcTr0euP2vlo9r6yVb?=
+ =?us-ascii?Q?tEq96vzXMsYVGCDckY8hm8CyUlA19FA6PvvxXkgQHCaMGo49oCWw9A5myNci?=
+ =?us-ascii?Q?0s+BOpvtKdYdty+u739d12c7KJeis+02bQSl6ZPXrGB05Q=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?WJvRKMWpYLitMrn0bd4A5qAcz9Itx8YAh8ZGn9UMy+6wHKtGe6ItyZPCVPUW?=
+ =?us-ascii?Q?KQzXZ+JZRGJS9chAWYO5vanpiVRUeHOAwJlBIzLmB2dXL8Lde12LwMsBLJzD?=
+ =?us-ascii?Q?NnsnKSH8FU4J5SD0EgbX0swQAjIhFD9rZvVwT5RVoGALT4/y/eJLI6bIt0zY?=
+ =?us-ascii?Q?esK+gPpzNyp5ezwfSWir/7RIwM+JOjC+v0HGMDz2SYl+zKZbFnK2ahj+lTLz?=
+ =?us-ascii?Q?rlIgNEBOelGnbxc/arIB7i5bF1k63gUziqBN/Sybiv/Cr4npnhRiUbnH0vhc?=
+ =?us-ascii?Q?rzq3fP4zeopjX1FPQW56SlHPUX8vbdA+hOXvtdPyIEJhaQsGtOJ7qKMBGQFK?=
+ =?us-ascii?Q?mAHWVa/37dVecRNZdUC+OzfIJY1dtmuoarCJ0Km6UbXS4VEroFScQ9qhBE+N?=
+ =?us-ascii?Q?mm0bL6ElgW3Wux2kNbr7mzrUgLJNCNFm9YZhBZKiiFAlcFY2Kh3OVbhiLkQY?=
+ =?us-ascii?Q?SXrJR9Cu+fY13bTnYA1SbrQFdrXrZqZj2fdZx/4fLjTzf4d3OqcrGQ2HAbJk?=
+ =?us-ascii?Q?C7obEe7IM+pc9G9SMUtCSKa800zK4qzPom2/rikECYqPT3Td4lTO0ffBwmUM?=
+ =?us-ascii?Q?BI+JgD4oZsQx9lmVTSZAHfXWQyc4RuAFOM6c9b9f12FiZmi5QOeriKDDOVcX?=
+ =?us-ascii?Q?kHWQ68+xXFZwbLfbzSi831N9tdBGIxP3ELWKMiYikJV1od7w4/XAZU/4BRq7?=
+ =?us-ascii?Q?tqa3invWW5/EDEMJaQRQVwfgnzAOgxXcIPCptAUwIbHx8oL5RDFDNluYkwU1?=
+ =?us-ascii?Q?QBXP+2TY0FcMNUJjvY+DqS0RbpgMiqQ8z3hiqYrwmIrKB7IrxFsTUIwZGE3w?=
+ =?us-ascii?Q?1+Vg9h9aWpL/yURm33KJUURiSYHp/liw8IwTyuI+MIAoH2Hk3AqGEjccd5l6?=
+ =?us-ascii?Q?pmnBLYEy9SRUPI+zzI/5Q7DlhXMZUL1fIi18rOnQ0EsiVUY7r/g6Lbh+oB2x?=
+ =?us-ascii?Q?m/T+n/IO/kQGP+z4V5Le6hbbXNOIdUwRGPDPxHzRrSzH4ZzEP2h28iY8CWSw?=
+ =?us-ascii?Q?t6l/P+BSzt40IEWcYrZ/mu04nxGpMq/3Ktid8+gKejulWf/Bd/3ZTDnd++0U?=
+ =?us-ascii?Q?mgUGL2ym3LGM4uW+90AIfvWCkqFTLeWisQ7ugrKL2Mqg9Iu0EaPK1+gDTo+S?=
+ =?us-ascii?Q?KPWR3rtuZKxbmt4zol9fK+YEhA16XO6tvT4hkU9BzifFJ4BjVeHhd/P0vO5G?=
+ =?us-ascii?Q?EWLTcxw8h2/V8rR5/3b5JStwjwmI1aXHi2vVTrWpTyS6+T45lZ1/hcevjrFv?=
+ =?us-ascii?Q?c3FC5t2na/wEu1X7S9Y0eSyfahaDrWB4vqCFITqbEN76rixgpeC8rr9NJRZA?=
+ =?us-ascii?Q?Gg+AQStAid2OxKrkr7r7o+qfUKdbKDXzQI7z3G+Ge1gJW4tV6Boc1TQSLkyy?=
+ =?us-ascii?Q?rC4L9nz6mI8YNyOPoSzonzJkyXQy?=
+Content-Type: multipart/alternative;
+	boundary="_000_DU0PR08MB103584E3F292D919A0ED312DBB763ADU0PR08MB10358eu_"
+MIME-Version: 1.0
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-bdc72.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB10358.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 807c4c24-d677-4be3-5604-08de69881083
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2026 16:10:24.5925
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8033
+X-Dmarc-Test: Allow
+X-Spamd-Bar: /
+
+--_000_DU0PR08MB103584E3F292D919A0ED312DBB763ADU0PR08MB10358eu_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear, info@fortschritt24.de
+
+I trust you're having a good day.
+
+Various ranking issues were found linked to SEO inefficiencies.
+
+I can send the complete SEO review, pricing, and portfolio to help grow you=
+r digital influence.
+
+Free report - want me to forward it?
+
+Yours truly,
+
+Emma Ramirez
+
+--_000_DU0PR08MB103584E3F292D919A0ED312DBB763ADU0PR08MB10358eu_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body style=3D"font-size:8pt; font-family:Helvetica">
+<p>Dear, info@fortschritt24.de</p>
+<p>I trust you're having a good day.</p>
+<p>Various ranking issues were found linked to SEO inefficiencies.</p>
+<p>I can send the complete SEO review, pricing, and portfolio to help grow =
+your digital influence.</p>
+<p>Free report &#8212; want me to forward it?</p>
+<p>Yours truly,</p>
+<p>Emma Ramirez</p>
+</body>
+</html>
+
+--_000_DU0PR08MB103584E3F292D919A0ED312DBB763ADU0PR08MB10358eu_--

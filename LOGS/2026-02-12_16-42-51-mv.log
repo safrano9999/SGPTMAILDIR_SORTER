@@ -1,0 +1,156 @@
+# MV-LOG 2026-02-12_16-42-51 - HARDCOPY VERSCHIEBEN OHNE ORDNER-ERSTELLUNG
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909038_1.1963539.nuc,U=29869,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       dkim=pass header.i=@harvestright.com header.s=8832 header.b=j2i+JVT6;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=harvestright.com
+       dkim=pass header.i=@harvestright.com header.s=8832 header.b=j2i+JVT6;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=harvestright.com
+DKIM-Signature: a=rsa-sha256; q=dns/txt; b=j2i+JVT6GXu8y9tuawejOO07CLRBpr2XyI9cg+EddIqR421TumfJ60r2Ay6gnysNApnKskfwlb3s0GlmJ4efps5hcq/PUyJX0pLMMLCdPy03yHchpVtNtXJRC/eSMMXmMfFiDhqoMIgNUVP/3/ZrqNgu941hoUdafx7Egsj3gUg=; c=simple/simple; s=8832; d=harvestright.com; v=1; bh=VBrek8ug4y6p7zkhIgnSJOv3lCntVb2b5xwvj1h3xHk=; h=date:date:from:from:to:to:message-id:subject:subject:mime-version:content-type:list-unsubscribe:list-unsubscribe:list-unsubscribe-post:x-csa-complaints;
+From: "Scott Neville" <scott.neville@harvestright.com>
+Reply-To: scott.neville@harvestright.com
+https://www.harvestright.com Shop the Sale [ https://www.harvestright.com ]
+scott.neville@harvestright.com
+This email was sent by scott.neville@harvestright.com to rafaelfelixremy@gm=
+Our Privacy Policy [ https://harvestright.com/privacy-policy/ ] and Terms o=
+f Use. [ https://harvestright.com/terms-of-service/ ]=20
+px;">scott.neville@harvestright.com</p>     </td>   </tr>    <tr>     <td s=
+>This email was sent by <a href=3D"mailto:scott.neville@harvestright.com" i=
+target=3D"_blank"><span style>scott.neville@harvestright.com</span></a> to =
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909038_2.1963539.nuc,U=29870,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+_github-white-v2.png" alt=3D"Github" width=3D"28" style=3D"display: block;"=
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909039_0.1963539.nuc,U=29871,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       spf=pass (google.com: domain of 3ylamarukajmz8bh0m8xg2be9-abe1c8l3bb381.zb9@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3YlaMaRUKAJMZ8BH0m8xG2BE9-ABE1C8L3BB381.zB9@scoutcamp.bounces.google.com;
+Return-Path: <3YlaMaRUKAJMZ8BH0m8xG2BE9-ABE1C8L3BB381.zB9@scoutcamp.bounces.google.com>
+Received-SPF: pass (google.com: domain of 3ylamarukajmz8bh0m8xg2be9-abe1c8l3bb381.zb9@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+       spf=pass (google.com: domain of 3ylamarukajmz8bh0m8xg2be9-abe1c8l3bb381.zb9@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3YlaMaRUKAJMZ8BH0m8xG2BE9-ABE1C8L3BB381.zB9@scoutcamp.bounces.google.com;
+=3Dhttps://services.google.com/fh/files/emails/gcp_newsletter_email_github.=
+png alt=3D"Visit GCP on GitHub" width=3D33 style=3D"-ms-interpolation-mode:=
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909040_0.1963539.nuc,U=29872,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       dkim=pass header.i=@market.envato.com header.s=mte1 header.b=FxK2LO8S;
+       spf=pass (google.com: domain of bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com designates 198.2.128.1 as permitted sender) smtp.mailfrom=bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=market.envato.com
+Return-Path: <bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com>
+Received-SPF: pass (google.com: domain of bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com designates 198.2.128.1 as permitted sender) client-ip=198.2.128.1;
+       dkim=pass header.i=@market.envato.com header.s=mte1 header.b=FxK2LO8S;
+       spf=pass (google.com: domain of bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com designates 198.2.128.1 as permitted sender) smtp.mailfrom=bounce-md_30000325.698bf207.v1-47d80b42afbb4307ab41f6ed9f406243@mandrillappreturn.market.envato.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=market.envato.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=market.envato.com;
+	i=do-not-reply@market.envato.com;
+From: "Envato Market" <do-not-reply@market.envato.com>
+( https://www.instagram.com/envato/ )
+( https://www.tiktok.com/@envato )
+( https://www.facebook.com/envato/ )
+Envato
+Copyright Envato 2026 | Envato
+About Us ( https://envato.com/ ) 
+    <title>Envato</title>
+0" height=3D"16" src=3D"https://public-assets.envato-static.com/assets/emai=
+height=3D"16" src=3D"https://public-assets.envato-static.com/assets/email/a=
+" height=3D"16" src=3D"https://public-assets.envato-static.com/assets/email=
+              <img src=3D"https://s3.envato.com/files/642975885/the7-80x80-=
+                      <!-- Envato / About Us -->
+                                  <img alt=3D"Envato" class=3D"inline-img" =
+                                  Copyright Envato 2026 | Envato Pty Ltd, L=
+click/30000325/envato.com?p=3DeyJzIjoiQzY5ZFMxM1RsY19oM2txTXpTRDN2SnIwQ0VrI=
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909040_1.1963539.nuc,U=29873,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       dkim=pass header.i=@netdata.cloud header.s=m1 header.b=tfDdVodk;
+       spf=pass (google.com: domain of bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud designates 192.254.118.161 as permitted sender) smtp.mailfrom="bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netdata.cloud
+Return-Path: <bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud>
+Received-SPF: pass (google.com: domain of bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud designates 192.254.118.161 as permitted sender) client-ip=192.254.118.161;
+       dkim=pass header.i=@netdata.cloud header.s=m1 header.b=tfDdVodk;
+       spf=pass (google.com: domain of bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud designates 192.254.118.161 as permitted sender) smtp.mailfrom="bounces+32781326-d1e9-rafaelfelixremy=gmail.com@smtpapi.netdata.cloud";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netdata.cloud
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netdata.cloud;
+From: Netdata team <marketing@netdata.cloud>
+Subject: Netdata at 10th Edition India DevOps Show in Bengaluru!
+Reply-To: Netdata team <product@netdata.cloud>
+Netdata will be attending the India DevOps Show 2026 on February 13, 2026, =
+ * Netdata integrates into existing DevOps environments, including Kubernet=
+Netdata is social. Follow us!
+Netdata account and subscribed to product communications from Netdata.For m=
+Copyright =C2=A9 Netdata. All Rights Reserved.
+Netdata Inc. 8 The Green, #7720 Dover, DE 19901
+<p style=3D"line-height: 140%;">Netdata will be attending the <strong>India=
+<p style=3D"line-height: 140%;"><strong>Netdata integrates into existing De=
+    <p style=3D"line-height: 140%;"><strong>Netdata is social. Follow us!</=
+my@gmail.com signed up for a Netdata account and subscribed to product comm=
+unications from Netdata.For more information please review our <a rel=3D"no=
+10px; line-height: 10px;">Copyright =C2=A9 Netdata. All Rights Reserved.</s=
+10px; line-height: 10px;">Netdata Inc. 8 The Green, #7720 Dover, DE 19901</=
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909040_2.1963539.nuc,U=29874,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=hKUj0jOe;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-27.smtp.github.com (out-27.smtp.github.com. [192.30.252.210])
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) client-ip=192.30.252.210;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=hKUj0jOe;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.210 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-2d14c13.ash1-iad.github.net [10.56.80.26])
+	by smtp.github.com (Postfix) with ESMTPA id 1BE9C6005D6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+From: GitHub <noreply@github.com>
+Subject: [GitHub] A third-party OAuth application has been added to your
+A third-party OAuth application (Netdata Cloud) with read:user and user:email scopes was recently authorized to access your account.
+Visit https://github.com/settings/connections/applications/56abb21b06399422e13d for more information.
+To see this and other security events for your account, visit https://github.com/settings/security-log
+If you run into problems, please contact support by visiting https://github.com/contact
+The GitHub Team
+Processing /home/rafael/Mail/gmail/INBOX/cur/1770909041_0.1963539.nuc,U=29875,FMD5=7e33429f656f1e6e9d79b29c3f82c57e:2,S
+       dkim=pass header.i=@groq.co header.s=hs2-44341333 header.b=Ale2868Y;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=groq.co
+       dkim=pass header.i=@groq.co header.s=hs2-44341333 header.b=Ale2868Y;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=groq.co
+DKIM-Signature: v=1; s=hs2-44341333; d=groq.co; i=@groq.co; 
+List-Unsubscribe: <mailto:1axcuyc9q6h67l01i2bsfwzukmwhkrh5ex5794-rafaelfelixremy=gmail.com@bf07x.hubspotemail.net?subject=unsubscribe>, <https://email.groq.com/hs/subscription-preferences/v2/unsubscribe-all?data=W2nXS-N30h-GdW3XytYr2MDgBrW2Yf2jd32wVs2W3j8BFH3ZvlMYW2Wy2b841t659W3yXvGG3dfYC3W2MpFfJ2MX4ZBW4pxZT-2CtNW-W3NXv-h23lvY4W4rgZxH43JplhW2B1Wq34phcHMW2v_SWQ3zh2rRW3zjKVR2TJ9wHW2TjQFQ4cBzHcW2WxhrF1_tBWKW34CFTs34pqzHW1LwVGR3F7-00W3DSdK-4rDLbsW38jmTX1NkG5QW2RtLs-3J-k1MW2KDqXV2KskzlW2TQwsk3QzXdJW1Xptbw2TP8qsW1St-v62vHNd7W2sLTpr3jn8RlW2-JShD3SN5GwW2HBD2t3SKDlKW2YPcyn2PtxdrW3Zvpps2CKH0qW4hL-xG4kHrS6W32hLhP32qwpdW2YpqCz4rlhJLW2xQJ6m3Z_nsQW1Sb8gG3VyHzKW3T0q403jrt17W3HfyXr4kmPSSW1Qm95g1Y-jwwW364Z2F1W-xQ0W2Px4qn2WLxJmW2MzMf44htpXKW2PyMTb32CTrDW1Nz90Z34gjRcW3QZLSs1QdVH-W2Tygv330yH2KW21m8XG41yMjMW384Rs241S8nsW1ND1-f3j9KMbW41Bq-T1VdstGW41r0744fHPsVW2CXwcs4rgbh5W34hxNj3ZYYklW4rhTlw43HyxLW2Myx6d1XvmxHW1SygKq385dY2W45NmKB1ZvHsDW3JVPgg257xMmf4t60MS04>
+From: Groq <info@groq.co>
+Reply-To: noreply@groq.com
+banner (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q6=
+You=E2=80=99ve got your Groq API key. Now it=E2=80=99s time to get code in =
+Explore our API Cookbook (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VV=
+- Use tools and function calling (https://email.groq.com/e3t/Ctc/2P+113/d5c=
+- Implement RAG (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QP=
+LJVYhsSP4LQ-6ff3M-b7z04 ) : Combine Groq=E2=80=99s inference with your own =
+- Leverage JSON mode (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh=
+- Process multimodal inputs (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04=
+ and structured data using Groq=E2=80=99s multimodal inference.
+- Develop agentic systems (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+[Start Building] (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3Q=
+=E2=80=93 The Groq Team
+Groq builds fast AI inference technology, designed and manufactured in Nort=
+Visit groq.com (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPG=
+Linkedin (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2=
+X (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW=
+Instagram (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr=
+YouTube (https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q=
+Groq, 2700 Zanker Road, Suite 150, San Jose, CA 95134, United States
+Manage preferences (https://email.groq.com/hs/preferences-center/en/page?da=
+ntent=3D"https://email.groq.com/-temporary-slug-5113c6f8-dfdb-4d37-bb54-405=
+        <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3=
+        <img alt=3D"banner" src=3D"https://email.groq.com/hs-fs/hubfs/banne=
+<p style=3D"line-height:150%">You=E2=80=99ve got your Groq API key. Now it=
+<p style=3D"line-height:150%">Explore our <a href=3D"https://email.groq.com=
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+blank"><strong>Implement RAG</strong></a>: Combine Groq=E2=80=99s inference=
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+ructured data using Groq=E2=80=99s multimodal inference.</li>
+<li aria-level=3D"1"><a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCc=
+tps://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1xTZ7=
+<p style=3D"line-height:150%">=E2=80=93 The Groq Team</p>
+000;">Groq builds fast AI inference technology, designed and manufactured i=
+"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Kmr2q61cvyW1x=
+t=3D"_blank">groq.com</a> to learn more.</span></p></div></div></td></tr></=
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+_blank"><img src=3D"https://email.groq.com/hs-fs/hubfs/Linkedin.png?height=
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+s://email.groq.com/hs-fs/hubfs/X.png?height=3D48&amp;upscale=3Dtrue&amp;nam=
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+ank"><img src=3D"https://email.groq.com/hs-fs/hubfs/Instagram.png?height=3D=
+                <a href=3D"https://email.groq.com/e3t/Ctc/2P+113/d5cCcQ04/V=
+=3D"_blank"><img src=3D"https://email.groq.com/hs-fs/hubfs/YouTube.png?heig=
+          Groq, 2700 Zanker Road, Suite 150, San Jose, CA 95134, United Sta=
+          <a data-unsubscribe=3D"true" href=3D"https://email.groq.com/hs/pr=
+<img src=3D"https://email.groq.com/e3t/Cto/2P+113/d5cCcQ04/VVYxZh4w3QPGN3Km=

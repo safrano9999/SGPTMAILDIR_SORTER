@@ -1,0 +1,491 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:1c48:b0:568:c7b9:55c7 with SMTP id im8csp76949vqb;
+        Fri, 30 Jan 2026 10:34:05 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVX+BqBJLCIB5wfjZUgxVGHUd67kJgkuKH7dscCMj5npJJoSzsTo7cqko5PsSLual2AnBi1HJKV7SzPaAtvmgzn8y2WuQI=@gmail.com
+X-Received: by 2002:a05:6000:1863:b0:434:24e2:bed7 with SMTP id ffacd0b85a97d-435f3a6f525mr5267228f8f.13.1769798045181;
+        Fri, 30 Jan 2026 10:34:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769798045; cv=none;
+        d=google.com; s=arc-20240605;
+        b=M8u+Qn+aj0WI3Sq+nOw1VpC0DxhdFDWNgWeU0R4yetoVtLFb3W27OjYYW2zHK2gtl7
+         vNH9D+UyfwfChkXmD4qjiKknIHGj2AigOeCeICyIDs8MOzRnkViXPCv0UMpfZcejv/zW
+         YN3zUP1t+rY74UYM8VT/wrrnB1fbaJpffM8NN4bpYb2h+mc//ddKQOv88zgAEBqq+xM1
+         KN3nZy1sPjy7FSW/DSPtK23/2MOQx6iLjmB/Igo41rzf0jucgpt7nCJsvKrnpWW2MFBO
+         Hw/PWEfblqys4RFpYIdE1LYczD9I2W0QC9gXhHyG0Bj5vC45ZeJSbBK7MjrpFxUncckW
+         SbMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:reply-to:mime-version
+         :dkim-signature;
+        bh=d37JMWFFUy+cfDes6ElmKfuHTHFBiz9vJSKTPzzVIPI=;
+        fh=MWZBFs07DeE27mxpE9qnOg7GclqgplcW9XiqyL58mtY=;
+        b=azdnksF/O4tW0P2pm7XMdxW7yU0Jqh2OIEUjRXxlghdNsvmLr5BGQaDvK264gEzI8D
+         5dTKUPty97tK4YI/pGBL+87+WZcvjPTWekSpk+XGQ3QtCvzMhF+LcwQqGCymlRGtn2+8
+         WYDf/qboRMVCnw9ch0JHPwu51F4K5ZJonVEBMTKTSIz6IwtETGtA4q9I3+x7QAXsyCMD
+         g1/O0WoyNyHIXpvuOJ1aJe3pvoK2J/JvL93wo+xgJCiAod2ml+z27tgKz/61KOLJ6KZ+
+         +WIp2KWQnJRy1lUlC/75nt3zWZYjPCajLsgWMl0D38HnE8mFw/Ba44nsqEDrtV+1/BIb
+         HOYg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@firebaseapp.com header.s=20230601 header.b=aRaXXlZd;
+       spf=softfail (google.com: domain of transitioning adac-jahre122-mitglieder-geschenk@ma33-88697.firebaseapp.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=ADAC-Jahre122-Mitglieder-Geschenk@ma33-88697.firebaseapp.com;
+       dara=neutral header.i=@gmail.com
+Return-Path: <ADAC-Jahre122-Mitglieder-Geschenk@ma33-88697.firebaseapp.com>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-435e178660csi15426443f8f.549.2026.01.30.10.34.04
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jan 2026 10:34:05 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning adac-jahre122-mitglieder-geschenk@ma33-88697.firebaseapp.com does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@firebaseapp.com header.s=20230601 header.b=aRaXXlZd;
+       spf=softfail (google.com: domain of transitioning adac-jahre122-mitglieder-geschenk@ma33-88697.firebaseapp.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=ADAC-Jahre122-Mitglieder-Geschenk@ma33-88697.firebaseapp.com;
+       dara=neutral header.i=@gmail.com
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (2048-bit key; unprotected) header.d=firebaseapp.com header.i=@firebaseapp.com header.a=rsa-sha256 header.s=20230601 header.b=aRaXXlZd;
+	dkim-atps=neutral
+X-policyd-weight: using cached result; rate: -4
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id A9BD4A001C72
+	for <info@fortschritt24.de>; Fri, 30 Jan 2026 19:33:39 +0100 (CET)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c882774f0dso428559385a.2
+        for <info@fortschritt24.de>; Fri, 30 Jan 2026 10:33:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=firebaseapp.com; s=20230601; t=1769798017; x=1770402817; darn=fortschritt24.de;
+        h=to:from:subject:date:message-id:reply-to:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d37JMWFFUy+cfDes6ElmKfuHTHFBiz9vJSKTPzzVIPI=;
+        b=aRaXXlZdTjJGcOvc7Ut7qx/0bPXPTcyCx8aSDLAgos6fCtEkdFz1Fy0cKHCIXozWQ4
+         lLHQjcWt/N4s5glD2GdDVlak76+4SqL0trfYkjUmGgqXAf/U0CrmJ3o4MyuUzlsByOVD
+         hLd2hSsamviJNPVta/Lxf4PukvVVuFnTfSp4jF3dcQuHV2ZSwk5BySpf4G9ZmDwVJd6R
+         p9QPmvyNov2QqV6n+XxQt6P+SDA0kctB6jYL6V0fiS7PuZgcXA8gs7I7Pa2RBVRsccuX
+         CwhHmTVdsj1SotlYNjsdFfnMzx+zWYXz/Wr0e2UWGrcQVsLszZhA7KxkKPU1l3a72uhq
+         zEig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769798017; x=1770402817;
+        h=to:from:subject:date:message-id:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=d37JMWFFUy+cfDes6ElmKfuHTHFBiz9vJSKTPzzVIPI=;
+        b=iZp5HGn2IhmnRzHmZDpJCyEF+GaQYLueGY2YtjYH866ejOW1eKmZeylGzb7qpHUTE2
+         Kn2IGMoQETmbqZ1qvNYmzA90Erc6M8cJLcAdfSWatcpUaT6kXr7EUTuUoUSc5mlw8zxb
+         Y0y1MfCCbAa273RFk2CnKLulwmB/KLycHAejOYir4kJBv3/CUDqF1NPVjspTwqrm3mM6
+         ueweYGis7jmrF3CFpL65PaPGLNPevULO0oaOb/McCCGqgUKti0FqbGY4vuehGJGeZgnQ
+         h9yJVAySmmELStPSmw2fg5K4TVpvpCE+uyMH4111F0t2xabW6yKKc4b8Nh7q46/svpAM
+         IvBg==
+X-Gm-Message-State: AOJu0Yy0pfm3T3U8C1HO9OhwoINo1+QG30+iaHFoWg9qgM/rxULLMzko
+	Bp7SxATvJnZP0Zg5iqeHEHEv8UJ0Uh2oiUPAlrGBz0zKpC8et7Ro02O8IaP42tHYKTJ4M9xcwxv
+	0Oww4LgQVag==
+MIME-Version: 1.0
+X-Received: by 2002:a05:6102:390e:b0:5f5:3244:20f with SMTP id
+ ada2fe7eead31-5f7237461b4mr2378135137.21.1769637091245; Wed, 28 Jan 2026
+ 13:51:31 -0800 (PST)
+Reply-To: no-reply@example.com
+Message-ID: <000000000000347fae064979be08@google.com>
+Date: Wed, 28 Jan 2026 21:51:31 +0000
+Subject: =?UTF-8?Q?=F0=9F=8F=86_ADAC_feiert_122_Jahre_=E2=80=93_Ihr_pers=C3=B6nliches_Jub?=
+	=?UTF-8?Q?il=C3=A4umsgeschenk?=
+From: ADAC <ADAC-Jahre122-Mitglieder-Geschenk@ma33-88697.firebaseapp.com>
+To: info@fortschritt24.de
+Content-Type: multipart/alternative; boundary="000000000000347f98064979be05"
+X-Spamd-Bar: ++++++++++++++
+X-Spam: Yes
+
+--000000000000347f98064979be05
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+RGllc2UgRS1NYWlsIHd1cmRlIHZvbiBlaW5lciBFLU1haWwtQWRyZXNzZSB2ZXJzZW5kZXQsIGRp
+ZSBhdXNzY2hsaWXDn2xpY2ggIA0KZsO8ciBCZW5hY2hyaWNodGlndW5nZW4gZ2VudXR6dCB3aXJk
+IHVuZCBrZWluZSBFLU1haWxzIGVtcGZhbmdlbiBrYW5uLiBCZWkgIA0KRnJhZ2VuIGdlaGUgenUg
+SGlsZmUgJiBLb250YWt0Lg0KDQoNCg0KUHJlaXNhbmdhYmVuIGlua2wuIFN0ZXVlciB1bmQgenpn
+bC4gU2VydmljZS0gJiBWZXJzYW5ka29zdGVuLiAgDQpQcmVpc8OkbmRlcnVuZ2VuIHVuZCBJcnJ0
+w7xtZXIgdm9yYmVoYWx0ZW4uDQoNCg0KDQpPdHRvIEdtYkggJiBDby4gS0dhQSDCtyBXZXJuZXIt
+T3R0by1TdHIuIDEtNyDCtyAyMjE3OSBIYW1idXJnDQpBRyBIYW1idXJnIEhSIEIgMTg4IDEwMSDC
+tyBQZXJzw7ZubGljaCBoYWZ0ZW5kOiBPdHRvIFZlcndhbHR1bmdzZ2VzZWxsc2NoYWZ0ICANCm1i
+SCwgSGFtYnVyZywgQUcgSGFtYnVyZyBIUiBCIDExOSAyNjQNCnZlcnRyZXRlbiBkdXJjaDogUGV0
+cmEgU2NoYXJuZXItV29sZmYgKFZvcnNpdHplbmRlKSDCtyBEci4gTWFyY3VzIEFja2VybWFubiAg
+DQrCtyBTZXJnaW8gQnVjaGVyIMK3IEthdHkgUm9ld2VyIMK3IEtheSBTY2hpZWJ1cg0KQmVyZWlj
+aHN2b3JzdMOkbmRlIE9UVE86IE1hcmMgT3BlbHQgKFZvcnNpdHplbmRlcikgwrcgQW5kcmVhIEJl
+Y2tlciDCtyBEci4gIA0KQm9yaXMgRXdlbnN0ZWluIMK3IERyLiBNaWNoYWVsIE3DvGxsZXItV8O8
+bnNjaCAoamV3ZWlscyAgDQpIYW5kbHVuZ3NiZXZvbGxtw6RjaHRpZ3RlKQ0KQXVmc2ljaHRzcmF0
+OiBBbGV4YW5kZXIgQmlya2VuIChWb3JzaXR6ZW5kZXIpDQpFaHJlbnZvcnNpdHplbmRlciBkZXMg
+QXVmc2ljaHRzcmF0czogUHJvZi4gRHIuIE1pY2hhZWwgT3R0bw0KDQoNCg0KRGF0ZW5zY2h1dHog
+JiBJbXByZXNzdW0NCg0KDQoNCg0K
+--000000000000347f98064979be05
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+<!DOCTYPE html>
+<html lang=3D"de">
+<head>
+  <meta charset=3D"UTF-8">
+  <title>122 Jahre ADAC Jubil=C3=A4um</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <style>
+    /* CLIENT-SAFE FONTS AND RESET */
+    body,table,td,a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:1=
+00%; }
+    table,td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img { -ms-interpolation-mode:bicubic; border:0; outline:0; text-decorat=
+ion:none; display:block; }
+    body { margin:0; padding:0; width:100% !important; -webkit-font-smoothi=
+ng:antialiased; }
+    table { border-collapse:collapse !important; }
+   =20
+    /* RESPONSIVE */
+    @media only screen and (max-width:600px) {
+      .container { width:100% !important; min-width:0 !important; }
+      .inner { padding:20px 16px !important; }
+      .header-text { font-size:1.1em !important; }
+      h1 { font-size:1.5em !important; line-height:1.3 !important; }
+      .subtitle { font-size:0.95em !important; }
+      .cta-btn { font-size:1.05em !important; padding:14px 24px !important;=
+ width:auto !important; }
+      .feature-item { font-size:0.95em !important; padding:10px 0 !importan=
+t; }
+      .badge { font-size:0.75em !important; padding:4px 10px !important; }
+      .logo { font-size:2em !important; }
+      .anniversary { font-size:1.2em !important; }
+    }
+  </style>
+</head>
+<body style=3D"margin:0; padding:0; background:#f7f9fc;">
+  <center>
+    <table width=3D"100%" bgcolor=3D"#f7f9fc" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"background:#f7f9fc;">
+      <tr>
+        <td align=3D"center" style=3D"padding:30px 0;">
+          <!--[if (gte mso 9)|(IE)]>
+          <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0">
+          <tr>
+          <td>
+          <![endif]-->
+          <table class=3D"container" align=3D"center" width=3D"100%" style=
+=3D"max-width:600px; width:100%; margin:0 auto; background:#ffffff; border-=
+radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+           =20
+            <!-- Header with gradient and ADAC logo -->
+            <tr>
+              <td style=3D"padding:0;">
+                <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"background:linear-gradient(135deg, #FFEB3B 0%, #FDD835=
+ 100%);">
+                  <tr>
+                    <td style=3D"padding:32px 30px; text-align:center;">
+                      <!-- ADAC Logo in text -->
+                      <div class=3D"logo" style=3D"font-family:'Arial Black=
+', Arial, sans-serif; color:#000000; font-size:2.5em; font-weight:900; marg=
+in-bottom:16px; letter-spacing:2px;">
+                        ADAC
+                      </div>
+                      <div class=3D"badge" style=3D"display:inline-block; b=
+ackground:rgba(255,255,255,0.9); color:#c17900; font-family:Arial,sans-seri=
+f; font-size:0.8em; font-weight:600; padding:6px 14px; border-radius:20px; =
+text-transform:uppercase; letter-spacing:0.5px;">
+                        Jubil=C3=A4ums-Aktion
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Main content -->
+            <tr>
+              <td class=3D"inner" style=3D"padding:40px 40px 30px 40px;">
+               =20
+                <!-- Title section -->
+                <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0">
+                  <tr>
+                    <td align=3D"center" style=3D"padding-bottom:24px;">
+                      <h1 style=3D"font-family:'Segoe UI', Arial, sans-seri=
+f; color:#1a1a1a; font-size:1.8em; margin:0 0 12px 0; font-weight:700; line=
+-height:1.4;">
+                        Ihr exklusives Jubil=C3=A4ums-Geschenk
+                      </h1>
+                      <div class=3D"subtitle" style=3D"font-family:Arial,sa=
+ns-serif; color:#666; font-size:1.05em; line-height:1.6;">
+                        Danke f=C3=BCr Ihr Vertrauen! W=C3=A4hlen Sie jetzt=
+ Ihr kostenloses Geschenk als Dankesch=C3=B6n f=C3=BCr 122 Jahre gemeinsame=
+ Mobilit=C3=A4t.
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Features list with icons -->
+                <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"margin-bottom:32px;">
+                  <tr>
+                    <td>
+                      <table width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0">
+                        <tr>
+                          <td class=3D"feature-item" style=3D"font-family:A=
+rial,sans-serif; font-size:1em; padding:12px 0; color:#333; border-bottom:1=
+px solid #f0f0f0;">
+                            <span style=3D"color:#FDD835; font-size:1.3em; =
+margin-right:12px;">=F0=9F=8E=81</span>
+                            <span style=3D"vertical-align:middle;">Exklusiv=
+es Jubil=C3=A4ums-Geschenk</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class=3D"feature-item" style=3D"font-family:A=
+rial,sans-serif; font-size:1em; padding:12px 0; color:#333;">
+                            <span style=3D"color:#FDD835; font-size:1.3em; =
+margin-right:12px;">=F0=9F=8F=86</span>
+                            <span style=3D"vertical-align:middle;">122 Jahr=
+e Vertrauen & Erfahrung</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- CTA Button - Centered -->
+                <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0">
+                  <tr>
+                    <td align=3D"center" style=3D"padding:10px 0 20px 0;">
+                      <a href=3D"https://hel-dkd.web.app" target=3D"_blank"=
+ class=3D"cta-btn" style=3D"background:linear-gradient(135deg, #FDD835 0%, =
+#FBC02D 100%); color:#1a1a1a; font-weight:700; font-family:'Segoe UI', Aria=
+l,sans-serif; font-size:1.1em; padding:16px 40px; border-radius:50px; text-=
+decoration:none; display:inline-block; box-shadow:0 6px 20px rgba(253, 216,=
+ 53, 0.4);">
+                        Jetzt einl=C3=B6sen =E2=86=92
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+				<p></p>
+                <!-- Notice box -->
+                <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"margin-bottom:28px;">
+                  <tr>
+                    <td style=3D"background:#FFF3E0; border-left:4px solid =
+#FF9800; border-radius:8px; padding:16px 18px;">
+                      <div style=3D"font-family:Arial,sans-serif; color:#E6=
+5100; font-size:0.95em; line-height:1.6;">
+                        <strong>Wichtig:</strong> Jedes Mitglied kann ein G=
+eschenk ausw=C3=A4hlen. Die Aktion ist limitiert =E2=80=93 nur solange der =
+Vorrat reicht!
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+
+          </table>
+          <!--[if (gte mso 9)|(IE)]>
+          </td>
+          </tr>
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF-8=
+">
+    <title></title>
+  </head>
+  <body>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <table class=3D"v1content-wrapper v1bg-color-grey-25 v1-" width=3D"100%=
+"
+      align=3D"center" bgcolor=3D"#f0f0f0"
+style=3D"box-sizing: border-box; border-collapse: collapse; color: rgb(33, =
+33, 33); font-family: OttoSans, system-ui, Arial, Helvetica, sans-serif; fo=
+nt-size: 14px; font-style: normal; font-variant-ligatures: normal; font-var=
+iant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; te=
+xt-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width=
+: 0px; white-space: normal; text-decoration-thickness: initial; text-decora=
+tion-style: initial; text-decoration-color: initial; width: 600px; max-widt=
+h: 600px; border: none; border-spacing: 0px; text-align: center; background=
+-color: rgb(240, 240, 240);">
+      <tbody style=3D"box-sizing: border-box;">
+        <tr style=3D"box-sizing: border-box;">
+          <td class=3D"v1pd-l-400 v1pd-r-400 v1pd-t-250 v1t-align-c"
+            align=3D"center"
+style=3D"box-sizing: border-box; padding: 20px 32px 0px; text-align: center=
+;">
+            <p class=3D"v1font-size-87 v1color-text-secondary"
+style=3D"box-sizing: border-box; margin: 0px; font-family: OttoSans, system=
+-ui, Arial, Helvetica, sans-serif; padding: 0px; word-spacing: normal; word=
+-break: break-word; line-height: 1.5; font-weight: 400; font-size: 14px; co=
+lor: rgb(109, 109, 109);"><span
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; word-spacing: n=
+ormal; word-break: break-word; line-height: 1.5; color: rgb(109, 109, 109);=
+">Diese
+                E-Mail wurde von einer E-Mail-Adresse versendet, die
+                ausschlie=C3=9Flich f=C3=BCr Benachrichtigungen genutzt wir=
+d und
+                keine E-Mails empfangen kann. Bei Fragen gehe zu<span>&nbsp=
+;</span><a
+href=3D"https://www.otto.de/contact-contact/support?contact_Channel=3Dconta=
+ctflow&amp;contact_Activity=3Dclick&amp;contact_Source=3Demail_footer"
+                  class=3D"v1link-underline" target=3D"_blank"
+                  rel=3D"noreferrer"
+style=3D"box-sizing: border-box; color: inherit; text-decoration: underline=
+ 1px; background-color: transparent;"><span
+style=3D"box-sizing: border-box; text-decoration: underline 1px; margin: 0p=
+x; padding: 0px; word-spacing: normal; word-break: break-word; line-height:=
+ 1.5; color: rgb(109, 109, 109);">Hilfe
+                    &amp; Kontakt</span></a>.</span></p>
+          </td>
+        </tr>
+        <tr style=3D"box-sizing: border-box;">
+          <td class=3D"v1pd-l-400 v1pd-r-400 v1t-align-c v1pd-t-200"
+            align=3D"center"
+style=3D"box-sizing: border-box; padding: 16px 32px 0px; text-align: center=
+;">
+            <p class=3D"v1font-size-87 v1color-text-secondary"
+style=3D"box-sizing: border-box; margin: 0px; font-family: OttoSans, system=
+-ui, Arial, Helvetica, sans-serif; padding: 0px; word-spacing: normal; word=
+-break: break-word; line-height: 1.5; font-weight: 400; font-size: 14px; co=
+lor: rgb(109, 109, 109);"><span
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; word-spacing: n=
+ormal; word-break: break-word; line-height: 1.5; color: rgb(109, 109, 109);=
+">Preisangaben
+                inkl. Steuer und zzgl.<span>&nbsp;</span><a
+href=3D"https://www.otto.de/extern/?page=3D%2Fshoppages%2Fservice%2Flieferu=
+ng&amp;campid=3DP.AC-EMA.MP-EMP.AS-IOT.BT-E.C-8610322&amp;pxid=3D601&amp;la=
+bels=3Dpm_SendingId%3D7bc9925c51999bcbbe638b8acc7a9c9f%26mail_TopicIdClick%=
+3DPSF_A3_SORTI_emarsys"
+                  target=3D"_blank" rel=3D"noreferrer"
+style=3D"box-sizing: border-box; color: inherit; text-decoration: underline=
+ 1px; background-color: transparent;"><span
+style=3D"box-sizing: border-box; text-decoration: underline 1px; margin: 0p=
+x; padding: 0px; word-spacing: normal; word-break: break-word; line-height:=
+ 1.5; color: rgb(109, 109, 109);">Service-
+                    &amp; Versandkosten</span></a>. Preis=C3=A4nderungen un=
+d
+                Irrt=C3=BCmer vorbehalten.</span></p>
+          </td>
+        </tr>
+        <tr style=3D"box-sizing: border-box;">
+          <td class=3D"v1pd-l-400 v1pd-r-400 v1t-align-c v1pd-t-200"
+            align=3D"center"
+style=3D"box-sizing: border-box; padding: 16px 32px 0px; text-align: center=
+;">
+            <p class=3D"v1font-size-87 v1color-text-secondary"
+style=3D"box-sizing: border-box; margin: 0px; font-family: OttoSans, system=
+-ui, Arial, Helvetica, sans-serif; padding: 0px; word-spacing: normal; word=
+-break: break-word; line-height: 1.5; font-weight: 400; font-size: 14px; co=
+lor: rgb(109, 109, 109);"><span
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; word-spacing: n=
+ormal; word-break: break-word; line-height: 1.5; color: rgb(109, 109, 109);=
+">Otto
+                GmbH &amp; Co. KGaA =C2=B7 Werner-Otto-Str. 1-7 =C2=B7 2217=
+9
+                Hamburg<br style=3D"box-sizing: border-box;">
+                AG Hamburg HR B 188 101 =C2=B7 Pers=C3=B6nlich haftend: Ott=
+o
+                Verwaltungsgesellschaft mbH, Hamburg, AG Hamburg HR B
+                119 264<br style=3D"box-sizing: border-box;">
+                vertreten durch: Petra Scharner-Wolff (Vorsitzende) =C2=B7
+                Dr. Marcus Ackermann =C2=B7 Sergio Bucher =C2=B7 Katy Roewe=
+r =C2=B7 Kay
+                Schiebur<br style=3D"box-sizing: border-box;">
+                Bereichsvorst=C3=A4nde OTTO: Marc Opelt (Vorsitzender) =C2=
+=B7
+                Andrea Becker =C2=B7 Dr. Boris Ewenstein =C2=B7 Dr. Michael
+                M=C3=BCller-W=C3=BCnsch (jeweils Handlungsbevollm=C3=A4chti=
+gte)<br
+                  style=3D"box-sizing: border-box;">
+                Aufsichtsrat: Alexander Birken (Vorsitzender)<br
+                  style=3D"box-sizing: border-box;">
+                Ehrenvorsitzender des Aufsichtsrats: Prof. Dr. Michael
+                Otto</span></p>
+          </td>
+        </tr>
+        <tr style=3D"box-sizing: border-box;">
+          <td align=3D"center" class=3D"v1pd-t-200 v1link-secondary"
+            style=3D"box-sizing: border-box; padding: 16px 0px 0px;">
+            <p class=3D"v1font-size-87"
+style=3D"box-sizing: border-box; margin: 0px; font-family: OttoSans, system=
+-ui, Arial, Helvetica, sans-serif; padding: 0px; word-spacing: normal; word=
+-break: break-word; line-height: 1.5; font-weight: 400; color: rgb(33, 33, =
+33); font-size: 14px;"><a
+href=3D"https://www.otto.de/extern/?page=3D%2Fdatenschutz&amp;campid=3DP.AC=
+-EMA.MP-EMP.AS-IOT.BT-E.C-8625509&amp;pxid=3D601&amp;labels=3Dpm_SendingId%=
+3D7bc9925c51999bcbbe638b8acc7a9c9f%26mail_TopicIdClick%3DPSF_A3_SORTI_emars=
+ys"
+                target=3D"_blank" rel=3D"noreferrer"
+style=3D"box-sizing: border-box; color: rgb(109, 109, 109); text-decoration=
+: underline 1px; background-color: transparent;"><span
+                  class=3D"v1font-deco-underline"
+style=3D"box-sizing: border-box; text-decoration: underline 1px; margin: 0p=
+x; padding: 0px; word-spacing: normal; word-break: break-word; line-height:=
+ 1.5; color: rgb(109, 109, 109);">Datenschutz</span></a><span>&nbsp;</span>=
+<span
+                class=3D"v1color-text-secondary"
+style=3D"box-sizing: border-box; margin: 0px; padding: 0px; word-spacing: n=
+ormal; word-break: break-word; line-height: 1.5; color: rgb(109, 109, 109);=
+">&amp;</span><span>&nbsp;</span><a
+href=3D"https://www.otto.de/extern/?page=3D%2Fimpressum&amp;campid=3DP.AC-E=
+MA.MP-EMP.AS-IOT.BT-E.C-8610327&amp;pxid=3D601&amp;labels=3Dpm_SendingId%3D=
+7bc9925c51999bcbbe638b8acc7a9c9f%26mail_TopicIdClick%3DPSF_A3_SORTI_emarsys=
+"
+                target=3D"_blank" rel=3D"noreferrer"
+style=3D"box-sizing: border-box; color: rgb(109, 109, 109); text-decoration=
+: underline 1px; background-color: transparent;"><span
+                  class=3D"v1font-deco-underline"
+style=3D"box-sizing: border-box; text-decoration: underline 1px; margin: 0p=
+x; padding: 0px; word-spacing: normal; word-break: break-word; line-height:=
+ 1.5; color: rgb(109, 109, 109);">Impressum</span></a></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+  </body>
+</html>
+
+--000000000000347f98064979be05--

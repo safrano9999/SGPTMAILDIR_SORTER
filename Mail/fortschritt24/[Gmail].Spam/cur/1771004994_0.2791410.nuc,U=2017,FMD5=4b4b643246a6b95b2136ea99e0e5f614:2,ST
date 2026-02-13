@@ -1,0 +1,217 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:2698:b0:554:7c0:c37f with SMTP id gq24csp1269259vqb;
+        Wed, 21 Jan 2026 06:47:15 -0800 (PST)
+X-Forwarded-Encrypted: i=5; AJvYcCWm1E/7tDV2TXUKTP5xiAtoWeEUxOXJHWJCewk6A3ugJ0cJrK2mdnE+Pi75TI4dyYv0b+yu2KSyBVSR2ir0KfdSK9v6Aks=@gmail.com
+X-Received: by 2002:a05:6000:288b:b0:432:8697:be04 with SMTP id ffacd0b85a97d-4356998b0a6mr26348301f8f.20.1769006835117;
+        Wed, 21 Jan 2026 06:47:15 -0800 (PST)
+ARC-Seal: i=4; a=rsa-sha256; t=1769006835; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=XvuVL+uLI0/n9lIsxQAblvZKxcPNZIx5dUt81SkdQgWR66rUgm9xgkr4Pbwq/thb4i
+         MXt7fIiy8Qoe7mRLaGxEE//0v92jLVa5ztjpdF3MSg6qqcGkdGcwCTUGPxs0NWjpOwlU
+         NPBkBRuTc3I8bUC+f/3gVj/VEDTzlRsdq/JSw1jVqWB7UI6d2U7gbmOeh3E+rttniPwT
+         /38+Rq3kPIXk+rIMoszEa3seDvEip665MoMYbwqLaKf/FRtX9EiqmGApOfBV9Wie2eeD
+         W13WLp2x66a7HT/RhVep5T44YnGwtS6rbB0qGS3lQO9OgyuXxA03HBenJtMRo7ycBgk6
+         BTsg==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version;
+        bh=mRewAJslUUIj0gs8jHFxj10ZV4rfbQ8F6MLqdgC4y5Q=;
+        fh=76TqM64f7NwMOFoUPQElLCEMlwgTVDV5jIfwMLaZpWA=;
+        b=Cb3VJkbLqKPWhQE9aelzfzpWBaHOKRStkftom7YmrH6djGPmL72M6BONR2LQpXsh25
+         Z1pqFcAXfYbQyhV8zy0HypPh35keT44puw0aQSWxC5D5cm2a4Inz2PVH9cg8TF2zPY2h
+         gqI1Uz7zRwJU3TIDHwvrP3lqQKA50WX+ADAT8tsGdTCg501ba+M8xZnFoOrhju1gIXm0
+         Lrfrxp/dS0djuCKRaYAfQwqYWVebMISNHpHEWIFShehfWox5tugJXU4kWUQbue+UKJHd
+         jakxJZabroc8y6O4R/qTNkWQ21nJ00TscQ2S9ymPSMVXO15XzAA5hSa8SCq+phex7GHL
+         zh+Q==;
+        dara=google.com
+ARC-Authentication-Results: i=4; mx.google.com;
+       arc=pass (i=3 spf=pass spfdomain=12-liao.com dkim=pass dkdomain=12-liao.com);
+       spf=softfail (google.com: domain of transitioning si+bncbce5hufd7edrbuh3ylfqmgqegjoum4a@12-liao.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=si+bncBCE5HUFD7EDRBUH3YLFQMGQEGJOUM4A@12-liao.com;
+       dara=neutral header.i=@gmail.com
+Return-Path: <si+bncBCE5HUFD7EDRBUH3YLFQMGQEGJOUM4A@12-liao.com>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-435a2903520si1739599f8f.547.2026.01.21.06.47.14
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 06:47:15 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning si+bncbce5hufd7edrbuh3ylfqmgqegjoum4a@12-liao.com does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       arc=pass (i=3 spf=pass spfdomain=12-liao.com dkim=pass dkdomain=12-liao.com);
+       spf=softfail (google.com: domain of transitioning si+bncbce5hufd7edrbuh3ylfqmgqegjoum4a@12-liao.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=si+bncBCE5HUFD7EDRBUH3YLFQMGQEGJOUM4A@12-liao.com;
+       dara=neutral header.i=@gmail.com
+X-policyd-weight: using cached result; rate: -7
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id 7B815A00183F
+	for <info@fortschritt24.de>; Wed, 21 Jan 2026 15:47:10 +0100 (CET)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8c52bb3ac7bsf1133841385a.0
+        for <info@fortschritt24.de>; Wed, 21 Jan 2026 06:47:10 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1769006829; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=O0PwTeRlIl6BBhncBQWqSpwyCyTEZMJ9Ksz43ILEuTqyme4c36I62mKm51F6wkJF9R
+         nFfxmuwZQHE/fPu07opSXxl2QeoxTeyAXUQV/2tmrsHrALUNkFMEzCfMr+5nmGeEKh9O
+         eAWDfLaCjQszNh0/+G7MjIL0Ttv9oSzvZw3PWLWN8o227Dg5J7yRwQtmj7ZKfUquRt66
+         1MUifZyn7D7rAbx9qFXIt+zrmoWuydxzpDl0NXScpChQQaJuSXlXcpNgMLVTJv9rDzeK
+         SqBv8GK1+TXyaO0eqKJAg8s+UBjhij15ObiNu+geSMbuJlRoWEQO0HoEbf+YuAfrdB0A
+         uMag==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version;
+        bh=mRewAJslUUIj0gs8jHFxj10ZV4rfbQ8F6MLqdgC4y5Q=;
+        fh=76TqM64f7NwMOFoUPQElLCEMlwgTVDV5jIfwMLaZpWA=;
+        b=MEe2IGGYO52mRdQTy7QzLmOXGY3nJo4FRV4LUE0mh/0aMhAMKDE5ovkHngyIw0IMfX
+         nQZfhz5dLjMzDrF7oJukV0ZcWFIioGuq+H2318vVrWAN3EjcTOBrpOjQ8nPAUKein+iR
+         +XoeKo9PG9neagtVCRVTAqg3A6jWvj4cSx8poqLMpSYUxbcZ0ijEBQiYHICfh8C9l8bq
+         28OuzDwTZqQLbdf62mjS9AhFccx8KoU6EHAgFsqNj+/hqAJSOIP0BDjMgQvFXyjr+YMA
+         Dzv3OpQgT7Tc7x3V0gskt+uf30gJI0qXEy198E01FkALwDCxTTYSw40GIXZSH+rrzWKB
+         zabQ==;
+        darn=fortschritt24.de
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@12-liao.com header.s=google header.b=dPeq8+6z;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of info@12-liao.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info@12-liao.com;
+       dara=neutral header.i=@12-liao.com
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769006829; x=1769611629;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:x-gm-gg:x-beenthere:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mRewAJslUUIj0gs8jHFxj10ZV4rfbQ8F6MLqdgC4y5Q=;
+        b=ulbDsc1AEbK7GIjgMyDLgoi3ByXRgvY86mFiuieFaYeS2QOnN+BLm3l4R4ODGhMAHU
+         4zxzoKC2C33noXB2bD5GTIjJiWNiWMpQS3I9Pj9HAnKgkY+OhfczHa0a9IiPSL2skLnk
+         9G/I61uqia8no+1qi0SLbd69sn+5LoOyPp0uQiFZsaQ0T4m57TQd0JNJULoxDiBPjzoi
+         jZHfG0JtMOlX9skHcGrdLbEjKslbrF5qO4G4cxsfFVe8xc/jg4uF7IgAImpVzYYCPet+
+         ZB5jy4+dZ90wS4hiBoo3pj8MvTV3uUZs7Aq/jNgTtOQnwpYl/dROSVrzRbcR+fKNv6iK
+         PN+Q==
+X-Forwarded-Encrypted: i=3; AJvYcCXN66yWp2ka1wOXozE/pOD0GTUSD84tk5Xv2t88sK/0/yuMmMLLXinqYyotzXXE3STzs3FJ@fortschritt24.de
+X-Gm-Message-State: AOJu0Yzk6+w9BkbWrkDZhk1vRXZ2aC1v6hQ7g6YeBVhZhnkgrPxKjYGi
+	x6t2ihj7ZaI0gt6yUQ7Lk1/XDurDMUcqFVs9Joj3dnN6dox2LvGiRCRDDHF+0iwfw10=
+X-Received: by 2002:a05:690c:6187:b0:786:504a:4fe7 with SMTP id 00721157ae682-7940a48c730mr39081867b3.67.1768996811693;
+        Wed, 21 Jan 2026 04:00:11 -0800 (PST)
+X-BeenThere: si@12-liao.com; h="AV1CL+HNSRub1dr/bv55zSSDMtmx9U7Ebp7uApbdUHnDEztgvQ=="
+Received: by 2002:a53:bb05:0:b0:647:27b0:1a65 with SMTP id 956f58d0204a3-6490b946093ls4855113d50.3.-pod-prod-09-us;
+ Wed, 21 Jan 2026 03:51:42 -0800 (PST)
+X-Forwarded-Encrypted: i=3; AJvYcCUHpU2pSx4zn4OWnFudmE+3NmJKj00AJTo8PqqESuH06M4msv7dev77DAcgYe2nerSEag==@12-liao.com
+X-Received: by 2002:a05:690e:b89:b0:649:37ed:b7c3 with SMTP id 956f58d0204a3-6493c864a03mr3305270d50.84.1768996302771;
+        Wed, 21 Jan 2026 03:51:42 -0800 (PST)
+X-BeenThere: support@12-liao.com; h="AV1CL+H7ht1fDYwKvawszGW340kKm2Cs4fDUr02ql4U8YcWHYg=="
+Received: by 2002:a53:d7d0:0:b0:644:711f:4a0a with SMTP id 956f58d0204a3-6490b8cfad1ls4758442d50.1.-pod-prod-09-us;
+ Wed, 21 Jan 2026 03:51:41 -0800 (PST)
+X-Received: by 2002:a05:690c:6010:b0:788:b84:d4f9 with SMTP id 00721157ae682-7940a48006emr41939527b3.57.1768996301603;
+        Wed, 21 Jan 2026 03:51:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1768996301; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=cGb+UEI+odkrJ7Khi/Wt0zZF7xR3PDsH7ICMOPfKTxe9YoxllW7i8DGCNiG2DDVSf0
+         iVXpfz2YqWk78+m3Dx4T815EypKdAB5P9R6UNa1RNQVrLbi2BCXbDUfp0bBUgUnpVUeO
+         JX7LfKWOwZEvvhqjQyyQikEwdCB9vMODcf1EmgA8QdMvJK/8xvNFlfOcEERDDev9bLyV
+         PJikNnIs4oMPfEcNg/w8opKnhaByhXztzFQTXhQ23PXEG5KyWyr4ApQE/yFKgt1m8iUh
+         msAJS5qQvhaETvtkZTLWY4lr1BiOUo2XHWdTq8+XUGf4Li66grKjid4T9h//ZnZCdrth
+         RskA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=mRewAJslUUIj0gs8jHFxj10ZV4rfbQ8F6MLqdgC4y5Q=;
+        fh=67OZqg6w0fN7lsSv1cdkoeLM7V/6g0/r8aCuzboVRMs=;
+        b=D31AO/zCrB6G8qVuhw2+oN1LnxreG7InWhaw2mq6WlavSxUoHBJnn+gC6dJtz0rp9g
+         /xUuBkevdPUB+A69kSd03sNd66aqbTkP0v3jc5KP5J0zkQgLAaUJ4d1bIpPagEoERSqj
+         npx7TGX0Ouqc67VUypIYFjr3yoUl3yFT8dkDto88xracTc0pORZgs6d8aoV+rKMBWD2/
+         /rTyAbvE8ggr0AGu5Mh5JjoUOD+DbUMUKJyn8X7LfC2lgviao4kvU/yus5E8w2JsBa+e
+         8G+i/vphkSObpHnGjEkMPcUMR6oKRdGgn0ddWV2Hu6rkhW/WZfQ1Wdz3g6BA2CRAyMKb
+         RZlw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@12-liao.com header.s=google header.b=dPeq8+6z;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of info@12-liao.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info@12-liao.com;
+       dara=neutral header.i=@12-liao.com
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-7940b0468casor25554937b3.14.2026.01.21.03.51.41
+        for <support@12-liao.com>
+        (Google Transport Security);
+        Wed, 21 Jan 2026 03:51:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of info@12-liao.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+ARC-Seal: i=1; a=rsa-sha256; t=1768996301; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KU06yKMGQ/lDozfeQVsGKbd0yaL9//hDZYnZfRB8nM5L/lNYXS6rszpqBmRkU8MDb0
+         HXKVBwp2MI0U6qhJ1P1UOXBBlBZHDRH2Zu/OIX96POjfEzHEjYUqWUDpEeXFe12yRrjl
+         nmAys4O41rK0jixGsYq40Q2RercyLFNcZQugwhpqsMSdh/8s8/1K6oY8XBHcig0KWilh
+         lRpzoL/pzV569J0X47Bu0BegHAeviah1UueJytU2FYV3YrUh3Cvy1TPAhnbf+WXtS7XR
+         W+/5bLooNZY1DmhlJzNY77DqpncBXho+SEaRPxDoOmGGq8ffbVY0vqaIL0Pqo0qy34Ae
+         XWtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=mRewAJslUUIj0gs8jHFxj10ZV4rfbQ8F6MLqdgC4y5Q=;
+        fh=67OZqg6w0fN7lsSv1cdkoeLM7V/6g0/r8aCuzboVRMs=;
+        b=NCNhCx+Ki7joK3AbtG6MUT60yGu1Zg+MwRAGxcTYDQs+EcxJ9HfPnztvR51JA4R5WW
+         bHuWaeQ9T8Jh16CkpIAw5IrWyH5dCkcmgI8sScMWGkb8ry3zOgA3GmIYbo0SZeDz743b
+         fLNzMvKKTHNvZvDk3KX5z7visPueUQPKA1b4AE4y/ZKq5goZGqvuO2QgolsH7HkXvC6k
+         IpOgXT7fcImtLnaJahktsIQbD97vyIkg0YiY0t6QGXM8Vzmfp9C+WN5hk8S7jxOI1RQ3
+         6tf2B7J3EdQbK+lhmA/MV5180AdrEJjIQBnbPdFJq66bhwrY/IwT8sz+c6AW4OZlFrgK
+         NmDQ==;
+        darn=12-liao.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Gm-Gg: AZuq6aJ/RbA954o/71MGR/8Pw192SRulbWWT7T6R92rDUsDOXPjwBa2EDyAEwZFZOx3
+	RVmIRWdbUy0SnyBRXr+G2tejeBmaTRTOhzhmgFFjwTHzWo491IMGhp7cvQz4/oYBtOZch392xLs
+	P4+O0QycMOG7EhvIaVB+jKN2/+ymWUycjXzth/DpexQsdRi96BU9puzW8X+1RX3NUumUvjV9ZFd
+	qyoHItzwoQlMXKSbE1uT5PqHJxSuDVugOmjXOjascVvK2wxmFiZwqR79eY=
+X-Received: by 2002:a05:690c:c4fa:b0:793:bc20:23e1 with SMTP id
+ 00721157ae682-7940a113ccbmr45034037b3.11.1768996300918; Wed, 21 Jan 2026
+ 03:51:40 -0800 (PST)
+MIME-Version: 1.0
+From: =?UTF-8?B?VmVsYVdhcm1fUXVhbGl0w6R0IC4=?= <info@12-liao.com>
+Date: Wed, 21 Jan 2026 11:51:29 +0000
+X-Gm-Features: AZwV_QjsrHk95yhOdq1O41bg25m1gD3oYE_kDL779_-blZcEViqgXWJreSCmLlw
+Message-ID: <CAMo6dEYVfV38Au-6u-hJCcNJVSBeUu_bLXhta2krHnzV+p7EfQ@mail.gmail.com>
+Subject: =?UTF-8?Q?=7E=5F=5FHeizen_Sie_Ihr_Zuhause_f=C3=BCr_nur_2_euro_pro_Tag=2E?=
+To: support@12-liao.com
+Content-Type: multipart/alternative; boundary="0000000000002022b00648e48cff"
+X-Original-Sender: info@12-liao.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@12-liao.com header.s=google header.b=dPeq8+6z;       arc=pass
+ (i=1);       spf=pass (google.com: domain of info@12-liao.com designates
+ 209.85.220.41 as permitted sender) smtp.mailfrom=info@12-liao.com;
+       dara=neutral header.i=@12-liao.com
+Precedence: list
+Mailing-list: list si@12-liao.com; contact si+owners@12-liao.com
+List-ID: <si.12-liao.com>
+X-Spam-Checked-In-Group: support@12-liao.com
+X-Google-Group-Id: 887303293662
+List-Post: <https://groups.google.com/a/12-liao.com/group/si/post>, <mailto:si@12-liao.com>
+List-Help: <https://support.google.com/a/12-liao.com/bin/topic.py?topic=25838>,
+ <mailto:si+help@12-liao.com>
+List-Archive: <https://groups.google.com/a/12-liao.com/group/si/>
+List-Subscribe: <https://groups.google.com/a/12-liao.com/group/support/subscribe>,
+ <mailto:support+subscribe@12-liao.com>
+List-Unsubscribe: <mailto:googlegroups-manage+887303293662+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/12-liao.com/group/si/subscribe>
+X-Spamd-Bar: ++++++++++++
+X-Spam: Yes
+
+--0000000000002022b00648e48cff
+Content-Type: text/plain; charset="UTF-8"
+
+ *Heizung Effizienz Pro* <https://www.12-liao.com/*>
+
+<https://www.12-liao.com/*>
+
+--0000000000002022b00648e48cff
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><h1>
+    <a target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://www.12=
+-liao.com/*"><span style=3D"color:#37474f"><strong>Heizung Effizienz Pro</s=
+trong></span></a>
+</h1>
+<p>
+    <a target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://www.12=
+-liao.com/*"><img src=3D"https://lh7-rt.googleusercontent.com/formsz/AN7BsV=
+AxQTqDiAZyHJpF0NqpT1Y6L2w2YocPc-IbYDiBFC4mjlrUaDBhQWowFu9eGTKz-LLot6G_MsSsD=
+eMSvEeI-2djSeF4VmWet3qi3vz0L0E5uThQlepgZ-uCu6KFkAysw7eUPDLGqaEnvsVLqqJrAQcR=
+84o8OyoGCGb-bgh6PkoqVR7Im5IprcEYHB3zHbrxc87F2eE2ep7joZ5V=3Dw632?key=3DT8A6n=
+OjRdXrJtBg1y0wysw" width=3D"632" height=3D"2256"></a>
+</p><br><div><br></div><div><br></div><div><br></div></div>
+
+--0000000000002022b00648e48cff--

@@ -1,0 +1,178 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:aa6:cd17:0:b0:32a:4738:12e with SMTP id i23csp96261lkb;
+        Mon, 9 Feb 2026 12:25:33 -0800 (PST)
+X-Received: by 2002:a17:907:868f:b0:b87:31:d29 with SMTP id a640c23a62f3a-b8edf349959mr695005466b.44.1770668733482;
+        Mon, 09 Feb 2026 12:25:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770668733; cv=none;
+        d=google.com; s=arc-20240605;
+        b=e+D0PSHYGjqan8yr3enLIz5qtKvX98qU2VAZTus04pSCPHdNMRGBxr9J0UtNJNbs6q
+         XZynO/0BtIUGsQFyTdQjt9rj7uiApdGGEnezITiQYr3TtgNdwbBfTHq4Egpx0G5gK69s
+         TRD2zcRiZXoJXcMIEIfMlRrrryySfmguD/rjB47muYIp0PGTXZO8m/9WTqidfuZ6Igrb
+         CKn/dL2ZsO9HvN+6cd5Hul8P0Pxy4GqFsLGPGb676RysL3Y79Fdk8qNEi6QzDd8SKXSm
+         Avlb0GmjBhsyG4b87ieW0QdLRa0tUoHJA8tl11uPjmQqCnAnP86+kuqv+sJimwvrXGIB
+         TJSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=dkim-signature:mime-version:subject:message-id:to:from:date;
+        bh=f7/s/LF0cXXL2cMtO/U4iOdwMTuplSDGfsmXzeW0VeE=;
+        fh=zQESs4crjtfCBxx3KsW4t1Cb/XBBR9z3t42nluLz+ng=;
+        b=A3+bvAANWOiYruZMiHLB4Qy0kcIkmI84tFobfg11pnLHZqnC1mHp0M0T0p1hSKXRY2
+         LjO8Kh+I6h+aBjsVRjkNtt4FswAsagCvTlIgF7Eht6kUXFEBbKsTK4khvId9Zg8vsO1h
+         wZqRNvi3E7g9tYx6k3EcAypNtPPu4IT81jmLaKK8IftVwOYAUEPCkh+ZfN9Py3jC5wVb
+         7y56ntrfu5ebt9PCJE0b8B8aeXPDzd5uPfeswLHxYGrV/lPir1QabtP7tJAiLKOOjB1N
+         yS7a8VJ/mD01rcGDPVBV1ZYkUJkyhlsgCgrFKbltnUY/vz7H49hLziMTfveGZBKlpTqc
+         yfag==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@drei.com header.s=drei_com_2024 header.b=Q6uvDDxK;
+       spf=pass (google.com: domain of noreply_info.connect@drei.com designates 213.94.78.134 as permitted sender) smtp.mailfrom=noreply_info.connect@drei.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=drei.com
+Return-Path: <noreply_info.connect@drei.com>
+Received: from mail.drei.at (mail.drei.at. [213.94.78.134])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-659840368eesi8235152a12.275.2026.02.09.12.25.32
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Feb 2026 12:25:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply_info.connect@drei.com designates 213.94.78.134 as permitted sender) client-ip=213.94.78.134;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@drei.com header.s=drei_com_2024 header.b=Q6uvDDxK;
+       spf=pass (google.com: domain of noreply_info.connect@drei.com designates 213.94.78.134 as permitted sender) smtp.mailfrom=noreply_info.connect@drei.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=drei.com
+Received: from bssrelay-service.prod.mvne.it.internal ([172.20.9.20])
+	by mail.drei.at  with ESMTPS id 619KPWsW001329-619KPWsY001329
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO)
+	for <rafaelfelixremy@gmail.com>; Mon, 9 Feb 2026 21:25:32 +0100
+Received: from localhost (bss-appl2-3 [172.20.9.54])
+	by bssrelay-service.prod.mvne.it.internal (Postfix) with ESMTP id 6737971C9500
+	for <rafaelfelixremy@gmail.com>; Mon,  9 Feb 2026 21:25:32 +0100 (CET)
+Date: Mon, 9 Feb 2026 21:25:32 +0100 (CET)
+From: info.connect@drei.com
+To: rafaelfelixremy@gmail.com
+Message-ID: <1393076470.28682.1770668732415.JavaMail.root@bss-appl2-3>
+Subject: Info von Lidl Connect
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_28680_186004915.1770668732414"
+X-FEAS-Client-IP: 172.20.9.20
+X-FE-Policy-ID: 157:31:0:SYSTEM
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; d=drei.com; s=drei_com_2024; c=relaxed/relaxed;
+ h=date:from:to:message-id:subject:mime-version:content-type;
+ bh=f7/s/LF0cXXL2cMtO/U4iOdwMTuplSDGfsmXzeW0VeE=;
+ b=Q6uvDDxKFdzVYzV+O6wwY5dMR2ygE6eNtGclozncrnUaXyQG1ZrjDbP/JYAl3dh/qCUkzaZmgcQO
+	rjQWGUsjjVLxGUMrdvygvWntSsUST1BxU8CSyxTnJktkj6c03+epuyokjosSWlspXqUbbLyR0CJf
+	pyFrHFx86pJWIVhxIcGdAv8KYWwR73oY41EFPo2uDXcxWQD0atQqInzpaVgqp5gD6FNEFOiOYY1J
+	2uwfG6zo0YDPTe+Ilc5GqIojKVplNLJIF88QDwGoFGvqWjA/oRuSPoM3zZfgeoK4vS0TUyQs/YDE
+	Xx2nz4dZEAlsqLenYHW84vNYEJmtnResXPXmTQ==
+
+------=_Part_28680_186004915.1770668732414
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_28681_1882099343.1770668732414"
+
+------=_Part_28681_1882099343.1770668732414
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hallo, du hast dein Tarif-Paket "Lidl Connect Black" bis zum 11-03-2026 erf=
+olgreich verl=C3=A4ngert. Dein Lidl Connect-Team
+------=_Part_28681_1882099343.1770668732414
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Info von Lidl Connect</title>
+        <link rel="icon" type="image/png" href="https://www.lidl-connect.at/wp-content/uploads/2022/07/lidl_favicon_2022.png">
+        <style type="text/css">
+            img {width: 100%;}
+            p {margin: 0;}
+            .text a:hover {text-decoration: none!important;}
+            .but .inner td:hover {background: #003791!important;}
+            .but .inner td a:hover {border: 1px solid #003791!important;}
+        </style>
+    </head>
+    <body bgcolor="#efefef" style="margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px; min-width: 100%!important;font-family: 'arial';font-size: 16px;line-height: 24px;">
+        <table width="100%" bgcolor="#efefef" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+            <tr>
+                <td style="border-collapse: collapse;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table width="720" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                        <tr>
+                            <td width="720" style="border-collapse: collapse; width: 720px;">
+                                <![endif]-->
+                                <table class="content" align="center" cellpadding="0" cellspacing="0" border="0" width="720" style="width: 100%; max-width: 720px; text-align: center;background-color: white; border-collapse: collapse;">
+                                    <tr>
+                                        <td style="border-collapse: collapse;">
+                                            <!-- Content Begin -->
+                                            <table class="spacer" height="30" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="30">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table class="head" align="center" cellpadding="0" width="100%" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td align="center"><img src="https://www.lidl-connect.at/wp-content/uploads/2022/07/lidl_favicon_2022.png" alt="Logo: Lidl Connect" width="100" style="width: 100px;" /></td>
+                                                </tr>
+                                            </table>
+                                            <table class="spacer" height="45" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                <td height="45">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table class="text" align="center" cellpadding="0" width="100%" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td align="left" style="padding: 0 30px 0 30px;">
+                                                        <h1 style="font-size: 22px;line-height: 35px;color: #0050aa;margin: 15px 0 5px 0;">Hallo,</h1>
+                                                        <p>
+                                                        <br /><br />
+                                                        du hast dein Tarif-Paket "Lidl Connect Black" bis zum 11-03-2026 erfolgreich verl&auml;ngert.</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table class="spacer" height="30" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="30">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table class="text" align="center" cellpadding="0" width="100%" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td align="left" style="padding: 0 30px 0 30px;">
+                                                        <p>Freundliche Gr&uuml;&szlig;e<br />
+                                                            Dein Lidl Connect-Team</p>
+                                                        <br />
+                                                        <p style="font-size: 13px;"><a href="tel:00430690106910" style="color:#666;">+43 (0) 690 10 6910</a><br />
+                                                        <a href="mailto:info.connect@drei.com" style="color:#666;">info.connect@drei.com</a><br />
+                                                        <a href="https://www.lidl-connect.at/" style="color:#666;">www.lidl-connect.at</a></p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table class="spacer" height="30" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="30">&nbsp;</td>
+                                                </tr>
+                                            </table>
+                                            <table class="text" align="center" cellpadding="0" width="100%" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td align="center" bgcolor="#efefef" style="padding: 15px 30px 0 30px;">
+                                                        <p style="font-size: 12px;color: #999;">Hutchison Drei Austria GmbH, Br&uuml;nner Stra&szlig;e 52, 1210 Wien, FN 140132b, Lidl Connect.</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- Content End -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--[if (gte mso 9)|(IE)]>
+                            </td>
+                        </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
+------=_Part_28681_1882099343.1770668732414--
+
+------=_Part_28680_186004915.1770668732414--

@@ -1,0 +1,106 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a59:918a:0:b0:56b:856f:cec7 with SMTP id s10csp545359vqg;
+        Sun, 8 Feb 2026 07:06:45 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUm8B03nvKVx+o6T1pa1+lqdrHbXvKBao4D0ExNYdSYxjyLQw3DZAs4LNbaSg5QMnHAJx6T4IAwHf5chDDmMrOXFWTVXiw=@gmail.com
+X-Received: by 2002:a05:6000:2087:b0:435:ad52:31d9 with SMTP id ffacd0b85a97d-4362937dd3amr12327589f8f.28.1770563205408;
+        Sun, 08 Feb 2026 07:06:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770563205; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NWPlzkqsko9z5KCzfQOSKlL21lG8rjz/fDkFAnbs814c+0AFeHK0gMkjNFZiFJPk09
+         bLL9zffZfx+sefM9zV7Qzl0sb413qliHHIWT21fbHDJIjHFcX6pMFk4qVshjnQnx39B2
+         9ceB82N+p0616+FF1HJd8CxIuz6GymItX6xJLYaCrMMaeO0iwozMvy/HX9/N5MRMEJ+5
+         oqagzhvum1DidFCrl4jmsDCZjdkGzA2oXmQQ7xYN33HybT7fjOxezdFyOFpuVgBnw/z+
+         KOEsCpCBiqIQVNnRgYNhYhKlwn0YL5yyqsUwGIjWL9uoPHn7eIk0A/vGNHHNGvn5BXuw
+         n76A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:message-id:mime-version
+         :subject:reply-to:from:to:date;
+        bh=K8cEXkra0g+Yl+Z+KB+DpSug/PfLwjmrsQcQPoSDqus=;
+        fh=Pr2plYkJn0ovdHybgHvE53243CPsqSX0NRPDPDnAMwQ=;
+        b=YF3GqNYVS4eZv3VXWXkDa64NSkMuiahoAeaKPqAnwN9iQ2Fyte12SjzYcLPOZwyrAB
+         8YyB2t2VrcyV1PhNJFZkN2+1Gik68Lva5uN/tVUbNW+p/KmW9++nJJ9xEvLZgIwf3m3+
+         kSAK2cep3CiB4R+IWO8ygNUOyJGInHfnjV84ij1gAsnGsvcHGsaFxm6XFWshKroGbsou
+         yfQMPMHP7vKF63WhKQsO9qLrjGACFwwSWpuOpoyhdIA6JqlDkzAS7zQu4OIfm8M6YYDT
+         CN2RKjUkVTRApT7g6HswzPIZpU04olLIbZMDO8OgTJB1v4XykcfUqmze3rssHhxz27Rw
+         8CNw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 85.13.167.96 is neither permitted nor denied by domain of kundservice@teutelnet.de) smtp.mailfrom=kundservice@teutelnet.de
+Return-Path: <kundservice@teutelnet.de>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-437408c8b4asi6816248f8f.328.2026.02.08.07.06.45
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 08 Feb 2026 07:06:45 -0800 (PST)
+Received-SPF: neutral (google.com: 85.13.167.96 is neither permitted nor denied by domain of kundservice@teutelnet.de) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 85.13.167.96 is neither permitted nor denied by domain of kundservice@teutelnet.de) smtp.mailfrom=kundservice@teutelnet.de
+X-policyd-weight: using cached result; rate: -6.1
+Received: from mail.teutelnet.de (mail.teutelnet.de [185.78.252.4])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id 9346CA000D19
+	for <info@fortschritt24.de>; Sun,  8 Feb 2026 15:58:37 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by mailng.ccgmbh.net (Postfix) with ESMTP id B689B1C3583;
+	Sun,  8 Feb 2026 15:53:29 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at mailng.ccgmbh.net
+X-Amavis-Alert: BAD HEADER SECTION, Duplicate header field: "MIME-Version"
+Received: from mailng.ccgmbh.net ([127.0.0.1])
+	by localhost (mailng.ccgmbh.net [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id OvgS8_SZABIH; Sun,  8 Feb 2026 15:53:27 +0100 (CET)
+Received: from 127.0.0.1 (unknown [85.215.101.188])
+	(Authenticated sender: kundservice@teutelnet.de)
+	by mail.teutelnet.de (Postfix) with ESMTPSA id 41F101C3563;
+	Sun,  8 Feb 2026 15:52:59 +0100 (CET)
+Date: Sun, 8 Feb 2026 15:52:59 +0100
+To: undisclosed-recipients:;
+From: ELSTER Benachrichtigung <kundservice@teutelnet.de>
+Reply-To: ELSTER Benachrichtigung <kundservice@teutelnet.de>
+Subject: =?UTF-8?Q?Ihre_R=C3=BCckerstattung._/_PPF_/5583166165?=
+X-Mailer: Mailspring
+MIME-Version: 1.0
+X-Priority: 3
+Message-ID: <415a250.24cdc85@email.amazonses.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Spamd-Bar: +++
+
+<p>Sehr geehrte/r Mein ELSTER-Nutzer/in,</p>
+
+<p>in Ihrem Mein ELSTER Posteingang befindet sich eine neue Nachricht f=
+=C3=BCr Sie.</p>
+
+<p>
+Betreff: Ihre R=C3=BCckerstattung / PPF / 3176843241<br>
+Absender: Finanzamt<br>
+Datum: 02.08.2026,</p>
+
+<p>
+Bitte rufen Sie die Nachricht =C3=BCber das ELSTER-Portal auf:<br>
+<a href=3D"https://u58771451.ct.eu.sendgrid.net/ls/click?upn=3Du001.CPkMeK8=
+uj9INk6hYebpVeA9mbAiZKU5xSM9K-2FeRD-2FaK7PI-2FQY-2B2xIb34UvS7t3agXjLVni0yiU=
+rmThxzCj5RcOq0TqREcrLFMPHUCdjmFVlyOAcEBTx4xuxIZv1Qn18Zzrex82EBMKGvNyNNh3EhZ=
+L2V5R21E5jpQCJrlb7ouLVsoUVSHEYcgJ5PfBTgniSld29tWOWNxH6-2Ft6-2FUpLNuT2N4pdAE=
+Sr6EHbH1VU4yBFIzziixiOheuIU1R4asz2Hs3imIJAd4Lmi-2BqKXWkaksN2Q0oUiPnHz-2BbsZ=
+02vTZ4cs4FjQEmPaQtlrdfTUhyQMHhkDKvVoaoamPCrqKqx3aDLUYM8-2BhwJJ95X9HqsBOqcD4=
+CaS-2B3rUoNshT5-2FXzf3YqoLmW8LY-2BGQSHjHhzKQ4wz-2Bme2-2BWuzu3cX6KPwNDhBU3or=
+-2B0toGlV9YBgPkJXDr9Qv3U-2Bwl9h8bZB2d5TcfDHKw-3D-3DDBaM_ZK6C0YDPF08dh4Q-2FR=
+11eK5n2OM-2B9MXjimVma96hXl88Rb79HxXCBQb42NXhSv3nJugOzJy0PtlMFQ5KtFNVv43lbfG=
+AfnFF0Ae5d5zPInbqnba7l6E1GoEef-2BbbF264HGJhwZ553vaEY5RzBU-2FJp8zSCvMwLvin2O=
+R2wFBEObZr2jFYAp1F0DAk3SMQt7icA1DseyfymJAyV-2Bn9czjyOZnQ7Hh-2FU3dBv9agKMZCD=
+gsJHE3dydsdt32SkeM4fOCUGvl29OXB0inSX4itWe6zMMkbo-2BQoMRIsIdjn6TOafiwzc7hGnB=
+EInM8-2Fyj-2BmPlpCB4X64hW8w1UAXnQvbz-2F5jXalbSJSXUcC5fpKCckwZAJellaj0FKZOrY=
+k1GnmIcnd7PukcO23tgkH8-2FZ4VpCxeqSyKUjT7dMWtSTmJDbjCcL0FvW-2BuNMmPJ-2FO0E1B=
+WGsUW" target=3D"_blank">https://www.elster.de/eportal/</a>
+</p>
+
+<p>
+Mit freundlichen Gr=C3=BC=C3=9Fen<br>
+Ihre Finanzverwaltung
+</p>
+
+<p style=3D"font-size:12px;">
+Dies ist eine automatisch generierte Nachricht.<br>
+Bitte antworten Sie nicht auf diese E-Mail.
+</p>
+

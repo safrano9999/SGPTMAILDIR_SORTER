@@ -1,0 +1,668 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp854514lka;
+        Thu, 12 Feb 2026 09:09:26 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCU3TAUHnEyFgiU00H42tLqkCPLZKiiKsWStRKiTpc6T7FgM134fV9KHjArXcY9pWs70RQSViLzEq/+BQkCu0mY=@gmail.com
+X-Received: by 2002:a17:906:c104:b0:b87:6953:9d5e with SMTP id a640c23a62f3a-b8f8f6bcd23mr198717266b.33.1770916166621;
+        Thu, 12 Feb 2026 09:09:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770916166; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lDB0fbTUYiNHQPzFhrectmDOUl0GSiydWEKs3g6vVg5CJAP9J2vIfO6EvgR9DfiDKA
+         jfGDAzhhm8KlhkOSoWcLwIXraYVEpHqZhRoUKAI5gPzirM0zLs2VG2CsC3L2gpw+Lti8
+         L35+lLj7Is7zfLTX7YsOJ1v85qaAygthu7bkuBGQTW4F7JSwP+wPK0C4uIjZdZVUqnWu
+         d1RZTkG67nwwn0CPZB27vjmpkxpRcUgDSt8wIypC8LR1KbDXYpRNC96PJqFTYrauc4wh
+         zyb7Bi8RzOkGTR4azrS8CPid5Iu+nx62eJRZbQf69m+Y/wIClQaMEwgj2S8rdH+iUKZq
+         boqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:to:from:subject:mime-version:date:sender:dkim-signature
+         :delivered-to:dkim-signature;
+        bh=aWhMWAJJ77WuytYW7wqPGshccLSJvPO7FfGlhqotWZ4=;
+        fh=syWaAwgD+lvUs10fRVzEwRE1x89PG0qt8Kmqist4SFQ=;
+        b=Y8fDo+HtAPRA83QM8d9zwB1xAmjePCVtJpQUvb5/9RArgPTIx+UQYf+3iKkgl0HUgw
+         Qgc5DqzGAX/kUPdqbjvrbgD3EdlLcx1fH8YikxfVHIwtZ1MrqVcIqNRpUu/Vkp/XE7b8
+         J9+dM6izrDzTgrefH8VyhdEi0ZBIe8aSpC5OhH+lh5gf6mYZxNa56yEWYbwhYgU2JLWC
+         TLh6wINlfs/wr74KEhpd5ncPargt4SZkAZ90dBA4oTZl/hZeIIDgW9SQhqmvcGMtCHLE
+         sdoKcDC34MfP61ZgYMasj7Xxtc+EH2Dem90vxI8iFmyrpIwGr9Y78EuXI1aDr6G9fsbO
+         3Meg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b=eI1GsGiR;
+       dkim=pass header.i=@cryptomus.com header.s=s2 header.b=coWhEX2H;
+       spf=fail (google.com: domain of bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com does not designate 2001:868:100:600::216 as permitted sender) smtp.mailfrom="bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cryptomus.com
+Return-Path: <bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com>
+Received: from shout01.mail.de (shout01.mail.de. [2001:868:100:600::216])
+        by mx.google.com with ESMTPS id a640c23a62f3a-b8f8911cf1esi260188866b.269.2026.02.12.09.09.26
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 09:09:26 -0800 (PST)
+Received-SPF: fail (google.com: domain of bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com does not designate 2001:868:100:600::216 as permitted sender) client-ip=2001:868:100:600::216;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b=eI1GsGiR;
+       dkim=pass header.i=@cryptomus.com header.s=s2 header.b=coWhEX2H;
+       spf=fail (google.com: domain of bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com does not designate 2001:868:100:600::216 as permitted sender) smtp.mailfrom="bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cryptomus.com
+Received: from postfix01.mail.de (postfix01.bt.mail.de [10.0.121.125])
+	by shout01.mail.de (Postfix) with ESMTP id 54DD024101F
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 18:09:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mail.de;
+	s=mailde202009; t=1770916166;
+	bh=QDKPao5zNHGHApV5Nlo/etsv/7kiGXAyQNKunOpSUbM=;
+	h=Sender:Date:Subject:From:To:Message-Id:From:To:CC:Subject:
+	 Reply-To;
+	b=eI1GsGiRHDEF8c8JLsBXOumrg8W7XjQ8Gt6srD4VX/5vLg6BEvrGQv2YAVCplVlZJ
+	 JDwLEl+5cIgwuoZTdhIwK8uj3785TeHi4HpAD8eFKQm35O00qEIaJKdhdfwjJicG/c
+	 w4XpClWr8mgqsngJAmQiUJY+IdJrjync5d//4tqVIwtG/eB/D0seR0yfMVCsoOGbbh
+	 q8dbJta/rLZHtHLd2iJ+7fHFjDT6JVhT2beAVNF+hP+9zO1A/6f6xeDSwMRzMlKDkI
+	 PsIIixc8uBTfAPzDdJpsOvINQJJ2jg/oFJDCnpFBu7eshvsprDTVOKfwGZGbU7Xhbe
+	 9x2M0JC3+4+Zg==
+Received: from smtp01.mail.de (smtp04.bt.mail.de [10.0.121.214])
+	by postfix01.mail.de (Postfix) with ESMTP id 3690F2400AA
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 18:09:26 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by smtp01.mail.de (Postfix) with ESMTP id 26698241005
+	for <rafaelfelixremy@gmail.com>; Thu, 12 Feb 2026 18:09:26 +0100 (CET)
+X-Sieve: Pigeonhole Sieve 0.5.20 (149edcf2)
+X-Sieve-Redirected-From: rafael.remy@mail.de
+Delivered-To: rafael.remy@mail.de
+Received: from director04 ([10.0.121.146])
+	by dovecot10 with LMTP
+	id QDtkNEUJjmnrhD0A2JZzOQ:P1
+	(envelope-from <bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com>)
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 18:09:25 +0100
+Received: from localhost ([10.0.121.146])
+	by director04 with LMTP
+	id QDtkNEUJjmnrhD0A2JZzOQ
+	(envelope-from <bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com>)
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 18:09:25 +0100
+X-Original-To: rafael.remy@mail.de
+Authentication-Results: mxpostfix02.mail.de;
+	dkim=pass (2048-bit key; unprotected) header.d=cryptomus.com header.i=@cryptomus.com header.a=rsa-sha256 header.s=s2 header.b=coWhEX2H;
+	dkim-atps=neutral
+Authentication-Results: mxpostfix02.mail.de;
+	dkim=pass header.d=cryptomus.com header.s=s2 header.b=coWhEX2H;
+	spf=pass (mxpostfix02.mail.de: domain of "bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com" designates 143.55.236.30 as permitted sender) smtp.mailfrom="bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com";
+	dmarc=pass (policy=reject) header.from=cryptomus.com
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by mxpostfix02.mail.de (Postfix) with ESMTP id 84DD524008C
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 18:09:25 +0100 (CET)
+Received: from [143.55.236.30] (helo=v530.v56156858.euw1.send.eu.mailgun.net)
+	by mx04.mail.de with ESMTPS (eXpurgate 4.55.0)
+	(envelope-from <bounce+95f4d7.57a90-rafael.remy=mail.de@cryptomus.com>)
+	id 698e0945-9aa4-0a0078cc0019-8f37ec1e9c08-3
+	for <rafael.remy@mail.de>; Thu, 12 Feb 2026 18:09:25 +0100
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=cryptomus.com; q=dns/txt; s=s2; t=1770916165; x=1770923365;
+ h=Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender;
+ bh=aWhMWAJJ77WuytYW7wqPGshccLSJvPO7FfGlhqotWZ4=;
+ b=coWhEX2HgMgyXA4XaS0EdwAZJYpeCa0TwgRHvlveLV9OjvCerF512tTug8Av4QDL/fElFcjLYfCEN/l7knyG7pKPdBk20S6c019UNbKIEi/4oybotrRUrPCXMjQjinpbrmMqhV1DZhmdCzD7Yfc+rwu6NCN6ON8p+tR205jOn/KIW27oRXODINV96wDBiFI54itjmpTBNlX5epDSAZkbyglDE05M2VruRKuFba3j2TqeiOU9KUQVHVo2tDa+L530aAkwDKFYgh7eM9gPjkr8nlUBFpMTEcVxKKi1icAWs+CeP6O2OdoFDXi75CMuuvAXLsqnrmXYzFy4/QbVs5zyvA==
+X-Mailgun-Sid: WyI2ZDVkNyIsInJhZmFlbC5yZW15QG1haWwuZGUiLCI1N2E5MCJd
+Received: by d25866a3e3fb51a1dbf244e7828b677a33a8e8e7538842de6946333fe6b9a77e with HTTP
+ id 698e06eb161849b36942dbf0; Thu, 12 Feb 2026 16:59:23 GMT
+X-Mailgun-Sending-Ip: 143.55.236.30
+Sender: marketing@cryptomus.com
+Date: Thu, 12 Feb 2026 16:59:23 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="48612608d95dbbce76eea61cb1c415b65d9948bc4f9b3941d800e584aa2c"
+Subject: Referral Program: Cryptomus Virtual Cards
+From: Cryptomus <marketing@cryptomus.com>
+To: rafael.remy@mail.de
+Message-Id: <20260212165923.abcbcfc149ad40d1@cryptomus.com>
+X-purgate-ID: 153031::1770916165-277456F5-45716285/0/0
+X-purgate-type: clean
+X-purgate-size: 42286
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: clean
+X-Spam: Yes
+
+--48612608d95dbbce76eea61cb1c415b65d9948bc4f9b3941d800e584aa2c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+<p>Know someone who&rsquo;d use a virtual card? Invite them &mdash; and <st=
+rong>get paid for it.</strong></p>
+<p>With the launch of Cryptomus Virtual Cards, we&rsquo;re taking our refer=
+ral program to the next level. Now you can earn by simply recommending Virt=
+ual Cards to your friends.</p>
+<p><strong>How it works:</strong><br />1) Go to the &ldquo;Earn&rdquo; sect=
+ion in your account.<br />2) =D0=A1opy your personal referral link.<br />3)=
+ Share it with friends and invite them to sign up.<br />4) <strong>Receive =
+25%</strong> of every referral&rsquo;s top-up fee.</p>
+<p>There&rsquo;s <strong>no limit</strong> to how many friends you can invi=
+te. The more they use Cryptomus Virtual Cards, the more you earn. All rewar=
+ds are paid out in stablecoins directly to your balance.</p>
+<p style=3D"text-align: center;"><em>Passive income. Zero investment. Unlim=
+ited potential.</em></p>
+--48612608d95dbbce76eea61cb1c415b65d9948bc4f9b3941d800e584aa2c
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://w=
+ww.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.=
+w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml"      xmlns:o=
+=3D"urn:schemas-microsoft-com:office:office"><head>    <title></title>    <=
+meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"content-type"/>  =
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0"/>    <meta name=3D"format-detection" content=3D"telephone=3Dno,date=3D=
+no,address=3Dno,email=3Dno"/>    <meta name=3D"x-apple-disable-message-refo=
+rmatting"/>    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"/>=
+    <link href=3D"https://fonts.googleapis.com/css2?family=3DGolos+Text:wgh=
+t@400;500;600&display=3Dswap" rel=3D"stylesheet">    <!--[if gte mso 9]>   =
+ <xml>        <o:OfficeDocumentSettings>            <o:AllowPNG/>          =
+  <o:PixelsPerInch>96</o:PixelsPerInch>        </o:OfficeDocumentSettings> =
+   </xml>    <![endif]-->    <style type=3D"text/css">        @font-face { =
+           font-family: "Golos Text";            src: url("https://storage.=
+cryptomus.com/fonts/GolosText-DemiBold.woff2") format("woff2"),            =
+url("https://storage.cryptomus.com/fonts/GolosText-DemiBold.woff") format("=
+woff");            font-weight: 600;            font-style: normal;        =
+    font-display: swap;        }        @font-face {            font-family=
+: "Golos Text";            src: url("https://storage.cryptomus.com/fonts/Go=
+losText-Regular.woff2") format("woff2"),            url("https://storage.cr=
+yptomus.com/fonts/GolosText-Regular.woff") format("woff");            font-=
+weight: normal;            font-style: normal;            font-display: swa=
+p;        }        @font-face {            font-family: "Golos Text";      =
+      src: url("https://storage.cryptomus.com/fonts/GolosText-Medium.woff2"=
+) format("woff2"),            url("https://storage.cryptomus.com/fonts/Golo=
+sText-Medium.woff") format("woff");            font-weight: 500;           =
+ font-style: normal;            font-display: swap;        }        /* Fixe=
+s for Outlook */        .ReadMsgBody {            width: 100%;        }    =
+    .ExternalClass {            width: 100%;        }        .ExternalClass=
+, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClas=
+s td, .ExternalClass div {            line-height: 100%;        }        #o=
+utlook a {            padding: 0;        }        /* Iphone data Fix */    =
+    a[x-apple-data-detectors] {            color: inherit !important;      =
+      text-decoration: none !important;            font-size: inherit !impo=
+rtant;            font-family: inherit !important;            font-weight: =
+inherit !important;            line-height: inherit !important;        }   =
+     html {            -ms-text-size-adjust: none !important;            -m=
+oz-text-size-adjust: none !important;            -webkit-text-size-adjust: =
+none !important;            -webkit-font-smoothing: antialiased !important;=
+            margin: 0 !important;            padding: 0 !important;        =
+    width: 100% !important;            min-width: 100% !important;        }=
+        img {            -ms-interpolation-mode: bicubic;            border=
+: none;            line-height: 100%;            outline: none;            =
+text-decoration: none;        }        .text-with-link a {            text-=
+decoration: underline;            color: #000000;        }    </style>    <=
+!--[if gte mso 9]>    <style type=3D"text/css">        td, div, a, span {  =
+          font-family: Arial, sans-serif !important;        }    </style>  =
+  <![endif]--></head><body    style=3D"background-color: #ffffff; width: 10=
+0% !important; min-width: 100%; margin: 0 !important; padding: 0 !important=
+; -webkit-text-size-adjust: none !important; -webkit-font-smoothing: antial=
+iased !important;"><!-- Preheader --><div    style=3D"color: transparent; d=
+isplay: none; display: none !important; height: 0; width: 0; max-width: 0; =
+opacity: 0; visibility: hidden; padding: 0; font-size: 0; line-height: 0; m=
+so-hide: all;">    &nbsp;</div><table width=3D"100%" style=3D"-webkit-text-=
+size-adjust: none !important; background-color: #ffffff;" cellpadding=3D"0"=
+       cellspacing=3D"0" border=3D"0">    <tr>        <td align=3D"center" =
+valign=3D"top" style=3D"padding: 10px 5px 10px;">            <center style=
+=3D"width: 100%;">                <div style=3D"max-width: 600px; margin: 0=
+ auto; min-width: 340px;">                    <!--[if (gte mso 9)|(IE)]>   =
+                 <table width=3D"600" align=3D"center" cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0">                        <tr>                  =
+          <td align=3D"center" valign=3D"top">                    <![endif]=
+-->                    <table style=3D"margin: 0 auto; width: 100%; max-wid=
+th: 600px; background-color: #ffffff;"                           align=3D"c=
+enter" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">                   =
+     <!-- Wrap -->                        <tr>                            <=
+td align=3D"center" valign=3D"top">                                <table w=
+idth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"             =
+                          style=3D"border-radius: 24px;">                  =
+                  <!-- Logo -->                                    <tr>    =
+                                    <td align=3D"center" valign=3D"top"    =
+                                        style=3D"padding: 18px 15px 18px; b=
+ackground: url(https://storage.cryptomus.com/icon/png/email/v2/bg-white.png=
+) repeat top left; border-radius: 23px 23px 0 0;">                         =
+                   <a href=3D"https://email.cryptomus.com/c/eJxUyb2uhSAMAOC=
+ngZG0lZ8wdLiL71EKRBOJBr0n8e3PfOavckiSwTbGlCBjxBjsxlUKhF58SwLoS-gZVAtSzgugSL=
+Q7E1AEQsIYMi1Oihbtij5L9VDReND5Xs85_m-n57AHb89z3Wb5M7QaWn918pQu7XCzjdd4GLIfr=
+jb7YfoGAAD__46lMM8" target=3D"_blank"                                      =
+         style=3D"text-decoration: none;">                                 =
+               <img src=3D"https://storage.cryptomus.com/icon/png/email/v2/=
+logo.png"                                                     width=3D"270"=
+ height=3D"42" border=3D"0" alt=3D"Cryptomus"                              =
+                       style=3D"max-width: 270px; width: 100%; height: auto=
+; vertical-align: top; margin: 0; padding: 0;"/>                           =
+                 </a>                                        </td>         =
+                           </tr>                                    <!-- Ti=
+tle -->                                    <tr>                            =
+            <td align=3D"center" valign=3D"top" style=3D"padding: 0 15px 0;=
+">                                            <table cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0">                                                =
+<tr>                                                    <td width=3D"504" a=
+lign=3D"center" valign=3D"top">                                            =
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0">                                                            <tr>   =
+                                                             <td align=3D"c=
+enter" valign=3D"top"                                                      =
+              style=3D"padding: 0 0 20px;">                                =
+                                    <div                                   =
+                                     style=3D"font-size: 22px; line-height:=
+ 32px; font-family: 'Golos Text', Arial, sans-serif; color: #000000; font-w=
+eight: 400; letter-spacing: -0.44px; margin-top: 20px;">                   =
+                                                     Invite friends and ear=
+n!                                                                    </div=
+>                                                                </td>     =
+                                                       </tr>               =
+                                         </table>                          =
+                          </td>                                            =
+    </tr>                                            </table>              =
+                          </td>                                    </tr>   =
+                                                                         <!=
+-- Banner -->                                        <tr>                  =
+                          <td align=3D"center" valign=3D"top" style=3D"padd=
+ing: 0 0 20px;">                                                <img       =
+                                             src=3D"https://storage.cryptom=
+us.com/notification-task/images/UDv9eOei9ADqZfwIkpu1LgxtkvAHyPqDcPqhMtBc.we=
+bp"                                                    width=3D"600" height=
+=3D"179" alt=3D"Banner" border=3D"0"                                       =
+             style=3D"max-width: 600px; width: 100%; height: auto; display:=
+ block; margin: 0; padding: 0; border-radius: 12px;"/>                     =
+                       </td>                                        </tr>  =
+                                                                      <!-- =
+Main -->                                    <tr>                           =
+             <td align=3D"center" valign=3D"top" style=3D"padding: 0 15px 0=
+;">                                            <table cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0">                                               =
+ <tr>                                                    <td width=3D"504" =
+align=3D"center" valign=3D"top"                                            =
+            style=3D"border-bottom: 2px solid #e5e5e5;">                   =
+                                     <table width=3D"100%" cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0">                                          =
+                                                                           =
+       <!-- Text -->                                                       =
+         <tr>                                                              =
+      <td align=3D"left" valign=3D"top"                                    =
+                                    style=3D"padding: 0 0 24px;">          =
+                                                                           =
+                                                               <div class=
+=3D"text-with-link"                                                        =
+                        style=3D"margin: 0 0 24px; font-size: 16px; line-he=
+ight: 24px; font-family: 'Golos Text', Arial, sans-serif; color: #000000; f=
+ont-weight: 400; letter-spacing: -0.12px;">                                =
+                                                <p>Know someone who&rsquo;d=
+ use a virtual card? Invite them &mdash; and <strong>get paid for it.</stro=
+ng></p>
+                                                                           =
+ </div>                                                                    =
+                                                                           =
+     <div class=3D"text-with-link"                                         =
+                                       style=3D"margin: 0 0 24px; font-size=
+: 16px; line-height: 24px; font-family: 'Golos Text', Arial, sans-serif; co=
+lor: #000000; font-weight: 400; letter-spacing: -0.12px;">                 =
+                                                               <p>With the =
+launch of Cryptomus Virtual Cards, we&rsquo;re taking our referral program =
+to the next level. Now you can earn by simply recommending Virtual Cards to=
+ your friends.</p>
+                                                                           =
+ </div>                                                                    =
+                                                                           =
+     <div class=3D"text-with-link"                                         =
+                                       style=3D"margin: 0 0 24px; font-size=
+: 16px; line-height: 24px; font-family: 'Golos Text', Arial, sans-serif; co=
+lor: #000000; font-weight: 400; letter-spacing: -0.12px;">                 =
+                                                               <p><strong>H=
+ow it works:</strong><br />1) Go to the &ldquo;Earn&rdquo; section in your =
+account.<br />2) =D0=A1opy your personal referral link.<br />3) Share it wi=
+th friends and invite them to sign up.<br />4) <strong>Receive 25%</strong>=
+ of every referral&rsquo;s top-up fee.</p>
+                                                                           =
+ </div>                                                                    =
+                                                                           =
+     <div class=3D"text-with-link"                                         =
+                                       style=3D"margin: 0 0 24px; font-size=
+: 16px; line-height: 24px; font-family: 'Golos Text', Arial, sans-serif; co=
+lor: #000000; font-weight: 400; letter-spacing: -0.12px;">                 =
+                                                               <p>There&rsq=
+uo;s <strong>no limit</strong> to how many friends you can invite. The more=
+ they use Cryptomus Virtual Cards, the more you earn. All rewards are paid =
+out in stablecoins directly to your balance.</p>
+                                                                           =
+ </div>                                                                    =
+                                                                           =
+     <div class=3D"text-with-link"                                         =
+                                       style=3D"margin: 0 0 24px; font-size=
+: 16px; line-height: 24px; font-family: 'Golos Text', Arial, sans-serif; co=
+lor: #000000; font-weight: 400; letter-spacing: -0.12px;">                 =
+                                                               <p style=3D"=
+text-align: center;"><em>Passive income. Zero investment. Unlimited potenti=
+al.</em></p>                                                               =
+             </div>                                                        =
+                                                                           =
+         </td>                                                             =
+   </tr>                                                                   =
+                                                                           =
+                                          <!-- Button -->                  =
+                                              <tr>                         =
+                                           <td valign=3D"top" align=3D"cent=
+er"                                                                        =
+style=3D"padding: 0 0 40px;">                                              =
+                          <table border=3D"0" cellspacing=3D"0"            =
+                                                                   cellpadd=
+ing=3D"0">                                                                 =
+           <tr>                                                            =
+                    <td width=3D"100%" valign=3D"middle"                   =
+                                                                 align=3D"c=
+enter"                                                                     =
+               style=3D"background-color: #000000; border-radius: 10px;">  =
+                                                                           =
+       <a href=3D"https://email.cryptomus.com/c/eJxUzjGKhTAQgOHTTErJTDR5Fik=
+WxGssY5z4AkYliQvv9ouwzbYff_GvfnA8aiUendMjWrSDevuIyIOzTgcK6GJ4vTAuZIXMQnGIrJ=
+InTVYTEtphJNPxEpYQA_Yjr71eEXodyudqZ75rF86sdv9u7apgvoBmoJmvq_tXAM1VWkvHVoHmI=
+lFK4R3MfLf8Xc-7BAEzZU57OjYg-3CWNd0ZzCSP_2HgfHHaDjATkqZnVBVfOLLsXZH8gV4_ebeK=
+-vH0GwAA__9GnVGU" target=3D"_blank"                                        =
+                                               style=3D"text-decoration: no=
+ne;                                                                        =
+            width: 100%;                                                   =
+                                 font-size: 16px;                          =
+                                                          line-height: 16px=
+;                                                                          =
+          font-weight: 500;                                                =
+                                    color: #ffffff;                        =
+                                                            border-radius: =
+10px;                                                                      =
+              background-color: #000000;                                   =
+                                                 border: 0 solid #000000;  =
+                                                                           =
+       padding: 20px 0;                                                    =
+                                display: block;                            =
+                                                        font-family: 'Golos=
+ Text', Arial, sans-serif;">                                               =
+                                         <span                             =
+                                                               style=3D"col=
+or: #ffffff; padding: 0 20px;">                                            =
+                                                Invite &amp; Earn          =
+                                                                           =
+   </span>                                                                 =
+                   </a>                                                    =
+                            </td>                                          =
+                                  </tr>                                    =
+                                    </table>                               =
+                                     </td>                                 =
+                               </tr>                                       =
+                                                                           =
+  </table>                                                    </td>        =
+                                        </tr>                              =
+              </table>                                        </td>        =
+                            </tr>                                    <!-- F=
+ooter -->                                    <tr>                          =
+              <td align=3D"center" valign=3D"top"                          =
+                  style=3D"background: url(https://storage.cryptomus.com/ic=
+on/png/email/v2/bg-white.png) repeat top left; border-radius: 0 0 23px 23px=
+;">                                            <table width=3D"100%" cellpa=
+dding=3D"0" cellspacing=3D"0" border=3D"0">                                =
+                <tr>                                                    <td=
+ valign=3D"top"                                                        styl=
+e=3D"text-align: center; font-size: 0; padding: 24px 10px 5px;">           =
+                                             <!--[if (gte mso 9)(IE)]>     =
+                                                   <table cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0">                                           =
+                 <tr>                                                      =
+          <td width=3D"224" valign=3D"top" align=3D"center">               =
+                                         <![endif]-->                      =
+                                  <div                                     =
+                       style=3D"width: 100%; max-width: 224px; display: inl=
+ine-block; vertical-align: top;">                                          =
+                  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> =
+                                                               <tr>        =
+                                                            <td align=3D"ce=
+nter" valign=3D"top"                                                       =
+                 style=3D"padding: 8px 8px 8px;">                          =
+                                              <a href=3D"https://email.cryp=
+tomus.com/c/eJw8yj1uxSAMAODTwIhs8_cYGLrkHsaAEikoEaGVcvtub_9q9pET6JYxRkgYMHi=
+9Z5sq9E9g-bCF4nsBcTEiExGFULw-MgEFICQMPpE1XKRIF3SJq4OKyoHM917X-H2MXEOfeV_rfp=
+T9UbQp2pYZTdH2RXrmyZ3baWYbr3Iw-DhNbfov038AAAD__8wIMO8" target=3D"_blank"   =
+                                                                        sty=
+le=3D"text-decoration: none;">                                             =
+                               <img                                        =
+                                        src=3D"https://storage.cryptomus.co=
+m/icon/png/email/v2/tg.png"                                                =
+                                width=3D"40" height=3D"40" border=3D"0"    =
+                                                                           =
+ alt=3D"icon"                                                              =
+                  style=3D"display: block; margin: 0; padding: 0;"/>       =
+                                                                 </a>      =
+                                                              </td>        =
+                                                            <td align=3D"ce=
+nter" valign=3D"top"                                                       =
+                 style=3D"padding: 8px 8px 8px;">                          =
+                                              <a href=3D"https://email.cryp=
+tomus.com/c/eJw8yj1uhjAMANDTJGNkmzjBQ4Yu3MP5QSARgQKtyu2rLt_69GriqAK2JYwRBAM=
+GtluaZM7SuAKv1XuOKIEhCnEjn3VWuycCCkBIGFhocppLLmtBL1o9VDQeyniv5-zftytnt0fanu=
+e6zfRlaDG0_P6roeWz7EhDV22HG62_xkPX_XC12Z9EfwEAAP__2fAxHg"                  =
+                                                         target=3D"_blank" =
+                                                                          s=
+tyle=3D"text-decoration: none;">                                           =
+                                 <img                                      =
+                                          src=3D"https://storage.cryptomus.=
+com/icon/png/email/v2/x.png"                                               =
+                                 width=3D"40" height=3D"40" border=3D"0"   =
+                                                                           =
+  alt=3D"icon"                                                             =
+                   style=3D"display: block; margin: 0; padding: 0;"/>      =
+                                                                  </a>     =
+                                                               </td>       =
+                                                             <td align=3D"c=
+enter" valign=3D"top"                                                      =
+                  style=3D"padding: 8px 8px 8px;">                         =
+                                               <a href=3D"https://email.cry=
+ptomus.com/c/eJw0y0FqxDAMQNHT2EsjyUpSLbwohdxDsWwmEDOD42nI7Usp3f7PszQtKuBLwm=
+UBwRnnyT9SicKRIX-I1rjFCqJsSIK8bBOa-D0R0AyEhPMkFINuecs1I4sag6FjyP1-jWd7nyE_m=
+z_SY4zX6eKno9XRel1X6MVsH7_b0fo-S3e0fv2rv-p76lq1HKGXdjuGpvsRrPjvRD8BAAD__41N=
+OO4"                                                                       =
+    target=3D"_blank"                                                      =
+                     style=3D"text-decoration: none;">                     =
+                                                       <img                =
+                                                                src=3D"http=
+s://storage.cryptomus.com/icon/png/email/v2/reddit.png"                    =
+                                                            width=3D"40" he=
+ight=3D"40" border=3D"0"                                                   =
+                             alt=3D"icon"                                  =
+                                              style=3D"display: block; marg=
+in: 0; padding: 0;"/>                                                      =
+                  </a>                                                     =
+               </td>                                                       =
+             <td align=3D"center" valign=3D"top"                           =
+                                             style=3D"padding: 8px 8px 8px;=
+">                                                                        <=
+a href=3D"https://email.cryptomus.com/c/eJxMy72OhSAQQOGngZIMwwBLQbHNfY_hL5p=
+INIhrfPuN3W3PyVei9RxA1qi9h6CddlYuMRA6BIeOLRVvfwoRVyJTUmsGOMs1IqAD1KidDWgUp5=
+xyy5oCF4KiBUEezzH3fp0q711ucZnzOIX5FfgR-LnvWz37Na9U3__GLyJHHNy4bmrU_giCzuumS=
+pV_Ef8DAAD__6PZNhk"                                                        =
+                   target=3D"_blank"                                       =
+                                    style=3D"text-decoration: none;">      =
+                                                                      <img =
+                                                                           =
+    src=3D"https://storage.cryptomus.com/icon/png/email/v2/ytb.png"        =
+                                                                        wid=
+th=3D"40" height=3D"40" border=3D"0"                                       =
+                                         alt=3D"icon"                      =
+                                                          style=3D"display:=
+ block; margin: 0; padding: 0;"/>                                          =
+                              </a>                                         =
+                           </td>                                           =
+                     </tr>                                                 =
+           </table>                                                        =
+</div>                                                        <!--[if (gte =
+mso 9)|(IE)]>                                                        </td> =
+                                                       <td width=3D"224" va=
+lign=3D"top" align=3D"center">                                             =
+           <![endif]-->                                                    =
+    <div                                                            style=
+=3D"width: 100%; max-width: 224px; display: inline-block; vertical-align: t=
+op;">                                                            <table cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0">                             =
+                                   <tr>                                    =
+                                <td align=3D"center" valign=3D"top"        =
+                                                                style=3D"pa=
+dding: 8px 8px 8px;">                                                      =
+                  <a href=3D"https://email.cryptomus.com/c/eJwUyjtuhiAcAPDT=
+wEj-DxQZGLpwD575SEEN2hpv33T_ZbeYYEEWh8aAxRXXRX5c5o2XDAVNpaoLRLNBJbaJY9UGSTZ=
+HQCsQEq6LJVYhpphqQm1D1pBRaEjzPe9j_FwqHUN297nv8xL8JcgL8s_zqN7275Lb_g8E-XSMM-=
+yvIG8ZNmaDcroZaihdzTJeoWGE1lUu8tfRXwAAAP__DLA3FA"                          =
+                                                 target=3D"_blank"         =
+                                                                  style=3D"=
+text-decoration: none;">                                                   =
+                         <img                                              =
+                                  src=3D"https://storage.cryptomus.com/icon=
+/png/email/v2/linkedin.png"                                                =
+                                width=3D"40" height=3D"40" border=3D"0"    =
+                                                                           =
+ alt=3D"icon"                                                              =
+                  style=3D"display: block; margin: 0; padding: 0;"/>       =
+                                                                 </a>      =
+                                                              </td>        =
+                                                            <td align=3D"ce=
+nter" valign=3D"top"                                                       =
+                 style=3D"padding: 8px 8px 8px;">                          =
+                                              <a href=3D"https://email.cryp=
+tomus.com/c/eJw8yjFuxSAMANDTwIhsfzCfgaFL7mEMaSKFJiK0Um5fden8Xs0hSgLbMsYICRk=
+52C0XjYQlERNXwjcye1V6RyhUdA3J7pmAGAgJOSR6OSladFX0SaqHisaDjueaZ_--nZ7dHnmb87=
+rN68PQYmjZv-4pn0P6nxpa_rcdecgq7XCj9cd46LIfrjb7k-k3AAD__5WkNIc"             =
+                                                              target=3D"_bl=
+ank"                                                                       =
+    style=3D"text-decoration: none;">                                      =
+                                      <img                                 =
+                                               src=3D"https://storage.crypt=
+omus.com/icon/png/email/v2/instagram.png"                                  =
+                                              width=3D"40" height=3D"40" bo=
+rder=3D"0"                                                                 =
+               alt=3D"icon"                                                =
+                                style=3D"display: block; margin: 0; padding=
+: 0;"/>                                                                    =
+    </a>                                                                   =
+ </td>                                                                    <=
+td align=3D"center" valign=3D"top"                                         =
+                               style=3D"padding: 8px 8px 8px;">            =
+                                                            <a href=3D"http=
+s://email.cryptomus.com/c/eJwEwL1uwyAQAOCngRHdXfi7gaGLFalT-wbAQWLVyBF2I_nt8=
+0lyITPoljAEYPTonX6mEFsTcDFiwIhcSgVwPbBDZOmQ9ZoIyAMhoXdMN5NLLbVXtJzFgqCyUOf1=
+Ovfxf5i6D72l53m-DnX7UrQoWmQ96j7FPB6KFn7fv_0v3_9-9Ewz99w2M9u4lIWR181I0-9EnwA=
+AAP___ZAyVQ"                                                               =
+            target=3D"_blank"                                              =
+                             style=3D"text-decoration: none;">             =
+                                                               <img        =
+                                                                        src=
+=3D"https://storage.cryptomus.com/icon/png/email/v2/discord.png"           =
+                                                                     width=
+=3D"40" height=3D"40" border=3D"0"                                         =
+                                       alt=3D"icon"                        =
+                                                        style=3D"display: b=
+lock; margin: 0; padding: 0;"/>                                            =
+                            </a>                                           =
+                         </td>                                             =
+                   </tr>                                                   =
+         </table>                                                        </=
+div>                                                        <!--[if (gte ms=
+o 9)|(IE)]>                                                        </td>   =
+                                                     </tr>                 =
+                                       </table>                            =
+                            <![endif]-->                                   =
+                 </td>                                                </tr>=
+                                                <tr>                       =
+                             <td valign=3D"top"                            =
+                            style=3D"text-align: center; font-size: 0; padd=
+ing: 0 0 27px;">                                                        <!-=
+-[if (gte mso 9)(IE)]>                                                     =
+   <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">                =
+                                            <tr>                           =
+                                     <td width=3D"272" valign=3D"middle" al=
+ign=3D"center">                                                        <![e=
+ndif]-->                                                        <div       =
+                                                     style=3D"width: 100%; =
+max-width: 272px; display: inline-block; vertical-align: middle;">         =
+                                                   <table width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0"                                          =
+                         border=3D"0">                                     =
+                           <tr>                                            =
+                        <td align=3D"center" valign=3D"top"                =
+                                                        style=3D"padding: 1=
+0px 8px 10px;">                                                            =
+            <a href=3D"https://email.cryptomus.com/c/eJxEzMFqxCAQANCvGY8yTo=
+zZHDwUiv8x0cluQKuoW8jfl572_OAlv268oxJvtg1344xb1cujZZs2XKPwwzl-WLQHnTseG592l=
+UVdnpAckiHj1p0WzUc84hmN3TlZTAYsxn63Wct76FiLyv41ZxuwfAEFoNAy3_pZ6zPLvwOFMWsX=
+oMCtDaCQZPKVByzhSrB8x1r0ZzzePymL6r7zyZJ1l3KDxcJX1knUr6e_AAAA___VsEOc"      =
+                                                                     target=
+=3D"_blank"                                                                =
+           style=3D"text-decoration: none;">                               =
+                                             <img                          =
+                                                      src=3D"https://storag=
+e.cryptomus.com/icon/png/email/v2/gp-icon.png"                             =
+                                                   width=3D"120" height=3D"=
+40" border=3D"0"                                                           =
+                     alt=3D"icon"                                          =
+                                      style=3D"vertical-align: top; margin:=
+ 0; padding: 0;"/>                                                         =
+               </a>                                                        =
+            </td>                                                          =
+          <td align=3D"center" valign=3D"top"                              =
+                                          style=3D"padding: 10px 8px 10px;"=
+>                                                                        <a=
+ href=3D"https://email.cryptomus.com/c/eJw8yzFqxTAMgOHT2KORFFmpBw9dcg9FVniB=
+hGectJDbl1Lo-v98reZZC0SvOM9QUFByfNV1EuHZV5OmWaDg9uFWlAnd0YDiXglIgJBQcqEp6Wq=
+rbYZctDE0DAw2nn6_z68r2fuMR33dd7_C9BloCbRo71fS3g__3X8h0PKPAi17ExZmYJEcRx26qR=
+9p-PkEhlP3IzWP35V-AgAA__96ZDqZ"                                            =
+                               target=3D"_blank"                           =
+                                                style=3D"text-decoration: n=
+one;">                                                                     =
+       <img                                                                =
+                src=3D"https://storage.cryptomus.com/icon/png/email/v2/app-=
+store.png"                                                                 =
+               width=3D"120" height=3D"40" border=3D"0"                    =
+                                                            alt=3D"icon"   =
+                                                                           =
+  style=3D"vertical-align: top; margin: 0; padding: 0;"/>                  =
+                                                      </a>                 =
+                                                   </td>                   =
+                                             </tr>                         =
+                                   </table>                                =
+                        </div>                                             =
+           <!--[if (gte mso 9)|(IE)]>                                      =
+                  </td>                                                    =
+    <td width=3D"191" valign=3D"middle" align=3D"center">                  =
+                                      <![endif]-->                         =
+                               <!--[if (gte mso 9)|(IE)]>                  =
+                                      </td>                                =
+                        </tr>                                              =
+          </table>                                                        <=
+![endif]-->                                                    </td>       =
+                                         </tr>                             =
+                   <tr>                                                    =
+<td align=3D"center" valign=3D"top" style=3D"padding: 10px 0 28px;">       =
+                                                 <div                      =
+                                      style=3D"font-size: 14px; line-height=
+: 20px; font-family: 'Golos Text', Arial, sans-serif; color: #666666; font-=
+weight: 400; letter-spacing: -0.08px;">                                    =
+                        &copy; 2026                                        =
+                    Cryptomus.<br/> All Rights Reserved                    =
+                                    </div>                                 =
+                   </td>                                                </t=
+r>                                            </table>                     =
+                   </td>                                    </tr>          =
+                      </table>                            </td>            =
+            </tr>                                                    <!-- U=
+nsub -->                            <tr>                                <td=
+ align=3D"center" valign=3D"top" style=3D"padding: 10px 0 30px;">          =
+                          <div                                        style=
+=3D"font-size: 14px; line-height: 20px; font-family: 'Golos Text', Arial, s=
+ans-serif; color: #9f9f9f; font-weight: 400; letter-spacing: -0.08px;">    =
+                                    <a href=3D"https://email.cryptomus.com/=
+c/eJxU0LuyojwAAOCngdJJAuihoDj_H8JlBVYMt3QhgSEaLoO4Kk-_c8qtv-6TnnPiLjA7D55Ow=
+IVHeHTMwbMFRz3iVt-3jgvF6csFQHQt_LJ7xKUNTeUhgI4AQQSPjousA29FK3oBbZdLG0ho2ECs=
+n2Wbx-fjIObR1N6wbcvDsL4NRAxE_lEDkef0eLYPsaq2MyyyzfduMizcfeJFqugY3SVhxXu8Asm=
+qim3srl-dZnMxSsor4f6-Ro9oYkMbljq6zeqq5bmtNpqC5cWCeChCH4iQ_OK-ACwgUYbjWoaXjx=
+zLmde5L-oI5mF5bm8J4vXy5EWO2moZG1Tml4JwifNXEbwh81OnInrl1mKVdGgEyi8l-e9K0dBQA=
+FFJy7SoylXo9MlRAi40DUsar7nvBFkF87zW01W5dUfKggWFLXdfnf-Pt6ZKVKYiJ8FEpfv90-zN=
+znCyNyh5M6pvWRUhhi92Sn0rw3LIcKwY1prRBrAfo7HKquSdUDYy_I1SnA_pnsDm9o0i9VIyINP=
+PSzQBw8Lm6q28550-rN34MWwwcqUPsjP_eOhvAAAA__-DF6vM" target=3D"_blank"       =
+                                    style=3D"text-decoration: underline; co=
+lor: #9f9f9f;"><span                                                style=
+=3D"color: #9f9f9f;">Unsubscribe</span></a>                                =
+    </div>                                </td>                            =
+</tr>                                            </table>                  =
+  <!--[if (gte mso 9)|(IE)]>                    </td>                    </=
+tr>                    </table>                    <![endif]-->            =
+    </div>            </center>        </td>    </tr></table><img width=3D"=
+1" height=3D"1" alt=3D"" src=3D"https://email.cryptomus.com/o/eJwEwF0OwyAIA=
+ODT1EcDVHE8eBgEzZrUdHE_SW-_z2suKhB6xVJAkJFzeFa1lEUeztxQWHnwLgX3xOQ4rHM4KgEx=
+EBJyFtqjNms2DJOoJ3DcEti6X59rft_RrhlWXTq0n3H1eW8Jph5n9B5-lf4BAAD__zCoJgY"></=
+body></html>
+--48612608d95dbbce76eea61cb1c415b65d9948bc4f9b3941d800e584aa2c--

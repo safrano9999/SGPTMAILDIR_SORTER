@@ -1,0 +1,220 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:422e:b0:554:7c0:c37f with SMTP id lg46csp438833vqb;
+        Thu, 29 Jan 2026 03:06:50 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCWuIr/iLKztXJSAVTEbB57QP5z+Who1JsNQXOzeibUtfnYDZ4dolxoqavmTsjjhdJIOkTjaLT5wO9pfS+oykte0AHMnW9A=@gmail.com
+X-Received: by 2002:a05:6000:2906:b0:430:fcda:452d with SMTP id ffacd0b85a97d-435dd07ed21mr11913263f8f.22.1769684809982;
+        Thu, 29 Jan 2026 03:06:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769684809; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j9hvqVRuSwqWKUo31UUCCcVVjVsoCxMF605VUNZW/g4Q56V044fUR5CPC/XDd8KskT
+         /UyeRjURhi6HMbL0A2yVVSMTazQefO74sUk6V47+edxUvVPlyWVjnFWqZvjXnX6Su30r
+         Kjq5cqcAU8S4Q7NFzXVoVK1iI9lbyZF4ipZqqFhCDXtUObY/ufapdtfTILq2xLR4V1fb
+         6pr7OCjOUZRpkZvkpR7lmUHoMmVRf/vTu5KWnBRdUp13Y4WAJGYiAAor6MzUQbxm1CKU
+         txNPwAqBYSFYn/+QzmfPyTrwJESJCxsi/bzetg7M2m7yWAfIQsx1wm79R13zA3dn/uHP
+         nsRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:message-id:subject:date:from:mime-version
+         :list-unsubscribe:list-unsubscribe-post:dkim-signature;
+        bh=n36FUeYYmlYJgBT3iz+xexBeuptCb+/sjDEX+SruHX0=;
+        fh=MWZBFs07DeE27mxpE9qnOg7GclqgplcW9XiqyL58mtY=;
+        b=irab39BWH3EuYxdmHqxp/+9gRuQ/bENeE4o6mhP0zuHYThPGMUW44qJg0BLXl1a00Y
+         NJRiQGl82JCjIeXZXjn6GJIiLd2z4Ho3f6UdJ3iVJnC3slxcv8LxX0xxlYSwl3K3yuXs
+         PsQQdTD4cTYl97mlzl44+hXI3XiXX9bUjL9WgUBF7TFwiYhc4PHVFJhM9qaRb5fKXcWQ
+         5GVWV3EJUU/HGcqgAdMNmRRjnB5ew/zdI2wPbAX4UUrxemc6NaF3zdVGHmbnM42Q3D9K
+         BKp9iCZTiqOMjYzM57yEOvCdW869dLoxvLmPd4v0lYFLcMVKV8VZxkpE3WO4/qfNLqlL
+         tPBg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@survey.econcast.de header.s=s1 header.b=PJxONsvT;
+       spf=fail (google.com: domain of bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de does not designate 85.13.167.96 as permitted sender) smtp.mailfrom="bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=survey.econcast.de
+Return-Path: <bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-435e11098edsi8589923f8f.67.2026.01.29.03.06.49
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jan 2026 03:06:49 -0800 (PST)
+Received-SPF: fail (google.com: domain of bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@survey.econcast.de header.s=s1 header.b=PJxONsvT;
+       spf=fail (google.com: domain of bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de does not designate 85.13.167.96 as permitted sender) smtp.mailfrom="bounces+21520438-c24a-info=fortschritt24.de@em7806.survey.econcast.de";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=survey.econcast.de
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (2048-bit key; unprotected) header.d=survey.econcast.de header.i=@survey.econcast.de header.a=rsa-sha256 header.s=s1 header.b=PJxONsvT;
+	dkim-atps=neutral
+X-policyd-weight: NOT_IN_SPAMCOP=-3 CL_IP_EQ_HELO_IP=-2 (check from: .econcast. - helo: .o260.sends.horizons.confirmit. - helo-domain: .confirmit.)  FROM/MX_MATCHES_NOT_HELO(DOMAIN)=1; rate: -4
+Received: from o260.sends.horizons.confirmit.eu (o260.sends.horizons.confirmit.eu [149.72.137.124])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id DBA94A001B63
+	for <info@fortschritt24.de>; Thu, 29 Jan 2026 12:06:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=survey.econcast.de;
+	h=list-unsubscribe-post:list-unsubscribe:mime-version:from:date:subject:
+	content-type:reply-to:to:cc:content-type:date:from:subject:to;
+	s=s1; bh=n36FUeYYmlYJgBT3iz+xexBeuptCb+/sjDEX+SruHX0=;
+	b=PJxONsvT2G28QexfQy4P94qYKkEb9Cd321zE+YnIYoZAWJ3mRS1/wBRkD7hixYGdTdEW
+	dGYBDaSPoeMOgaEpAs+54iRR7p5Fwjcs2R9Ys8o3J6CJIxPxir4VASNZsaGxv12Kx8JecF
+	nAPR7zvi8gXwNsSKnTR0tvO9S0tKMk+NL/bP83MkP+o3xzQIXAosW08COtNSHDPuWA5LLl
+	TeUbNLs9DVvcSayMw+P4QO5y9HtYkfZy/JhNQMACaBNQ0J0q9c7HyL7bm7pK3mzv3Ppr8p
+	/MbXSxW/L4olfAqLUgLnrIt4CUD1f1HbGT/NVJGD7UJfhk9kJ5n1UGQt6dhhdGLQ==
+Received: by recvd-948c5cd45-xtnjx with SMTP id recvd-948c5cd45-xtnjx-1-697B3F46-A
+	2026-01-29 11:06:46.093248779 +0000 UTC m=+3675500.562311970
+Received: from horizons.confirmit.eu (unknown)
+	by geopod-ismtpd-14 (SG)
+	with ESMTP id 4uCMbCsVRBOoPV1oRYGLrg
+	for <info@fortschritt24.de>;
+	Thu, 29 Jan 2026 11:06:45.999 +0000 (UTC)
+Received: from tasksystem-executor-monolith-tasks-6d7bc996fc-tp24h (horizons-smtp-4.horizons-smtp.horizons.svc.cluster.local [10.204.104.9])
+	by horizons.confirmit.eu (Postfix) with ESMTP id AF70D36
+	for <info@fortschritt24.de>; Thu, 29 Jan 2026 11:06:45 +0000 (UTC)
+X-Confirmit-ProjectId: p415093093654
+X-Confirmit-MailCategory: SurveyInvite
+X-Confirmit-RespId: 3606302
+X-Confirmit-TaskId: 37098572
+X-Confirmit-IsPanelist: false
+X-Confirmit-HasHistoryLogging: false
+X-Confirmit-UseDomainKeys: false
+X-MJ-CustomID: {"X-Confirmit-ProjectId":"p415093093654","X-Confirmit-MailCategory":"SurveyInvite","X-Confirmit-RespId":"3606302","X-Confirmit-TaskId":"37098572","X-Confirmit-IsPanelist":"false","X-Confirmit-HasHistoryLogging":"false","X-Confirmit-UseDomainKeys":"false","X-Confirmit-FixedSenderDomain":"survey.econcast.de,survey.econcast.at,survey.econcast.fr,survey.econcast.ch,horizons.confirmit.eu,dk.econcast.net,fi.econcast.net,cz.econcast.net,be.econcast.net,bg.econcast.net,gr.econcast.net,hr.econcast.net,hu.econcast.net,ee.econcast.net,lt.econcast.net,no.econcast.net,pl.econcast.net,pt.econcast.net,sk.econcast.net,ro.econcast.net,br.econcast.net,cn.econcast.net,hk.econcast.net,in.econcast.net,ua.econcast.net,tw.econcast.net,id.econcast.net,sg.econcast.net,ru.econcast.net,tr.econcast.net"}
+X-Mailjet-TrackOpen: 0
+x-xsData: {"Tags":[],"Meta":[{"Key":"X-Confirmit-ProjectId","Value":"p415093093654"},{"Key":"X-Confirmit-MailCategory","Value":"SurveyInvite"},{"Key":"X-Confirmit-RespId","Value":"3606302"},{"Key":"X-Confirmit-TaskId","Value":"37098572"},{"Key":"X-Confirmit-IsPanelist","Value":"false"},{"Key":"X-Confirmit-HasHistoryLogging","Value":"false"}]}
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: =?us-ascii?Q?=3Chttps=3A=2F=2Fhorizons=2Econfirmit=2Eeu=2Fv1=2Fnotifications=2Funsubscribe=3Fke?=
+ =?us-ascii?Q?y=3D97A49BC2F8F7A4F6A0EAC57D589F83C701A50?=
+ =?us-ascii?Q?6C2F2FA1DD81C6D1D06E10A487B73AE00060A24?=
+ =?us-ascii?Q?84D16476B042EA2F996A1CB8650F49EA6CF2E4C?=
+ =?us-ascii?Q?A4CA4B5A8B7D641F5DAE2342877F5238F4F0D3B?=
+ =?us-ascii?Q?564C759B47F8EFA54AA8BBF1D8C36012024A8AA?=
+ =?us-ascii?Q?FEDC1EF3C70FF943BF340D1F8B5C7EC08DCF2B7?=
+ =?us-ascii?Q?ACDF2DE69CE6327E42CBCB67C8605B25CE4F624?=
+ =?us-ascii?Q?4DA06C34AA98835F161F029B0DAD77CE59A3DDC?=
+ =?us-ascii?Q?FEE64C62A1F6686DE1E0AEB33CDE87B94C5EDC1?=
+ =?us-ascii?Q?3E4516B1584E6B999D2A76819BFE5DD30F7FA45?=
+ =?us-ascii?Q?6DE889035D900C2FB9B833D12508=3E?=
+MIME-Version: 1.0
+From: James Lang <james.lang@survey.econcast.de>
+Date: Thu, 29 Jan 2026 11:06:46 +0000 (UTC)
+Subject: Umfrage zur wirtschaftlichen Lage in Deutschland
+Content-Type: multipart/alternative;
+ boundary=--boundary_1429_fd6adfca-0697-4df9-8ca9-227888387579
+Message-Id: <20260129110645.AF70D36@horizons.confirmit.eu>
+Reply-To: James Lang <james.lang@econcast.de>
+X-SG-EID: =?us-ascii?Q?u001=2EuwZeCzcbUmyUW6ISnVgAaTCJDLxWGjAaBqjTypiiNDk9Mz8ZqJkdMQpN6?=
+ =?us-ascii?Q?Pou12sSe=2FvE+twr8QRAinOTkxbRjUUw2OhCrLYW?=
+ =?us-ascii?Q?M=2FC=2F2sCGAh39cfgzumFk0sXhGirbDCo0=2Fnrgkyk?=
+ =?us-ascii?Q?1desC8ROQKMkCM2Lhw9+zu3v4fdWxldo=2FQs3lhY?=
+ =?us-ascii?Q?jVVjQKSCiq8DffxQrAqK58JqO0pg24nrFDQQ8ak?=
+ =?us-ascii?Q?hYE7IygZhsh9OvBfTyhmMy30Hsd9MMVFnViTrTO?= =?us-ascii?Q?AGJa?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprC363W8fl8Ssgxoa?=
+ =?us-ascii?Q?GBVMa1Wx6mVTe6ihvBbZZ1+=2FVENSr4IcthAlyrT?=
+ =?us-ascii?Q?0C+RVD+oPVhJJgEcheJji38Wg50EzMWyPZtFya4?=
+ =?us-ascii?Q?UA3jgWUV+ienjwZlREkYXVGQqXDruueZnnrMkK9?=
+ =?us-ascii?Q?vf=2FhsQ+pMtdikfApVl9SlD7ytku8qA+JkGHtph2?=
+ =?us-ascii?Q?6C4NlY7NFPOFhv1eCaizrxX6Z4xpbruTkWgtJu0?=
+ =?us-ascii?Q?rnskVmfvWSv3fqv3rFMEbHt6MJUmibVMC2cEJIF?=
+ =?us-ascii?Q?zPOk1m5ypcJFYdyXbAsmFrynhE1PLrLdN9vPbHr?=
+ =?us-ascii?Q?qI8KdQ70w2YiIQHmRA4SautflIXbo5xBY=3D?=
+To: info@fortschritt24.de
+X-Entity-ID: u001.bkfo/iL48oVOuuJD9nVR/w==
+X-Spamd-Bar: /
+X-Dmarc-Test: Allow
+
+
+----boundary_1429_fd6adfca-0697-4df9-8ca9-227888387579
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Sehr geehrter Herr Remy,
+
+Sie geh=F6ren zu einem exklusiven Kreis von Tr=E4gern der deutschen Wirtsch=
+aft, denen wir heute diese Einladung zusenden, um an der aktuellen Studie t=
+eilzunehmen.
+
+=A0 =A0 =A0 Wohin entwickelt sich die Wirtschaft in Deutschland?
+
+Diejenigen, die dies pr=E4zise beantworten k=F6nnen, haben einen klaren Wet=
+tbewerbsvorteil.
+Der Econcast Business Monitor beantwortet sie zuverl=E4ssig.
+Als Teilnehmer erhalten Sie ihn kostenlos.
+
+      Nehmen Sie hier an unserer Studie teil - es dauert nur etwa 5 Minuten=
+:
+      https://feedback.econcast.ch/wix/p415093093654.aspx?__sid__=3DNoRQHgX=
+9_bUz1N5EjrSzIdiRgxiO8k20962Uvm_zGKZ4o5GUl9QGVR-59C6_nR4Qfkg9wSWdll8xpnW04x=
+WmIA2
+
+Wir versichern Ihnen, dass es sich um reine Wirtschaftsforschung handelt.
+Alle Informationen werden anonym und vertraulich unter Einhaltung der Europ=
+=E4ischen und deutschen Datenschutzbestimmungen erhoben und ausgewertet.
+
+Econcast ist ein unabh=E4ngiges Wirtschaftsforschungsinstitut mit Sitz in Z=
+=FCrich.
+Wir analysieren das deutsche Wirtschaftsklima - frei von politischer Beeinf=
+lussung.
+Unser Business Monitor bietet pr=E4zise Einblicke in die Wirtschaftsentwick=
+lung - genau das Richtige f=FCr Entscheidungstr=E4ger wie Sie.
+
+
+Mit freundlichen Gr=FCssen aus Z=FCrich
+
+James Lang
+Gesch=E4ftsf=FChrer
+
+Econcast
+Das Europ=E4ische Wirtschaftsforschungsinstitut
+Forchstrasse 193
+8032 Z=FCrich
+
+Telefon +41 (0)79 3737 919
+james.lang@econcast.net
+www.econcast.net
+
+
+Bitte klicken Sie=A0hier,=A0um keine weiteren Mitteilungen zu erhalten:  ht=
+tps://horizons.confirmit.eu/v1/notifications/unsubscribe?key=3D97A49BC2F8F7=
+A4F6A0EAC57D589F83C701A506C2F2FA1DD81C6D1D06E10A487B73AE00060A2484D16476B04=
+2EA2F996A1CB8650F49EA6CF2E4CA4CA4B5A8B7D641F5DAE2342877F5238F4F0D3B564C759B=
+47F8EFA54AA8BBF1D8C36012024A8AAFEDC1EF3C70FF943BF340D1F8B5C7EC08DCF2B7ACDF2=
+DE69CE6327E42CBCB67C8605B25CE4F6244DA06C34AA98835F161F029B0DAD77CE59A3DDCFE=
+E64C62A1F6686DE1E0AEB33CDE87B94C5EDC13E4516B1584E6B999D2A76819BFE5DD30F7FA4=
+56DE889035D900C2FB9B833D12508
+
+----boundary_1429_fd6adfca-0697-4df9-8ca9-227888387579
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0"><meta content=3D"IE=3Dedge"><style></style><p>Sehr geehrter Herr Remy,<b=
+r /><br />Sie geh&ouml;ren zu einem exklusiven Kreis von Tr&auml;gern der d=
+eutschen Wirtschaft, denen wir heute diese Einladung zusenden, um an der ak=
+tuellen Studie teilzunehmen.<br /><br />&nbsp; &nbsp; &nbsp; <strong>Wohin =
+entwickelt sich die Wirtschaft in Deutschland?</strong><br /><br />Diejenig=
+en, die dies pr&auml;zise beantworten k&ouml;nnen, haben einen klaren Wettb=
+ewerbsvorteil.<br />Der Econcast Business Monitor beantwortet sie zuverl&au=
+ml;ssig.<br />Als Teilnehmer erhalten Sie ihn kostenlos.<br /><br />&nbsp; =
+&nbsp; &nbsp;&nbsp;<strong><a href=3D"https://feedback.econcast.ch/wix/p415=
+093093654.aspx?__sid__=3DNoRQHgX9_bUz1N5EjrSzIdiRgxiO8k20962Uvm_zGKZ4o5GUl9=
+QGVR-59C6_nR4Qfkg9wSWdll8xpnW04xWmIA2">Nehmen Sie hier an unserer Studie te=
+il - es dauert nur etwa 5 Minuten</a></strong></p>
+<p><br />Wir versichern Ihnen, dass es sich um reine Wirtschaftsforschung h=
+andelt.<br />Alle Informationen werden anonym und vertraulich unter Einhalt=
+ung der Europ&auml;ischen und deutschen Datenschutzbestimmungen erhoben und=
+ ausgewertet.<br /><br />Econcast ist ein unabh&auml;ngiges Wirtschaftsfors=
+chungsinstitut mit Sitz in Z&uuml;rich.<br />Wir analysieren das deutsche W=
+irtschaftsklima - frei von politischer Beeinflussung.<br />Unser Business M=
+onitor bietet pr&auml;zise Einblicke in die Wirtschaftsentwicklung - genau =
+das Richtige f&uuml;r Entscheidungstr&auml;ger wie Sie.<br /><br /><br />Mi=
+t freundlichen Gr&uuml;ssen aus Z&uuml;rich<br /><br />James Lang<br />Gesc=
+h&auml;ftsf&uuml;hrer<br /><br />Econcast<br />Das Europ&auml;ische Wirtsch=
+aftsforschungsinstitut<br />Forchstrasse 193<br />8032 Z&uuml;rich<br /><br=
+ />Telefon +41 (0)79 3737 919<br />james.lang@econcast.net<br />www.econcas=
+t.net<br /><br /><br />Bitte klicken Sie&nbsp;<a href=3D"https://horizons.c=
+onfirmit.eu/v1/notifications/unsubscribe?key=3D97A49BC2F8F7A4F6A0EAC57D589F=
+83C701A506C2F2FA1DD81C6D1D06E10A487B73AE00060A2484D16476B042EA2F996A1CB8650=
+F49EA6CF2E4CA4CA4B5A8B7D641F5DAE2342877F5238F4F0D3B564C759B47F8EFA54AA8BBF1=
+D8C36012024A8AAFEDC1EF3C70FF943BF340D1F8B5C7EC08DCF2B7ACDF2DE69CE6327E42CBC=
+B67C8605B25CE4F6244DA06C34AA98835F161F029B0DAD77CE59A3DDCFEE64C62A1F6686DE1=
+E0AEB33CDE87B94C5EDC13E4516B1584E6B999D2A76819BFE5DD30F7FA456DE889035D900C2=
+FB9B833D12508">hier</a>,&nbsp;um keine weiteren Mitteilungen zu erhalten.</=
+p>
+<p class=3Dconfirmit></p>
+----boundary_1429_fd6adfca-0697-4df9-8ca9-227888387579--
+
+

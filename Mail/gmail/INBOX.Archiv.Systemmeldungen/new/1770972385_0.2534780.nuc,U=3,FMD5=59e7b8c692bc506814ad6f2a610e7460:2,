@@ -1,0 +1,1015 @@
+Delivered-To: rafaelfelixremy@gmail.com
+Received: by 2002:a05:6520:191:b0:32c:edb1:367e with SMTP id u17csp1194410lka;
+        Thu, 12 Feb 2026 21:01:56 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCWNAqxymKwu/Fv0cc00hSALlSwwvWJ78lFnEpWbYckXLqnXIW9sYKIBh5BN/ar2l7nDgvFjtV4kFk5UVzu/orc=@gmail.com
+X-Received: by 2002:a17:907:3fa4:b0:b8a:f225:ede1 with SMTP id a640c23a62f3a-b8fb4475143mr21096666b.41.1770958916229;
+        Thu, 12 Feb 2026 21:01:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1770958916; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ikiJbAu0uLsyxII8NKh4sAiPguAL8LF7gfEus4nWsTrRW7MW6WfG8zhqYGxoiX3gaG
+         go3cN14MuE+i1hTpX3J7EC097+ry047xgTrTK0ZXx4ovyvplTDp5U60aOVpyDuAcBjxn
+         pVnuIkASXoi0l2QBaGo/LqWj+8xaSkJB1hdu7+iv6UZVBtzxN7BMlZ134LNYnsY5B9PP
+         W1vSY6sk6zYseDfk4bGJwEWbP5+EiTmE+GuQW4V9kAD+6r7oLbpMJxF5xwhxhDoRi8U5
+         iWyvtOaZeFgHtaDJSKcOUgSGdA0Fp1FF5HvLrSO8hx391p2riPsP16zqZqGIOy/JAVkP
+         bZxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:list-help:list-id:mime-version:subject:message-id:to
+         :reply-to:from:date:dkim-signature:dkim-signature:delivered-to
+         :dkim-signature;
+        bh=hCT9Jp9JRj10LkMKKZBW5w3QAzc/HmjHIrLA4eB3msk=;
+        fh=syWaAwgD+lvUs10fRVzEwRE1x89PG0qt8Kmqist4SFQ=;
+        b=BzXpvQZjcJ2TJOtPRrTfwypLlcchNEsMBEih6Uh0PDV5muaXGZlcHwSsJYWnZmlS+J
+         ASgmGOD4gtAzBEdPTrBOOuBmJAZTK9eyXHb1pR8Uuj3JRiN5mYUyVx4qF/II3r5+jMob
+         Jcvz5VdTeUn3y9b0YjQ5eRGTb2KD5zuEeW8d8yNCImk/ylg6N7XEFI7oglR2HIw2wlM+
+         eU2kfQny6QX/aaQ2DYgC6oQmEeYEhbZLP/T6PU2V6qrP6oX8+XfsVTI9iGxSSHm5WX0C
+         abIU7nodwTlqwlV4Oyid+L3JpBvsZ8WxoVZl2pzluHGD7QKRokNF6E/7792FwwiCW/su
+         LShg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b=gFgXQp6h;
+       dkim=pass header.i=@meine.schufa.de header.s=mailing header.b=Z10leyCu;
+       dkim=pass header.i=@srv2.de header.s=mailkey1 header.b=obVWxyB3;
+       spf=fail (google.com: domain of return@meine.schufa.de does not designate 2001:868:100:600::217 as permitted sender) smtp.mailfrom=return@meine.schufa.de;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=meine.schufa.de
+Return-Path: <return@meine.schufa.de>
+Received: from shout02.mail.de (shout02.mail.de. [2001:868:100:600::217])
+        by mx.google.com with ESMTPS id a640c23a62f3a-b8f6ef5a275si492628566b.128.2026.02.12.21.01.56
+        for <rafaelfelixremy@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Feb 2026 21:01:56 -0800 (PST)
+Received-SPF: fail (google.com: domain of return@meine.schufa.de does not designate 2001:868:100:600::217 as permitted sender) client-ip=2001:868:100:600::217;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.de header.s=mailde202009 header.b=gFgXQp6h;
+       dkim=pass header.i=@meine.schufa.de header.s=mailing header.b=Z10leyCu;
+       dkim=pass header.i=@srv2.de header.s=mailkey1 header.b=obVWxyB3;
+       spf=fail (google.com: domain of return@meine.schufa.de does not designate 2001:868:100:600::217 as permitted sender) smtp.mailfrom=return@meine.schufa.de;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=meine.schufa.de
+Received: from postfix03.mail.de (postfix03.bt.mail.de [10.0.121.127])
+	by shout02.mail.de (Postfix) with ESMTP id D5F09241341
+	for <rafaelfelixremy@gmail.com>; Fri, 13 Feb 2026 06:01:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mail.de;
+	s=mailde202009; t=1770958915;
+	bh=DKLejiRpAFVUN+NbQv1vWVAsCGeAlRbi4vNkBinlcpk=;
+	h=Date:From:Reply-To:To:Message-ID:Subject:From:To:CC:Subject:
+	 Reply-To;
+	b=gFgXQp6hShkC6XffDDj5ghLGbalklw40cJfpA9TywAbforRP9vQnLguMW/0u4Y3tW
+	 yOgTopuhUvmsDFgZPyjzt/G9i49kXeoKxXcsFkhJfypviJL7Kkp8j0engB3h5WWHuE
+	 wo1DEI0JBrw6ROAFreYBKW4wpkPuNPKQXzUKou8HQcfOeg7biyofOXA5L/Y2H6Og5+
+	 7ZtIh63DdOb1FDj8Bvr0/ENg69sNbtiCBHVS1q7nel5cNhL3+bIm8gOOA4NJ1vRIQO
+	 HnU39KEZn8xDhsw8LEdo7g9Po8PVROayVXYmyeV14k5wOQs2gBpIGeW8eTB/ZnSaNW
+	 Z9lViR9Ly8+YQ==
+Received: from smtp01.mail.de (smtp03.bt.mail.de [10.0.121.213])
+	by postfix03.mail.de (Postfix) with ESMTP id B5A022604EA
+	for <rafaelfelixremy@gmail.com>; Fri, 13 Feb 2026 06:01:55 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by smtp01.mail.de (Postfix) with ESMTP id A67F8240E03
+	for <rafaelfelixremy@gmail.com>; Fri, 13 Feb 2026 06:01:55 +0100 (CET)
+X-Sieve: Pigeonhole Sieve 0.5.20 (149edcf2)
+X-Sieve-Redirected-From: rafael.remy@mail.de
+Delivered-To: rafael.remy@mail.de
+Received: from director01 ([10.0.121.147])
+	by dovecot10 with LMTP
+	id EOZBHUOwjml3STYASyX6IQ:P1
+	(envelope-from <return@meine.schufa.de>)
+	for <rafael.remy@mail.de>; Fri, 13 Feb 2026 06:01:55 +0100
+Received: from localhost ([10.0.121.147])
+	by director01 with LMTP
+	id EOZBHUOwjml3STYASyX6IQ
+	(envelope-from <return@meine.schufa.de>)
+	for <rafael.remy@mail.de>; Fri, 13 Feb 2026 06:01:55 +0100
+X-Original-To: rafael.remy@mail.de
+Authentication-Results: mxpostfix03.mail.de;
+	dkim=pass (1024-bit key; unprotected) header.d=meine.schufa.de header.i=verbraucherservice@meine.schufa.de header.a=rsa-sha256 header.s=mailing header.b=Z10leyCu;
+	dkim=pass (2048-bit key; unprotected) header.d=srv2.de header.i=@srv2.de header.a=rsa-sha256 header.s=mailkey1 header.b=obVWxyB3;
+	dkim-atps=neutral
+Authentication-Results: mxpostfix03.mail.de;
+	dkim=pass header.d=meine.schufa.de header.s=mailing header.b=Z10leyCu;
+	dkim=pass header.d=srv2.de header.s=mailkey1 header.b=obVWxyB3;
+	spf=pass (mxpostfix03.mail.de: domain of return@meine.schufa.de designates 91.241.73.252 as permitted sender) smtp.mailfrom=return@meine.schufa.de;
+	dmarc=pass (policy=reject) header.from=meine.schufa.de
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by mxpostfix03.mail.de (Postfix) with ESMTP id 2EB11240D54
+	for <rafael.remy@mail.de>; Fri, 13 Feb 2026 06:01:55 +0100 (CET)
+Received: from [91.241.73.252] (helo=mail22-252.srv2.de)
+	by mx03.mail.de with ESMTPS (eXpurgate 4.55.0)
+	(envelope-from <return@meine.schufa.de>)
+	id 698eb042-f133-0a0078cb0019-5bf149fcd205-3
+	for <rafael.remy@mail.de>; Fri, 13 Feb 2026 06:01:54 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; s=mailing; d=meine.schufa.de;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:X-ulpe:
+ List-Id:X-CSA-Complaints:List-Help:Feedback-ID;
+ i=verbraucherservice@meine.schufa.de;
+ bh=DKLejiRpAFVUN+NbQv1vWVAsCGeAlRbi4vNkBinlcpk=;
+ b=Z10leyCuG26LP6gzAcLbMRZETqKf4Ngo8FlxVCl6KL8xYH2RnqAsSgenCJ9kYKgXQtES6hl234LG
+   CFgh7V+CbJIbTnqT3pznSpbBTtqclynbLeBNa7CMdea2hq9xNMpDXCjCfg26QfXJTJqPkEarBZ/z
+   j4FdKLxpWSdy/c56lb8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; s=mailkey1; d=srv2.de;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:X-ulpe:
+ List-Id:X-CSA-Complaints:List-Help:Feedback-ID;
+ bh=DKLejiRpAFVUN+NbQv1vWVAsCGeAlRbi4vNkBinlcpk=;
+ b=obVWxyB32sYkabOZyOucqrbYwGJnIyibZnM5fG/Wcyo/V+FQQqXVdrym/74Ob9j4y00DhwShox3P
+   x9XaNwkCusL4COMvh+PLkK89CBhjBvR+MYXGxHJcKGQiE7KsUZgBYQHu1puiwCrAG+gXsCd7PCKT
+   s10NmG1/AOGiYZCRo8l4T/VzA9UPnX3RfgsVOAO9utJvt0PZSzbt74OhVBpUxHYxJ3EP2haRrcjN
+   dt6F30AO4ot41ZXdfyw6097e769CIF9bOfyRs3vJQqRBlbBVSEM8Jn4QNIs85332BAHeSFQ12NWp
+   qzBr6ph6LGJJ50+xyOxdv/f0wKM0zWJbrbDZQA==
+Date: Fri, 13 Feb 2026 06:01:54 +0100 (CET)
+From: SCHUFA UpdateService <verbraucherservice@meine.schufa.de>
+Reply-To: SCHUFA UpdateService <ms-noreply@meine.schufa.de>
+To: rafael.remy@mail.de
+Message-ID: <re-p232OBOxfQPhoGga7d2rNlvb7eho-6QX6JRKH-5C0OHKJX-13PBYOZ@meine.schufa.de>
+Subject: Ihre SCHUFA-Daten wurden aktualisiert.
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_11710900_1169231160.1770958914450"
+X-ulpe: re-p232OBOxfQPhoGga7d2rNlvb7eho-6QX6JRKH-5C0OHKJX-13PBYOZ@meine.schufa.de
+List-Id: <1V5A6A5-UVYPAY.meine.schufa.de>
+X-Report-Spam: complaints@episerver.com
+X-CSA-Complaints: csa-complaints@eco.de
+X-sender: verbraucherservice@meine.schufa.de
+List-Help: <https://www.meineschufa.de/de/updateservice-info>
+Feedback-ID: 1V5A6A5:5C0OHKJX:optimizely
+X-purgate-ID: 153031::1770958914-F5C56C95-8C5ECD80/0/0
+X-purgate-type: clean
+X-purgate-size: 59262
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: clean
+
+------=_Part_11710900_1169231160.1770958914450
+Content-Type: text/plain;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Ihre E-Mail wird nicht richtig angezeigt?   Zur Webansicht [1].
+
+
+
+
+[1] https://meine.schufa.de/go/5/6QX6JRKH-5C0OHKJX-62E7K65J-11WRK0U-o.html=
+=20
+
+--------------------------------------------------------------------
+
+meineschufa.de
+https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LA-15Y619P9.html=20
+
+--------------------------------------------------------------------
+
+meineschufa.de
+https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LA-15Y619P9.html=20
+
+--------------------------------------------------------------------
+
+Guten Tag Rafael Felix Remy,
+
+es gibt aktuelle =C3=84nderungen in Ihren SCHUFA-Daten:=20
+
+--------------------------------------------------------------------
+
+Ihren tagesaktuellen SCHUFA-Score und weitere Details k=C3=B6nnen Sie
+ganz einfach in Ihrem SCHUFA-Konto auf meineSCHUFA.de [1]unter
+Daten-Einblick einsehen.
+
+Bitte halten Sie Ihr Smartphone bereit. Um einen Zugang zu Ihrem
+SCHUFA-Konto zu erhalten, m=C3=BCssen Sie sich nach dem Login noch mit
+einem Sicherheitscode authentifizieren.
+=E2=80=8B
+
+[1] https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LA-15Y619P9.html
+
+Zum Login
+https://meine.schufa.de/go/5/FW8I-5C0OHKJX-62T03J58-IETTL4.html=20
+
+--------------------------------------------------------------------
+
+Mit freundlichen Gr=C3=BC=C3=9Fen
+Ihr SCHUFA-Serviceteam=20
+
+--------------------------------------------------------------------
+
+Hinweis: Dies ist eine automatisch generierte E-Mail. Bitte
+antworten Sie nicht auf diese Nachricht, da die Adresse nur zur
+Versendung von E-Mails eingerichtet ist. Anfragen an diese
+E-Mail-Adresse erreichen uns nicht.=20
+
+--------------------------------------------------------------------
+
+=E2=80=8BSCHUFA-Newsletter
+
+Mit SCHUFA-Insights erhalten Sie Infos zu aktuellen SCHUFA-Themen
+und attraktiven Angeboten.
+=E2=80=8B
+
+Jetzt anmelden
+https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.html=20
+
+--------------------------------------------------------------------
+
+Bleiben Sie mit uns in Kontakt
+=E2=80=8B=20
+
+--------------------------------------------------------------------
+
+Vorsitzender des Aufsichtsrats: Christian Polenz
+
+Vorstand: Tanja Birkholz (Vorsitzende), Dr. Klaus Kolitz
+
+SCHUFA Holding AG
+Kormoranweg 5
+65201 Wiesbaden
+HRB 12286 =E2=80=93 Amtsgericht Wiesbaden
+Umsatzsteueridentifikationsnummer: DE 209 268 827
+
+Mehr zu Ihrem UpdateService [1]
+Kontakt: +49 (0) 611 - 92780
+
+
+Impressum [2]  Datenschutzhinweis [3]
+
+
+[1] https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5W8JP5AQ-WBWC3D.html
+[2] https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5W8JP5AR-V8G10IA.html
+[3] https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LF-U5210D3.html=20
+------=_Part_11710900_1169231160.1770958914450
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office"><head><!--[if gte mso 9]><xml><o:OfficeDocumentSet=
+tings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentS=
+ettings></xml><![endif]--><style type=3D"text/css">.ExternalClass * { line-=
+height: 100% !important; }img { border: 0; }</style><title>Episerver Newsle=
+tter</title><meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" nam=
+e=3D"viewport"/><meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible"/=
+><meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"/><=
+style type=3D"text/css" >@media screen and (max-width: 640px) {html {-webki=
+t-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;=
+}body {margin: 0;}a:focus {outline: thin dotted;}a:hover, a:active {outline=
+: 0;}b, strong {font-weight: bold;}p {margin: 1em 0;}small {font-size: 75%;=
+}sub, sup {font-size: 75%;line-height: 0;position: relative;vertical-align:=
+ baseline;}sup {top: -0.5em;}sub {bottom: -0.25em;}ol, ul {margin: 0;}li ul=
+ {margin: 0;}ul li, ol li {padding: 5px 0 0 0;}ul li span, ol li span {vert=
+ical-align: top;display: inline-block;}img {border: 0;-ms-interpolation-mod=
+e: bicubic;}table {border-collapse: collapse;border-spacing: 0;}html, body =
+{margin: 0;padding: 0;}.clear {clear: both;}.huaweiFixTable {min-width:100%=
+;max-width:100%;}.mobileVersion {min-width: 320px;}.mobileVersion img.bmCou=
+ntdownImage {max-width: 100%;height: auto;}ul {list-style-type: disc;paddin=
+g: 0 0 0 19px;}ol {margin: 0;padding: 0 0 0 19px;}.headline {color: #FF553E=
+;font-family: Arial, Helvetica, sans-serif;font-size: 19px;font-weight: nor=
+mal;text-decoration: none;}.headline a {color: inherit;font-weight: normal;=
+text-decoration: none;}.text, .tableOfContents {color: #000000;font-family:=
+ Arial, Helvetica, sans-serif;font-size: 15px;}.text a {font-family: Arial,=
+ Helvetica, sans-serif;color: #000000;font-size: 12px;font-weight: normal;t=
+ext-decoration: none;}.link {color: #000000;font-family: Arial, Helvetica, =
+sans-serif;font-size: 12px;font-weight: normal;line-height: 12px;text-decor=
+ation: none;}.link a {color: inherit;font-weight: normal;text-decoration: n=
+one;}ul.tableOfContents, ol.tableOfContents {color: #000000;font-family: Ar=
+ial, Helvetica, sans-serif;font-size: 12px;font-weight: normal;line-height:=
+ 12px;}ul.tableOfContents li span, ol.tableOfContents li span {display: inl=
+ine-block;vertical-align: top;}.tableOfContents a {color: #000000;font-fami=
+ly: Arial, Helvetica, sans-serif;font-size: 12px;font-weight: normal;line-h=
+eight: 12px;text-decoration: none;}.tableOfContents .entry {position: relat=
+ive;}.images .next{font-size: 0;}.images .next > div{font-size: medium;}.na=
+vigation {display: table;width: 100%;}.navigation .tableRow {display: table=
+-row;}.navigation .tableCell {display: table-cell;color: #000000;font-famil=
+y: Arial, Helvetica, sans-serif;font-size: 12px;font-weight: normal;line-he=
+ight: 12px;}.navigation .tableCell a {display: block;color: #000000;text-de=
+coration: none;} }@media screen and (max-width: 640px) {.dummy {display: no=
+ne !important;}.desktopVersion, .desktopHelper {display: none !important;}.=
+mobileHelper {display: table !important;height: auto !important;}.mobileVer=
+sion {display: block !important;float: none !important;width: 100% !importa=
+nt;height: auto !important;max-height: none !important;} }@media screen and=
+ (min-width: 641px) {.dummy {display: none !important;}.desktopVersion, .de=
+sktopHelper {display: block !important;}.mobileVersion, .mobileHelper {disp=
+lay: none !important;} }</style></head><body style=3D"margin: 0;padding: 0;=
+-webkit-text-size-adjust: none;" link=3D"#000000" alink=3D"#000000" vlink=
+=3D"#000000" text=3D"#000000" bgcolor=3D"#d1d1d1"><a name=3D"top" id=3D"top=
+"><!-- --></a><div class=3D"desktopVersion desktopHelper" style=3D"display:=
+ block;"><!--[if !mso 9]><!--><!--<![endif]--><table width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><tr><td alig=
+n=3D"center"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" bgcolor=3D"#d2d2d2"><tr><td align=3D"center"><table width=3D"600" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"preHeader" id=3D"=
+preHeader1"><tr><td width=3D"600" align=3D"left"><font face=3D"Arial, Helve=
+tica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;" ><=
+table align=3D"center" bgcolor=3D"#f2f2f2" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"600"><tbody><tr><td align=3D"center" bgcolor=3D"#=
+f2f2f2" height=3D"10px" valign=3D"top" width=3D"600"><font face=3D"Arial, H=
+elvetica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;=
+" ></font></td></tr><tr><td align=3D"center" bgcolor=3D"#f2f2f2" valign=3D"=
+top" width=3D"600"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" c=
+olor=3D"#000000" style=3D"font-size:15px;" ><div style=3D"text-align: cente=
+r;"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000000=
+" style=3D"font-size:15px;" ><span style=3D"font-family:arial,helvetica,san=
+s-serif;"><span style=3D"color:#404040;"><span style=3D"font-size:12px;colo=
+r: #404040;">Ihre E-Mail wird nicht richtig angezeigt? <a style=3D"color:#0=
+00000;font-weight:normal;text-decoration:none;" href=3D"https://meine.schuf=
+a.de/go/5/6QX6JRKH-5C0OHKJX-62E7K65J-11WRK0U-o.html"><font face=3D"Arial, H=
+elvetica, sans-serif" size=3D"2" color=3D"#000000" style=3D"font-size:12px;=
+" > <span style=3D"font-size:12px;color: #404040;"> <u>Zur Webansicht</u></=
+span></font></a>.</span></span></span></font></div></font></td></tr><tr><td=
+ align=3D"center" bgcolor=3D"#f2f2f2" height=3D"10px" valign=3D"top" width=
+=3D"600"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#0=
+00000" style=3D"font-size:15px;" ></font></td></tr></tbody></table></font><=
+/td></tr></table></td></tr></table></td></tr></table></div><![if !mso]><div=
+ style=3D"display: none; float: left; height: 0; max-height: 0; width: 0; o=
+verflow: hidden;" class=3D"mobileVersion"><table class=3D"mobileHelper huaw=
+eiFixTable" style=3D"display: none;" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" width=3D"100%"><tr><td class=3D"huaweiFixCell"><div><div><!-- --=
+><div style=3D"background-color: #d2d2d2;"><div class=3D"text"><!-- --><tab=
+le class=3D"mobileHelper" style=3D"display: none; min-width: 600px; max-wid=
+th: 600px;" align=3D"center" bgcolor=3D"#f2f2f2" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"600"><tbody><tr><td align=3D"center" bgco=
+lor=3D"#f2f2f2" height=3D"10px" valign=3D"top" width=3D"600"></td></tr><tr>=
+<td align=3D"center" bgcolor=3D"#f2f2f2" valign=3D"top" width=3D"600"><div =
+style=3D"text-align: center;"><span style=3D"font-family:arial,helvetica,sa=
+ns-serif;"><span style=3D"color:#404040;"><span style=3D"font-size:12px;col=
+or: #404040;">Ihre E-Mail wird nicht richtig angezeigt? <a href=3D"https://=
+meine.schufa.de/go/5/6QX6JRKH-5C0OHKJX-62E7K65J-11WRK0U-o.html"> <span styl=
+e=3D"font-size:12px;color: #404040;"> <u>Zur Webansicht</u></span></a>.</sp=
+an></span></span></div></td></tr><tr><td align=3D"center" bgcolor=3D"#f2f2f=
+2" height=3D"10px" valign=3D"top" width=3D"600"></td></tr></tbody></table><=
+/div></div></div></div></td></tr></table></div><![endif]><div class=3D"desk=
+topVersion desktopHelper" style=3D"display: block;"><table width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><tr><td=
+ align=3D"center"><table id=3D"header" width=3D"600" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" class=3D"static"><tr><td width=3D"600" align=3D"=
+left" bgcolor=3D"#ffffff"><table style=3D"margin: 0; padding: 0;" width=3D"=
+600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td width=3D"600"=
+ align=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td valign=3D"top"><table id=3D"textAndImage1" width=3D"600" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"textAndImage"><tr><td width=3D=
+"600" valign=3D"top" align=3D"left"><a name=3D"pa43697081170" id=3D"pa43697=
+081170"><!-- --></a><table width=3D"600" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" align=3D"left"><tr><td width=3D"600" valign=3D"top" align=3D=
+"left"><table width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" align=3D"left"><tr><td width=3D"30"></td><td width=3D"540" height=3D"40">=
+</td><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540"=
+ align=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ali=
+gn=3D"left"><tr><td width=3D"114"><a href=3D"https://meine.schufa.de/go/5/F=
+W8I-5C0OHKJX-5BRII7LA-15Y619P9.html" target=3D"_blank"><img src=3D"http://i=
+mg.srv2.de/assets/bm/binary/f/8/d/5/f8d5c57a6a38983fc6fbc9a4c16b3cbd_795.pn=
+g" width=3D"114" height=3D"20" alt=3D"meineschufa.de" title=3D"meineschufa.=
+de" border=3D"0" style=3D"display: block;" /></a></td></tr></table></td><td=
+ width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540" height=
+=3D"20"></td><td width=3D"30"></td></tr></table></td></tr></table></td></tr=
+></table></td></tr></table><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0"><tr><td valign=3D"top"><table id=3D"textAndImage2" width=3D"600" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"textAndImage"><tr><=
+td width=3D"600" valign=3D"top" align=3D"left"><a name=3D"pa43697081171" id=
+=3D"pa43697081171"><!-- --></a><table width=3D"600" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" align=3D"left"><tr><td width=3D"600" valign=3D"to=
+p" align=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"600"><tr><td><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" align=3D"center"><tr><td width=3D"600"><a href=3D"https://meine.schufa.de=
+/go/5/FW8I-5C0OHKJX-5BRII7LA-15Y619P9.html" target=3D"_blank"><img src=3D"h=
+ttp://img.srv2.de/assets/bm/binary/d/9/6/6/d966db9bb1eba8dd6d6d04303ea97dcf=
+_114679.png" width=3D"600" height=3D"200" alt=3D"meineschufa.de" title=3D"m=
+eineschufa.de" border=3D"0" style=3D"display: block;" /></a></td></tr></tab=
+le></td></tr></table></td></tr></table></td></tr></table></td></tr></table>=
+</td></tr></table></td></tr></table></td></tr></table></div><![if !mso]><di=
+v style=3D"display: none; float: left; height: 0; max-height: 0; width: 0; =
+overflow: hidden;" class=3D"mobileVersion"><table class=3D"mobileHelper hua=
+weiFixTable" style=3D"display: none;" cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" width=3D"100%"><tr><td class=3D"huaweiFixCell"><div><div style=
+=3D"background-color: #ffffff;"><!-- --><div><div style=3D"background-color=
+: #ffffff;"><div style=3D"display:table; width:100%;"><div style=3D"display=
+: table-cell;vertical-align: top;width: 100%;" class=3D"textAndImage"><div>=
+<div><a name=3D"ma43697081170" id=3D"ma43697081170"><!-- --></a><div style=
+=3D"padding: 40px 30px 20px 30px;"><!-- --><div style=3D"padding-right: 0px=
+;float: left;text-align: left;max-width: 50%;"><!-- --><a href=3D"https://m=
+eine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LB-13GLZHT.html" target=3D"_blank">=
+<img src=3D"http://img.srv2.de/assets/bm/binary/f/8/d/5/f8d5c57a6a38983fc6f=
+bc9a4c16b3cbd_795.png?mobile=3D1" width=3D"114" height=3D"20" alt=3D"meines=
+chufa.de" title=3D"meineschufa.de" border=3D"0" style=3D"max-width: 114px !=
+important; height: auto;  width: 100%;" /></a></div><div class=3D"clear"><!=
+-- --></div></div></div></div></div></div><div style=3D"display:table; widt=
+h:100%;"><div style=3D"display: table-cell;vertical-align: top;width: 100%;=
+" class=3D"textAndImage"><div style=3D"padding-top: 0px;"><div><a name=3D"m=
+a43697081372" id=3D"ma43697081372"><!-- --></a><div><!-- --><div style=3D"t=
+ext-align: center;max-width: 100%;"><!-- --><a href=3D"https://meine.schufa=
+.de/go/5/FW8I-5C0OHKJX-5BRII7LB-13GLZHT.html" target=3D"_blank"><img src=3D=
+"http://img.srv2.de/assets/bm/binary/7/c/7/e/7c7ee19b84ca841f7d71d68719e794=
+c8_447366.png?mobile=3D1" width=3D"1200" height=3D"547" alt=3D"meineschufa.=
+de" title=3D"meineschufa.de" border=3D"0" style=3D"max-width: 600px !import=
+ant; height: auto;  width: 100%;" /></a></div><div class=3D"clear"><!-- -->=
+</div></div></div></div></div></div><div class=3D"clear"><!-- --></div></di=
+v></div></div></div></td></tr></table></div><![endif]><div class=3D"desktop=
+Version desktopHelper" style=3D"display: block;"><table width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><tr><td al=
+ign=3D"center"><table id=3D"dynamic1" width=3D"600" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" class=3D"dynamic"><tr><td width=3D"600" align=3D"=
+left" bgcolor=3D"#ffffff"><table width=3D"600" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td width=3D"600"><table style=3D"margin: 0; paddi=
+ng: 0;" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgco=
+lor=3D"#f2f2f2"><tr><td width=3D"30"></td><td width=3D"540" height=3D"30"><=
+/td><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540" =
+align=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td valign=3D"top"><table id=3D"textAndImage3" width=3D"540" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" class=3D"textAndImage"><tr><td width=3D"=
+540" valign=3D"top" align=3D"left"><a name=3D"pa43697081376" id=3D"pa436970=
+81376"><!-- --></a><table width=3D"540" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" align=3D"left"><tr><td width=3D"540" valign=3D"top" align=3D"=
+left"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#0000=
+00" style=3D"font-size:15px;" ><span style=3D"font-family:arial,helvetica,s=
+ans-serif;"><span style=3D"font-size:16px; line-height: 20px; color: #40404=
+0"><b>Guten Tag Rafael Felix Remy,</b><br /><br />es gibt aktuelle &Auml;nd=
+erungen in Ihren SCHUFA-Daten:</span></span></font></td></tr></table></td><=
+/tr></table></td></tr></table></td><td width=3D"30"></td></tr><tr><td style=
+=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=
+=3D"30">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px; mso-line-=
+height-rule: exactly;" width=3D"540" height=3D"15">&nbsp;</td><td style=3D"=
+font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=3D"=
+30">&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr><=
+/table></div><![if !mso]><div style=3D"display: none; float: left; height: =
+0; max-height: 0; width: 0; overflow: hidden;" class=3D"mobileVersion"><tab=
+le class=3D"mobileHelper huaweiFixTable" style=3D"display: none;" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%"><tr><td class=3D"hua=
+weiFixCell"><div><div style=3D"background-color: #ffffff;"><!-- --><div><di=
+v style=3D"padding: 30px 30px 15px 30px;background-color: #f2f2f2;"><div st=
+yle=3D"display:table; width:100%;"><div style=3D"display: table-cell;vertic=
+al-align: top;width: 100%;" class=3D"textAndImage"><div><div><a name=3D"ma4=
+3697081376" id=3D"ma43697081376"><!-- --></a><div><!-- --><div class=3D"tex=
+t"><span style=3D"font-family:arial,helvetica,sans-serif;"><span style=3D"f=
+ont-size:16px; line-height: 20px; color: #404040"><b>Guten Tag Rafael Felix=
+ Remy,</b><br />&nbsp;<br />es gibt aktuelle &Auml;nderungen in Ihren SCHUF=
+A-Daten:</span></span></div><div class=3D"clear"><!-- --></div></div></div>=
+</div></div></div><div class=3D"clear"><!-- --></div></div></div></div></di=
+v></td></tr></table></div><![endif]><div class=3D"desktopVersion desktopHel=
+per" style=3D"display: block;"><table width=3D"100%" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><tr><td align=3D"center"><ta=
+ble id=3D"dynamic2" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" class=3D"dynamic"><tr><td width=3D"600" align=3D"left" bgcolor=3D"#=
+ffffff"><table width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td width=3D"600"><table style=3D"margin: 0; padding: 0;" width=3D"6=
+00" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#f2f2f2"><t=
+r><td style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exac=
+tly;" width=3D"30">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px=
+; mso-line-height-rule: exactly;" width=3D"540" height=3D"15">&nbsp;</td><t=
+d style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;=
+" width=3D"30">&nbsp;</td></tr><tr><td width=3D"30"></td><td width=3D"540" =
+align=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td valign=3D"top"><table id=3D"sourceCode1" width=3D"540" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"sourceCode"><tr><td width=3D"540"=
+ valign=3D"top" align=3D"left"><a name=3D"pa43697081379" id=3D"pa4369708137=
+9"><!-- --></a><table width=3D"540" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"left"><tr><td width=3D"540" valign=3D"top" align=3D"left=
+"><table id=3D"textAndImage4" class=3D"textAndImage" width=3D"540" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0">
+  <tbody>
+    <tr>
+      <td width=3D"540" valign=3D"top" bgcolor=3D"#FFC400" align=3D"left"><=
+a name=3D"pa34636402930" id=3D"pa34636402930">
+          <!-- -->
+        </a>
+        <table width=3D"540" cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0" align=3D"left">
+          <tbody>
+            <tr>
+              <td width=3D"540" valign=3D"top" align=3D"left">
+                <table width=3D"540" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" align=3D"left">
+                  <tbody>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"500" height=3D"20"></td>
+                      <td width=3D"20"></td>
+                    </tr>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"500" align=3D"left">
+                        <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"left">
+                          <tbody>
+                            <tr>
+                              <td width=3D"40"  valign=3D"top"><img src=3D"=
+http://img.srv2.de/bm/326397673656/417346525382.png" alt=3D"" title=3D"" st=
+yle=3D"display: block;" width=3D"40" height=3D"50" border=3D"0"></td>
+                              <td width=3D"15" valign=3D"top">&nbsp;</td>
+                              <td>
+                                <font style=3D"font-size:15px;" size=3D"3" =
+face=3D"Arial, Helvetica, sans-serif" color=3D"#000000"><span style=3D"font=
+-size:20px; line-height: 24px"><span style=3D"font-family:arial,helvetica,s=
+ans-serif;"><span
+                                        style=3D"line-height: 28px; color: =
+rgb(64, 64, 64);">Uns wurden am 12.02.2026 zu Ihrer Person neue Information=
+en mitgeteilt.<br>Diese Informationen k=C3=B6nnen sich auf Ihren SCHUFA-Sco=
+re auswirken.<br></span></span></span></font>
+
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td width=3D"20"></td>
+                    </tr>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"500" height=3D"20"></td>
+                      <td width=3D"20"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td></tr></table></td></tr></table></td></tr></table><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top"><table id=3D"text=
+AndImage4" width=3D"540" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"textAndImage"><tr><td width=3D"540" bgcolor=3D"#FFFFFF" valign=3D"t=
+op" align=3D"left"><a name=3D"pa43697081380" id=3D"pa43697081380"><!-- --><=
+/a><table width=3D"540" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" al=
+ign=3D"left"><tr><td width=3D"540" valign=3D"top" align=3D"left"><table wid=
+th=3D"540" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left">=
+<tr><td width=3D"20"></td><td width=3D"500" height=3D"20"></td><td width=3D=
+"20"></td></tr><tr><td width=3D"20"></td><td width=3D"500" align=3D"left"><=
+font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000000" sty=
+le=3D"font-size:15px;" ><span style=3D"font-size:16px;"><span style=3D"font=
+-family:arial,helvetica,sans-serif;">Ihren<b> tagesaktuellen SCHUFA-Score</=
+b> und weitere Details k&ouml;nnen Sie ganz einfach in Ihrem SCHUFA-Konto a=
+uf <span style=3D"line-height: 20px; color: rgb(64, 64, 64);"><a style=3D"c=
+olor:#000000;font-weight:normal;text-decoration:none;" href=3D"https://mein=
+e.schufa.de/go/5/FW8I-5C0OHKJX-5BRII7LA-15Y619P9.html"><font face=3D"Arial,=
+ Helvetica, sans-serif" size=3D"2" color=3D"#000000" style=3D"font-size:12p=
+x;" ><span style=3D"font-size:16px; line-height: 20px; color: rgb(64, 64, 6=
+4);"><b>meineSCHUFA.de</b></span></font></a></span>&nbsp;unter Daten-Einbli=
+ck einsehen.<br /><br />Bitte halten Sie Ihr Smartphone bereit. Um einen Zu=
+gang zu Ihrem SCHUFA-Konto zu erhalten, m&uuml;ssen Sie sich nach dem Login=
+ noch mit einem Sicherheitscode authentifizieren.</span></span><br /><span =
+style=3D"font-size:16px;"><span style=3D"font-family:arial,helvetica,sans-s=
+erif;">&#8203;</span></span></font><div style=3D"width: 1px; height: 0px;">=
+</div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"butt=
+onRoot"><tr><td height=3D"47"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" bgcolor=3D"#FFC400" width=3D"100%"><tr><td height=3D"13" colspan=
+=3D"3" style=3D"font-size: 1px; line-height: 13px; mso-line-height-rule:exa=
+ctly;"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000=
+000" style=3D"font-size:15px;" ><a style=3D"color:#000000;font-weight:norma=
+l;text-decoration:none;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX=
+-62T03J58-IETTL4.html" target=3D"_blank"><font face=3D"Arial, Helvetica, sa=
+ns-serif" size=3D"2" color=3D"#000000" style=3D"font-size:12px;" ><img src=
+=3D"http://img.srv2.de/assets/bm/ostatic/common/newsletter/template/images/=
+button/transparent.gif" width=3D"154" height=3D"13" alt=3D"" title=3D"" bor=
+der=3D"0" style=3D"display: block;" /></font></a></font></td></tr><tr><td w=
+idth=3D"40" style=3D"font-size: 1px; line-height: 21px; mso-line-height-rul=
+e:exactly;"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D=
+"#000000" style=3D"font-size:15px;" ><a style=3D"color:#000000;font-weight:=
+normal;text-decoration:none;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0=
+OHKJX-62T03J58-IETTL4.html" target=3D"_blank"><font face=3D"Arial, Helvetic=
+a, sans-serif" size=3D"2" color=3D"#000000" style=3D"font-size:12px;" ><img=
+ src=3D"http://img.srv2.de/assets/bm/ostatic/common/newsletter/template/ima=
+ges/button/transparent.gif" width=3D"40" height=3D"21" alt=3D"" title=3D"" =
+border=3D"0" style=3D"display: block;" /></font></a></font></td><td align=
+=3D"center" valign=3D"middle" height=3D"21"><a style=3D"color:#000000;font-=
+style:normal;text-decoration:none;" href=3D"https://meine.schufa.de/go/5/FW=
+8I-5C0OHKJX-62T03J58-IETTL4.html" target=3D"_blank"><font face=3D"Arial, He=
+lvetica, sans-serif" size=3D"2" color=3D"#000000" style=3D"font-size:14px;"=
+ ><b>Zum Login</b></font></a></td><td width=3D"40" style=3D"font-size: 1px;=
+ line-height: 21px; mso-line-height-rule:exactly;"><font face=3D"Arial, Hel=
+vetica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;" =
+><a style=3D"color:#000000;font-weight:normal;text-decoration:none;" href=
+=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-62T03J58-IETTL4.html" target=
+=3D"_blank"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" color=3D=
+"#000000" style=3D"font-size:12px;" ><img src=3D"http://img.srv2.de/assets/=
+bm/ostatic/common/newsletter/template/images/button/transparent.gif" width=
+=3D"40" height=3D"21" alt=3D"" title=3D"" border=3D"0" style=3D"display: bl=
+ock;" /></font></a></font></td></tr><tr><td height=3D"13" colspan=3D"3" sty=
+le=3D"font-size: 1px; line-height: 13px; mso-line-height-rule:exactly;"><fo=
+nt face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000000" style=
+=3D"font-size:15px;" ><a style=3D"color:#000000;font-weight:normal;text-dec=
+oration:none;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-62T03J58-=
+IETTL4.html" target=3D"_blank"><font face=3D"Arial, Helvetica, sans-serif" =
+size=3D"2" color=3D"#000000" style=3D"font-size:12px;" ><img src=3D"http://=
+img.srv2.de/assets/bm/ostatic/common/newsletter/template/images/button/tran=
+sparent.gif" width=3D"154" height=3D"13" alt=3D"" title=3D"" border=3D"0" s=
+tyle=3D"display: block;" /></font></a></font></td></tr></table></td></tr></=
+table></td><td width=3D"20"></td></tr><tr><td width=3D"20"></td><td width=
+=3D"500" height=3D"20"></td><td width=3D"20"></td></tr></table></td></tr></=
+table></td></tr></table></td></tr></table></td><td width=3D"30"></td></tr><=
+tr><td style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exa=
+ctly;" width=3D"30">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1p=
+x; mso-line-height-rule: exactly;" width=3D"540" height=3D"15">&nbsp;</td><=
+td style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exactly=
+;" width=3D"30">&nbsp;</td></tr></table></td></tr></table></td></tr></table=
+></td></tr></table></div><![if !mso]><div style=3D"display: none; float: le=
+ft; height: 0; max-height: 0; width: 0; overflow: hidden;" class=3D"mobileV=
+ersion"><table class=3D"mobileHelper huaweiFixTable" style=3D"display: none=
+;" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%"><tr><td =
+class=3D"huaweiFixCell"><div><div style=3D"background-color: #ffffff;"><!--=
+ --><div><div style=3D"padding: 15px 30px 15px 30px;background-color: #f2f2=
+f2;"><div style=3D"display:table; width:100%;"><div style=3D"display: table=
+-cell;vertical-align: top;width: 100%;" class=3D"sourceCode"><div><div><a n=
+ame=3D"ma43697081379" id=3D"ma43697081379"><!-- --></a><div><!-- --><table =
+id=3D"textAndImage4" class=3D"textAndImage" width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"5" border=3D"0">
+  <tbody>
+    <tr>
+      <td width=3D"100%" valign=3D"top" bgcolor=3D"#FFC400" align=3D"left">=
+<a name=3D"pa34636402930" id=3D"pa34636402930">
+          <!-- -->
+        </a>
+        <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"5" border=3D=
+"0" align=3D"left">
+          <tbody>
+            <tr>
+              <td width=3D"100%" valign=3D"top" align=3D"left">
+                <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"5" b=
+order=3D"0" align=3D"left">
+                  <tbody>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"100%" height=3D"20"></td>
+                      <td width=3D"20"></td>
+                    </tr>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"100%" align=3D"left">
+                        <center><img src=3D"http://img.srv2.de/bm/326397673=
+656/417346525382.png" alt=3D"" title=3D"" style=3D"display: block;" width=
+=3D"40" height=3D"50" border=3D"0"></center><br/>
+                        <font style=3D"font-size:15px;" size=3D"3" face=3D"=
+Arial, Helvetica, sans-serif" color=3D"#000000"><span style=3D"font-size:22=
+px; line-height: 28px"><span style=3D"font-family:arial,helvetica,sans-seri=
+f;"><span
+                                style=3D"line-height: 28px; color: rgb(64, =
+64, 64);">Uns wurden am 12.02.2026 zu Ihrer Person neue Informationen mitge=
+teilt.<br>Diese Informationen k=C3=B6nnen sich auf Ihren SCHUFA-Score auswi=
+rken.<br></span></span></span></font>
+                      </td>
+                      <td width=3D"20"></td>
+                    </tr>
+                    <tr>
+                      <td width=3D"20"></td>
+                      <td width=3D"100%" height=3D"20"></td>
+                      <td width=3D"20"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div></div></div><div style=3D"display:table; width:100%;"><di=
+v style=3D"display: table-cell;vertical-align: top;width: 100%;" class=3D"t=
+extAndImage"><div style=3D"padding-top: 0px;"><div style=3D"background-colo=
+r: #FFFFFF;"><a name=3D"ma43697081380" id=3D"ma43697081380"><!-- --></a><di=
+v style=3D"padding: 20px 20px 20px 20px;"><!-- --><div class=3D"text"><span=
+ style=3D"font-size:16px;"><span style=3D"font-family:arial,helvetica,sans-=
+serif;">Ihren<b> tagesaktuellen SCHUFA-Score</b> und weitere Details k&ouml=
+;nnen Sie ganz einfach in Ihrem SCHUFA-Konto auf <span style=3D"line-height=
+: 20px; color: rgb(64, 64, 64);"><a href=3D"https://meine.schufa.de/go/5/FW=
+8I-5C0OHKJX-5BRII7LB-13GLZHT.html"><span style=3D"font-size:16px; line-heig=
+ht: 20px; color: rgb(64, 64, 64);"><b>meineSCHUFA.de</b></span></a></span>&=
+nbsp;unter Daten-Einblick einsehen.<br />&nbsp;<br />Bitte halten Sie Ihr S=
+martphone bereit. Um einen Zugang zu Ihrem SCHUFA-Konto zu erhalten, m&uuml=
+;ssen Sie sich nach dem Login noch mit einem Sicherheitscode authentifizier=
+en.</span></span><br /><span style=3D"font-size:16px;"><span style=3D"font-=
+family:arial,helvetica,sans-serif;">&#8203;</span></span></div><div style=
+=3D"height: 0px;"><!-- --></div><div style=3D"clear: both;" class=3D"button=
+"><a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-62T03J59-1NP1301.ht=
+ml" target=3D"_blank" style=3D"display: inline-block;font-family: Arial, He=
+lvetica, sans-serif;color: #000000;font-size: 14px;font-weight: bold;font-s=
+tyle: normal;text-decoration: none;background-color: #FFC400;padding: 13px =
+40px 13px 40px;border-width: 0px;border-color: #000000;border-style: solid;=
+border-radius: 0px;"><div style=3D"padding: 2px; text-align: center; white-=
+space: nowrap;"><span>Zum Login</span></div></a></div><div class=3D"clear">=
+<!-- --></div></div></div></div></div></div><div class=3D"clear"><!-- --></=
+div></div></div></div></div></td></tr></table></div><![endif]><div class=3D=
+"desktopVersion desktopHelper" style=3D"display: block;"><table width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><t=
+r><td align=3D"center"><table id=3D"dynamic3" width=3D"600" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"dynamic"><tr><td width=3D"600" a=
+lign=3D"left" bgcolor=3D"#ffffff"><table width=3D"600" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"><tr><td width=3D"600"><table style=3D"margin: =
+0; padding: 0;" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#f2f2f2"><tr><td style=3D"font-size: 1px; line-height: 1px; =
+mso-line-height-rule: exactly;" width=3D"30">&nbsp;</td><td style=3D"font-s=
+ize: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=3D"540" h=
+eight=3D"15">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px; mso-=
+line-height-rule: exactly;" width=3D"30">&nbsp;</td></tr><tr><td width=3D"3=
+0"></td><td width=3D"540" align=3D"left"></td><td width=3D"30"></td></tr><t=
+r><td style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exac=
+tly;" width=3D"30">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px=
+; mso-line-height-rule: exactly;" width=3D"540" height=3D"15">&nbsp;</td><t=
+d style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule: exactly;=
+" width=3D"30">&nbsp;</td></tr></table></td></tr></table></td></tr></table>=
+</td></tr></table></div><![if !mso]><div style=3D"display: none; float: lef=
+t; height: 0; max-height: 0; width: 0; overflow: hidden;" class=3D"mobileVe=
+rsion"><table class=3D"mobileHelper huaweiFixTable" style=3D"display: none;=
+" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%"><tr><td c=
+lass=3D"huaweiFixCell"><div><div style=3D"background-color: #ffffff;"><!-- =
+--></div></div></td></tr></table></div><![endif]><div class=3D"desktopVersi=
+on desktopHelper" style=3D"display: block;"><table width=3D"100%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#d1d1d1"><tr><td align=
+=3D"center"><table id=3D"dynamic4" width=3D"600" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"dynamic"><tr><td width=3D"600" align=3D"l=
+eft" bgcolor=3D"#ffffff"><table width=3D"600" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0"><tr><td width=3D"600"><table style=3D"margin: 0; paddin=
+g: 0;" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcol=
+or=3D"#f2f2f2"><tr><td width=3D"30"></td><td width=3D"540" height=3D"25"></=
+td><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540" a=
+lign=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><=
+td valign=3D"top"><table id=3D"textAndImage5" width=3D"540" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D"textAndImage"><tr><td width=3D"5=
+40" valign=3D"top" align=3D"left"><a name=3D"pa43697081585" id=3D"pa4369708=
+1585"><!-- --></a><table width=3D"540" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" align=3D"left"><tr><td width=3D"540" valign=3D"top" align=3D"l=
+eft"><font face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#00000=
+0" style=3D"font-size:15px;" ><span style=3D"font-family:arial,helvetica,sa=
+ns-serif;"><span style=3D"font-size:16px; line-height: 20px; color: #404040=
+"><b>Mit freundlichen Gr&uuml;&szlig;en</b><br />Ihr SCHUFA-Serviceteam</sp=
+an></span></font></td></tr></table></td></tr></table></td></tr></table></td=
+><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540" hei=
+ght=3D"30"></td><td width=3D"30"></td></tr></table></td></tr></table></td><=
+/tr></table></td></tr></table></div><![if !mso]><div style=3D"display: none=
+; float: left; height: 0; max-height: 0; width: 0; overflow: hidden;" class=
+=3D"mobileVersion"><table class=3D"mobileHelper huaweiFixTable" style=3D"di=
+splay: none;" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100=
+%"><tr><td class=3D"huaweiFixCell"><div><div style=3D"background-color: #ff=
+ffff;"><!-- --><div><div style=3D"padding: 25px 30px 30px 30px;background-c=
+olor: #f2f2f2;"><div style=3D"display:table; width:100%;"><div style=3D"dis=
+play: table-cell;vertical-align: top;width: 100%;" class=3D"textAndImage"><=
+div><div><a name=3D"ma43697081585" id=3D"ma43697081585"><!-- --></a><div><!=
+-- --><div class=3D"text"><span style=3D"font-family:arial,helvetica,sans-s=
+erif;"><span style=3D"font-size:16px; line-height: 20px; color: #404040"><b=
+>Mit freundlichen Gr&uuml;&szlig;en</b><br />Ihr SCHUFA-Serviceteam</span><=
+/span></div><div class=3D"clear"><!-- --></div></div></div></div></div></di=
+v><div class=3D"clear"><!-- --></div></div></div></div></div></td></tr></ta=
+ble></div><![endif]><div class=3D"desktopVersion desktopHelper" style=3D"di=
+splay: block;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" bgcolor=3D"#d1d1d1"><tr><td align=3D"center"><table id=3D"footer=
+" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"s=
+tatic"><tr><td width=3D"600" align=3D"left" bgcolor=3D"#ffffff"><table styl=
+e=3D"margin: 0; padding: 0;" width=3D"600" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td width=3D"600" align=3D"left"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top"><table id=3D"text=
+AndImage6" width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"textAndImage"><tr><td width=3D"600" valign=3D"top" align=3D"left"><=
+a name=3D"pa43697081589" id=3D"pa43697081589"><!-- --></a><table width=3D"6=
+00" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td=
+ width=3D"600" valign=3D"top" align=3D"left"><table width=3D"600" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td style=3D"fon=
+t-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=3D"30"=
+>&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px; mso-line-height-=
+rule: exactly;" width=3D"540" height=3D"15">&nbsp;</td><td style=3D"font-si=
+ze: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=3D"30">&nb=
+sp;</td></tr><tr><td width=3D"30"></td><td width=3D"540" align=3D"left"><fo=
+nt face=3D"Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000000" style=
+=3D"font-size:15px;" ><span style=3D"font-family:arial,helvetica,sans-serif=
+;"><span style=3D"font-size:10px; line-height: 15px; color: #404040">Hinwei=
+s: Dies ist eine automatisch generierte E-Mail. Bitte antworten Sie nicht a=
+uf diese Nachricht, da die Adresse nur zur Versendung von E-Mails eingerich=
+tet ist. Anfragen an diese E-Mail-Adresse erreichen uns nicht.</span></span=
+></font></td><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=
+=3D"540" height=3D"30"></td><td width=3D"30"></td></tr></table></td></tr></=
+table></td></tr></table></td></tr></table><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td valign=3D"top"><table id=3D"textAndImage7"=
+ width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"te=
+xtAndImage"><tr><td width=3D"600" bgcolor=3D"#404040" valign=3D"top" align=
+=3D"left"><a name=3D"pa43697081590" id=3D"pa43697081590"><!-- --></a><table=
+ width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"le=
+ft"><tr><td width=3D"600" valign=3D"top" align=3D"left"><table width=3D"600=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td w=
+idth=3D"30"></td><td width=3D"540" height=3D"30"></td><td width=3D"30"></td=
+></tr><tr><td width=3D"30"></td><td width=3D"540" align=3D"left"><font face=
+=3D"Arial, Helvetica, sans-serif" size=3D"4" color=3D"#ff553e" style=3D"fon=
+t-size:19px;" ><span style=3D"color:#FFFFFF;"><span style=3D"font-size:16px=
+;"><span style=3D"font-family:arial,helvetica,sans-serif;">&#8203;</span></=
+span><span style=3D"font-family:arial,helvetica,sans-serif;"><span style=3D=
+"font-size:16px;">SCHUFA-Newsletter</span></span></span><br />&nbsp;</font>=
+<div style=3D"width: 1px; height: 0px;"></div><font face=3D"Arial, Helvetic=
+a, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;" ><spa=
+n style=3D"color:#FFFFFF;">Mit SCHUFA-Insights erhalten Sie Infos zu aktuel=
+len SCHUFA-Themen und attraktiven Angeboten.<br />&#8203;</span></font><div=
+ style=3D"width: 1px; height: 0px;"></div><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"buttonRoot"><tr><td height=3D"39"><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffc400" width=
+=3D"100%"><tr><td height=3D"10" colspan=3D"3" style=3D"font-size: 1px; line=
+-height: 10px; mso-line-height-rule:exactly;"><font face=3D"Arial, Helvetic=
+a, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;" ><a s=
+tyle=3D"color:#000000;font-weight:normal;text-decoration:none;" href=3D"htt=
+ps://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.html" target=3D"_=
+blank"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" color=3D"#000=
+000" style=3D"font-size:12px;" ><img src=3D"http://img.srv2.de/assets/bm/os=
+tatic/common/newsletter/template/images/button/transparent.gif" width=3D"12=
+5" height=3D"10" alt=3D"" title=3D"" border=3D"0" style=3D"display: block;"=
+ /></font></a></font></td></tr><tr><td width=3D"10" style=3D"font-size: 1px=
+; line-height: 19px; mso-line-height-rule:exactly;"><font face=3D"Arial, He=
+lvetica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:15px;"=
+ ><a style=3D"color:#000000;font-weight:normal;text-decoration:none;" href=
+=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.html" targ=
+et=3D"_blank"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" color=
+=3D"#000000" style=3D"font-size:12px;" ><img src=3D"http://img.srv2.de/asse=
+ts/bm/ostatic/common/newsletter/template/images/button/transparent.gif" wid=
+th=3D"10" height=3D"19" alt=3D"" title=3D"" border=3D"0" style=3D"display: =
+block;" /></font></a></font></td><td align=3D"center" valign=3D"middle" hei=
+ght=3D"19"><a style=3D"color:#404040;font-style:normal;text-decoration:none=
+;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.htm=
+l" target=3D"_blank"><font face=3D"Verdana, Arial, Helvetica, sans-serif" s=
+ize=3D"2" color=3D"#404040" style=3D"font-size:12px;" ><b>Jetzt anmelden</b=
+></font></a></td><td width=3D"10" style=3D"font-size: 1px; line-height: 19p=
+x; mso-line-height-rule:exactly;"><font face=3D"Arial, Helvetica, sans-seri=
+f" size=3D"3" color=3D"#000000" style=3D"font-size:15px;" ><a style=3D"colo=
+r:#000000;font-weight:normal;text-decoration:none;" href=3D"https://meine.s=
+chufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.html" target=3D"_blank"><font=
+ face=3D"Arial, Helvetica, sans-serif" size=3D"2" color=3D"#000000" style=
+=3D"font-size:12px;" ><img src=3D"http://img.srv2.de/assets/bm/ostatic/comm=
+on/newsletter/template/images/button/transparent.gif" width=3D"10" height=
+=3D"19" alt=3D"" title=3D"" border=3D"0" style=3D"display: block;" /></font=
+></a></font></td></tr><tr><td height=3D"10" colspan=3D"3" style=3D"font-siz=
+e: 1px; line-height: 10px; mso-line-height-rule:exactly;"><font face=3D"Ari=
+al, Helvetica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-size:=
+15px;" ><a style=3D"color:#000000;font-weight:normal;text-decoration:none;"=
+ href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2T-1AD111WI.html"=
+ target=3D"_blank"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" c=
+olor=3D"#000000" style=3D"font-size:12px;" ><img src=3D"http://img.srv2.de/=
+assets/bm/ostatic/common/newsletter/template/images/button/transparent.gif"=
+ width=3D"125" height=3D"10" alt=3D"" title=3D"" border=3D"0" style=3D"disp=
+lay: block;" /></font></a></font></td></tr></table></td></tr></table></td><=
+td width=3D"30"></td></tr><tr><td style=3D"font-size: 1px; line-height: 1px=
+; mso-line-height-rule: exactly;" width=3D"30">&nbsp;</td><td style=3D"font=
+-size: 1px; line-height: 1px; mso-line-height-rule: exactly;" width=3D"540"=
+ height=3D"15">&nbsp;</td><td style=3D"font-size: 1px; line-height: 1px; ms=
+o-line-height-rule: exactly;" width=3D"30">&nbsp;</td></tr></table></td></t=
+r></table></td></tr></table></td></tr></table><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td valign=3D"top"><table id=3D"images1" wid=
+th=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"images=
+"><tr><td width=3D"600" bgcolor=3D"#404040" valign=3D"top" align=3D"left"><=
+a name=3D"pa43697081791" id=3D"pa43697081791"><!-- --></a><table width=3D"6=
+00" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td=
+ width=3D"600" valign=3D"top" align=3D"left"><table width=3D"600" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td width=3D"30"=
+></td><td width=3D"540" height=3D"30"></td><td width=3D"30"></td></tr><tr><=
+td width=3D"30"></td><td width=3D"540" align=3D"left"><font face=3D"Arial, =
+Helvetica, sans-serif" size=3D"4" color=3D"#ff553e" style=3D"font-size:19px=
+;" ><span style=3D"color:#FFFFFF;"><span style=3D"font-family:arial,helveti=
+ca,sans-serif;"><span style=3D"font-size:16px;">Bleiben Sie mit uns in Kont=
+akt<br />&#8203;</span></span></span></font><div style=3D"width: 1px; heigh=
+t: 0px;"></div><table width=3D"540" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td width=3D"540" align=3D"left"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" align=3D"left"><a href=
+=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2X-BR1D87.html" target=
+=3D"_blank"><img src=3D"http://img.srv2.de/assets/bm/binary/c/7/7/c/c77c315=
+92778dd2167739461e3bf1018_1189.png" width=3D"50" height=3D"50" alt=3D"" tit=
+le=3D"" border=3D"0" style=3D"display: block;" /></a></td><td width=3D"15">=
+</td><td valign=3D"top" align=3D"left"><a href=3D"https://meine.schufa.de/g=
+o/5/FW8I-5C0OHKJX-5RB0MH2V-3RP135P.html" target=3D"_blank"><img src=3D"http=
+://img.srv2.de/assets/bm/binary/3/5/8/1/358144a8f3a7fd879a0e6d1d2446e3a5_24=
+29.png" width=3D"50" height=3D"50" alt=3D"" title=3D"" border=3D"0" style=
+=3D"display: block;" /></a></td><td width=3D"15"></td><td valign=3D"top" al=
+ign=3D"left"><a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH2W=
+-SMTX6O.html" target=3D"_blank"><img src=3D"http://img.srv2.de/assets/bm/bi=
+nary/8/f/4/a/8f4a4c3048c56f3e9f0a75c43c770760_1487.png" width=3D"50" height=
+=3D"50" alt=3D"" title=3D"" border=3D"0" style=3D"display: block;" /></a></=
+td><td width=3D"15"></td><td valign=3D"top" align=3D"left"><a href=3D"https=
+://meine.schufa.de/go/5/FW8I-5C0OHKJX-6A57HSSM-AY310RI.html" target=3D"_bla=
+nk"><img src=3D"http://img.srv2.de/assets/bm/binary/6/5/2/b/652b30ad1995dd8=
+6444045dba174f179_3767.png" width=3D"50" height=3D"50" alt=3D"" title=3D"" =
+border=3D"0" style=3D"display: block;" /></a></td></tr></table></td></tr></=
+table></td><td width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=
+=3D"540" height=3D"30"></td><td width=3D"30"></td></tr></table></td></tr></=
+table></td></tr></table></td></tr></table><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td valign=3D"top"><table id=3D"textAndImage8"=
+ width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"te=
+xtAndImage"><tr><td width=3D"600" bgcolor=3D"#404040" valign=3D"top" align=
+=3D"left"><a name=3D"pa43697081792" id=3D"pa43697081792"><!-- --></a><table=
+ width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"le=
+ft"><tr><td style=3D"font-size: 1px; line-height: 1px; mso-line-height-rule=
+: exactly;" width=3D"600" height=3D"1" bgcolor=3D"#ffffff">&nbsp;</td></tr>=
+<tr><td width=3D"600" valign=3D"top" align=3D"left"><table width=3D"600" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"left"><tr><td width=
+=3D"30"></td><td width=3D"540" height=3D"30"></td><td width=3D"30"></td></t=
+r><tr><td width=3D"30"></td><td width=3D"540" align=3D"left"><font face=3D"=
+Arial, Helvetica, sans-serif" size=3D"3" color=3D"#000000" style=3D"font-si=
+ze:15px;" ><span style=3D"font-size:12px;"><span style=3D"color:#FFFFFF;">V=
+orsitzender des Aufsichtsrats: Christian Polenz<br /><br />Vorstand: Tanja =
+Birkholz (Vorsitzende), Dr. Klaus Kolitz<br /><br />SCHUFA Holding AG<br />=
+Kormoranweg 5<br />65201 Wiesbaden<br />HRB 12286 &ndash; Amtsgericht Wiesb=
+aden<br />Umsatzsteueridentifikationsnummer: DE 209 268 827<br /><br />Mehr=
+ zu Ihrem </span><a style=3D"color:#000000;font-weight:normal;text-decorati=
+on:none;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5W8JP5AQ-WBWC3=
+D.html"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" color=3D"#00=
+0000" style=3D"font-size:12px;" ><span style=3D"color:#FFFFFF;"><u>UpdateSe=
+rvice</u></span></font></a><br /><span style=3D"color:#FFFFFF;">Kontakt: +4=
+9 (0) 611 - 92780</span><br /><br /><br /><a style=3D"color:#000000;font-we=
+ight:normal;text-decoration:none;" href=3D"https://meine.schufa.de/go/5/FW8=
+I-5C0OHKJX-5W8JP5AR-V8G10IA.html"><font face=3D"Arial, Helvetica, sans-seri=
+f" size=3D"2" color=3D"#000000" style=3D"font-size:12px;" ><span style=3D"c=
+olor:#FFFFFF;"><u>Impressum</u></span></font></a><span style=3D"color:#FFFF=
+FF;">&nbsp; &nbsp; </span><a style=3D"color:#000000;font-weight:normal;text=
+-decoration:none;" href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5BRII=
+7LF-U5210D3.html"><font face=3D"Arial, Helvetica, sans-serif" size=3D"2" co=
+lor=3D"#000000" style=3D"font-size:12px;" ><span style=3D"color:#FFFFFF;"><=
+u>Datenschutzhinweis</u></span></font></a></span><br />&nbsp;</font></td><t=
+d width=3D"30"></td></tr><tr><td width=3D"30"></td><td width=3D"540" height=
+=3D"30"></td><td width=3D"30"></td></tr></table></td></tr></table></td></tr=
+></table></td></tr></table></td></tr></table></td></tr></table></td></tr></=
+table></div><![if !mso]><div style=3D"display: none; float: left; height: 0=
+; max-height: 0; width: 0; overflow: hidden;" class=3D"mobileVersion"><tabl=
+e class=3D"mobileHelper huaweiFixTable" style=3D"display: none;" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%"><tr><td class=3D"huaw=
+eiFixCell"><div><div style=3D"background-color: #ffffff;"><!-- --><div><div=
+ style=3D"background-color: #ffffff;"><div style=3D"display:table; width:10=
+0%;"><div style=3D"display: table-cell;vertical-align: top;width: 100%;" cl=
+ass=3D"textAndImage"><div><div><a name=3D"ma43697081589" id=3D"ma4369708158=
+9"><!-- --></a><div style=3D"padding: 15px 30px 30px 30px;"><!-- --><div cl=
+ass=3D"text"><span style=3D"font-family:arial,helvetica,sans-serif;"><span =
+style=3D"font-size:10px; line-height: 15px; color: #404040">Hinweis: Dies i=
+st eine automatisch generierte E-Mail. Bitte antworten Sie nicht auf diese =
+Nachricht, da die Adresse nur zur Versendung von E-Mails eingerichtet ist. =
+Anfragen an diese E-Mail-Adresse erreichen uns nicht.</span></span></div><d=
+iv class=3D"clear"><!-- --></div></div></div></div></div></div><div style=
+=3D"display:table; width:100%;"><div style=3D"display: table-cell;vertical-=
+align: top;width: 100%;" class=3D"textAndImage"><div style=3D"padding-top: =
+0px;"><div style=3D"background-color: #404040;"><a name=3D"ma43697081590" i=
+d=3D"ma43697081590"><!-- --></a><div style=3D"padding: 30px 30px 15px 30px;=
+"><!-- --><div class=3D"headline"><span style=3D"color:#FFFFFF;"><span styl=
+e=3D"font-size:16px;"><span style=3D"font-family:arial,helvetica,sans-serif=
+;">&#8203;</span></span><span style=3D"font-family:arial,helvetica,sans-ser=
+if;"><span style=3D"font-size:16px;">SCHUFA-Newsletter</span></span></span>=
+<br />&nbsp;</div><div style=3D"height: 0px;"><!-- --></div><div class=3D"t=
+ext"><span style=3D"color:#FFFFFF;">Mit SCHUFA-Insights erhalten Sie Infos =
+zu aktuellen SCHUFA-Themen und attraktiven Angeboten.<br />&#8203;</span></=
+div><div style=3D"height: 0px;"><!-- --></div><div style=3D"clear: both;" c=
+lass=3D"button"><a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0M=
+H2Y-1COU7GS.html" target=3D"_blank" style=3D"display: inline-block;font-fam=
+ily: Verdana, Arial, Helvetica, sans-serif;color: #404040;font-size: 12px;f=
+ont-weight: bold;font-style: normal;text-decoration: none;background-color:=
+ #ffc400;padding: 10px 10px 10px 10px;border-width: 0px;border-color: #0000=
+00;border-style: solid;border-radius: 0px;"><div style=3D"padding: 2px; tex=
+t-align: center; white-space: nowrap;"><span>Jetzt anmelden</span></div></a=
+></div><div class=3D"clear"><!-- --></div></div></div></div></div></div><di=
+v style=3D"display:table; width:100%;"><div style=3D"display: table-cell;ve=
+rtical-align: top;width: 100%;" class=3D"images"><div style=3D"padding-top:=
+ 0px;"><div style=3D"background-color: #404040;"><a name=3D"ma43697081791" =
+id=3D"ma43697081791"><!-- --></a><div style=3D"padding: 30px 30px 30px 30px=
+;"><!-- --><div class=3D"headline"><span style=3D"color:#FFFFFF;"><span sty=
+le=3D"font-family:arial,helvetica,sans-serif;"><span style=3D"font-size:16p=
+x;">Bleiben Sie mit uns in Kontakt<br />&#8203;</span></span></span></div><=
+div style=3D"height: 0px;"><!-- --></div><div class=3D"next" style=3D"text-=
+align: left;"><div style=3D"display: inline-block;vertical-align: top;max-w=
+idth: 23.2421875%;text-align: left;overflow: hidden; "><div><!-- --><a href=
+=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-5RB0MH32-13XMUA8.html" targe=
+t=3D"_blank"><img src=3D"http://img.srv2.de/assets/bm/binary/c/7/7/c/c77c31=
+592778dd2167739461e3bf1018_1189.png?mobile=3D1" width=3D"50" height=3D"50" =
+alt=3D"" title=3D"" border=3D"0" style=3D"max-width: 50px !important; heigh=
+t: auto; width: 100%; display: block;  " /></a></div></div><div style=3D"di=
+splay: inline-block; height: 1px; width: 2.34375%;"><!-- --></div><div styl=
+e=3D"display: inline-block;vertical-align: top;max-width: 23.2421875%;text-=
+align: left;overflow: hidden; "><div><!-- --><a href=3D"https://meine.schuf=
+a.de/go/5/FW8I-5C0OHKJX-5RB0MH30-KIS111U.html" target=3D"_blank"><img src=
+=3D"http://img.srv2.de/assets/bm/binary/3/5/8/1/358144a8f3a7fd879a0e6d1d244=
+6e3a5_2429.png?mobile=3D1" width=3D"50" height=3D"50" alt=3D"" title=3D"" b=
+order=3D"0" style=3D"max-width: 50px !important; height: auto; width: 100%;=
+ display: block;  " /></a></div></div><div style=3D"display: inline-block; =
+height: 1px; width: 2.34375%;"><!-- --></div><div style=3D"display: inline-=
+block;vertical-align: top;max-width: 23.2421875%;text-align: left;overflow:=
+ hidden; "><div><!-- --><a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHK=
+JX-5RB0MH31-BN8D7J.html" target=3D"_blank"><img src=3D"http://img.srv2.de/a=
+ssets/bm/binary/8/f/4/a/8f4a4c3048c56f3e9f0a75c43c770760_1487.png?mobile=3D=
+1" width=3D"50" height=3D"50" alt=3D"" title=3D"" border=3D"0" style=3D"max=
+-width: 50px !important; height: auto; width: 100%; display: block;  " /></=
+a></div></div><div style=3D"display: inline-block; height: 1px; width: 2.34=
+375%;"><!-- --></div><div style=3D"display: inline-block;vertical-align: to=
+p;max-width: 23.2421875%;text-align: left;overflow: hidden; "><div><!-- -->=
+<a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHKJX-6A57HSSN-128Y1BLO.htm=
+l" target=3D"_blank"><img src=3D"http://img.srv2.de/assets/bm/binary/6/5/2/=
+b/652b30ad1995dd86444045dba174f179_3767.png?mobile=3D1" width=3D"50" height=
+=3D"50" alt=3D"" title=3D"" border=3D"0" style=3D"max-width: 50px !importan=
+t; height: auto; width: 100%; display: block;  " /></a></div></div></div></=
+div></div></div></div></div><div style=3D"display:table; width:100%;"><div =
+style=3D"display: table-cell;vertical-align: top;width: 100%;" class=3D"tex=
+tAndImage"><div style=3D"padding-top: 0px;"><div style=3D"background-color:=
+ #404040;"><a name=3D"ma43697081792" id=3D"ma43697081792"><!-- --></a><div =
+style=3D"border-top: #ffffff solid 1px;padding: 30px 30px 30px 30px;"><!-- =
+--><div class=3D"text"><span style=3D"font-size:12px;"><span style=3D"color=
+:#FFFFFF;">Vorsitzender des Aufsichtsrats: Christian Polenz<br />&nbsp;<br =
+/>Vorstand: Tanja Birkholz (Vorsitzende), Dr. Klaus Kolitz<br />&nbsp;<br /=
+>SCHUFA Holding AG<br />Kormoranweg 5<br />65201 Wiesbaden<br />HRB 12286 &=
+ndash; Amtsgericht Wiesbaden<br />Umsatzsteueridentifikationsnummer: DE 209=
+ 268 827<br />&nbsp;<br />Mehr zu Ihrem </span><a href=3D"https://meine.sch=
+ufa.de/go/5/FW8I-5C0OHKJX-5W8JP5AS-19WR113.html"><span style=3D"color:#FFFF=
+FF;"><u>UpdateService</u></span></a><br /><span style=3D"color:#FFFFFF;">Ko=
+ntakt: +49 (0) 611 - 92780</span><br />&nbsp;<br />&nbsp;<br /><a href=3D"h=
+ttps://meine.schufa.de/go/5/FW8I-5C0OHKJX-5W8JP5AT-29192W.html"><span style=
+=3D"color:#FFFFFF;"><u>Impressum</u></span></a><span style=3D"color:#FFFFFF=
+;">&nbsp; &nbsp; </span><a href=3D"https://meine.schufa.de/go/5/FW8I-5C0OHK=
+JX-5BRII7LH-SZ919ZN.html"><span style=3D"color:#FFFFFF;"><u>Datenschutzhinw=
+eis</u></span></a></span><br />&nbsp;</div><div class=3D"clear"><!-- --></d=
+iv></div></div></div></div></div><div class=3D"clear"><!-- --></div></div><=
+/div></div></div></td></tr></table></div><![endif]><!-- [=3Dop=3D] --><img =
+src=3D"https://meine.schufa.de/op/5/FW8I-5C0OHKJX-YF9LZB.gif" width=3D"1" h=
+eight=3D"1" border=3D"0" alt=3D"" style=3D"height:0;display:block;"/><!-- [=
+/=3Dop=3D] --></body></html>
+------=_Part_11710900_1169231160.1770958914450--

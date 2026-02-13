@@ -1,0 +1,6 @@
+[mail_sync] Do 12 Feb 2026 21:51:58 CET – Starting sync for mailbox 'gmail'
+Usage: offlineimap [options]
+
+offlineimap: error: no such option: -v
+[mail_sync] Do 12 Feb 2026 21:51:58 CET – Sync failed with status 2.
+[mail_sync] Lock removed.

@@ -1,0 +1,232 @@
+Delivered-To: fortschritt24.kontakt@gmail.com
+Received: by 2002:a05:612c:2698:b0:554:7c0:c37f with SMTP id gq24csp1217450vqb;
+        Wed, 21 Jan 2026 05:22:15 -0800 (PST)
+X-Forwarded-Encrypted: i=5; AJvYcCUPToP7XWgf6hXdXvG3GUMzrNxLC/4G5N8ZGOwD0oMGlTB2uxeffzF6cNnQtLoa1SKUAmuOOl5RTJN9p/3WBHgnFTlb2LU=@gmail.com
+X-Received: by 2002:a05:6000:40cd:b0:435:a2f8:150d with SMTP id ffacd0b85a97d-435a2f81842mr1227439f8f.59.1769001735421;
+        Wed, 21 Jan 2026 05:22:15 -0800 (PST)
+ARC-Seal: i=4; a=rsa-sha256; t=1769001735; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=Qt+HlCSHSXnP5sHxDDpQoL5g+aCZjm5gIp8d3Da2Pg4N0qM45qpEb7QE9I89UGPonm
+         /8s7usJXp6RCHEHq7nmGLT+AptlH0bdGLf97ztkb4WIYcXn0cgtqldz3PUo3tR4JboOs
+         S60Afw9cT9wiQMTbTHoezgNgOwKdX5kPH4vOlVKLOgiPisF0uL5HhD1/8MBnoZ6E8vvA
+         xqpXYapAiyKhInTIMEnA4Fy2fDQYs0/jQq+xXatPFJAOJ/TBBOmXj/ODmufXf7cBzs7K
+         ri13RqrYmKZZxpP7dycAHeqF6NgIk+IftQ8F2sUrrKqNECwoBhs3npM7IZjjlIqYvFeY
+         huJA==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        fh=b+XJRegCEqzWt9KvAjp/oiEUC5CaJCNcS5pFEb70VG8=;
+        b=h2qRya5Ro5HASHvM0q95A6kYL6Lch+wr7kCiWEP3sjmxD/LI5BIuQZuRZLPZD4+t8d
+         Xf7tRxFbX4mCnTPuf2AH+/LF9mtGUAFiUv2DSL8BMDTNA5RFu5JU8tSr/TMkFUzA3Lt6
+         E4GKiC+mbMYMZejHrl7q989gfypSpsrGrMZEyuoDBELIIsTVB49O5eXiBMwoEioUnSqs
+         s0E1u4YYaJJGzHIncFz8uGiEk7M+bG8eto4gVF20VLWl+i6Sljxm/2Wu/8fXZKdkETv4
+         gbOXpS2C441lswduaoAc+ZPThdIzh6UKfyM39uXabFca/Ff92CDrdtAWJIFZiXFmhljz
+         6n8A==;
+        dara=google.com
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@sanshiqd.com header.s=google header.b=FsNeoDRI;
+       arc=pass (i=3 spf=pass spfdomain=sanshiqd.com dkim=pass dkdomain=sanshiqd.com);
+       spf=softfail (google.com: domain of transitioning ngw+bncbcs6f7nuzmcrbpgwxxfqmgqeq7eyj6q@sanshiqd.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=ngw+bncBCS6F7NUZMCRBPGWXXFQMGQEQ7EYJ6Q@sanshiqd.com;
+       dara=neutral header.i=@gmail.com
+Return-Path: <ngw+bncBCS6F7NUZMCRBPGWXXFQMGQEQ7EYJ6Q@sanshiqd.com>
+Received: from dd55114.kasserver.com (dd55114.kasserver.com. [85.13.167.96])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43569996878si25261672f8f.211.2026.01.21.05.22.15
+        for <fortschritt24.kontakt@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 05:22:15 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning ngw+bncbcs6f7nuzmcrbpgwxxfqmgqeq7eyj6q@sanshiqd.com does not designate 85.13.167.96 as permitted sender) client-ip=85.13.167.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sanshiqd.com header.s=google header.b=FsNeoDRI;
+       arc=pass (i=3 spf=pass spfdomain=sanshiqd.com dkim=pass dkdomain=sanshiqd.com);
+       spf=softfail (google.com: domain of transitioning ngw+bncbcs6f7nuzmcrbpgwxxfqmgqeq7eyj6q@sanshiqd.com does not designate 85.13.167.96 as permitted sender) smtp.mailfrom=ngw+bncBCS6F7NUZMCRBPGWXXFQMGQEQ7EYJ6Q@sanshiqd.com;
+       dara=neutral header.i=@gmail.com
+Authentication-Results: dd55114.kasserver.com;
+	dkim=pass (1024-bit key; unprotected) header.d=sanshiqd.com header.i=@sanshiqd.com header.a=rsa-sha256 header.s=google header.b=FsNeoDRI;
+	dkim-atps=neutral
+X-policyd-weight: using cached result; rate: -7
+Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com [209.85.167.72])
+	by dd55114.kasserver.com (Postfix) with ESMTPS id C96E1A0018A5
+	for <info@fortschritt24.de>; Tue, 20 Jan 2026 14:59:00 +0100 (CET)
+Received: by mail-lf1-f72.google.com with SMTP id 2adb3069b0e04-59b6a9c53b3sf6200700e87.1
+        for <info@fortschritt24.de>; Tue, 20 Jan 2026 05:59:00 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1768917540; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=S5u6z/YE13RwxcXkRimzYeQ374l9VSP0QpKbs+BgvWNiLKerjznyDc7dIq2tF5vYd7
+         ZfHFFjOTJeEvaKAth1j4ChA4WzDUOhi3eez5zuLcJnolCXcl2TeaCX3E5N5pSBq242Au
+         2xQulKpDy5jSJfPN/awFNGgxoyp5HSPewodUqEYrqq7lw4ddVl5fO+NMyNxiviLvdHsS
+         vmLuYWrNqBeyrYVqkCj48vQ2LLxFzB5rbbQSs8VgrbI2oYon3Y+oT+kx0cCmh2xd6xib
+         k3/X2tgEvh++B/DoiECLPBpEukPy0bSxnfUflsnPhiNhcljhBEpM3nDkFK+hbgwwLmHz
+         M8yA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        fh=b+XJRegCEqzWt9KvAjp/oiEUC5CaJCNcS5pFEb70VG8=;
+        b=kneRq4nd9AeA9o+6X6JRmLRdoKpcc59OPCeVW9urBERZIKfsDLiH207FivCVhySjJl
+         GfjKeWoBGNb36u9lHBYt29vmh42yWE9rvy5/9Xl1FoB8LF9hxNzNQTFXpysbOfFjdQdI
+         cGg7grqhmOQ9fh/ifkh8R71am9LHyGoW9yb/37091d4xAKJdr35KPVvNsx/JsrJkNd9f
+         NKfbtK3sUgd2DUxoOug8cLk1tNzv2JGDvlF2GrAYD2jeC8qNsbtCOKexF0QLW4BkLeyO
+         tJveo+Vm4aucgEICu6yRMEfa3z2XjmGX8iylI5rv2ODrUFZa9V3PefYFOlVgrwCM2cCl
+         FpTA==;
+        darn=fortschritt24.de
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@sanshiqd.com header.s=google header.b=FThVggWY;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of info@sanshiqd.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info@sanshiqd.com;
+       dara=neutral header.i=@sanshiqd.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sanshiqd.com; s=google; t=1768917540; x=1769522340; darn=fortschritt24.de;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        b=FsNeoDRIYR9vR7Rwr7U6pZKKHi1wvIND7q2e8MCNsdSCwnhFyhyvbNsVhhpB2fm7dZ
+         UDuun1AcMMyHFgvJY4hNca3gJDS0zbjP49Es6itYGTAvjAUuKfWrRv43bakOKMAVkSBe
+         CLUSrBOLieJbFaBmOMfoB2ygzIBUD5dNjXskg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768917540; x=1769522340;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:x-gm-gg:x-beenthere:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        b=rOt1AISpRPzWAjjeFuvxRiePmByqRLV8GWbqYvRwS+zMRekP46MmieVfigqTc/v2my
+         R/PPHytvFFgDJZaF/+jUR61itpqJa5mGLU8edC+SI4567nK7oIoLGRw7tTjHDJ3IdiWQ
+         M7YSUSacfnSKXpdpw1bkTD+s83+Gv1Nuq4Tf66zVCsmfMVKkzrFvDLadcIZ8GEaZr9Dt
+         BFqzd7y0uL5Z4JHvPDnhHg562u6h33LfrC34XBMJJphfKeJKTE1T4tpZHBLk+XuzNYua
+         GJkSPXxywGI+ynB+tJAq/Q/hYNuRXeIxECnGTfGpNY9gQmr5rw8uUrX9aFt5xOzARr7Q
+         t4jw==
+X-Forwarded-Encrypted: i=3; AJvYcCU6jo8bm+WIo7hz/4JOWKGkBaoNDRG4cfTJT2143Q7u7bWgn6VN7cWsupt4mkI3qWf8tmWZ@fortschritt24.de
+X-Gm-Message-State: AOJu0Yw3Tycixv+zdQIvOVSntdfrgiUbnJRwwwrHQ99RKHcS5a8V8iD7
+	obUioEjqR+TpGlo7o/sihmviyj/yV0qrCr0hcLnrbG3d+pUAm7IoyrHotcnbmxsVlkc=
+X-Received: by 2002:a17:906:fe42:b0:b83:3773:e72a with SMTP id a640c23a62f3a-b8800236557mr149337466b.1.1768910641667;
+        Tue, 20 Jan 2026 04:04:01 -0800 (PST)
+X-BeenThere: ngw@sanshiqd.com; h="AV1CL+G5d/LYv9b4XtZ75TWV/gXg+Ap7pEHSeIDJ92xURw2AVg=="
+Received: by 2002:aa7:d5c9:0:b0:644:f95b:b16f with SMTP id 4fb4d7f45d1cf-6541be8dd10ls5956091a12.0.-pod-prod-08-eu;
+ Tue, 20 Jan 2026 03:47:06 -0800 (PST)
+X-Forwarded-Encrypted: i=3; AJvYcCXKebHoiFuEqB5yiBcBVDcpkwYORVJhzAAYVLbGmIQez6JQy3lmF6g0vwSfFY0B4pLqTxI=@sanshiqd.com
+X-Received: by 2002:a05:6402:270b:b0:649:81f6:c35a with SMTP id 4fb4d7f45d1cf-657ff4eac6cmr1408547a12.33.1768909625940;
+        Tue, 20 Jan 2026 03:47:05 -0800 (PST)
+X-BeenThere: support@sanshiqd.com; h="AV1CL+FXnUH9RTwWcaDc1G5IijZtJVl5nXPuhnYLku6n7yWHQA=="
+Received: by 2002:a05:6402:5352:10b0:647:9380:1086 with SMTP id
+ 4fb4d7f45d1cf-6541c6e020els4702374a12.2.-pod-prod-08-eu; Tue, 20 Jan 2026
+ 03:47:03 -0800 (PST)
+X-Received: by 2002:a17:907:98c:b0:b72:a899:169f with SMTP id a640c23a62f3a-b8800237514mr163368666b.4.1768909623529;
+        Tue, 20 Jan 2026 03:47:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1768909623; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=dMnzJV1lg1CCcL4+fZQ/kik1G6tgx6R31ZoaZxHpQI5ZeOSZyr7KzcAiKxB33FnUnk
+         oTsIOWiVNJKOishOkDn++cov1wgMsB3kKv3WadExIMaDF5sMLvnftWQqgMyY3JiG/Fwj
+         GOFNBk34IDmtE/lpyup0qbJv+sy6ENKM7HOUg5hHgxI83TscRUYHABuhRqJvhomaV3UH
+         eh84SrfdUXAvZvu1tptWyfWaFm4/EdDvlBLuYBlLChCXOF6r0wHPbILEWVXmJvaFiAFL
+         6oeih55iXy9aq2aIyvgQR3QZU6OvmRt3ReQ3Ou5ta5gGUOyNjeX96peBFz4zKeAPKPjD
+         1mbw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        fh=4BpMpnYbBiTfkHRceufrF+GYCijiuaW5QPa4k654bX8=;
+        b=eoS7rMzarujp7Ii8yHSNie08PqXQg1PNe3XaPK6/9L90lhI/IE9z7bmdy+N/1isO02
+         WEKt3Xtlyg4VVU23jD2WQyhd6Im4sR3g6h9/gmYoOt1XDJSELn73+lvAbrdoQv9z+XsG
+         2VGIAJjeQkA9p8jfOeD0n2bvg3kTG8wPEGktS+pB6QM4/iXcC8IjWQ3iUQN/wHPkj+UT
+         IiroSEfaAgOzPfSAJ3rt4RTIn6BTDYj1czBuzOkp9ICOnveyeU1UlNgDQY55BbRPFbDg
+         SJYvIT813UcTcDBurkbtE1j7XJI38YhjmYKIc657SdaxCfRoArA2xb3IWO4DMjvLz+zI
+         IOVg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@sanshiqd.com header.s=google header.b=FThVggWY;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of info@sanshiqd.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=info@sanshiqd.com;
+       dara=neutral header.i=@sanshiqd.com
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b87ffbbfdafsor40238166b.1.2026.01.20.03.47.03
+        for <support@sanshiqd.com>
+        (Google Transport Security);
+        Tue, 20 Jan 2026 03:47:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of info@sanshiqd.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+ARC-Seal: i=1; a=rsa-sha256; t=1768909623; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JFEabN2iMWTnc5SL/jQnme/Umc3QCZ+vz491SVSnMXe2kXR2imxQb6uhudbGavboWw
+         ziWKqgUVjL9BJS4y6zbiFbppoWf3DWRd49G4t+rbuPrR+LEIOtUWL4ORo5BjfepRI1fY
+         nvauRy1h4tXX+ozQ+4YmvICT0+GDBNTVIwoT8PtYSgslOeSCXEwXYVOXLTh43DteXrCF
+         p3oeKm+BJd3T3nEXLO4WIWvh++FtGG7vFJbSQvrWAcSMHqZmOTvcdVAFs39bcaSP5lE1
+         CaefZoW9CnyIjVxlVimoSxWfhXABMPKdfh26EHGVkWJ6ktmzzJqocA2es8WUGA6SCxGU
+         9umg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=GUrdO9G/RQVLV/lL0Z34K/+vN+1tIPz1yCraNcS0thc=;
+        fh=4BpMpnYbBiTfkHRceufrF+GYCijiuaW5QPa4k654bX8=;
+        b=FH0QC0vTGHGqe/vZtptWDBgPbtKIuQO1xFSNVfdOwiZ3AqfBEiEkSsMtdeNs4cfhSH
+         L0jfRqPpKdWHrRQWrePWpo2HG4XAFDoI5qOroFEes+r54vvxDiMO3OWia5ZGeX5RrpIQ
+         AScd7bFRyBM6VmkdFsRLAcDw0i2ehoAzW4RZEy4KHfd+DgcloNMoArO7UMV/aNt9IsD+
+         itTQcbJq6OQcmK54g15fnFlakgIg5HLyZhvh7LmObrpmVcgV4sdkbfm5SudI2vc+4H0P
+         vtGpxeJeLlEhtB0Nl4alqml1vocsMa/v+vDRe6WoGt5nukNjcoj6OG+UqpZOJO2/iqq5
+         UPxQ==;
+        darn=sanshiqd.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Gm-Gg: AZuq6aKfiEWxEhXpBkMtaDcMkFDOnj3PwJKjfNg0TbXwCEE1S4yA69B5ddpsVyf7Lo9
+	eCoidxOa0IQ15cKammOosCJ/NplO1C06YOoq8e2TK0O6GA18/nuUb/ocC2TOlpU2H9f9MjbMJd3
+	+iKbq/YoZmwPOTFEIhCpFznZtBdZWyMGR7kI2FWP2CILdpTdG5lVdAORW8lwpC3vIIKkJ7TslGM
+	ZJD6rd/yMGY3ciXOeJCT3FJVK2wIfK/L5BweB+EoJ2r4dUAAC/7IHvprZs=
+X-Received: by 2002:a17:907:6e8c:b0:b87:15a7:85ff with SMTP id
+ a640c23a62f3a-b880035ff2amr147922566b.46.1768909622527; Tue, 20 Jan 2026
+ 03:47:02 -0800 (PST)
+MIME-Version: 1.0
+From: "\"NuroClean\"_Deutschland ." <info@sanshiqd.com>
+Date: Tue, 20 Jan 2026 11:46:51 +0000
+X-Gm-Features: AZwV_QhZtPkMLdRrzLPTLThpNhcwDUidT6oTT_IRAt73SvemXpY4gW9HvBivBZU
+Message-ID: <CAAXSeVSzPbK3i01gKfZ1fZwDoFcFkDa0x+5F0oD477Jf-8o2RQ@mail.gmail.com>
+Subject: "NuroClean": Deutschlands #1 Schimmelentferner.
+To: support@sanshiqd.com
+Content-Type: multipart/alternative; boundary="000000000000b0d9c90648d05da5"
+X-Original-Sender: info@sanshiqd.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@sanshiqd.com header.s=google header.b=FThVggWY;       arc=pass
+ (i=1);       spf=pass (google.com: domain of info@sanshiqd.com designates
+ 209.85.220.41 as permitted sender) smtp.mailfrom=info@sanshiqd.com;
+       dara=neutral header.i=@sanshiqd.com
+Precedence: list
+Mailing-list: list ngw@sanshiqd.com; contact ngw+owners@sanshiqd.com
+List-ID: <ngw.sanshiqd.com>
+X-Spam-Checked-In-Group: support@sanshiqd.com
+X-Google-Group-Id: 887303293662
+List-Post: <https://groups.google.com/a/sanshiqd.com/group/ngw/post>, <mailto:ngw@sanshiqd.com>
+List-Help: <https://support.google.com/a/sanshiqd.com/bin/topic.py?topic=25838>,
+ <mailto:ngw+help@sanshiqd.com>
+List-Archive: <https://groups.google.com/a/sanshiqd.com/group/ngw/>
+List-Subscribe: <https://groups.google.com/a/sanshiqd.com/group/support/subscribe>,
+ <mailto:support+subscribe@sanshiqd.com>
+List-Unsubscribe: <mailto:googlegroups-manage+887303293662+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/sanshiqd.com/group/ngw/subscribe>
+X-Spamd-Bar: ++++++++++
+X-Spam: Yes
+
+--000000000000b0d9c90648d05da5
+Content-Type: text/plain; charset="UTF-8"
+
+<https://www.sanshiqd.com/*>
+*Schimmel verschwindet in Minuten - 75% RABATT* <https://www.sanshiqd.com/*>
+
+--000000000000b0d9c90648d05da5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p>
+    <a target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://www.sa=
+nshiqd.com/*"><img src=3D"https://lh7-rt.googleusercontent.com/formsz/AN7Bs=
+VAV5vithmmxGGsSEoJXHZxU-kvx941pQWPFuOfjw8LptGWp5Pald05WLWuyna4z5QjHSqPXN8J1=
+Er1X7WDTu4iPiCabgpRsTc3y8m7ipjMhuAVe7H9ao_3wE4MBxl14E2UTsTz80tq79SwR04s0aCS=
+novTGA2Tpa4-4ckicAq02lBfXuQ9yctvKCd2dgtizpjlRK-GJ7_uB3FlW=3Dw641?key=3DxryM=
+24FBQPgcEfUMbFxesA" width=3D"641" height=3D"2077"></a>
+</p>
+<h2>
+    <a target=3D"_blank" rel=3D"noopener noreferrer" href=3D"https://www.sa=
+nshiqd.com/*"><span style=3D"color:#6a1b9a"><i><strong>Schimmel verschwinde=
+t in Minuten - 75% RABATT</strong></i></span></a>
+</h2><div><br></div><div><br></div><br></div>
+
+--000000000000b0d9c90648d05da5--
