@@ -6,6 +6,7 @@ case "$-" in
   *x*) _XTRACE_WAS_ON=1; set +x ;;
 esac
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CONFIG_BASE="${CONFIG_BASE:-$BASE_DIR}"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 MAILBOXES=()
 if [ "$#" -gt 0 ]; then
@@ -50,7 +51,7 @@ fi
 for MAILBOX in "${MAILBOXES[@]}"; do
   LOG_FILE="$LOG_DIR/offlineimap-${MAILBOX}-${TIMESTAMP}.log"
   echo "[mail_sync] $(date) – Starting sync for mailbox '$MAILBOX'" | tee -a "$LOG_FILE"
-  if (cd "$BASE_DIR" && "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "$MAILBOX"); then
+  if (cd "$BASE_DIR" && "$OFFLINEIMAP_BIN" -c "$CONFIG_BASE/offlineimaprc" -o -a "$MAILBOX"); then
     echo "[mail_sync] $(date) – Sync completed for '$MAILBOX'." | tee -a "$LOG_FILE"
   else
     STATUS=$?

@@ -36,11 +36,12 @@ if [ "${#ARGS[@]}" -gt 0 ]; then
 fi
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CONFIG_DIR="$BASE_DIR/rules"
+CONFIG_BASE="${CONFIG_BASE:-$BASE_DIR}"
+CONFIG_DIR="$CONFIG_BASE/rules"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 LOG_DIR="$BASE_DIR/LOGS"
 EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
-SGPT_CONFIG_FILE="$BASE_DIR/sgpt_config.yaml"
+SGPT_CONFIG_FILE="$CONFIG_BASE/sgpt_config.yaml"
 SGPT_BIN="sgpt"
 if [ -x "/opt/venv/bin/sgpt" ]; then
   SGPT_BIN="/opt/venv/bin/sgpt"
@@ -102,7 +103,7 @@ load_account_config() {
     # fallback to defaults
     EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
     MODEL="gpt-4o-mini"
-    SGPT_CONFIG_FILE="$BASE_DIR/sgpt_config.yaml"
+    SGPT_CONFIG_FILE="$CONFIG_BASE/sgpt_config.yaml"
     SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" SGPT_CONFIG="$SGPT_CONFIG_FILE" "$SGPT_BIN" --model "$MODEL" --no-md)
     DEST_MAP=(
       [archiv_agb]="INBOX.Archiv.AGB"
@@ -397,7 +398,7 @@ if [ -z "$OFFLINEIMAP_BIN" ]; then
   exit 127
 fi
 
-(cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$BASE_DIR/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
+(cd "$BASE_DIR" && FLAG=true "$OFFLINEIMAP_BIN" -c "$CONFIG_BASE/offlineimaprc" -o -a "${MAILBOXES[0]}") | tee -a "$MAIN_LOG"
 if [ "$PDF_ENABLED" = "true" ]; then
   PDF_OUT="$BASE_DIR/ZEROINBOX/email-sort-${TS}.pdf"
   "$PYTHON_BIN" - "$MAIN_LOG" "$PDF_OUT" <<'PYDOC'
