@@ -13,4 +13,6 @@ services:
       - ./offlineimaprc:/app/offlineimaprc:ro
       - ./rules/rules_custom.json:/app/rules/rules_custom.json:ro
       - ./mirror_dir_gmail.json:/app/mirror_dir_gmail.json:ro
+      # sgpt config (optional)
+      - ~/.config/sgpt:/root/.config/sgpt:ro
     command: ["/bin/bash", "-lc", "bin/mail_sync.sh gmail && bin/email_sort.sh gmail"]
