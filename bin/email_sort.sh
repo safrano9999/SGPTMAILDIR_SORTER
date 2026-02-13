@@ -14,6 +14,7 @@ fi
 MODEL="gpt-4o-mini"
 MAILBOXES=("gmail")
 PDF_ENABLED="true"
+OPENAI_API_KEY="${OPENAI_API_KEY:-}"
 
 # parse args (mailboxes + optional flags)
 SKIP_OFFLINEIMAP="false"
