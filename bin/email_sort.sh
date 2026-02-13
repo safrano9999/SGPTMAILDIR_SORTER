@@ -85,7 +85,7 @@ load_account_config() {
     EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
     MODEL="gpt-4o-mini"
     SGPT_CONFIG_FILE="$BASE_DIR/sgpt_config.yaml"
-    SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" SGPT_CONFIG="$SGPT_CONFIG_FILE" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
+    SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" SGPT_CONFIG="$SGPT_CONFIG_FILE" "$SGPT_BIN" --model "$MODEL" --role json_generator --no-md)
     DEST_MAP=(
       [archiv_agb]="INBOX.Archiv.AGB"
       [archiv_bezahlt]="INBOX.Archiv.bezahlt"
