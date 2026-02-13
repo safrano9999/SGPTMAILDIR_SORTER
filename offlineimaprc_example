@@ -1,0 +1,21 @@
+[general]
+accounts = gmail
+maxsyncaccounts = 1
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+autorefresh = 5
+
+[Repository gmail-remote]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = example@gmail.com
+remotepass = aaaa bbbb cccc dddd
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/OPENCLAW_FUNKTIONEN/SGPTMAILDIR_SORTER/Mail/gmail
+nametrans = lambda f: f.replace('[Gmail]/', 'Gmail-')
