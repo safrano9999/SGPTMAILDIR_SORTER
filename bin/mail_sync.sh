@@ -34,7 +34,7 @@ fi
 for MAILBOX in "${MAILBOXES[@]}"; do
   LOG_FILE="$LOG_DIR/offlineimap-${MAILBOX}-${TIMESTAMP}.log"
   echo "[mail_sync] $(date) – Starting sync for mailbox '$MAILBOX'" | tee -a "$LOG_FILE"
-  if offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "$MAILBOX"; then
+  if (cd "$BASE_DIR" && offlineimap -c "$BASE_DIR/offlineimaprc" -o -a "$MAILBOX"); then
     echo "[mail_sync] $(date) – Sync completed for '$MAILBOX'." | tee -a "$LOG_FILE"
   else
     STATUS=$?
