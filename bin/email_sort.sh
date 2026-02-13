@@ -47,6 +47,8 @@ Filter DB: $FILTER_DB
 Model: $MODEL
 LOGHDR
 
+cp "$BASE_DIR/LOGS/EMAIL_SORT.md" "$BASE_DIR/LOGS/EMAIL_SORT-${TS}.md" 2>/dev/null || true
+
 declare -A DEST_MAP=(
   [archiv_agb]="INBOX.Archiv.AGB"
   [archiv_bezahlt]="INBOX.Archiv.bezahlt"
