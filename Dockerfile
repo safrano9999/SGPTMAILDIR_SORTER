@@ -4,12 +4,16 @@ RUN apk add --no-cache \
     bash \
     python3 \
     py3-pip \
+    py3-virtualenv \
     jq \
     git \
     ca-certificates
 
-# sgpt CLI + reportlab for PDF + offlineimap3
-RUN pip3 install --no-cache-dir sgpt reportlab offlineimap3
+# sgpt CLI + reportlab for PDF + offlineimap3 (inside venv)
+RUN python3 -m venv /opt/venv \
+ && /opt/venv/bin/pip install --no-cache-dir sgpt reportlab offlineimap3
+
+ENV PATH="/opt/venv/bin:${PATH}"
 
 WORKDIR /app
 
