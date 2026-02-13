@@ -5,20 +5,22 @@ CONFIG_BASE="${CONFIG_BASE:-$BASE_DIR}"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 LOG_FILE="$BASE_DIR/LOGS/hourly-sync.log"
 
-MAILBOXES=()
-if [ "$#" -gt 0 ]; then
-  MAILBOXES=("$@")
-else
+if [ "$#" -lt 1 ]; then
   echo "Usage: $0 <mailbox-name> [mailbox-name ...]" >&2
   exit 1
 fi
+MAILBOXES=("$@")
+
+mkdir -p "$BASE_DIR/LOGS"
+
+log() { echo "[hourly_sync] $(date) – $*" | tee -a "$LOG_FILE"; }
 
 if [ -f "$LOCK_FILE" ]; then
+  log "lock present, exiting"
   exit 0
 fi
 
-echo "[hourly_sync] $(date) – start" >> "$LOG_FILE"
-(cd "$BASE_DIR" && "$BASE_DIR/bin/mail_sync.sh" "${MAILBOXES[@]}") >> "$LOG_FILE" 2>&1
-(cd "$BASE_DIR" && "$BASE_DIR/bin/email_sort.sh" --no-offlineimap "${MAILBOXES[@]}") >> "$LOG_FILE" 2>&1
-
-echo "[hourly_sync] $(date) – done" >> "$LOG_FILE"
+log "start"
+( cd "$BASE_DIR" && "$BASE_DIR/bin/mail_sync.sh" "${MAILBOXES[@]}" ) 2>&1 | tee -a "$LOG_FILE"
+( cd "$BASE_DIR" && "$BASE_DIR/bin/email_sort.sh" --no-offlineimap "${MAILBOXES[@]}" ) 2>&1 | tee -a "$LOG_FILE"
+log "done"
