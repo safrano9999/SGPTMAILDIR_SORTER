@@ -22,7 +22,8 @@ CONFIG_DIR="$BASE_DIR/rules"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 LOG_DIR="$BASE_DIR/LOGS"
 EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
-SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
+SGPT_CONFIG_FILE="$BASE_DIR/sgpt_config.yaml"
+SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" SGPT_CONFIG="$SGPT_CONFIG_FILE" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
 DEST_BASE="$BASE_DIR/Mail"
 TMP_DIR="/tmp/email-sort-sgpt"
 CORRECTIONS_DB="$BASE_DIR/corrections.jsonl"
@@ -75,7 +76,8 @@ load_account_config() {
     # fallback to defaults
     EMAIL_RULES="$BASE_DIR/goodie_openclaw_low_llm_advises.txt"
     MODEL="gpt-4o-mini"
-    SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
+    SGPT_CONFIG_FILE="$BASE_DIR/sgpt_config.yaml"
+    SGPT_CMD=(env OPENAI_API_KEY="$OPENAI_API_KEY" API_BASE_URL="https://api.openai.com/v1" SGPT_CONFIG="$SGPT_CONFIG_FILE" /usr/local/bin/sgpt --model "$MODEL" --role json_generator --no-md)
     DEST_MAP=(
       [archiv_agb]="INBOX.Archiv.AGB"
       [archiv_bezahlt]="INBOX.Archiv.bezahlt"
