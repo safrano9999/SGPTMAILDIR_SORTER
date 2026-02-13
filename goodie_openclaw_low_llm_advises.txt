@@ -1,14 +1,14 @@
 EMAILS_OpenAI_07 – Sorting Blueprint (12 Feb 2026)
 
 SCOPE
-- Account: rafaelfelixremy@gmail.com
-- Maildir root: /home/rafael/Mail/gmail/
+- Account: gmail
+- Maildir root: Mail/gmail/
 - Active sources per run: INBOX.sort_ai_correction/cur (always first), then INBOX/new, then INBOX/cur.
 - Moves are destructive (mv). No copies, backups, or sync.
-- Use the lock file `/home/rafael/OPENCLAW_FUNKTIONEN/email_sort.lock` to avoid clashes with the hourly cron sync.
+- Use the lock file `email_sort.lock` to avoid clashes with the hourly cron sync.
 - After each mv, immediately run `ls` on source + destination; if the file still exists in its source, repeat the mv until it disappears.
-- Finish only when all three sources contain zero files, then run `FLAG=true offlineimap -v -a gmail`.
-- Every run writes one log at /home/rafael/OPENCLAW_FUNKTIONEN/LOGS/$TIMESTAMP.md with summaries + mv directives.
+- Finish only when all three sources contain zero files, then run `offlineimap -c offlineimaprc -v -a gmail`.
+- Every run writes one log at `LOGS/$TIMESTAMP.md` with summaries + mv directives.
 - For concrete sender/domain heuristics, consult `Filter_Emails_DB.txt` (JSON knowledge base).
 
 RUN FLOW
