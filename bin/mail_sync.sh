@@ -32,7 +32,9 @@ if [ -f "$LOCK_FILE" ]; then
 fi
 
 OFFLINEIMAP_BIN=""
-if [ -x "/opt/venv/bin/offlineimap3" ]; then
+if [ -x "/opt/venv/bin/offlineimap" ]; then
+  OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap"
+elif [ -x "/opt/venv/bin/offlineimap3" ]; then
   OFFLINEIMAP_BIN="/opt/venv/bin/offlineimap3"
 elif command -v offlineimap >/dev/null 2>&1; then
   OFFLINEIMAP_BIN="offlineimap"
