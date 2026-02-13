@@ -5,9 +5,12 @@ CONFIG_BASE="${CONFIG_BASE:-$BASE_DIR}"
 LOCK_FILE="$BASE_DIR/email_sort.lock"
 LOG_FILE="$BASE_DIR/LOGS/hourly-sync.log"
 
-MAILBOXES=("gmail" "fortschritt24")
+MAILBOXES=()
 if [ "$#" -gt 0 ]; then
   MAILBOXES=("$@")
+else
+  echo "Usage: $0 <mailbox-name> [mailbox-name ...]" >&2
+  exit 1
 fi
 
 if [ -f "$LOCK_FILE" ]; then
