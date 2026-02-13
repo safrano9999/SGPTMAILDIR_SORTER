@@ -66,6 +66,31 @@ If you run scheduled syncs (e.g., `hourly_sync.sh`):
 
 ---
 
+## Docker (Alpine, No Chroot Required)
+Build and run everything inside a minimal Alpine container. PDFs are written to the bind-mounted `Mail/` and `LOGS/` directories.
+
+### Build
+```bash
+docker build -t sgptmaildir .
+```
+
+### Run (Docker Compose)
+```bash
+docker compose up --build
+```
+
+### Required Bind Mounts
+The compose file binds:
+- `./Mail` → `/app/Mail` (Maildir + PDFs)
+- `./LOGS` → `/app/LOGS` (logs + PDFs)
+- `./offlineimaprc` (config)
+- `./rules/rules_custom.json` (private rules)
+- `./mirror_dir_gmail.json` (folder map)
+
+Ensure `OPENAI_API_KEY` is set in your shell or `.env` file.
+
+---
+
 ## Project Structure (Minimal)
 ```
 SGPTMAILDIR_SORTER/
