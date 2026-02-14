@@ -12,11 +12,10 @@ This project implements a deterministic, local ZeroInbox workflow: email is clas
 
 ---
 
-## Prerequisites (LLM/SGPT Configuration)
+## Prerequisites (LLM/SGPT Configuration) / not required if using fully working docker container
 You must provide:
 - A working `sgpt` installation
 - A project-local sgpt config at `sgpt_config.yaml` (copy from `sgpt_config.yaml_example`)
-or you use the docker image. its all inside by default
 ---
 
 ## Required Setup Order (Do Not Reorder)
